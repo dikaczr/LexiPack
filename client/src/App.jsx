@@ -335,8 +335,26 @@ function App() {
       example_sk: "",
       topic: "",
     };
+
     saveHistory();
-    setRows([...rows, newRow]);
+    const updatedRows = [...rows, newRow];
+    setRows(updatedRows);
+    const newIndex = updatedRows.length - 1;
+    setSelectedRowIndex(newIndex);
+    setTimeout(() => {
+      gridRef.current?.api.ensureIndexVisible(newIndex, "middle");
+      requestAnimationFrame(() => {
+        gridRef.current?.api.startEditingCell({
+          rowIndex: newIndex,
+          colKey: "word",
+        });
+
+        setTimeout(() => {
+          const input = document.querySelector(".ag-cell-inline-editing input");
+          input?.select();
+        }, 20);
+      });
+    }, 150);
   }
 
   const handleDeleteSelected = useCallback(() => {
@@ -366,6 +384,32 @@ function App() {
     setRows((prev) => [...prev, ...duplicatedRows]);
   }, [selectedRows, rows]);
 
+  function handleDuplicateAndEdit() {
+    if (!selectedRows.length) {
+      return;
+    }
+    saveHistory();
+
+    const duplicatedRows = selectedRows.map((row) => ({
+      ...row,
+      id: crypto.randomUUID(),
+    }));
+
+    const updatedRows = [...rows, ...duplicatedRows];
+    setRows(updatedRows);
+    const newIndex = updatedRows.length - 1;
+    setSelectedRowIndex(newIndex);
+    setTimeout(() => {
+      gridRef.current?.api.ensureIndexVisible(newIndex, "middle");
+      requestAnimationFrame(() => {
+        gridRef.current?.api.startEditingCell({
+          rowIndex: newIndex,
+          colKey: "word",
+        });
+      });
+    }, 150);
+  }
+
   const handleGenerateSelected = async () => {
     const row = rows[selectedRowIndex];
 
@@ -393,6 +437,83 @@ function App() {
       setIsGenerating(false);
     }
   };
+
+  function handleClearSelectedRows() {
+    if (selectedRows.length === 0) {
+      return;
+    }
+
+    saveHistory();
+
+    const updatedRows = rows.map((row) => {
+      const isSelected = selectedRows.some((sel) => sel.id === row.id);
+
+      if (!isSelected) {
+        return row;
+      }
+
+      return {
+        ...row,
+
+        translation: "",
+        definition: "",
+        phonetic: "",
+        type: "",
+        level: "",
+        example_en: "",
+        example_sk: "",
+      };
+    });
+
+    setRows(updatedRows);
+  }
+
+  function moveSelectedRowUp() {
+    if (selectedRowIndex === null) {
+      return;
+    }
+
+    if (selectedRowIndex === 0) {
+      return;
+    }
+
+    saveHistory();
+    const updatedRows = [...rows];
+
+    [updatedRows[selectedRowIndex - 1], updatedRows[selectedRowIndex]] = [
+      updatedRows[selectedRowIndex],
+      updatedRows[selectedRowIndex - 1],
+    ];
+
+    setRows(updatedRows);
+    setSelectedRowIndex(selectedRowIndex - 1);
+    setTimeout(() => {
+      gridRef.current?.api.ensureIndexVisible(selectedRowIndex - 1, "middle");
+    }, 50);
+  }
+
+  function moveSelectedRowDown() {
+    if (selectedRowIndex === null) {
+      return;
+    }
+
+    if (selectedRowIndex >= rows.length - 1) {
+      return;
+    }
+
+    saveHistory();
+    const updatedRows = [...rows];
+    [updatedRows[selectedRowIndex + 1], updatedRows[selectedRowIndex]] = [
+      updatedRows[selectedRowIndex],
+      updatedRows[selectedRowIndex + 1],
+    ];
+
+    setRows(updatedRows);
+    setSelectedRowIndex(selectedRowIndex + 1);
+    setTimeout(() => {
+      gridRef.current?.api.ensureIndexVisible(selectedRowIndex + 1, "middle");
+    }, 50);
+  }
 
   async function handleGenerateTopic() {
     if (selectedRowIndex === null) {
@@ -566,6 +687,12 @@ function App() {
         handleRedo();
       }
 
+      if (event.ctrlKey && event.key === "Delete") {
+        event.preventDefault();
+
+        handleClearSelectedRows();
+      }
+
       if (event.key === "Delete" && selectedRows.length > 0) {
         const activeElement = document.activeElement;
 
@@ -578,7 +705,26 @@ function App() {
         }
 
         event.preventDefault();
+        event.stopPropagation();
         handleDeleteSelected();
+      }
+
+      if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === "d") {
+        event.preventDefault();
+        event.stopPropagation();
+        handleDuplicateAndEdit();
+      }
+
+      if (event.ctrlKey && event.key === "ArrowUp") {
+        event.preventDefault();
+        event.stopPropagation();
+        moveSelectedRowUp();
+      }
+
+      if (event.ctrlKey && event.key === "ArrowDown") {
+        event.preventDefault();
+        event.stopPropagation();
+        moveSelectedRowDown();
       }
     }
 
@@ -591,9 +737,33 @@ function App() {
 
   useEffect(() => {
     function handleKeyDown(e) {
+      if (e.ctrlKey && e.key === "Enter") {
+        e.preventDefault();
+        handleGenerateSelected();
+      }
+
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "g") {
+        e.preventDefault();
+        handleBulkGenerate();
+      }
+      if (e.key === "Escape") {
+        setShowFillMenu(false);
+        setShowSuggestionsDialog(false);
+        setShowImportDialog(false);
+      }
       if (e.ctrlKey && e.key.toLowerCase() === "d") {
         e.preventDefault();
         handleDuplicateSelected();
+      }
+      if (e.altKey && e.key === "Insert") {
+        e.preventDefault();
+        e.stopPropagation();
+        handleAddRow();
+      }
+
+      if (e.ctrlKey && e.key.toLowerCase() === "s") {
+        e.preventDefault();
+        exportToJson(rows, packMetadata);
       }
 
       if (e.key === "Delete") {
@@ -607,7 +777,13 @@ function App() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [handleDeleteSelected, handleDuplicateSelected]);
+  }, [
+    handleDeleteSelected,
+    handleDuplicateSelected,
+    handleGenerateSelected,
+    rows,
+    packMetadata,
+  ]);
 
   return (
     <div className="app">
@@ -806,6 +982,7 @@ function App() {
               setGridApi={setGridApi}
               gridRef={gridRef}
               saveHistory={saveHistory}
+              singleClickEdit={true}
             />
           </div>
         </section>

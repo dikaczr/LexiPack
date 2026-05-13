@@ -118,6 +118,7 @@ function PackGrid({
         defaultColDef={defaultColDef}
         rowHeight={36}
         headerHeight={40}
+        singleClickEdit={true}
         onCellKeyDown={(event) => {
           if (event.event.key !== "Enter") {
             return;
