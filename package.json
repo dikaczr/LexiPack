@@ -1,0 +1,24 @@
+{
+  "name": "lexipack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "client": "npm run dev --prefix client",
+    "server": "npm run dev --prefix server",
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "Techdoc",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+  "vite": "...",
+  "@vitejs/plugin-react": "..."
+  }
+}
