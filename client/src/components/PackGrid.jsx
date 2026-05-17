@@ -17,6 +17,7 @@ function PackGrid({
   saveHistory,
   setFilteredCount,
   onCellContextMenu,
+  onCellEditingStopped,
   wordReviews = [],
 }) {
   const selectedIdsRef = useRef(new Set());
@@ -208,6 +209,7 @@ function PackGrid({
         onCellEditingStarted={() => {
           saveHistory();
         }}
+        onCellEditingStopped={onCellEditingStopped}
         onCellValueChanged={(event) => {
           const { _sel, ...data } = event.data;
           setRows((prev) =>

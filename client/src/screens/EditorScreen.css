@@ -49,14 +49,49 @@ body,
   background: #2563eb;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 10px 14px;
+  border-radius: 6px;
+  padding: 6px 10px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .toolbar button:hover {
   background: #1d4ed8;
+}
+
+.toolbar button.btn-link {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--app-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin: 0;
+}
+.toolbar button.btn-link span {
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.toolbar button.btn-link:hover {
+  background: var(--app-nav-hov);
+  border-color: var(--app-border-sub);
+  color: var(--app-text);
+}
+.toolbar button.btn-link img {
+  width: 24px;
+  height: 24px;
+}
+
+.toolbar button.btn-save {
+  background: var(--app-btn-save);
+}
+.toolbar button.btn-save:hover {
+  background: var(--app-btn-save-hov);
 }
 
 /* MAIN */
@@ -82,7 +117,7 @@ body,
 /* PREVIEW */
 
 .preview-panel {
-  width: 340px;
+  width: 300px;
   background: transparent;
   display: flex;
   flex-direction: column;
@@ -450,6 +485,17 @@ body,
 .toolbar-group {
   display: flex;
   gap: 12px;
+  align-items: center;
+}
+
+.toolbar-links {
+  display: flex;
+  gap: 0;
+  margin-right: 75px;
+}
+
+.toolbar-links-ai {
+  margin-right: calc(75px + 20px);
 }
 
 .ai-group {

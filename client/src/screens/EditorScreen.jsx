@@ -65,6 +65,48 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   const gridRef = useRef(null);
   const [gridApi, setGridApi] = useState(null);
   const extWindows = useRef({});
+  const lastEditRef = useRef(null);
+  const [showGoToSearch, setShowGoToSearch] = useState(false);
+  const [goToQuery, setGoToQuery] = useState("");
+  const goToInputRef = useRef(null);
+
+  const handleCellEditingStopped = useCallback((e) => {
+    if (e.rowIndex != null && e.column) {
+      lastEditRef.current = { rowIndex: e.rowIndex, colId: e.column.getColId() };
+    }
+  }, []);
+
+  const handleGoTo = useCallback(() => {
+    const last = lastEditRef.current;
+    if (!last) return;
+    gridRef.current?.api.ensureIndexVisible(last.rowIndex, "middle");
+    gridRef.current?.api.setFocusedCell(last.rowIndex, last.colId);
+  }, []);
+
+  const handleGoToSearch = useCallback((query) => {
+    const q = (query ?? goToQuery).trim().toLowerCase();
+    if (!q) return;
+    const api = gridRef.current?.api;
+    if (!api) return;
+    let found = null;
+    api.forEachNodeAfterFilterAndSort((node) => {
+      if (found) return;
+      const word = node.data?.word?.toLowerCase() ?? "";
+      const translation = node.data?.translation?.toLowerCase() ?? "";
+      if (word.includes(q) || translation.includes(q)) found = node;
+    });
+    if (found) {
+      api.ensureIndexVisible(found.rowIndex, "middle");
+      api.setFocusedCell(found.rowIndex, "word");
+      api.startEditingCell({ rowIndex: found.rowIndex, colKey: "word" });
+      setTimeout(() => {
+        const input = document.querySelector(".ag-cell-editor input, .ag-cell-editor textarea");
+        if (input) { input.focus(); input.select(); }
+      }, 50);
+      setShowGoToSearch(false);
+      setGoToQuery("");
+    }
+  }, [goToQuery]);
 
   const openOrFocus = (key, url) => {
     const win = extWindows.current[key];
@@ -1288,32 +1330,48 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
 
       {/* HEADER */}
       <header className="header">
-        <div className="logo"></div>
+        <div className="logo">Vocabulary Pack Editor</div>
 
         <div className="toolbar">
           <div className="toolbar-group">
-            <button onClick={() => openOrFocus("deepl", "https://www.deepl.com/en/translator")} style={{ display: "flex", alignItems: "center", gap: 4 }}>
-              <img src="https://www.deepl.com/favicon.ico" alt="" width={16} height={16} />
-              DeepL
-            </button>
-            <button onClick={() => openOrFocus("verbformen", "https://www.verbformen.com/")} style={{ display: "flex", alignItems: "center", gap: 4 }}>
-              <img src="https://www.verbformen.com/favicon.ico" alt="" width={16} height={16} />
-              ND
-            </button>
-            <button onClick={() => openOrFocus("oxford", "https://www.oxfordlearnersdictionaries.com/")} style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <img src="https://www.oxfordlearnersdictionaries.com/favicon.ico" alt="" width={16} height={16} />
-              OX
-            </button>
-            <button onClick={() => openOrFocus("cambridge", "https://dictionary.cambridge.org/")} style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <img src="https://dictionary.cambridge.org/favicon.ico" alt="" width={16} height={16} />
-              CB
-            </button>
-            <button onClick={() => openOrFocus("wikipedia", "https://en.wikipedia.org/wiki/Main_Page")} style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <img src="https://en.wikipedia.org/static/favicon/wikipedia.ico" alt="" width={16} height={16} />
-              Wiki
-            </button>
+            <div className="toolbar-links toolbar-links-ai">
+              <button className="btn-link" onClick={() => openOrFocus("gemini", "https://gemini.google.com/")}>
+                <img src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=32" alt="" width={18} height={18} />
+                <span>Gemini</span>
+              </button>
+              <button className="btn-link" onClick={() => openOrFocus("claude", "https://claude.ai/")}>
+                <img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=32" alt="" width={18} height={18} />
+                <span>Claude</span>
+              </button>
+              <button className="btn-link" onClick={() => openOrFocus("chatgpt", "https://chatgpt.com/")}>
+                <img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=32" alt="" width={18} height={18} />
+                <span>ChatGPT</span>
+              </button>
+            </div>
+            <div className="toolbar-links">
+              <button className="btn-link" onClick={() => openOrFocus("deepl", "https://www.deepl.com/en/translator")}>
+                <img src="https://www.deepl.com/favicon.ico" alt="" width={18} height={18} />
+                <span>DeepL</span>
+              </button>
+              <button className="btn-link" onClick={() => openOrFocus("verbformen", "https://www.verbformen.com/")}>
+                <img src="https://www.verbformen.com/favicon.ico" alt="" width={18} height={18} />
+                <span>VerbF.</span>
+              </button>
+              <button className="btn-link" onClick={() => openOrFocus("oxford", "https://www.oxfordlearnersdictionaries.com/")}>
+                <img src="https://www.oxfordlearnersdictionaries.com/favicon.ico" alt="" width={18} height={18} />
+                <span>Oxford</span>
+              </button>
+              <button className="btn-link" onClick={() => openOrFocus("cambridge", "https://dictionary.cambridge.org/")}>
+                <img src="https://dictionary.cambridge.org/favicon.ico" alt="" width={18} height={18} />
+                <span>Cambr.</span>
+              </button>
+              <button className="btn-link" onClick={() => openOrFocus("wikipedia", "https://en.wikipedia.org/wiki/Main_Page")}>
+                <img src="https://en.wikipedia.org/static/favicon/wikipedia.ico" alt="" width={18} height={18} />
+                <span>Wiki</span>
+              </button>
+            </div>
             <button onClick={() => xlsxInputRef.current.click()} style={{ marginLeft: 20 }}>Import</button>
-            <button onClick={handleSave}>
+            <button className="btn-save" onClick={handleSave}>
               Save
             </button>
           </div>
@@ -1325,8 +1383,6 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
       <main className="main">
         {/* LEFT PANEL */}
         <section className="grid-panel">
-          <div className="panel-title">Vocabulary Pack Editor</div>
-
           <PackMetadataPanel
             metadata={packMetadata}
             setMetadata={setPackMetadata}
@@ -1398,6 +1454,31 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
               <button onClick={() => setShowSuggestConfirm(true)} style={{ background: "#5e419c", color: "#fff" }}>
                 Suggest Words
               </button>
+              <button onClick={handleGoTo} title="Go to last edited cell" style={{ marginLeft: 15 }}>
+                Goto Last
+              </button>
+              <button
+                onClick={() => { setShowGoToSearch(v => !v); setTimeout(() => goToInputRef.current?.focus(), 50); }}
+                style={{ marginLeft: 8 }}
+              >
+                GoTo
+              </button>
+              {showGoToSearch && (
+                <div style={{ display: "flex", alignItems: "center", gap: 4, marginLeft: 8 }}>
+                  <input
+                    ref={goToInputRef}
+                    value={goToQuery}
+                    onChange={e => setGoToQuery(e.target.value)}
+                    onKeyDown={e => {
+                      if (e.key === "Enter") handleGoToSearch();
+                      if (e.key === "Escape") { setShowGoToSearch(false); setGoToQuery(""); }
+                    }}
+                    placeholder="word / translation..."
+                    style={{ fontSize: 12, padding: "3px 8px", borderRadius: 5, border: "1px solid var(--app-border-sub)", background: "var(--app-input)", color: "var(--app-text)", width: 160, outline: "none" }}
+                  />
+                  <button onClick={() => handleGoToSearch()} style={{ padding: "3px 8px", fontSize: 12 }}>→</button>
+                </div>
+              )}
             </div>
 
             <div className="validation-right">
@@ -1439,6 +1520,7 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
               singleClickEdit={true}
               setFilteredCount={setFilteredCount}
               onCellContextMenu={handleCellContextMenu}
+              onCellEditingStopped={handleCellEditingStopped}
               wordReviews={wordReviews}
             />
           </div>

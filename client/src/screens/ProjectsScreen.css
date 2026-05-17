@@ -165,7 +165,7 @@
   padding: 5px 10px 10px;
   display: grid;
   grid-template-columns:
-    180px
+    144px
     220px
     180px
     120px
@@ -178,7 +178,7 @@
     auto;
 
   column-gap: 15px;
-  row-gap: 19px;
+  row-gap: 9px;
   align-content: start;
 }
 
@@ -201,7 +201,8 @@
   border: 1px solid var(--app-border-sub);
   border-radius: 8px;
   padding: 0px 8px;
-  font-size: 13px;
+  font-size: 12px;
+  line-height: 20px;
   font-weight: 500;
   color: var(--app-text2);
   overflow: hidden;

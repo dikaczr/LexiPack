@@ -47,7 +47,7 @@ export default function Sidebar({ activeScreen, setActiveScreen, packFilter, set
               placeholder={t("filters.placeholder")}
             />
           </div>
-          <div className="sidebar-filter" style={{ marginTop: "0.6vh" }}>
+          <div className="sidebar-filter" style={{ marginTop: "0.1vh" }}>
             <label className="sidebar-filter-label">{t("filters.status")}</label>
             <select
               className="sidebar-filter-input"
@@ -58,7 +58,7 @@ export default function Sidebar({ activeScreen, setActiveScreen, packFilter, set
               {STATUSES.map(s => <option key={s} value={s}>{t(`packStatus.${s}`)}</option>)}
             </select>
           </div>
-          <div className="sidebar-filter" style={{ marginTop: "0.6vh" }}>
+          <div className="sidebar-filter" style={{ marginTop: "0.1vh" }}>
             <label className="sidebar-filter-label">{t("filters.language")}</label>
             <select
               className="sidebar-filter-input"
@@ -69,7 +69,7 @@ export default function Sidebar({ activeScreen, setActiveScreen, packFilter, set
               {LANGUAGES.map(l => <option key={l.code} value={l.code}>{l.label}</option>)}
             </select>
           </div>
-          <div className="sidebar-filter" style={{ marginTop: "0.6vh" }}>
+          <div className="sidebar-filter" style={{ marginTop: "0.1vh" }}>
             <label className="sidebar-filter-label">{t("filters.level")}</label>
             <select
               className="sidebar-filter-input"
@@ -81,7 +81,7 @@ export default function Sidebar({ activeScreen, setActiveScreen, packFilter, set
               <option value="__none__">{t("filters.unspecified")}</option>
             </select>
           </div>
-          <div className="sidebar-filter" style={{ marginTop: "0.6vh" }}>
+          <div className="sidebar-filter" style={{ marginTop: "0.1vh" }}>
             <label className="sidebar-filter-label">{t("filters.theme")}</label>
             <select
               className="sidebar-filter-input"
