@@ -1,0 +1,185 @@
+.user-menu-wrap {
+  position: relative;
+}
+
+/* trigger badge */
+.user-menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.15s;
+  user-select: none;
+}
+.user-menu-trigger:hover,
+.user-menu-wrap.open .user-menu-trigger {
+  background: var(--app-nav-hov);
+}
+
+.user-menu-username {
+  font-size: 13px;
+  color: var(--app-text2);
+  font-weight: 600;
+}
+
+.user-menu-role {
+  font-size: 11px;
+  background: var(--app-nav-act);
+  color: var(--app-accent);
+  border-radius: 4px;
+  padding: 2px 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* dropdown */
+.user-menu-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 220px;
+  background: var(--app-panel);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 500;
+  overflow: hidden;
+  animation: menuFadeIn 0.12s ease;
+}
+
+@keyframes menuFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.user-menu-info {
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--app-border-sub);
+}
+
+.user-menu-info-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--app-text2);
+}
+
+.user-menu-info-role {
+  font-size: 11px;
+  color: var(--app-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.user-menu-items {
+  padding: 6px 0;
+}
+
+.user-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--app-muted);
+  font-size: 13px;
+  padding: 9px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+}
+.user-menu-item:hover {
+  background: var(--app-nav-hov);
+  color: var(--app-text2);
+}
+
+.user-menu-item.danger       { color: #ff6b6b; }
+.user-menu-item.danger:hover { background: var(--app-danger); color: #ff8a8a; }
+
+.user-menu-sep {
+  height: 1px;
+  background: var(--app-border-sub);
+  margin: 4px 0;
+}
+
+/* Shortcuts modal */
+.shortcuts-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.shortcuts-panel {
+  background: var(--app-panel);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 12px;
+  padding: 28px 32px;
+  width: 420px;
+  max-height: 80vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.shortcuts-panel h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--app-text2);
+}
+
+.shortcuts-group-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--app-muted);
+  margin-top: 6px;
+}
+
+.shortcuts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.shortcut-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--app-text2);
+}
+
+.shortcut-key {
+  background: var(--app-input);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 4px;
+  color: var(--app-text2);
+  font-size: 11px;
+  padding: 2px 7px;
+  font-family: monospace;
+  white-space: nowrap;
+}
+
+.shortcuts-close {
+  align-self: flex-end;
+  background: transparent;
+  border: 1px solid var(--app-border-sub);
+  border-radius: 6px;
+  color: var(--app-muted);
+  font-size: 13px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.shortcuts-close:hover {
+  background: var(--app-nav-hov);
+  color: var(--app-text2);
+}

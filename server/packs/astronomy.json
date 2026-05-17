@@ -1,0 +1,675 @@
+{
+  "packId": "8acc276e-3f5a-4370-91e9-54c815aafce9",
+  "name": "Astronómia - základy",
+  "description": "Základné pojmy z astronómie",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "B2",
+  "category": "astronomy",
+  "icon": "📘",
+  "author": "Techdoc, Ltd.",
+  "version": "1.0",
+  "tags": [],
+  "words": [
+    {
+      "word": "asteroid",
+      "phonetic": "/ˈæs.tə.rɔɪd/",
+      "translation": "asteroid",
+      "definition": "A small rocky body orbiting the Sun.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how asteroid works.",
+          "sk": "Tento experiment ukazuje, ako funguje asteroid."
+        },
+        {
+          "en": "Astronomers observed the asteroid through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali asteroid veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The asteroid 2004 BL86 flew past Earth at a distance of about 1.2 million kilometres."
+        },
+        {
+          "en": "Scientists study the composition of asteroids to learn about the early solar system."
+        }
+      ],
+      "example_en": "This experiment shows how asteroid works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje asteroid.",
+      "id": "1ebae96f-c2ea-42c8-a9c8-e665cf7f79c5"
+    },
+    {
+      "word": "atmosphere",
+      "phonetic": "/ˈæt.mə.sfɪə/",
+      "translation": "atmosféra",
+      "definition": "The layer of gases surrounding a planet or star.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding atmosphere is essential.",
+          "sk": "Pochopenie pojmu atmosféra je nevyhnutné."
+        },
+        {
+          "en": "Astronomers observed the atmosphere through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali atmosféra veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The Earth's atmosphere is divided into several layers, including the troposphere and stratosphere."
+        },
+        {
+          "en": "Without a protective atmosphere, the surface of a planet is exposed to harmful radiation."
+        }
+      ],
+      "example_en": "Understanding atmosphere is essential.",
+      "example_sk": "Pochopenie pojmu atmosféra je nevyhnutné.",
+      "id": "a2de85ff-e3ec-4265-a696-f2886b6ed686"
+    },
+    {
+      "word": "black hole",
+      "phonetic": "/ˌblæk ˈhəʊl/",
+      "translation": "čierna diera",
+      "definition": "A region in space where gravity is so strong that nothing can escape.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding black hole is essential.",
+          "sk": "Pochopenie pojmu čierna diera je nevyhnutné."
+        },
+        {
+          "en": "Astronomers observed the black hole through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali čierna diera veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The first ever image of a black hole was captured and released in 2019."
+        },
+        {
+          "en": "Nothing, not even light, can escape the gravitational pull of a black hole."
+        }
+      ],
+      "example_en": "Understanding black hole is essential.",
+      "example_sk": "Pochopenie pojmu čierna diera je nevyhnutné.",
+      "id": "f49f76d9-390c-4c78-8c9f-84dffcf6761f"
+    },
+    {
+      "word": "comet",
+      "phonetic": "/ˈkɒm.ɪt/",
+      "translation": "kométa",
+      "definition": "An icy object in space that forms a bright tail near the Sun.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how comet works.",
+          "sk": "Tento experiment ukazuje, ako funguje kométa."
+        },
+        {
+          "en": "Astronomers observed the comet through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali kométa veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Halley's comet is visible from Earth roughly every 75 years."
+        },
+        {
+          "en": "As the comet approached the Sun, it developed a bright, glowing tail."
+        }
+      ],
+      "example_en": "This experiment shows how comet works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje kométa.",
+      "id": "1ba2a9d8-8617-4e2a-80d3-fa6a4e886039"
+    },
+    {
+      "word": "constellation",
+      "phonetic": "/ˌkɒn.stəˈleɪ.ʃən/",
+      "translation": "súhvezdie",
+      "definition": "A group of stars forming a recognised pattern.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term constellation.",
+          "sk": "Učiteľ vysvetlil pojem súhvezdie."
+        },
+        {
+          "en": "Astronomers observed the constellation through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali súhvezdie veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The constellation Orion is one of the easiest to spot in the winter night sky."
+        },
+        {
+          "en": "Ancient sailors used the positions of constellations to navigate at sea."
+        }
+      ],
+      "example_en": "The teacher explained the term constellation.",
+      "example_sk": "Učiteľ vysvetlil pojem súhvezdie.",
+      "id": "5f34e6d2-b8f6-45dc-a8bb-62d0159685ff"
+    },
+    {
+      "word": "eclipse",
+      "phonetic": "/ɪˈklɪps/",
+      "translation": "zatmenie",
+      "definition": "An event in which one celestial body moves into the shadow of another.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term eclipse.",
+          "sk": "Učiteľ vysvetlil pojem zatmenie."
+        },
+        {
+          "en": "Astronomers observed the eclipse through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali zatmenie veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "During a total solar eclipse, the Moon completely blocks the Sun's light."
+        },
+        {
+          "en": "A lunar eclipse occurs when the Earth passes between the Sun and the Moon."
+        }
+      ],
+      "example_en": "The teacher explained the term eclipse.",
+      "example_sk": "Učiteľ vysvetlil pojem zatmenie.",
+      "id": "adcf10d2-4410-4b64-937c-938b3f94db05"
+    },
+    {
+      "word": "galaxy",
+      "phonetic": "/ˈɡæl.ək.si/",
+      "translation": "galaxia",
+      "definition": "A huge system of stars, gas, and dust held together by gravity.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding galaxy is essential.",
+          "sk": "Pochopenie pojmu galaxia je nevyhnutné."
+        },
+        {
+          "en": "Astronomers observed the galaxy through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali galaxia veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Our galaxy, the Milky Way, contains an estimated 200 to 400 billion stars."
+        },
+        {
+          "en": "The Andromeda galaxy is the nearest large galaxy to the Milky Way."
+        }
+      ],
+      "example_en": "Understanding galaxy is essential.",
+      "example_sk": "Pochopenie pojmu galaxia je nevyhnutné.",
+      "id": "384ce1bd-7373-414a-a15a-b97a0c534dc3"
+    },
+    {
+      "word": "gravity",
+      "phonetic": "/ˈɡræv.ɪ.ti/",
+      "translation": "gravitácia",
+      "definition": "The force that attracts objects toward each other.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding gravity is essential.",
+          "sk": "Pochopenie pojmu gravitácia je nevyhnutné."
+        },
+        {
+          "en": "Astronomers observed the gravity through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali gravitácia veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Gravity keeps the planets in orbit around the Sun and the Moon around the Earth."
+        },
+        {
+          "en": "Albert Einstein described gravity as a curvature of space and time."
+        }
+      ],
+      "example_en": "Understanding gravity is essential.",
+      "example_sk": "Pochopenie pojmu gravitácia je nevyhnutné.",
+      "id": "3b6f48a3-92d2-4d23-9e37-ec519fc40088"
+    },
+    {
+      "word": "lunar",
+      "phonetic": "/ˈluː.nə/",
+      "translation": "lunárny, mesačný",
+      "definition": "Relating to the Moon.",
+      "type": "adj",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of lunar yesterday.",
+          "sk": "Včera sme študovali pojem lunárny."
+        },
+        {
+          "en": "Astronomers observed the lunar through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali lunárny veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The lunar surface is covered with craters formed by meteorite impacts."
+        },
+        {
+          "en": "The lunar cycle lasts approximately 29.5 days and influences ocean tides."
+        }
+      ],
+      "example_en": "We studied the concept of lunar yesterday.",
+      "example_sk": "Včera sme študovali pojem lunárny.",
+      "id": "b73d735f-5330-42ee-b1fb-9fea2338fca2"
+    },
+    {
+      "word": "meteor",
+      "phonetic": "/ˈmiː.ti.ə/",
+      "translation": "meteor",
+      "definition": "A piece of rock from space that burns brightly in the atmosphere.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The meteor is important in this field.",
+          "sk": "Meteor je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "Astronomers observed the meteor through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali meteor veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "During the Perseid meteor shower, hundreds of meteors can be seen in a single night."
+        },
+        {
+          "en": "A meteor burns up as it enters the Earth's atmosphere, creating a streak of light."
+        }
+      ],
+      "example_en": "The meteor is important in this field.",
+      "example_sk": "Meteor je v tejto oblasti dôležitý.",
+      "id": "4d8d608b-ce23-4b12-b9c7-46b4f79ed8b0"
+    },
+    {
+      "word": "nebula",
+      "phonetic": "/ˈneb.jʊ.lə/",
+      "translation": "hmlovina",
+      "definition": "A cloud of gas and dust in outer space.",
+      "type": "noun",
+      "level": "C1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term nebula.",
+          "sk": "Učiteľ vysvetlil pojem hmlovina."
+        },
+        {
+          "en": "Astronomers observed the nebula through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali hmlovina veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The Orion Nebula is a region of active star formation visible to the naked eye."
+        },
+        {
+          "en": "Nebulae are vast clouds of gas and dust that serve as the birthplaces of new stars."
+        }
+      ],
+      "example_en": "The teacher explained the term nebula.",
+      "example_sk": "Učiteľ vysvetlil pojem hmlovina.",
+      "id": "d0a0b042-059a-4916-b4e2-dca6151a0570"
+    },
+    {
+      "word": "orbit",
+      "phonetic": "/ˈɔː.bɪt/",
+      "translation": "obežná dráha, obiehať",
+      "definition": "The curved path of an object around a star, planet, or moon.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding orbit is essential.",
+          "sk": "Pochopenie pojmu obežná dráha je nevyhnutné."
+        },
+        {
+          "en": "Astronomers observed the orbit through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali obežná dráha veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The International Space Station completes one orbit of the Earth every 90 minutes."
+        },
+        {
+          "en": "The Moon travels in a slightly elliptical orbit around the Earth."
+        }
+      ],
+      "example_en": "Understanding orbit is essential.",
+      "example_sk": "Pochopenie pojmu obežná dráha je nevyhnutné.",
+      "id": "31a12e4b-bf1d-4392-be93-fe391de401ea"
+    },
+    {
+      "word": "planet",
+      "phonetic": "/ˈplæn.ɪt/",
+      "translation": "planéta",
+      "definition": "A large round object in space that moves around a star.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The planet is important in this field.",
+          "sk": "Planéta je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "Astronomers observed the planet through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali planéta veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Jupiter is the largest planet in our solar system, with a mass greater than all others combined."
+        },
+        {
+          "en": "Since 2006, Pluto has been classified as a dwarf planet rather than a full planet."
+        }
+      ],
+      "example_en": "The planet is important in this field.",
+      "example_sk": "Planéta je v tejto oblasti dôležitý.",
+      "id": "0c5b6987-89ed-4fdf-b98c-ed443faceca9"
+    },
+    {
+      "word": "solar system",
+      "phonetic": "/ˈsəʊ.lə ˌsɪs.təm/",
+      "translation": "slnečná sústava",
+      "definition": "The Sun and all the objects that orbit it.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The solar system is important in this field.",
+          "sk": "Slnečná sústava je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "Astronomers observed the solar system through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali slnečná sústava veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Our solar system formed roughly 4.6 billion years ago from a collapsing cloud of gas and dust."
+        },
+        {
+          "en": "The Voyager 1 spacecraft has left the solar system and is now travelling through interstellar space."
+        }
+      ],
+      "example_en": "The solar system is important in this field.",
+      "example_sk": "Slnečná sústava je v tejto oblasti dôležitý.",
+      "id": "50d0360d-53fd-44ce-b501-c29188bdb41d"
+    },
+    {
+      "word": "telescope",
+      "phonetic": "/ˈtel.ɪ.skəʊp/",
+      "translation": "ďalekohľad, teleskop",
+      "definition": "An instrument used to observe distant objects in space.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The telescope is important in this field.",
+          "sk": "Ďalekohľad je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "Astronomers observed the telescope through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali ďalekohľad veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Galileo Galilei was among the first to use a telescope for astronomical observations."
+        },
+        {
+          "en": "The James Webb Space Telescope provides the most detailed images of the early universe ever taken."
+        }
+      ],
+      "example_en": "The telescope is important in this field.",
+      "example_sk": "Ďalekohľad je v tejto oblasti dôležitý.",
+      "id": "8d9501df-e21a-457e-bb1c-40aadbf62d77"
+    },
+    {
+      "id": "267ef675-04c0-43a0-97cd-3160b9a3c5fa",
+      "word": "celestial",
+      "article": "",
+      "phonetic": "/səˈlɛs.tʃəl/",
+      "translation": "nebeský",
+      "definition": "Relating to the sky, the heavens, or outer space; of or relating to celestial bodies.",
+      "type": "adjective",
+      "level": "C1",
+      "example_en": "The telescope revealed several celestial bodies in the distant galaxy.",
+      "example_sk": "Teleskop odhalil niekoľko nebeských telies vo vzdialenej galaxii.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "14504909-c66d-4998-bc4c-7358547481f7",
+      "word": "crater",
+      "article": "",
+      "phonetic": "/ˈkreɪtər/",
+      "translation": "kráter",
+      "definition": "A large bowl-shaped hollow on the surface of the Earth, the Moon, or another planet, often caused by an impact or volcanic activity.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "The meteor left a huge crater in the desert.",
+      "example_sk": "Meteorit zanechal v púšti obrovský kráter.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "ecb14871-5451-4ea3-a568-64ab1c02d42f",
+      "word": "equator",
+      "article": "",
+      "phonetic": "/ɪˈkweɪtər/",
+      "translation": "rovník",
+      "definition": "An imaginary line circling a planet at equal distance from the poles, dividing it into the Northern and Southern Hemispheres.",
+      "type": "noun",
+      "level": "B1",
+      "example_en": "The airplane crossed the equator during the flight.",
+      "example_sk": "Lietadlo preletelo cez rovník počas letu.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "49491572-e062-494c-9c91-b1d2d41b6c4c",
+      "word": "interstellar",
+      "article": "",
+      "phonetic": "/ˌɪntərˈstɛlər/",
+      "translation": "medzihviezdny",
+      "definition": "Existing or occurring among or between the stars.",
+      "type": "adjective",
+      "level": "B2",
+      "example_en": "Interstellar travel remains science fiction.",
+      "example_sk": "Medzihviezdne cestovanie zostáva vedeckou fantastikou.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "4ca953b9-052f-477a-9440-b2db1394ac55",
+      "word": "satellite",
+      "article": "",
+      "phonetic": "/ˈsætəlaɪt/",
+      "translation": "satelit",
+      "definition": "A natural or artificial body that orbits a larger body in space, such as a moon orbiting a planet or a man-made object used for communication, navigation, or observation.",
+      "type": "noun",
+      "level": "B1",
+      "example_en": "Scientists launched a new satellite to study Earth's atmosphere.",
+      "example_sk": "Vedci vypustili nový satelit, aby skúmal atmosféru Zeme.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "51e71f03-797c-4802-b99a-1e19f2fc9f2c",
+      "word": "spectrum",
+      "article": "",
+      "phonetic": "/ˈspɛktrəm/",
+      "translation": "spektrum",
+      "definition": "A range or band of related values, qualities, or ideas; specifically, the continuous sequence of colors produced when light is dispersed, or the distribution of electromagnetic radiation by wavelength or frequency.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "A prism splits white light into a spectrum of colors.",
+      "example_sk": "Hranol rozloží biele svetlo na spektrum farieb.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "d69984a3-53cd-4199-9ce4-ac587989a8d4",
+      "word": "starship",
+      "article": "",
+      "phonetic": "/ˈstɑːrʃɪp/",
+      "translation": "hviezdna loď",
+      "definition": "A large spacecraft designed for travel between stars, especially as depicted in science fiction.",
+      "type": "noun",
+      "level": "C1",
+      "example_en": "The crew boarded the starship for their journey to the distant system.",
+      "example_sk": "Posádka nastúpila na hviezdnu loď na cestu do vzdialeného systému.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "fb38e87a-fcb7-4d15-a4ef-841865c9feb2",
+      "word": "universe",
+      "article": "",
+      "phonetic": "/ˈjuːnɪvɜːrs/",
+      "translation": "vesmír",
+      "definition": "All of space and everything in it, including stars, planets, galaxies, matter, and energy.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "Scientists study the origins of the universe.",
+      "example_sk": "Vedci študujú pôvod vesmíru.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "fe18f566-e39f-464c-a725-f871166c7b80",
+      "word": "zenith",
+      "article": "",
+      "phonetic": "/ˈzenɪθ/",
+      "translation": "zenit",
+      "definition": "The point in the sky directly above an observer; the highest point or culmination.",
+      "type": "noun",
+      "level": "C1",
+      "example_en": "At noon the sun reached its zenith.",
+      "example_sk": "O poludní slnko dosiahlo svoj zenit.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "cc2b5138-c883-4549-abb7-a7d0d094f2b6",
+      "word": "equinox",
+      "article": "",
+      "phonetic": "/ˈiːkwɪnɒks/",
+      "translation": "rovnodennosť",
+      "definition": "Either of the two times each year when the sun crosses the celestial equator and day and night are approximately equal in length.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "The spring equinox marks the beginning of astronomical spring.",
+      "example_sk": "Jarná rovnodennosť označuje začiatok astronomického jara.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "0f8ed6d9-9f69-4ed9-a0fd-ec71afe8ba6d",
+      "word": "solstice",
+      "article": "",
+      "phonetic": "/ˈsɒlstɪs/",
+      "translation": "slnovrat",
+      "definition": "Either of the two times in the year when the sun is at its greatest distance from the celestial equator, causing the longest day (summer solstice) or the shortest day (winter solstice).",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "We celebrated the summer solstice with a bonfire on the beach.",
+      "example_sk": "Letný slnovrat sme oslávili ohňom na pláži.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "76b66163-95d6-4a5f-b7a7-c143b9a30f61",
+      "word": "light-year",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "astronomy"
+    },
+    {
+      "id": "12ea087c-9eac-448d-8aa9-f0f578e2a170",
+      "word": "supernova",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "astronomy"
+    },
+    {
+      "id": "a08ee6b3-c0b4-4911-bd63-9c9d5acd08c0",
+      "word": "trajectory",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "astronomy"
+    },
+    {
+      "id": "35488c1f-6cb5-4f0f-be31-7c269c124a24",
+      "word": "rotation",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "astronomy"
+    }
+  ]
+}

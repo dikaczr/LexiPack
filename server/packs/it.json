@@ -1,0 +1,484 @@
+{
+  "packId": "b9ff245e-77d5-4296-930a-505bcd983465",
+  "name": "Informačné technológie",
+  "description": "",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "B1",
+  "category": "it",
+  "icon": "data:image/png;base64,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",
+  "author": "Techdoc",
+  "version": "1.0",
+  "tags": [
+    "it",
+    "computers",
+    "software"
+  ],
+  "words": [
+    {
+      "word": "algorithm",
+      "phonetic": "/ˈæl.ɡə.rɪ.ðəm/",
+      "translation": "algoritmus",
+      "definition": "A set of rules for solving a problem or completing a task.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term algorithm.",
+          "sk": "Učiteľ vysvetlil pojem algoritmus."
+        },
+        {
+          "en": "The application relies on an efficient algorithm to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny algoritmus na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Google's search algorithm ranks web pages using hundreds of criteria to deliver relevant results."
+        },
+        {
+          "en": "An efficient sorting algorithm like Quicksort can order a list in O(n log n) time."
+        }
+      ],
+      "example_en": "The teacher explained the term algorithm.",
+      "example_sk": "Učiteľ vysvetlil pojem algoritmus.",
+      "id": "262fe5aa-c750-420c-a5f1-40c85abee22d"
+    },
+    {
+      "word": "bandwidth",
+      "phonetic": "/ˈbænd.wɪdθ/",
+      "translation": "šírka pásma",
+      "definition": "The amount of data that can be transmitted in a given time.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of bandwidth yesterday.",
+          "sk": "Včera sme študovali pojem šírka pásma."
+        },
+        {
+          "en": "The application relies on an efficient bandwidth to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny šírka pásma na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Fibre optic cables can deliver a bandwidth of several gigabits per second."
+        },
+        {
+          "en": "Bandwidth describes how much data can be transmitted over a connection per second."
+        }
+      ],
+      "example_en": "We studied the concept of bandwidth yesterday.",
+      "example_sk": "Včera sme študovali pojem šírka pásma.",
+      "id": "b12a0bf8-97bc-4548-8109-5a64a144cf8e"
+    },
+    {
+      "word": "browser",
+      "phonetic": "/ˈbraʊ.zə/",
+      "translation": "prehliadač",
+      "definition": "A program used to access websites and online content.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term browser.",
+          "sk": "Učiteľ vysvetlil pojem prehliadač."
+        },
+        {
+          "en": "The application relies on an efficient browser to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny prehliadač na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Chrome, Firefox, and Safari are the most widely used browsers in the world."
+        },
+        {
+          "en": "A browser interprets HTML, CSS, and JavaScript to display web pages visually."
+        }
+      ],
+      "example_en": "The teacher explained the term browser.",
+      "example_sk": "Učiteľ vysvetlil pojem prehliadač.",
+      "id": "0c367dbc-f132-4063-bfdb-d1a8072208b7"
+    },
+    {
+      "word": "cache",
+      "phonetic": "/kæʃ/",
+      "translation": "vyrovnávacia pamäť",
+      "definition": "Temporary storage used to speed up data access.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "The cache is important in this field.",
+          "sk": "Vyrovnávacia pamäť je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "The application relies on an efficient cache to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny vyrovnávacia pamäť na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Processors have multiple cache levels (L1, L2, L3) to speed up access to frequently used data."
+        },
+        {
+          "en": "When the cache is full, older entries are deleted to make room for new data."
+        }
+      ],
+      "example_en": "The cache is important in this field.",
+      "example_sk": "Vyrovnávacia pamäť je v tejto oblasti dôležitý.",
+      "id": "fccbeee8-68b6-4e6a-97bb-57ffb810622c"
+    },
+    {
+      "word": "cloud",
+      "phonetic": "/klaʊd/",
+      "translation": "cloud, oblak",
+      "definition": "Remote online servers used to store and process data.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how cloud works.",
+          "sk": "Tento experiment ukazuje, ako funguje cloud."
+        },
+        {
+          "en": "The application relies on an efficient cloud to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny cloud na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Cloud providers such as AWS, Google Cloud, and Azure dominate the global computing market."
+        },
+        {
+          "en": "With cloud services, applications can be scaled without having to buy physical servers."
+        }
+      ],
+      "example_en": "This experiment shows how cloud works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje cloud.",
+      "id": "90712282-0427-4ea3-a5b1-8721f5b8d43e"
+    },
+    {
+      "word": "database",
+      "phonetic": "/ˈdeɪ.tə.beɪs/",
+      "translation": "databáza",
+      "definition": "An organised collection of stored electronic data.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how database works.",
+          "sk": "Tento experiment ukazuje, ako funguje databáza."
+        },
+        {
+          "en": "The application relies on an efficient database to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny databáza na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "MySQL and PostgreSQL are widely used relational database management systems."
+        },
+        {
+          "en": "NoSQL databases like MongoDB store data in flexible document structures rather than tables."
+        }
+      ],
+      "example_en": "This experiment shows how database works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje databáza.",
+      "id": "94987c91-858d-42a3-9c2a-fb828d34ae03"
+    },
+    {
+      "word": "debug",
+      "phonetic": "/ˌdiːˈbʌɡ/",
+      "translation": "odladiť, opraviť chyby",
+      "definition": "To find and remove errors in a computer program.",
+      "type": "verb",
+      "level": "B2",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "The debug is important in this field.",
+          "sk": "Odladiť je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "The application relies on an efficient debug to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny odladiť na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "With a debugger, you can step through code line by line and inspect the value of every variable."
+        },
+        {
+          "en": "Good logging makes it much easier to debug problems that occur in a live production environment."
+        }
+      ],
+      "example_en": "The debug is important in this field.",
+      "example_sk": "Odladiť je v tejto oblasti dôležitý.",
+      "id": "8f88e359-2f35-4e3e-990e-3e4df715f861"
+    },
+    {
+      "word": "encrypt",
+      "phonetic": "/ɪnˈkrɪpt/",
+      "translation": "zašifrovať",
+      "definition": "To convert data into a coded form for security.",
+      "type": "verb",
+      "level": "B2",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of encrypt yesterday.",
+          "sk": "Včera sme študovali pojem zašifrovať."
+        },
+        {
+          "en": "The application relies on an efficient encrypt to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny zašifrovať na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "HTTPS uses TLS to encrypt all communication between the browser and the web server."
+        },
+        {
+          "en": "Quantum computers could eventually break many of the methods we currently use to encrypt data."
+        }
+      ],
+      "example_en": "We studied the concept of encrypt yesterday.",
+      "example_sk": "Včera sme študovali pojem zašifrovať.",
+      "id": "3bea907c-9ab2-4385-8d9b-6ac25b28e07d"
+    },
+    {
+      "word": "firewall",
+      "phonetic": "/ˈfaɪə.wɔːl/",
+      "translation": "firewall, brána firewall",
+      "definition": "A security system that controls network traffic.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "The firewall is important in this field.",
+          "sk": "Firewall je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "The application relies on an efficient firewall to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny firewall na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A firewall can be implemented in hardware or software and protects networks from unauthorised access."
+        },
+        {
+          "en": "By configuring the firewall, specific ports and IP addresses can be blocked."
+        }
+      ],
+      "example_en": "The firewall is important in this field.",
+      "example_sk": "Firewall je v tejto oblasti dôležitý.",
+      "id": "d2ff2c2c-28b6-4301-bba8-ce989a5a0aed"
+    },
+    {
+      "word": "interface",
+      "phonetic": "/ˈɪn.tə.feɪs/",
+      "translation": "rozhranie",
+      "definition": "The point where systems, programs, or users interact.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "The interface is important in this field.",
+          "sk": "Rozhranie je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "The application relies on an efficient interface to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny rozhranie na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "REST APIs are the most widely used interface for communication between web applications."
+        },
+        {
+          "en": "A well-documented interface allows third parties to integrate their own applications."
+        }
+      ],
+      "example_en": "The interface is important in this field.",
+      "example_sk": "Rozhranie je v tejto oblasti dôležitý.",
+      "id": "8a1a0bb2-351e-420e-a424-b9a30e2e248f"
+    },
+    {
+      "word": "malware",
+      "phonetic": "/ˈmæl.weə/",
+      "translation": "škodlivý softvér",
+      "definition": "Software designed to damage or disrupt computer systems.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term malware.",
+          "sk": "Učiteľ vysvetlil pojem škodlivý softvér."
+        },
+        {
+          "en": "The application relies on an efficient malware to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny škodlivý softvér na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Ransomware is a particularly dangerous form of malware that encrypts files and demands a ransom."
+        },
+        {
+          "en": "Malware often spreads through infected email attachments or insecure websites."
+        }
+      ],
+      "example_en": "The teacher explained the term malware.",
+      "example_sk": "Učiteľ vysvetlil pojem škodlivý softvér.",
+      "id": "7c565131-6e0d-425d-bcf4-6156b1aac499"
+    },
+    {
+      "word": "network",
+      "phonetic": "/ˈnet.wɜːk/",
+      "translation": "sieť",
+      "definition": "A group of connected computers or devices.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how network works.",
+          "sk": "Tento experiment ukazuje, ako funguje sieť."
+        },
+        {
+          "en": "The application relies on an efficient network to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny sieť na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A local area network (LAN) connects devices within a single building or campus."
+        },
+        {
+          "en": "The internet is the world's largest network, connecting billions of devices."
+        }
+      ],
+      "example_en": "This experiment shows how network works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje sieť.",
+      "id": "7a324554-8ba8-4ceb-8958-cbf7998cc267"
+    },
+    {
+      "word": "pixel",
+      "phonetic": "/ˈpɪk.səl/",
+      "translation": "pixel",
+      "definition": "The smallest unit of a digital image or display.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of pixel yesterday.",
+          "sk": "Včera sme študovali pojem pixel."
+        },
+        {
+          "en": "The application relies on an efficient pixel to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny pixel na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A 4K screen has a resolution of 3,840 × 2,160 pixels and delivers a very sharp image."
+        },
+        {
+          "en": "When you zoom into a digital image, the individual pixels become visible and the image looks blurry."
+        }
+      ],
+      "example_en": "We studied the concept of pixel yesterday.",
+      "example_sk": "Včera sme študovali pojem pixel.",
+      "id": "6e144d5b-e69b-41c2-b102-7ef49b420e6e"
+    },
+    {
+      "word": "server",
+      "phonetic": "/ˈsɜː.və/",
+      "translation": "server",
+      "definition": "A computer that provides services to other computers.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how server works.",
+          "sk": "Tento experiment ukazuje, ako funguje server."
+        },
+        {
+          "en": "The application relies on an efficient server to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny server na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A web server receives HTTP requests from clients and returns the appropriate web pages."
+        },
+        {
+          "en": "For high availability, servers are distributed across redundant data centres around the world."
+        }
+      ],
+      "example_en": "This experiment shows how server works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje server.",
+      "id": "ce43deb2-26cf-49d1-b34e-ae96ad036f61"
+    },
+    {
+      "word": "software",
+      "phonetic": "/ˈsɒft.weə/",
+      "translation": "softvér",
+      "definition": "Programs and operating systems used by a computer.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "it",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding software is essential.",
+          "sk": "Pochopenie pojmu softvér je nevyhnutné."
+        },
+        {
+          "en": "The application relies on an efficient software to process data quickly and securely.",
+          "sk": "Aplikácia využíva efektívny softvér na rýchle a bezpečné spracovanie dát."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Agile software development relies on short development cycles and close collaboration with the client."
+        },
+        {
+          "en": "Proprietary software, unlike open-source software, cannot be freely viewed or modified."
+        }
+      ],
+      "example_en": "Understanding software is essential.",
+      "example_sk": "Pochopenie pojmu softvér je nevyhnutné.",
+      "id": "4e34d77f-6d22-4763-b7d1-57ad972c8817"
+    }
+  ]
+}

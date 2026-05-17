@@ -1,13 +1,25 @@
 export function exportToJson(rows, metadata) {
+  const tags =
+    typeof metadata.tags === "string"
+      ? metadata.tags
+          .split(",")
+          .map((t) => t.trim())
+          .filter(Boolean)
+      : metadata.tags || [];
+
   const exportData = {
-    metadata: {
-      ...metadata,
-
-      exportedAt: new Date().toISOString(),
-
-      rowCount: rows.length,
-    },
-
+    packId: metadata.packId,
+    name: metadata.name,
+    description: metadata.description,
+    targetLang: metadata.targetLang,
+    nativeLang: metadata.nativeLang,
+    level: metadata.level,
+    category: metadata.category,
+    icon: metadata.icon,
+    author: metadata.author,
+    version: metadata.version,
+    tags,
+    createdAt: new Date().toISOString(),
     words: rows,
   };
 

@@ -2,8 +2,19 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import OpenAI from "openai";
+import packsRoutes from "./routes/packsRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+import auditRoutes from "./routes/auditRoutes.js";
+import { syncPacksOnStartup } from "./packs-sync.js";
+import settingsRoutes from "./routes/settingsRoutes.js";
+import wordReviewsRoutes from "./routes/wordReviewsRoutes.js";
+import fsRoutes from "./routes/fsRoutes.js";
+import { fileURLToPath } from "url";
+import path from "path";
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.join(__dirname, ".env") });
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -11,14 +22,28 @@ const openai = new OpenAI({
 
 const app = express();
 
+const ALLOWED_ORIGINS = [
+  "http://localhost:5173",
+  "https://lexico.techdoc.sk",
+];
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: (origin, cb) => {
+      if (!origin || ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
+      cb(new Error("Not allowed by CORS"));
+    },
     credentials: true,
   }),
 );
 
-app.use(express.json());
+app.use(express.json({ limit: "2mb" }));
+app.use("/api/packs", packsRoutes);
+app.use("/api/packs", wordReviewsRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/audit", auditRoutes);
+app.use("/api/settings", settingsRoutes);
+app.use("/api/fs", fsRoutes);
 
 app.get("/api/health", (req, res) => {
   res.json({
@@ -27,10 +52,22 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+app.use((err, req, res, next) => {
+  if (err.type === "entity.parse.failed") {
+    return res.status(400).json({ error: "Invalid JSON in request body" });
+  }
+  if (err.type === "entity.too.large") {
+    return res.status(413).json({ error: "Request body too large" });
+  }
+  console.error(err);
+  res.status(500).json({ error: err.message });
+});
+
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT}`);
+  await syncPacksOnStartup();
 });
 
 app.post("/api/generate-translation", async (req, res) => {
@@ -44,7 +81,7 @@ app.post("/api/generate-translation", async (req, res) => {
     }
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-5-mini",
+      model: process.env.OPENAI_MODEL,
 
       messages: [
         {

@@ -1,0 +1,484 @@
+{
+  "packId": "4e3b2dc3-b5c0-4a60-b1a2-6e22a0c7cca4",
+  "name": "Doprava - základné pojmy",
+  "description": "",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "B1",
+  "category": "transportation",
+  "icon": "data:image/png;base64,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",
+  "author": "Techdoc",
+  "version": "1.0",
+  "tags": [
+    "transportation",
+    "automotive",
+    "industry"
+  ],
+  "words": [
+    {
+      "word": "vehicle",
+      "phonetic": "/ˈviː.ɪ.kəl/",
+      "translation": "vozidlo",
+      "definition": "A machine used for carrying people or goods.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding vehicle is essential.",
+          "sk": "Pochopenie pojmu vozidlo je nevyhnutné."
+        },
+        {
+          "en": "Due to heavy traffic, our vehicle was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše vozidlo meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The self-driving vehicle uses cameras and sensors to detect obstacles on the road."
+        },
+        {
+          "en": "Any vehicle weighing more than 3.5 tonnes is classified as a heavy goods vehicle."
+        }
+      ],
+      "example_en": "Understanding vehicle is essential.",
+      "example_sk": "Pochopenie pojmu vozidlo je nevyhnutné.",
+      "id": "8b9a68b5-6a2e-4b21-af13-689feef10425"
+    },
+    {
+      "word": "engine",
+      "phonetic": "/ˈen.dʒɪn/",
+      "translation": "motor",
+      "definition": "A machine that produces power to move a vehicle.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how engine works.",
+          "sk": "Tento experiment ukazuje, ako funguje motor."
+        },
+        {
+          "en": "Due to heavy traffic, our engine was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše motor meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "An internal combustion engine generates power by burning fuel inside its cylinders."
+        },
+        {
+          "en": "An overheated engine can cause serious and costly damage to a vehicle."
+        }
+      ],
+      "example_en": "This experiment shows how engine works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje motor.",
+      "id": "13a42123-edd5-415d-b729-1d22a920f915"
+    },
+    {
+      "word": "railway",
+      "phonetic": "/ˈreɪl.weɪ/",
+      "translation": "železnica",
+      "definition": "A transport system that uses trains on tracks.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how railway works.",
+          "sk": "Tento experiment ukazuje, ako funguje železnica."
+        },
+        {
+          "en": "Due to heavy traffic, our railway was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše železnica meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The first railway in Germany ran between Nuremberg and Fürth in 1835."
+        },
+        {
+          "en": "High-speed railway lines like the ICE connect major cities in just a few hours."
+        }
+      ],
+      "example_en": "This experiment shows how railway works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje železnica.",
+      "id": "237d6ad2-2736-4313-94f3-996a00848d7f"
+    },
+    {
+      "word": "station",
+      "phonetic": "/ˈsteɪ.ʃən/",
+      "translation": "stanica",
+      "definition": "A place where trains or buses regularly stop.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding station is essential.",
+          "sk": "Pochopenie pojmu stanica je nevyhnutné."
+        },
+        {
+          "en": "Due to heavy traffic, our station was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše stanica meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Berlin Central Station is one of the most modern and busiest railway stations in Europe."
+        },
+        {
+          "en": "Departure boards at the station display real-time information about delays and platform changes."
+        }
+      ],
+      "example_en": "Understanding station is essential.",
+      "example_sk": "Pochopenie pojmu stanica je nevyhnutné.",
+      "id": "f214cb27-b086-4cd0-a645-55389d84390f"
+    },
+    {
+      "word": "platform",
+      "phonetic": "/ˈplæt.fɔːm/",
+      "translation": "nástupište",
+      "definition": "The raised area beside the track where passengers board a train.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of platform yesterday.",
+          "sk": "Včera sme študovali pojem nástupište."
+        },
+        {
+          "en": "Due to heavy traffic, our platform was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše nástupište meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "For safety reasons, passengers must stay behind the yellow line on the platform."
+        },
+        {
+          "en": "The long platform can accommodate several trains stopping at the same time."
+        }
+      ],
+      "example_en": "We studied the concept of platform yesterday.",
+      "example_sk": "Včera sme študovali pojem nástupište.",
+      "id": "e5de6be0-4904-4bd3-88dc-670461ecbb9c"
+    },
+    {
+      "word": "cargo",
+      "phonetic": "/ˈkɑː.ɡəʊ/",
+      "translation": "náklad",
+      "definition": "Goods carried by ship, aircraft, or vehicle.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of cargo yesterday.",
+          "sk": "Včera sme študovali pojem náklad."
+        },
+        {
+          "en": "Due to heavy traffic, our cargo was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše náklad meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Hazardous cargo such as chemicals must be clearly labelled and securely stored during transport."
+        },
+        {
+          "en": "The cargo was thoroughly inspected for damage before being loaded onto the ship."
+        }
+      ],
+      "example_en": "We studied the concept of cargo yesterday.",
+      "example_sk": "Včera sme študovali pojem náklad.",
+      "id": "f5045958-446b-40c6-b351-356521683ec7"
+    },
+    {
+      "word": "freight",
+      "phonetic": "/freɪt/",
+      "translation": "nákladná doprava",
+      "definition": "The transport of goods in large quantities.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term freight.",
+          "sk": "Učiteľ vysvetlil pojem nákladná doprava."
+        },
+        {
+          "en": "Due to heavy traffic, our freight was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše nákladná doprava meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Rail freight is significantly more environmentally friendly than road haulage."
+        },
+        {
+          "en": "International freight is often transported through major seaports before moving inland."
+        }
+      ],
+      "example_en": "The teacher explained the term freight.",
+      "example_sk": "Učiteľ vysvetlil pojem nákladná doprava.",
+      "id": "6d1c270e-bd18-4473-8c4b-f326607ce595"
+    },
+    {
+      "word": "traffic",
+      "phonetic": "/ˈtræf.ɪk/",
+      "translation": "premávka",
+      "definition": "The movement of vehicles on roads.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how traffic works.",
+          "sk": "Tento experiment ukazuje, ako funguje premávka."
+        },
+        {
+          "en": "Due to heavy traffic, our traffic was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše premávka meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The new bypass road is designed to reduce traffic congestion in the town centre."
+        },
+        {
+          "en": "Smart traffic light systems can adjust signals in real time to ease congestion."
+        }
+      ],
+      "example_en": "This experiment shows how traffic works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje premávka.",
+      "id": "1a462acd-4f40-430d-a222-fa0a6b447021"
+    },
+    {
+      "word": "tunnel",
+      "phonetic": "/ˈtʌn.əl/",
+      "translation": "tunel",
+      "definition": "An underground or enclosed passage for transport.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how tunnel works.",
+          "sk": "Tento experiment ukazuje, ako funguje tunel."
+        },
+        {
+          "en": "Due to heavy traffic, our tunnel was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše tunel meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The Gotthard Base Tunnel in Switzerland is the longest railway tunnel in the world at 57 km."
+        },
+        {
+          "en": "Building the tunnel required the most advanced drilling machines available."
+        }
+      ],
+      "example_en": "This experiment shows how tunnel works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje tunel.",
+      "id": "10294631-b527-412a-bdde-11fc1e926fef"
+    },
+    {
+      "word": "bridge",
+      "phonetic": "/brɪdʒ/",
+      "translation": "most",
+      "definition": "A structure built to carry a road or railway over an obstacle.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding bridge is essential.",
+          "sk": "Pochopenie pojmu most je nevyhnutné."
+        },
+        {
+          "en": "Due to heavy traffic, our bridge was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše most meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The Golden Gate Bridge in San Francisco is one of the most iconic suspension bridges in the world."
+        },
+        {
+          "en": "Engineers are planning a new bridge to connect two parts of the city that are currently hard to reach."
+        }
+      ],
+      "example_en": "Understanding bridge is essential.",
+      "example_sk": "Pochopenie pojmu most je nevyhnutné.",
+      "id": "5727dbad-b7c3-4e5a-8cd9-05874947d2c6"
+    },
+    {
+      "word": "runway",
+      "phonetic": "/ˈrʌn.weɪ/",
+      "translation": "vzletová a pristávacia dráha",
+      "definition": "A strip at an airport where aircraft take off and land.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how runway works.",
+          "sk": "Tento experiment ukazuje, ako funguje vzletová a pristávacia dráha."
+        },
+        {
+          "en": "Due to heavy traffic, our runway was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše vzletová a pristávacia dráha meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The runway at the new airport is long enough to handle the world's largest passenger aircraft."
+        },
+        {
+          "en": "Due to icy conditions, the runway was closed for several hours and all flights were cancelled."
+        }
+      ],
+      "example_en": "This experiment shows how runway works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje vzletová a pristávacia dráha.",
+      "id": "9f3aa1b0-5dbb-493b-b3e4-33fc757656aa"
+    },
+    {
+      "word": "harbour",
+      "phonetic": "/ˈhɑː.bə/",
+      "translation": "prístav",
+      "definition": "A sheltered place where ships can stay safely.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding harbour is essential.",
+          "sk": "Pochopenie pojmu prístav je nevyhnutné."
+        },
+        {
+          "en": "Due to heavy traffic, our harbour was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše prístav meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The Port of Rotterdam handles millions of shipping containers every year."
+        },
+        {
+          "en": "Historic harbour cities like Venice owed their wealth to maritime trade."
+        }
+      ],
+      "example_en": "Understanding harbour is essential.",
+      "example_sk": "Pochopenie pojmu prístav je nevyhnutné.",
+      "id": "6b243463-3323-4e6c-b267-985efb4f8ba4"
+    },
+    {
+      "word": "schedule",
+      "phonetic": "/ˈʃed.juːl/",
+      "translation": "cestovný poriadok, harmonogram",
+      "definition": "A plan that shows times of departures and arrivals.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of schedule yesterday.",
+          "sk": "Včera sme študovali pojem cestovný poriadok."
+        },
+        {
+          "en": "Due to heavy traffic, our schedule was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše cestovný poriadok meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The bus schedule was revised to offer more frequent services in the evenings."
+        },
+        {
+          "en": "Technical problems can make it impossible to stick to the schedule temporarily."
+        }
+      ],
+      "example_en": "We studied the concept of schedule yesterday.",
+      "example_sk": "Včera sme študovali pojem cestovný poriadok.",
+      "id": "8883a28c-1d36-4efa-b9e5-46284af5c083"
+    },
+    {
+      "word": "route",
+      "phonetic": "/ruːt/",
+      "translation": "trasa",
+      "definition": "The path or direction followed from one place to another.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "The route is important in this field.",
+          "sk": "Trasa je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "Due to heavy traffic, our route was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše trasa meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The ICE train travels at up to 300 km/h on the route between Frankfurt and Munich."
+        },
+        {
+          "en": "The route through the mountains is technically demanding due to its many curves and tunnels."
+        }
+      ],
+      "example_en": "The route is important in this field.",
+      "example_sk": "Trasa je v tejto oblasti dôležitý.",
+      "id": "435987d6-2941-4011-bd49-50ae8bd4ad67"
+    },
+    {
+      "word": "commute",
+      "phonetic": "/kəˈmjuːt/",
+      "translation": "dochádzať",
+      "definition": "To travel regularly between home and work or school.",
+      "type": "verb",
+      "level": "B1",
+      "topic": "transport",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding commute is essential.",
+          "sk": "Pochopenie pojmu dochádzať je nevyhnutné."
+        },
+        {
+          "en": "Due to heavy traffic, our commute was delayed on the main route into the city.",
+          "sk": "Kvôli hustej premávke bolo naše dochádzať meškané na hlavnej trase do mesta."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "More and more people choose to commute by bicycle to reduce their carbon footprint."
+        },
+        {
+          "en": "Studies show that the average person who commutes by car spends over 40 minutes per journey."
+        }
+      ],
+      "example_en": "Understanding commute is essential.",
+      "example_sk": "Pochopenie pojmu dochádzať je nevyhnutné.",
+      "id": "13430d54-be71-4717-8ffc-427e67b398d5"
+    }
+  ]
+}

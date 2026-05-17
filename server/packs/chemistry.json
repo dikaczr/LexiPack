@@ -1,0 +1,480 @@
+{
+  "packId": "9a4f9e1c-d1bc-4b9f-9343-eb34bbee2640",
+  "name": "Chémia - základy",
+  "description": "",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "B1",
+  "category": "chemistry",
+  "icon": "📘",
+  "author": "Techdoc",
+  "version": "1.0",
+  "tags": [],
+  "words": [
+    {
+      "word": "atom",
+      "phonetic": "/ˈæt.əm/",
+      "translation": "atóm",
+      "definition": "The smallest unit of a chemical element.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term atom.",
+          "sk": "Učiteľ vysvetlil pojem atóm."
+        },
+        {
+          "en": "In the lab, we tested how the atom reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako atóm reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The Bohr model of the atom depicts electrons orbiting the nucleus on fixed energy levels."
+        },
+        {
+          "en": "Atoms of the same element with different numbers of neutrons are called isotopes."
+        }
+      ],
+      "example_en": "The teacher explained the term atom.",
+      "example_sk": "Učiteľ vysvetlil pojem atóm.",
+      "id": "ffbca368-e7bd-473e-a7fd-34021a7aa727"
+    },
+    {
+      "word": "molecule",
+      "phonetic": "/ˈmɒl.ɪ.kjuːl/",
+      "translation": "molekula",
+      "definition": "A group of atoms bonded together.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how molecule works.",
+          "sk": "Tento experiment ukazuje, ako funguje molekula."
+        },
+        {
+          "en": "In the lab, we tested how the molecule reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako molekula reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The water molecule is polar, which gives it unusual properties such as high surface tension."
+        },
+        {
+          "en": "Proteins are complex molecules made up of hundreds or thousands of amino acids."
+        }
+      ],
+      "example_en": "This experiment shows how molecule works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje molekula.",
+      "id": "1f8c6ec1-e14e-4c94-a6c3-c5fe5c099257"
+    },
+    {
+      "word": "element",
+      "phonetic": "/ˈel.ɪ.mənt/",
+      "translation": "prvok",
+      "definition": "A substance made of only one type of atom.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term element.",
+          "sk": "Učiteľ vysvetlil pojem prvok."
+        },
+        {
+          "en": "In the lab, we tested how the element reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako prvok reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "There are currently 118 known chemical elements, of which 94 occur naturally on Earth."
+        },
+        {
+          "en": "Gold is a chemical element valued for its stability and rarity."
+        }
+      ],
+      "example_en": "The teacher explained the term element.",
+      "example_sk": "Učiteľ vysvetlil pojem prvok.",
+      "id": "0f9c25e3-20b9-4a79-9744-bae54276c5f7"
+    },
+    {
+      "word": "compound",
+      "phonetic": "/ˈkɒm.paʊnd/",
+      "translation": "zlúčenina",
+      "definition": "A substance formed from two or more chemical elements.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how compound works.",
+          "sk": "Tento experiment ukazuje, ako funguje zlúčenina."
+        },
+        {
+          "en": "In the lab, we tested how the compound reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako zlúčenina reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Sodium chloride, or table salt, is an ionic compound made of sodium and chloride ions."
+        },
+        {
+          "en": "Organic compounds always contain carbon atoms and are the basis of all living matter."
+        }
+      ],
+      "example_en": "This experiment shows how compound works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje zlúčenina.",
+      "id": "b5fc64d0-411d-428e-be6b-a0c410ba7453"
+    },
+    {
+      "word": "reaction",
+      "phonetic": "/riˈæk.ʃən/",
+      "translation": "reakcia",
+      "definition": "A process in which substances change into new substances.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of reaction yesterday.",
+          "sk": "Včera sme študovali pojem reakcia."
+        },
+        {
+          "en": "In the lab, we tested how the reaction reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako reakcia reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Exothermic reactions release energy as heat, while endothermic reactions absorb it."
+        },
+        {
+          "en": "The oxidation reaction of iron with oxygen results in rust."
+        }
+      ],
+      "example_en": "We studied the concept of reaction yesterday.",
+      "example_sk": "Včera sme študovali pojem reakcia.",
+      "id": "ae6df71e-9564-4d9f-b94d-2755a9ce6725"
+    },
+    {
+      "word": "acid",
+      "phonetic": "/ˈæs.ɪd/",
+      "translation": "kyselina",
+      "definition": "A substance with a low pH that can react with bases.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding acid is essential.",
+          "sk": "Pochopenie pojmu kyselina je nevyhnutné."
+        },
+        {
+          "en": "In the lab, we tested how the acid reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako kyselina reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Citric acid occurs naturally in citrus fruits and gives them their sharp taste."
+        },
+        {
+          "en": "Sulfuric acid is one of the most widely produced chemicals in the world and is used in many industries."
+        }
+      ],
+      "example_en": "Understanding acid is essential.",
+      "example_sk": "Pochopenie pojmu kyselina je nevyhnutné.",
+      "id": "b1baac3b-d3c3-402b-8f21-00b343ef8b13"
+    },
+    {
+      "word": "base",
+      "phonetic": "/beɪs/",
+      "translation": "zásada, báza",
+      "definition": "A substance that can neutralise an acid.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how base works.",
+          "sk": "Tento experiment ukazuje, ako funguje zásada."
+        },
+        {
+          "en": "In the lab, we tested how the base reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako zásada reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Ammonia is a weak base used in cleaning products and fertiliser production."
+        },
+        {
+          "en": "When an acid and a base react, they neutralise each other and form salt and water."
+        }
+      ],
+      "example_en": "This experiment shows how base works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje zásada.",
+      "id": "88419f53-bd46-47ee-9c9e-5a7a997708c0"
+    },
+    {
+      "word": "solution",
+      "phonetic": "/səˈluː.ʃən/",
+      "translation": "roztok",
+      "definition": "A liquid mixture in which one substance is dissolved in another.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding solution is essential.",
+          "sk": "Pochopenie pojmu roztok je nevyhnutné."
+        },
+        {
+          "en": "In the lab, we tested how the solution reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako roztok reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "In a saturated solution, no additional substance can be dissolved at that temperature."
+        },
+        {
+          "en": "Physiological saline solution is used in medicine as an intravenous infusion."
+        }
+      ],
+      "example_en": "Understanding solution is essential.",
+      "example_sk": "Pochopenie pojmu roztok je nevyhnutné.",
+      "id": "4c127b53-7270-4e94-ad4f-a33a204b49e3"
+    },
+    {
+      "word": "solvent",
+      "phonetic": "/ˈsɒl.vənt/",
+      "translation": "rozpúšťadlo",
+      "definition": "A substance, usually a liquid, that dissolves another substance.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how solvent works.",
+          "sk": "Tento experiment ukazuje, ako funguje rozpúšťadlo."
+        },
+        {
+          "en": "In the lab, we tested how the solvent reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako rozpúšťadlo reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Organic solvents such as ethanol are widely used in the pharmaceutical and cosmetics industries."
+        },
+        {
+          "en": "Choosing the right solvent is critical to the success of a chemical reaction."
+        }
+      ],
+      "example_en": "This experiment shows how solvent works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje rozpúšťadlo.",
+      "id": "6954c2f0-a559-4af4-84fb-2dae569a43ce"
+    },
+    {
+      "word": "catalyst",
+      "phonetic": "/ˈkæt.əl.ɪst/",
+      "translation": "katalyzátor",
+      "definition": "A substance that speeds up a chemical reaction without being used up.",
+      "type": "noun",
+      "level": "C1",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding catalyst is essential.",
+          "sk": "Pochopenie pojmu katalyzátor je nevyhnutné."
+        },
+        {
+          "en": "In the lab, we tested how the catalyst reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako katalyzátor reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Enzymes are biological catalysts that enable thousands of reactions in the human body."
+        },
+        {
+          "en": "A catalyst lowers the activation energy of a reaction without being consumed itself."
+        }
+      ],
+      "example_en": "Understanding catalyst is essential.",
+      "example_sk": "Pochopenie pojmu katalyzátor je nevyhnutné.",
+      "id": "2b8ac1a3-23e3-458d-ac13-a8f5b9cb2e90"
+    },
+    {
+      "word": "evaporation",
+      "phonetic": "/ɪˌvæp.əˈreɪ.ʃən/",
+      "translation": "odparovanie",
+      "definition": "The process by which a liquid changes into gas.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term evaporation.",
+          "sk": "Učiteľ vysvetlil pojem odparovanie."
+        },
+        {
+          "en": "In the lab, we tested how the evaporation reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako odparovanie reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The evaporation of alcohol on the skin produces a cooling sensation by drawing away heat."
+        },
+        {
+          "en": "Seawater desalination uses evaporation to obtain fresh drinking water from saltwater."
+        }
+      ],
+      "example_en": "The teacher explained the term evaporation.",
+      "example_sk": "Učiteľ vysvetlil pojem odparovanie.",
+      "id": "d62251c3-4876-4363-9bb3-cf7b9b95bf20"
+    },
+    {
+      "word": "crystal",
+      "phonetic": "/ˈkrɪs.təl/",
+      "translation": "kryštál",
+      "definition": "A solid substance with a regular geometric structure.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of crystal yesterday.",
+          "sk": "Včera sme študovali pojem kryštál."
+        },
+        {
+          "en": "In the lab, we tested how the crystal reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako kryštál reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Diamond is a special crystal form of carbon and the hardest natural mineral known."
+        },
+        {
+          "en": "Quartz crystals vibrate at a precise frequency when an electric current is applied, making them ideal for clocks."
+        }
+      ],
+      "example_en": "We studied the concept of crystal yesterday.",
+      "example_sk": "Včera sme študovali pojem kryštál.",
+      "id": "04fc6e19-6160-4735-8ab5-1a2980e7fb92"
+    },
+    {
+      "word": "laboratory",
+      "phonetic": "/ləˈbɒr.ə.tər.i/",
+      "translation": "laboratórium",
+      "definition": "A room equipped for scientific experiments and testing.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how laboratory works.",
+          "sk": "Tento experiment ukazuje, ako funguje laboratórium."
+        },
+        {
+          "en": "In the lab, we tested how the laboratory reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako laboratórium reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "In a chemistry laboratory, wearing safety goggles, a lab coat, and gloves is mandatory."
+        },
+        {
+          "en": "The first modern chemistry laboratories were established at European universities in the 19th century."
+        }
+      ],
+      "example_en": "This experiment shows how laboratory works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje laboratórium.",
+      "id": "c5442c25-9d4d-44e3-8f73-fbd0a0b3b6c8"
+    },
+    {
+      "word": "toxic",
+      "phonetic": "/ˈtɒk.sɪk/",
+      "translation": "toxický",
+      "definition": "Poisonous or harmful to living things.",
+      "type": "adj",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "The toxic is important in this field.",
+          "sk": "Toxický je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "In the lab, we tested how the toxic reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako toxický reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Tetrodotoxin, the poison of the puffer fish, is one of the most toxic natural substances known."
+        },
+        {
+          "en": "Even water can be toxic to the human body if consumed in extremely large quantities."
+        }
+      ],
+      "example_en": "The toxic is important in this field.",
+      "example_sk": "Toxický je v tejto oblasti dôležitý.",
+      "id": "fe6079bf-867b-4a36-88ed-6b72d5b83471"
+    },
+    {
+      "word": "periodic table",
+      "phonetic": "/ˌpɪə.riˈɒd.ɪk ˌteɪ.bəl/",
+      "translation": "periodická tabuľka",
+      "definition": "A chart that arranges chemical elements by their properties.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding periodic table is essential.",
+          "sk": "Pochopenie pojmu periodická tabuľka je nevyhnutné."
+        },
+        {
+          "en": "In the lab, we tested how the periodic table reacts when mixed with other substances.",
+          "sk": "V laboratóriu sme testovali, ako periodická tabuľka reaguje pri zmiešaní s inými látkami."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Mendeleev left gaps in the periodic table for undiscovered elements and predicted their properties."
+        },
+        {
+          "en": "The periodic table shows that the properties of elements repeat in a periodic pattern."
+        }
+      ],
+      "example_en": "Understanding periodic table is essential.",
+      "example_sk": "Pochopenie pojmu periodická tabuľka je nevyhnutné.",
+      "id": "dffdd1dd-a0e8-44fe-85b6-d319308ef701"
+    }
+  ]
+}

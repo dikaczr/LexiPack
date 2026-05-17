@@ -1,0 +1,82 @@
+{
+  "packId": "philosophy-b2",
+  "name": "Filozofia - základy B2",
+  "description": "Odborná anglická slovná zásoba z oblasti filozofie",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "B2",
+  "category": "Philosophy",
+  "icon": "🦠",
+  "author": "doc. Jana Nováková, PhD.",
+  "version": "1.2",
+  "tags": [
+    "science",
+    "philosophy",
+    "academic",
+    "medical"
+  ],
+  "words": [
+    {
+      "word": "belief",
+      "phonetic": "/bɪˈliːf/",
+      "translation": "presvedčenie",
+      "definition": "A strong feeling that something is true.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "philosophy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term belief.",
+          "sk": "Učiteľ vysvetlil pojem presvedčenie."
+        },
+        {
+          "en": "The debate focused on the concept of belief and its role in human decision-making.",
+          "sk": "Diskusia sa zamerala na pojem presvedčenie a jeho úlohu v rozhodovaní človeka."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A justified true belief was long considered the standard definition of knowledge until Gettier challenged it."
+        },
+        {
+          "en": "Philosophers distinguish between a belief one holds and a belief one is rationally entitled to hold."
+        }
+      ],
+      "example_en": "The teacher explained the term belief.",
+      "example_sk": "Učiteľ vysvetlil pojem presvedčenie.",
+      "id": "838bb942-053c-441a-83a7-7146a21bbb7c"
+    },
+    {
+      "word": "meaning",
+      "phonetic": "/ˈmiː.nɪŋ/",
+      "translation": "zmysel, význam",
+      "definition": "The idea or purpose that something expresses.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "philosophy",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how meaning works.",
+          "sk": "Tento experiment ukazuje, ako funguje zmysel."
+        },
+        {
+          "en": "The debate focused on the concept of meaning and its role in human decision-making.",
+          "sk": "Diskusia sa zamerala na pojem zmysel a jeho úlohu v rozhodovaní človeka."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "According to Viktor Frankl, the search for meaning is the deepest driving force in human life."
+        },
+        {
+          "en": "Camus argued that life has no inherent meaning, but that we can create our own."
+        }
+      ],
+      "example_en": "This experiment shows how meaning works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje zmysel.",
+      "id": "3df039cd-3380-4ddb-b6d9-eabc983f71c3"
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+/* ─────────────────────────────────────────────────────────
+   LexiPack – Theme CSS custom properties
+   Applied via:  document.documentElement.dataset.theme = "..."
+   ───────────────────────────────────────────────────────── */
+
+/* ── DARK (default) — charcoal, current look ──────────── */
+:root,
+[data-theme="dark"] {
+  --app-bg:           #202124;   /* main background          */
+  --app-chrome:       #1b1c1d;   /* header / footer / sidebar */
+  --app-panel:        #1a2535;   /* modals, dropdowns, cards  */
+  --app-input:        #0f1923;   /* inputs, selects           */
+  --app-border:       #333333;   /* primary borders           */
+  --app-border-sub:   #2a3a50;   /* subtle borders            */
+  --app-border-faint: rgba(255,255,255,0.06); /* sidebar btn divider */
+  --app-text:         #ffffff;   /* primary text              */
+  --app-text2:        #c8d8f0;   /* secondary text            */
+  --app-muted:        #6b8cae;   /* labels, placeholders      */
+  --app-accent:       #4a9eff;   /* focus rings, badges       */
+  --app-btn:          #1e5fcc;   /* primary button bg         */
+  --app-btn-hov:      #2470e0;   /* primary button hover      */
+  --app-nav-hov:      #2d2d2d;   /* nav/ghost button hover    */
+  --app-nav-act:      #3a3a3a;   /* active nav item           */
+  --app-danger:       #3a1a1a;   /* danger hover bg           */
+  --app-danger-border:#7a2020;   /* danger button/error border */
+  --app-danger-text:  #ff6b6b;   /* danger button/error text  */
+  --app-invalid-bg:   #3f1d1d;   /* invalid grid row bg       */
+  --app-invalid-text: #fecaca;   /* invalid grid row text     */
+  --app-duplicate-bg:   #78350f; /* duplicate grid row bg     */
+  --app-duplicate-text: #fde68a; /* duplicate grid row text   */
+  --app-selected-bg:    #1d4ed8; /* selected grid row bg      */
+  --app-selected-text:  #ffffff; /* selected grid row text    */
+  --app-grid-row:     #33353a;   /* ag-grid row               */
+  --app-grid-odd:     #363840;   /* ag-grid odd row           */
+  --app-grid-hdr:     #3a3c42;   /* ag-grid header            */
+  --app-grid-hov:     #3d3f47;   /* ag-grid row hover         */
+  --app-grid-edit:    #1e3a5f;   /* ag-grid cell edit         */
+  --app-save-ok:      lightgreen;
+  --app-btn-new:      #16a34a;
+  --app-btn-new-hov:  #15803d;
+  --app-btn-save:     #0891b2;
+  --app-btn-save-hov: #0e7490;
+  --app-btn-pub:      #d97706;
+  --app-btn-pub-hov:  #b45309;
+  --app-btn-del:      #b91c1c;
+  --app-btn-del-hov:  #991b1b;
+  --app-meta-bg:      #243040;   /* editor metadata panel bg  */
+}
+
+/* ── DARK BLUE — GitHub dark / navy ───────────────────── */
+[data-theme="dark-blue"] {
+  --app-bg:           #0d1117;
+  --app-chrome:       #161b22;
+  --app-panel:        #1c2333;
+  --app-input:        #0d1117;
+  --app-border:       #30363d;
+  --app-border-sub:   #21262d;
+  --app-border-faint: rgba(255,255,255,0.05);
+  --app-text:         #e6edf3;
+  --app-text2:        #cdd9e5;
+  --app-muted:        #8b949e;
+  --app-accent:       #58a6ff;
+  --app-btn:          #1f6feb;
+  --app-btn-hov:      #388bfd;
+  --app-nav-hov:      #1c2333;
+  --app-nav-act:      #253040;
+  --app-danger:       #3d1818;
+  --app-danger-border:#8b2020;
+  --app-danger-text:  #ff6b6b;
+  --app-invalid-bg:   #3d1818;
+  --app-invalid-text: #fca5a5;
+  --app-duplicate-bg:   #7c3a0e;
+  --app-duplicate-text: #fde68a;
+  --app-selected-bg:    #1f6feb;
+  --app-selected-text:  #ffffff;
+  --app-grid-row:     #161b22;
+  --app-grid-odd:     #1c2333;
+  --app-grid-hdr:     #21262d;
+  --app-grid-hov:     #253040;
+  --app-grid-edit:    #1f3a5a;
+  --app-meta-bg:      #21293a;   /* editor metadata panel bg  */
+}
+
+/* ── SOLARIZED DARK — classic warm dark ───────────────── */
+[data-theme="solarized"] {
+  --app-bg:           #002b36;
+  --app-chrome:       #073642;
+  --app-panel:        #073642;
+  --app-input:        #00212b;
+  --app-border:       #175866;
+  --app-border-sub:   #0d4455;
+  --app-border-faint: rgba(255,255,255,0.05);
+  --app-text:         #fdf6e3;
+  --app-text2:        #93a1a1;
+  --app-muted:        #586e75;
+  --app-accent:       #268bd2;
+  --app-btn:          #268bd2;
+  --app-btn-hov:      #1a6fa3;
+  --app-nav-hov:      #0a3d4a;
+  --app-nav-act:      #0d4a58;
+  --app-danger:       #3b1c1c;
+  --app-danger-border:#8b2020;
+  --app-danger-text:  #ff6b6b;
+  --app-invalid-bg:   #3b1c1c;
+  --app-invalid-text: #fca5a5;
+  --app-duplicate-bg:   #7c3a0e;
+  --app-duplicate-text: #fde68a;
+  --app-selected-bg:    #268bd2;
+  --app-selected-text:  #ffffff;
+  --app-grid-row:     #073642;
+  --app-grid-odd:     #0a3d4a;
+  --app-grid-hdr:     #0d4455;
+  --app-grid-hov:     #10505f;
+  --app-grid-edit:    #0a3d4a;
+  --app-meta-bg:      #0a3d4a;   /* editor metadata panel bg  */
+}
+
+/* ── MONOKAI — classic Sublime / VSCode ───────────────── */
+[data-theme="monokai"] {
+  --app-bg:           #272822;
+  --app-chrome:       #1e1f1c;
+  --app-panel:        #2d2e2a;
+  --app-input:        #1e1f1c;
+  --app-border:       #3e3d32;
+  --app-border-sub:   #3e3d32;
+  --app-border-faint: rgba(255,255,255,0.06);
+  --app-text:         #f8f8f2;
+  --app-text2:        #cfcfc2;
+  --app-muted:        #75715e;
+  --app-accent:       #a6e22e;
+  --app-btn:          #75507e;
+  --app-btn-hov:      #9060a0;
+  --app-nav-hov:      #3e3d32;
+  --app-nav-act:      #49483e;
+  --app-danger:       #3a1a1a;
+  --app-danger-border:#7a2020;
+  --app-danger-text:  #f92672;
+  --app-invalid-bg:   #3a1a1a;
+  --app-invalid-text: #fca5a5;
+  --app-duplicate-bg:   #7c3a0e;
+  --app-duplicate-text: #fde68a;
+  --app-selected-bg:    #75507e;
+  --app-selected-text:  #ffffff;
+  --app-grid-row:     #2d2e2a;
+  --app-grid-odd:     #323328;
+  --app-grid-hdr:     #3e3d32;
+  --app-grid-hov:     #464740;
+  --app-grid-edit:    #49483e;
+  --app-meta-bg:      #3e3d32;   /* editor metadata panel bg  */
+}
+
+/* ── LIGHT — clean Google-style light ─────────────────── */
+[data-theme="light"] {
+  --app-bg:           #f8f9fa;
+  --app-chrome:       #e8eaed;
+  --app-panel:        #ffffff;
+  --app-input:        #ffffff;
+  --app-border:       #dadce0;
+  --app-border-sub:   #c8ccd4;
+  --app-border-faint: rgba(0,0,0,0.08);
+  --app-text:         #202124;
+  --app-text2:        #3c4043;
+  --app-muted:        #80868b;
+  --app-accent:       #1a73e8;
+  --app-btn:          #1a73e8;
+  --app-btn-hov:      #1558b0;
+  --app-nav-hov:      #e0e4e8;
+  --app-nav-act:      #cdd0d5;
+  --app-danger:       #fde8e8;
+  --app-danger-border:#e53e3e;
+  --app-danger-text:  #c53030;
+  --app-invalid-bg:   #fde8e8;
+  --app-invalid-text: #9b1c1c;
+  --app-duplicate-bg:   #fff3cd;
+  --app-duplicate-text: #92400e;
+  --app-selected-bg:    #1a73e8;
+  --app-selected-text:  #ffffff;
+  --app-grid-row:     #ffffff;
+  --app-grid-odd:     #f8f9fa;
+  --app-grid-hdr:     #f1f3f4;
+  --app-grid-hov:     #e8f0fe;
+  --app-grid-edit:    #d2e3fc;
+  --app-save-ok:      #1e7e34;
+  --app-btn-new:      #15803d;
+  --app-btn-new-hov:  #166534;
+  --app-btn-save:     #0e7490;
+  --app-btn-save-hov: #155e75;
+  --app-btn-pub:      #b45309;
+  --app-btn-pub-hov:  #92400e;
+  --app-btn-del:      #dc2626;
+  --app-btn-del-hov:  #b91c1c;
+  --app-meta-bg:      #eef1f5;   /* editor metadata panel bg  */
+}

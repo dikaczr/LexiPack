@@ -1,0 +1,480 @@
+{
+  "packId": "5e294fd8-3e58-4411-aa23-63d7c302de90",
+  "name": "Biológia - základy",
+  "description": "",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "B1",
+  "category": "biology",
+  "icon": "📘",
+  "author": "Techdoc",
+  "version": "1.0",
+  "tags": [],
+  "words": [
+    {
+      "word": "cell",
+      "phonetic": "/sel/",
+      "translation": "bunka",
+      "definition": "The smallest structural unit of a living organism.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term cell.",
+          "sk": "Učiteľ vysvetlil pojem bunka."
+        },
+        {
+          "en": "In biology class, we examined how the cell functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako bunka funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A human cell contains about two metres of DNA tightly packed inside its nucleus."
+        },
+        {
+          "en": "Cancer cells divide uncontrollably and can invade and damage surrounding tissue."
+        }
+      ],
+      "example_en": "The teacher explained the term cell.",
+      "example_sk": "Učiteľ vysvetlil pojem bunka.",
+      "id": "73efabd4-eacd-4d73-9ee0-ec14dc4fdd2a"
+    },
+    {
+      "word": "tissue",
+      "phonetic": "/ˈtɪʃ.uː/",
+      "translation": "tkanivo",
+      "definition": "A group of similar cells working together in an organism.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "The tissue is important in this field.",
+          "sk": "Tkanivo je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "In biology class, we examined how the tissue functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako tkanivo funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Muscle tissue is made up of long fibres that contract to produce movement."
+        },
+        {
+          "en": "After an injury, damaged tissue gradually repairs itself through cell regeneration."
+        }
+      ],
+      "example_en": "The tissue is important in this field.",
+      "example_sk": "Tkanivo je v tejto oblasti dôležitý.",
+      "id": "1cc6791f-8d2f-4503-a101-040a78a0afea"
+    },
+    {
+      "word": "organ",
+      "phonetic": "/ˈɔː.ɡən/",
+      "translation": "orgán",
+      "definition": "A part of the body that performs a specific function.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of organ yesterday.",
+          "sk": "Včera sme študovali pojem orgán."
+        },
+        {
+          "en": "In biology class, we examined how the organ functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako orgán funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The liver is the largest internal organ and performs hundreds of vital functions."
+        },
+        {
+          "en": "A transplanted organ must be accepted by the recipient's immune system to function properly."
+        }
+      ],
+      "example_en": "We studied the concept of organ yesterday.",
+      "example_sk": "Včera sme študovali pojem orgán.",
+      "id": "2cc7416e-6b5d-463c-8ce0-f9870204eaae"
+    },
+    {
+      "word": "species",
+      "phonetic": "/ˈspiː.ʃiːz/",
+      "translation": "druh",
+      "definition": "A group of living things that can reproduce with each other.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding species is essential.",
+          "sk": "Pochopenie pojmu druh je nevyhnutné."
+        },
+        {
+          "en": "In biology class, we examined how the species functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako druh funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Hundreds of new species are discovered in the Amazon rainforest every year."
+        },
+        {
+          "en": "Members of the same species can interbreed and produce fertile offspring."
+        }
+      ],
+      "example_en": "Understanding species is essential.",
+      "example_sk": "Pochopenie pojmu druh je nevyhnutné.",
+      "id": "5dc24d21-0842-46af-9f91-eead4438ada8"
+    },
+    {
+      "word": "gene",
+      "phonetic": "/dʒiːn/",
+      "translation": "gén",
+      "definition": "A unit of heredity that carries information in DNA.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term gene.",
+          "sk": "Učiteľ vysvetlil pojem gén."
+        },
+        {
+          "en": "In biology class, we examined how the gene functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako gén funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A mutated BRCA1 gene can significantly increase the risk of developing breast cancer."
+        },
+        {
+          "en": "Gene therapy aims to treat hereditary diseases by correcting faulty genes."
+        }
+      ],
+      "example_en": "The teacher explained the term gene.",
+      "example_sk": "Učiteľ vysvetlil pojem gén.",
+      "id": "be077d82-fe62-466a-a130-1120f60faca5"
+    },
+    {
+      "word": "DNA",
+      "phonetic": "/ˌdiː.enˈeɪ/",
+      "translation": "DNA",
+      "definition": "The molecule that carries genetic information in living organisms.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "The DNA is important in this field.",
+          "sk": "Dna je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "In biology class, we examined how the DNA functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako DNA funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The double helix structure of DNA was described by Watson and Crick in 1953."
+        },
+        {
+          "en": "DNA analysis is widely used in forensics to identify individuals at crime scenes."
+        }
+      ],
+      "example_en": "The DNA is important in this field.",
+      "example_sk": "Dna je v tejto oblasti dôležitý.",
+      "id": "46f220f2-f51a-44c8-9201-3c786a7b77ce"
+    },
+    {
+      "word": "enzyme",
+      "phonetic": "/ˈen.zaɪm/",
+      "translation": "enzým",
+      "definition": "A substance that speeds up chemical reactions in living things.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term enzyme.",
+          "sk": "Učiteľ vysvetlil pojem enzým."
+        },
+        {
+          "en": "In biology class, we examined how the enzyme functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako enzým funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Digestive enzymes such as pepsin break down proteins into smaller amino acids."
+        },
+        {
+          "en": "Enzymes work most efficiently at a specific temperature and pH level."
+        }
+      ],
+      "example_en": "The teacher explained the term enzyme.",
+      "example_sk": "Učiteľ vysvetlil pojem enzým.",
+      "id": "3ecd753e-f589-46fe-be26-5ecb2e5b50cd"
+    },
+    {
+      "word": "photosynthesis",
+      "phonetic": "/ˌfəʊ.təʊˈsɪn.θə.sɪs/",
+      "translation": "fotosyntéza",
+      "definition": "The process by which plants make food using sunlight.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term photosynthesis.",
+          "sk": "Učiteľ vysvetlil pojem fotosyntéza."
+        },
+        {
+          "en": "In biology class, we examined how the photosynthesis functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako fotosyntéza funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "During photosynthesis, plants absorb carbon dioxide and release oxygen into the air."
+        },
+        {
+          "en": "The green pigment chlorophyll is responsible for capturing light during photosynthesis."
+        }
+      ],
+      "example_en": "The teacher explained the term photosynthesis.",
+      "example_sk": "Učiteľ vysvetlil pojem fotosyntéza.",
+      "id": "9c353963-5fa1-4831-b48d-ca46791777df"
+    },
+    {
+      "word": "evolution",
+      "phonetic": "/ˌiː.vəˈluː.ʃən/",
+      "translation": "evolúcia",
+      "definition": "The gradual development of living organisms over time.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "The evolution is important in this field.",
+          "sk": "Evolúcia je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "In biology class, we examined how the evolution functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako evolúcia funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The evolution of humans from common ancestors shared with great apes is well supported by evidence."
+        },
+        {
+          "en": "Antibiotic-resistant bacteria are a real-time example of evolution in action."
+        }
+      ],
+      "example_en": "The evolution is important in this field.",
+      "example_sk": "Evolúcia je v tejto oblasti dôležitý.",
+      "id": "70175fe4-e65a-43ac-9b92-52a1dfde5846"
+    },
+    {
+      "word": "habitat",
+      "phonetic": "/ˈhæb.ɪ.tæt/",
+      "translation": "biotop, prirodzené prostredie",
+      "definition": "The natural environment where an organism lives.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term habitat.",
+          "sk": "Učiteľ vysvetlil pojem biotop."
+        },
+        {
+          "en": "In biology class, we examined how the habitat functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako biotop funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The coral reef is the most species-rich habitat in the ocean."
+        },
+        {
+          "en": "Deforestation destroys the natural habitat of countless animals and plants."
+        }
+      ],
+      "example_en": "The teacher explained the term habitat.",
+      "example_sk": "Učiteľ vysvetlil pojem biotop.",
+      "id": "551994b7-9586-41a7-9a48-57dff2d63b45"
+    },
+    {
+      "word": "ecosystem",
+      "phonetic": "/ˈiː.kəʊˌsɪs.təm/",
+      "translation": "ekosystém",
+      "definition": "A community of living things and their environment.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of ecosystem yesterday.",
+          "sk": "Včera sme študovali pojem ekosystém."
+        },
+        {
+          "en": "In biology class, we examined how the ecosystem functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako ekosystém funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The Wadden Sea ecosystem supports a wide variety of unique species."
+        },
+        {
+          "en": "When a key species disappears, an entire ecosystem can be thrown out of balance."
+        }
+      ],
+      "example_en": "We studied the concept of ecosystem yesterday.",
+      "example_sk": "Včera sme študovali pojem ekosystém.",
+      "id": "a07c0afa-4a87-44cb-aaf2-d384d9df8180"
+    },
+    {
+      "word": "bacteria",
+      "phonetic": "/bækˈtɪə.ri.ə/",
+      "translation": "baktérie",
+      "definition": "Very small living organisms, some of which can cause disease.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding bacteria is essential.",
+          "sk": "Pochopenie pojmu baktérie je nevyhnutné."
+        },
+        {
+          "en": "In biology class, we examined how the bacteria functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako baktérie funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Trillions of bacteria live in the human gut and play a vital role in digestion."
+        },
+        {
+          "en": "Antibiotics are used to kill harmful bacteria, but overuse can lead to resistance."
+        }
+      ],
+      "example_en": "Understanding bacteria is essential.",
+      "example_sk": "Pochopenie pojmu baktérie je nevyhnutné.",
+      "id": "a4ce2339-ddb5-475c-aa78-6729d1578279"
+    },
+    {
+      "word": "virus",
+      "phonetic": "/ˈvaɪə.rəs/",
+      "translation": "vírus",
+      "definition": "A tiny infectious agent that reproduces inside living cells.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of virus yesterday.",
+          "sk": "Včera sme študovali pojem vírus."
+        },
+        {
+          "en": "In biology class, we examined how the virus functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako vírus funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The influenza virus mutates every year, which is why the vaccine must be updated annually."
+        },
+        {
+          "en": "A virus cannot survive or replicate outside a host cell."
+        }
+      ],
+      "example_en": "We studied the concept of virus yesterday.",
+      "example_sk": "Včera sme študovali pojem vírus.",
+      "id": "3a516305-b5e3-4096-8ebf-dc2912d4fea1"
+    },
+    {
+      "word": "reproduction",
+      "phonetic": "/ˌriː.prəˈdʌk.ʃən/",
+      "translation": "rozmnožovanie",
+      "definition": "The biological process by which new organisms are produced.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how reproduction works.",
+          "sk": "Tento experiment ukazuje, ako funguje rozmnožovanie."
+        },
+        {
+          "en": "In biology class, we examined how the reproduction functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako rozmnožovanie funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Asexual reproduction produces offspring that are genetically identical to the parent."
+        },
+        {
+          "en": "Many flowering plants depend on insects for pollination and reproduction."
+        }
+      ],
+      "example_en": "This experiment shows how reproduction works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje rozmnožovanie.",
+      "id": "8c357839-73d7-422b-99b3-da8d98e6ae74"
+    },
+    {
+      "word": "organism",
+      "phonetic": "/ˈɔː.ɡə.nɪ.zəm/",
+      "translation": "organizmus",
+      "definition": "A living thing such as a plant, animal, or bacterium.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "biology",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of organism yesterday.",
+          "sk": "Včera sme študovali pojem organizmus."
+        },
+        {
+          "en": "In biology class, we examined how the organism functions within living organisms.",
+          "sk": "Na hodine biológie sme skúmali, ako organizmus funguje v živých organizmoch."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A single-celled organism like an amoeba can survive and reproduce independently."
+        },
+        {
+          "en": "The human organism responds to pathogens by activating the immune system."
+        }
+      ],
+      "example_en": "We studied the concept of organism yesterday.",
+      "example_sk": "Včera sme študovali pojem organizmus.",
+      "id": "7e338f73-2f43-45da-9d95-1eee85ee9b4a"
+    }
+  ]
+}

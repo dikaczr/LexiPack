@@ -1,0 +1,480 @@
+{
+  "packId": "71909365-649b-4563-b59f-2980e3b161db",
+  "name": "Veda a technika - časť 1.",
+  "description": "Základné pojmy vo vede a technike.",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "B1",
+  "category": "science",
+  "icon": "📘",
+  "author": "Techdoc",
+  "version": "1.0",
+  "tags": [],
+  "words": [
+    {
+      "word": "analysis",
+      "phonetic": "/əˈnæl.ɪ.sɪs/",
+      "translation": "analýza",
+      "definition": "A detailed examination of something.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "The analysis is important in this field.",
+          "sk": "Analýza je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "The research paper discussed the importance of analysis in modern science.",
+          "sk": "Výskumný článok diskutoval o význame analýza v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A chemical analysis of a soil sample can reveal past contamination or land use."
+        },
+        {
+          "en": "Statistical analysis methods allow patterns to be identified in large datasets."
+        }
+      ],
+      "example_en": "The analysis is important in this field.",
+      "example_sk": "Analýza je v tejto oblasti dôležitý.",
+      "id": "0e5e0f5b-277c-4811-8b2a-5ae9970b5964"
+    },
+    {
+      "word": "cell",
+      "phonetic": "/sel/",
+      "translation": "bunka",
+      "definition": "The smallest unit of a living organism.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how cell works.",
+          "sk": "Tento experiment ukazuje, ako funguje bunka."
+        },
+        {
+          "en": "The research paper discussed the importance of cell in modern science.",
+          "sk": "Výskumný článok diskutoval o význame bunka v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Stem cell research investigates how undifferentiated cells develop into specialised tissue cells."
+        },
+        {
+          "en": "Cancer research focuses on identifying which mutations turn a normal cell into a cancerous one."
+        }
+      ],
+      "example_en": "This experiment shows how cell works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje bunka.",
+      "id": "af571973-8b37-4a87-9d69-7153c748be30"
+    },
+    {
+      "word": "chemical",
+      "phonetic": "/ˈkem.ɪ.kəl/",
+      "translation": "chemický, chemikália",
+      "definition": "Relating to chemistry or a substance used in chemistry.",
+      "type": "adj",
+      "level": "B1",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding chemical is essential.",
+          "sk": "Pochopenie pojmu chemický je nevyhnutné."
+        },
+        {
+          "en": "The research paper discussed the importance of chemical in modern science.",
+          "sk": "Výskumný článok diskutoval o význame chemický v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A chemically pure sample contains only the desired substance with no impurities."
+        },
+        {
+          "en": "Chemically speaking, water is a polar compound with an unusually high boiling point."
+        }
+      ],
+      "example_en": "Understanding chemical is essential.",
+      "example_sk": "Pochopenie pojmu chemický je nevyhnutné.",
+      "id": "c3341b40-aa50-4fa7-b563-7948e8633609"
+    },
+    {
+      "word": "conclusion",
+      "phonetic": "/kənˈkluː.ʒən/",
+      "translation": "záver",
+      "definition": "A judgment reached after considering evidence.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding conclusion is essential.",
+          "sk": "Pochopenie pojmu záver je nevyhnutné."
+        },
+        {
+          "en": "The research paper discussed the importance of conclusion in modern science.",
+          "sk": "Výskumný článok diskutoval o význame záver v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A conclusion must follow logically from the available data to be scientifically valid."
+        },
+        {
+          "en": "The researchers presented their conclusion at the conference and discussed it with colleagues."
+        }
+      ],
+      "example_en": "Understanding conclusion is essential.",
+      "example_sk": "Pochopenie pojmu záver je nevyhnutné.",
+      "id": "c5c596b4-1e12-426d-aca4-ea739193e845"
+    },
+    {
+      "word": "data",
+      "phonetic": "/ˈdeɪ.tə/",
+      "translation": "dáta, údaje",
+      "definition": "Facts and figures collected for study or analysis.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term data.",
+          "sk": "Učiteľ vysvetlil pojem dáta."
+        },
+        {
+          "en": "The research paper discussed the importance of data in modern science.",
+          "sk": "Výskumný článok diskutoval o význame dáta v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Big data technologies enable the processing and analysis of vast amounts of data in real time."
+        },
+        {
+          "en": "Scientific data must be reproducible and transparent so that other researchers can verify it."
+        }
+      ],
+      "example_en": "The teacher explained the term data.",
+      "example_sk": "Učiteľ vysvetlil pojem dáta.",
+      "id": "c534baa0-7c4f-4ee5-b9d8-56136d770d2e"
+    },
+    {
+      "word": "element",
+      "phonetic": "/ˈel.ɪ.mənt/",
+      "translation": "prvok, element",
+      "definition": "A basic substance that cannot be broken down chemically.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding element is essential.",
+          "sk": "Pochopenie pojmu prvok je nevyhnutné."
+        },
+        {
+          "en": "The research paper discussed the importance of element in modern science.",
+          "sk": "Výskumný článok diskutoval o význame prvok v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Transuranic elements are artificially created and heavier than uranium."
+        },
+        {
+          "en": "Spectral analysis makes it possible to identify an element by the light it emits."
+        }
+      ],
+      "example_en": "Understanding element is essential.",
+      "example_sk": "Pochopenie pojmu prvok je nevyhnutné.",
+      "id": "94247d19-8889-479f-a7d5-18a54177a434"
+    },
+    {
+      "word": "energy",
+      "phonetic": "/ˈen.ə.dʒi/",
+      "translation": "energia",
+      "definition": "The capacity to do work or produce change.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term energy.",
+          "sk": "Učiteľ vysvetlil pojem energia."
+        },
+        {
+          "en": "The research paper discussed the importance of energy in modern science.",
+          "sk": "Výskumný článok diskutoval o význame energia v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Nuclear energy harnesses the energy released when heavy atomic nuclei are split."
+        },
+        {
+          "en": "How to store energy more efficiently is one of the most important questions in current research."
+        }
+      ],
+      "example_en": "The teacher explained the term energy.",
+      "example_sk": "Učiteľ vysvetlil pojem energia.",
+      "id": "60e42f9c-6643-487c-9a37-872bd0833d11"
+    },
+    {
+      "word": "evidence",
+      "phonetic": "/ˈev.ɪ.dəns/",
+      "translation": "dôkaz, dôkazy",
+      "definition": "Information showing whether something is true.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how evidence works.",
+          "sk": "Tento experiment ukazuje, ako funguje dôkaz."
+        },
+        {
+          "en": "The research paper discussed the importance of evidence in modern science.",
+          "sk": "Výskumný článok diskutoval o význame dôkaz v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Fossils provide direct evidence for the existence of species that went extinct long ago."
+        },
+        {
+          "en": "A mathematical proof is considered absolutely certain as long as the axioms and logic are correct."
+        }
+      ],
+      "example_en": "This experiment shows how evidence works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje dôkaz.",
+      "id": "c40c7b36-c75d-4f53-b287-8cb74b93f298"
+    },
+    {
+      "word": "experiment",
+      "phonetic": "/ɪkˈsper.ɪ.mənt/",
+      "translation": "experiment, pokus",
+      "definition": "A scientific test carried out to discover something.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how experiment works.",
+          "sk": "Tento experiment ukazuje, ako funguje experiment."
+        },
+        {
+          "en": "The research paper discussed the importance of experiment in modern science.",
+          "sk": "Výskumný článok diskutoval o význame experiment v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The double-slit experiment is considered one of the most elegant experiments in physics."
+        },
+        {
+          "en": "Placebo-controlled experiments are the gold standard in clinical research."
+        }
+      ],
+      "example_en": "This experiment shows how experiment works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje experiment.",
+      "id": "1e482920-596c-4aa3-aad5-e8790d33358d"
+    },
+    {
+      "word": "hypothesis",
+      "phonetic": "/haɪˈpɒθ.ə.sɪs/",
+      "translation": "hypotéza",
+      "definition": "A proposed explanation based on limited evidence.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "The hypothesis is important in this field.",
+          "sk": "Hypotéza je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "The research paper discussed the importance of hypothesis in modern science.",
+          "sk": "Výskumný článok diskutoval o význame hypotéza v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A good hypothesis is falsifiable – it must be possible to disprove it through experiments."
+        },
+        {
+          "en": "After the original hypothesis failed, the researchers formulated a new, refined version."
+        }
+      ],
+      "example_en": "The hypothesis is important in this field.",
+      "example_sk": "Hypotéza je v tejto oblasti dôležitý.",
+      "id": "ce15f466-fc0b-4340-9a35-ad1ac0d312d4"
+    },
+    {
+      "word": "laboratory",
+      "phonetic": "/ləˈbɒr.ə.tər.i/",
+      "translation": "laboratórium",
+      "definition": "A room equipped for scientific research or testing.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding laboratory is essential.",
+          "sk": "Pochopenie pojmu laboratórium je nevyhnutné."
+        },
+        {
+          "en": "The research paper discussed the importance of laboratory in modern science.",
+          "sk": "Výskumný článok diskutoval o význame laboratórium v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Biosafety level 4 laboratories study the most dangerous known pathogens."
+        },
+        {
+          "en": "Many of the most important scientific discoveries were initially made by accident in a laboratory."
+        }
+      ],
+      "example_en": "Understanding laboratory is essential.",
+      "example_sk": "Pochopenie pojmu laboratórium je nevyhnutné.",
+      "id": "59fc5665-2f13-4302-9e7b-c1113b86ba0c"
+    },
+    {
+      "word": "molecule",
+      "phonetic": "/ˈmɒl.ɪ.kjuːl/",
+      "translation": "molekula",
+      "definition": "The smallest unit of a chemical compound.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how molecule works.",
+          "sk": "Tento experiment ukazuje, ako funguje molekula."
+        },
+        {
+          "en": "The research paper discussed the importance of molecule in modern science.",
+          "sk": "Výskumný článok diskutoval o význame molekula v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The structure of the insulin molecule was the first protein to be fully resolved by X-ray crystallography."
+        },
+        {
+          "en": "Mass spectrometry can determine the precise mass of a molecule."
+        }
+      ],
+      "example_en": "This experiment shows how molecule works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje molekula.",
+      "id": "f3e1bd8e-666d-475d-94b0-62e0ad6af8d4"
+    },
+    {
+      "word": "observe",
+      "phonetic": "/əbˈzɜːv/",
+      "translation": "pozorovať",
+      "definition": "To watch carefully in order to learn something.",
+      "type": "verb",
+      "level": "B1",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term observe.",
+          "sk": "Učiteľ vysvetlil pojem pozorovať."
+        },
+        {
+          "en": "The research paper discussed the importance of observe in modern science.",
+          "sk": "Výskumný článok diskutoval o význame pozorovať v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Astronomers observe distant galaxies using radio telescopes that detect radio waves."
+        },
+        {
+          "en": "Scientists observe the migration behaviour of birds using small GPS transmitters."
+        }
+      ],
+      "example_en": "The teacher explained the term observe.",
+      "example_sk": "Učiteľ vysvetlil pojem pozorovať.",
+      "id": "5fe42060-52ee-4e9f-b106-4965005bcb98"
+    },
+    {
+      "word": "research",
+      "phonetic": "/rɪˈsɜːtʃ/",
+      "translation": "výskum, skúmať",
+      "definition": "Careful study intended to discover new facts.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term research.",
+          "sk": "Učiteľ vysvetlil pojem výskum."
+        },
+        {
+          "en": "The research paper discussed the importance of research in modern science.",
+          "sk": "Výskumný článok diskutoval o význame výskum v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Basic research aims to advance understanding rather than to produce immediate practical results."
+        },
+        {
+          "en": "Interdisciplinary research combines methods and knowledge from several different fields."
+        }
+      ],
+      "example_en": "The teacher explained the term research.",
+      "example_sk": "Učiteľ vysvetlil pojem výskum.",
+      "id": "59d8ed37-8090-4785-9dfa-acc159a1ddb7"
+    },
+    {
+      "word": "theory",
+      "phonetic": "/ˈθɪə.ri/",
+      "translation": "teória",
+      "definition": "A set of ideas intended to explain something.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "science",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term theory.",
+          "sk": "Učiteľ vysvetlil pojem teória."
+        },
+        {
+          "en": "The research paper discussed the importance of theory in modern science.",
+          "sk": "Výskumný článok diskutoval o význame teória v modernej vede."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The theory of evolution is one of the best-supported theories in the history of biology."
+        },
+        {
+          "en": "In science, a theory is not a guess but a well-evidenced explanatory framework."
+        }
+      ],
+      "example_en": "The teacher explained the term theory.",
+      "example_sk": "Učiteľ vysvetlil pojem teória.",
+      "id": "d00c6f7e-152a-4341-8924-75bf6141c547"
+    }
+  ]
+}

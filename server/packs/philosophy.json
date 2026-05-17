@@ -1,0 +1,422 @@
+﻿[
+    {
+        "word":  "ethics",
+        "phonetic":  "/ˈeθ.ɪks/",
+        "translation":  "etika",
+        "definition":  "The study of moral principles and right behaviour.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The ethics is important in this field.",
+                             "sk":  "Etika je v tejto oblasti dôležitý."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of ethics and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem etika a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Kant\u0027s ethics are based on the categorical imperative: act only according to principles you would want to be universal laws."
+                                 },
+                                 {
+                                     "en":  "Utilitarian ethics judges actions by whether they maximise the well-being of the greatest number of people."
+                                 }
+                             ]
+    },
+    {
+        "word":  "logic",
+        "phonetic":  "/ˈlɒdʒ.ɪk/",
+        "translation":  "logika",
+        "definition":  "A method of reasoning based on clear principles.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The teacher explained the term logic.",
+                             "sk":  "Učiteľ vysvetlil pojem logika."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of logic and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem logika a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Formal logic, as developed by Aristotle, remains the foundation of mathematics to this day."
+                                 },
+                                 {
+                                     "en":  "An argument is logically valid if its conclusion follows necessarily from its premises."
+                                 }
+                             ]
+    },
+    {
+        "word":  "reason",
+        "phonetic":  "/ˈriː.zən/",
+        "translation":  "rozum, dôvod",
+        "definition":  "The power of thinking and making judgments.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "Understanding reason is essential.",
+                             "sk":  "Pochopenie pojmu rozum je nevyhnutné."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of reason and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem rozum a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The Enlightenment championed reason as the path to freedom from ignorance and superstition."
+                                 },
+                                 {
+                                     "en":  "Plato distinguished between sensory perception and pure reason as two distinct sources of knowledge."
+                                 }
+                             ]
+    },
+    {
+        "word":  "virtue",
+        "phonetic":  "/ˈvɜː.tʃuː/",
+        "translation":  "cnosť",
+        "definition":  "A good moral quality or habit.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "Understanding virtue is essential.",
+                             "sk":  "Pochopenie pojmu cnosť je nevyhnutné."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of virtue and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem cnosť a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "In ancient philosophy, wisdom, justice, courage, and temperance were seen as the four cardinal virtues."
+                                 },
+                                 {
+                                     "en":  "According to Aristotle, virtuous behaviour is the result of habit and practice, not just knowledge."
+                                 }
+                             ]
+    },
+    {
+        "word":  "justice",
+        "phonetic":  "/ˈdʒʌs.tɪs/",
+        "translation":  "spravodlivosť",
+        "definition":  "Fair treatment according to what is right.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "We studied the concept of justice yesterday.",
+                             "sk":  "Včera sme študovali pojem spravodlivosť."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of justice and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem spravodlivosť a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "John Rawls developed an influential theory of justice based on the concept of the veil of ignorance."
+                                 },
+                                 {
+                                     "en":  "Plato devoted his most famous dialogue, the Republic, to the concept of justice."
+                                 }
+                             ]
+    },
+    {
+        "word":  "truth",
+        "phonetic":  "/truːθ/",
+        "translation":  "pravda",
+        "definition":  "The quality of being true or in accordance with facts.",
+        "type":  "noun",
+        "level":  "B1",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "Understanding truth is essential.",
+                             "sk":  "Pochopenie pojmu pravda je nevyhnutné."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of truth and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem pravda a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The correspondence theory holds that a statement is true if it matches reality."
+                                 },
+                                 {
+                                     "en":  "Nietzsche questioned truth as an absolute value, viewing it as something perspective-dependent."
+                                 }
+                             ]
+    },
+    {
+        "word":  "knowledge",
+        "phonetic":  "/ˈnɒl.ɪdʒ/",
+        "translation":  "poznanie",
+        "definition":  "Information and understanding gained through study or experience.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "Understanding knowledge is essential.",
+                             "sk":  "Pochopenie pojmu poznanie je nevyhnutné."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of knowledge and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem poznanie a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Socrates believed that admitting ignorance was the first step towards genuine knowledge."
+                                 },
+                                 {
+                                     "en":  "The limits of human knowledge are a central theme in Kant\u0027s Critique of Pure Reason."
+                                 }
+                             ]
+    },
+    {
+        "word":  "consciousness",
+        "phonetic":  "/ˈkɒn.ʃəs.nəs/",
+        "translation":  "vedomie",
+        "definition":  "The state of being aware of yourself and the world.",
+        "type":  "noun",
+        "level":  "C1",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "This experiment shows how consciousness works.",
+                             "sk":  "Tento experiment ukazuje, ako funguje vedomie."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of consciousness and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem vedomie a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The question of how consciousness arises from physical brain processes is called the \"Hard Problem\"."
+                                 },
+                                 {
+                                     "en":  "René Descartes viewed consciousness as an immaterial substance separate from the body."
+                                 }
+                             ]
+    },
+    {
+        "word":  "existence",
+        "phonetic":  "/ɪɡˈzɪs.təns/",
+        "translation":  "existencia",
+        "definition":  "The state of being real or alive.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "This experiment shows how existence works.",
+                             "sk":  "Tento experiment ukazuje, ako funguje existencia."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of existence and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem existencia a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Jean-Paul Sartre coined the phrase \"existence precedes essence\" as the core idea of existentialism."
+                                 },
+                                 {
+                                     "en":  "The question of why there is something rather than nothing is one of the oldest in philosophy."
+                                 }
+                             ]
+    },
+    {
+        "word":  "free will",
+        "phonetic":  "/ˌfriː ˈwɪl/",
+        "translation":  "slobodná vôľa",
+        "definition":  "The ability to choose actions independently.",
+        "type":  "noun",
+        "level":  "C1",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "Understanding free will is essential.",
+                             "sk":  "Pochopenie pojmu slobodná vôľa je nevyhnutné."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of free will and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem slobodná vôľa a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Determinists deny free will on the grounds that every event is caused by prior conditions."
+                                 },
+                                 {
+                                     "en":  "Compatibilists argue that free will and determinism are not mutually exclusive."
+                                 }
+                             ]
+    },
+    {
+        "word":  "metaphysics",
+        "phonetic":  "/ˌmet.əˈfɪz.ɪks/",
+        "translation":  "metafyzika",
+        "definition":  "The branch of philosophy about reality and existence.",
+        "type":  "noun",
+        "level":  "C1",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "This experiment shows how metaphysics works.",
+                             "sk":  "Tento experiment ukazuje, ako funguje metafyzika."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of metaphysics and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem metafyzika a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Metaphysics asks fundamental questions such as: What is reality? What is time? What is identity?"
+                                 },
+                                 {
+                                     "en":  "Kant\u0027s Critique of Pure Reason attempted to define the scope and limits of metaphysics."
+                                 }
+                             ]
+    },
+    {
+        "word":  "epistemology",
+        "phonetic":  "/ɪˌpɪs.tɪˈmɒl.ə.dʒi/",
+        "translation":  "epistemológia",
+        "definition":  "The branch of philosophy that studies knowledge.",
+        "type":  "noun",
+        "level":  "C1",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "We studied the concept of epistemology yesterday.",
+                             "sk":  "Včera sme študovali pojem epistemológia."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of epistemology and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem epistemológia a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Epistemology asks: how do we know what we think we know?"
+                                 },
+                                 {
+                                     "en":  "David Hume\u0027s empiricist epistemology argues that all knowledge ultimately comes from experience."
+                                 }
+                             ]
+    },
+    {
+        "word":  "argument",
+        "phonetic":  "/ˈɑː.ɡjə.mənt/",
+        "translation":  "argument",
+        "definition":  "A set of reasons given to support a conclusion.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "This experiment shows how argument works.",
+                             "sk":  "Tento experiment ukazuje, ako funguje argument."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of argument and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem argument a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The ontological argument for the existence of God was proposed by Anselm of Canterbury in the 11th century."
+                                 },
+                                 {
+                                     "en":  "A strong argument convinces not only through logic but also through true and relevant premises."
+                                 }
+                             ]
+    },
+    {
+        "word":  "belief",
+        "phonetic":  "/bɪˈliːf/",
+        "translation":  "presvedčenie",
+        "definition":  "A strong feeling that something is true.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The teacher explained the term belief.",
+                             "sk":  "Učiteľ vysvetlil pojem presvedčenie."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of belief and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem presvedčenie a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "A justified true belief was long considered the standard definition of knowledge until Gettier challenged it."
+                                 },
+                                 {
+                                     "en":  "Philosophers distinguish between a belief one holds and a belief one is rationally entitled to hold."
+                                 }
+                             ]
+    },
+    {
+        "word":  "meaning",
+        "phonetic":  "/ˈmiː.nɪŋ/",
+        "translation":  "zmysel, význam",
+        "definition":  "The idea or purpose that something expresses.",
+        "type":  "noun",
+        "level":  "B1",
+        "topic":  "philosophy",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "This experiment shows how meaning works.",
+                             "sk":  "Tento experiment ukazuje, ako funguje zmysel."
+                         },
+                         {
+                             "en":  "The debate focused on the concept of meaning and its role in human decision-making.",
+                             "sk":  "Diskusia sa zamerala na pojem zmysel a jeho úlohu v rozhodovaní človeka."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "According to Viktor Frankl, the search for meaning is the deepest driving force in human life."
+                                 },
+                                 {
+                                     "en":  "Camus argued that life has no inherent meaning, but that we can create our own."
+                                 }
+                             ]
+    }
+]

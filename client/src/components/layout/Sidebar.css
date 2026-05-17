@@ -1,0 +1,94 @@
+.sidebar {
+  width: 220px;
+  border-right: 1px solid var(--app-border);
+  background: var(--app-chrome);
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.sidebar-nav {
+  margin-top: auto;
+}
+
+.sidebar-button {
+  height: 42px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--app-text);
+  text-align: left;
+  padding: 0 14px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+  border-bottom: 1px solid var(--app-border-faint);
+}
+
+.sidebar-button:hover {
+  background: var(--app-nav-hov);
+}
+
+.sidebar-button.active {
+  background: var(--app-nav-act);
+}
+
+.sidebar-filter {
+  margin-top: 19.3vh;
+  padding: 0 8px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-grid-search {
+  margin-top: 19.3vh;
+  margin-bottom: 0.6vh;
+  padding-top: 10px;
+}
+
+.sidebar-filter-clear {
+  background: transparent;
+  border: none;
+  color: var(--app-text2);
+  cursor: pointer;
+  font-size: 14px;
+  align-self: flex-end;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.sidebar-filter-clear:hover {
+  color: var(--app-text);
+}
+
+.sidebar-filter-label {
+  font-size: 10px;
+  color: var(--app-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.sidebar-filter-input {
+  background: var(--app-input);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 5px;
+  color: var(--app-text2);
+  font-size: 12px;
+  padding: 5px 8px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.sidebar-filter-input:focus {
+  border-color: var(--app-accent);
+}
+
+.sidebar-filter-input option {
+  background: var(--app-panel);
+}

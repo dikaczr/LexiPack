@@ -1,0 +1,84 @@
+.nbell-wrap {
+  position: relative;
+}
+
+.nbell-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--app-border-sub);
+  border-radius: 8px;
+  color: var(--app-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.nbell-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.nbell-btn:hover,
+.nbell-wrap.open .nbell-btn {
+  background: var(--app-nav-hov);
+  color: var(--app-text2);
+  border-color: var(--app-border-sub);
+}
+
+.nbell-btn.has-notif {
+  color: var(--app-text2);
+  border-color: var(--app-accent);
+}
+
+/* červená bodka */
+.nbell-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 7px;
+  height: 7px;
+  background: #ff4d4d;
+  border-radius: 50%;
+  border: 1.5px solid var(--app-chrome);
+}
+
+/* dropdown panel */
+.nbell-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 280px;
+  background: var(--app-panel);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  z-index: 500;
+  overflow: hidden;
+  animation: nbellFade 0.12s ease;
+}
+
+@keyframes nbellFade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.nbell-header {
+  padding: 12px 16px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--app-muted);
+  border-bottom: 1px solid var(--app-border-sub);
+}
+
+.nbell-empty {
+  padding: 24px 16px;
+  font-size: 13px;
+  color: var(--app-muted);
+  text-align: center;
+}

@@ -1,11 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useRef, useEffect } from "react";
 import { AgGridReact } from "ag-grid-react";
-import {
-  ModuleRegistry,
-  AllCommunityModule,
-  themeQuartz,
-  colorSchemeDark,
-} from "ag-grid-community";
+import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -18,20 +15,53 @@ function PackGrid({
   gridRef,
   setGridApi,
   saveHistory,
+  setFilteredCount,
+  onCellContextMenu,
+  wordReviews = [],
 }) {
+  const selectedIdsRef = useRef(new Set());
+
+  useEffect(() => {
+    gridRef.current?.api?.redrawRows();
+  }, [selectedRowIndex]);
+
   const columnDefs = useMemo(
     () => [
+      {
+        headerName: "",
+        field: "_approved",
+        width: 44,
+        minWidth: 44,
+        maxWidth: 44,
+        editable: false,
+        sortable: false,
+        filter: false,
+        resizable: false,
+        suppressMovable: true,
+        cellStyle: { textAlign: "center", padding: 0 },
+        cellRenderer: (params) => {
+          const id = params.data?.id;
+          const reviews = wordReviews.filter((r) => r.word_id === id);
+          const hasOk   = reviews.some((r) => r.action === "OK");
+          const hasFlag = reviews.some((r) => r.action === "FLAG");
+          if (hasOk)   return <span title="Schválené">✅</span>;
+          if (hasFlag) return <span title="Problém">🚩</span>;
+          return <span title="Neoverené" style={{ opacity: 0.3, fontSize: 13 }}>⬜</span>;
+        },
+      },
       {
         headerName: "Word",
         field: "word",
         editable: true,
-        minWidth: 110,
+        minWidth: 90,
+        cellStyle: { textAlign: "left" },
       },
       {
         headerName: "Translation",
         field: "translation",
         editable: true,
-        minWidth: 110,
+        minWidth: 90,
+        cellStyle: { textAlign: "left" },
       },
       {
         headerName: "Article",
@@ -43,26 +73,28 @@ function PackGrid({
         headerName: "Phonetic",
         field: "phonetic",
         editable: true,
-        minWidth: 100,
+        minWidth: 102,
+        cellStyle: { textAlign: "left" },
       },
       {
         headerName: "Type",
         field: "type",
         editable: true,
-        width: 100,
+        width: 90,
       },
       {
         headerName: "Definition",
         field: "definition",
         editable: true,
-        minWidth: 260,
+        minWidth: 240,
         flex: 1,
+        cellStyle: { textAlign: "left" },
       },
       {
         headerName: "Level",
         field: "level",
         editable: true,
-        width: 100,
+        width: 90,
       },
       {
         headerName: "Example EN",
@@ -80,10 +112,10 @@ function PackGrid({
         headerName: "Topic",
         field: "topic",
         editable: true,
-        width: 140,
+        width: 120,
       },
     ],
-    [],
+    [wordReviews],
   );
 
   const defaultColDef = useMemo(
@@ -91,33 +123,33 @@ function PackGrid({
       sortable: true,
       filter: true,
       resizable: true,
+      cellStyle: { textAlign: "center" },
     }),
     [],
   );
 
   return (
     <div
-      style={{
-        width: "100%",
-        height: "100%",
-      }}
+      className="ag-theme-alpine-dark pack-grid"
+      onContextMenu={(e) => e.preventDefault()}
     >
       <AgGridReact
-        theme={themeQuartz.withPart(colorSchemeDark)}
+        theme="legacy"
         rowData={rowData}
         ref={gridRef}
+        getRowId={(params) => params.data.id}
         onGridReady={(params) => {
           setGridApi(params.api);
         }}
         rowSelection={{
           mode: "multiRow",
           checkboxes: true,
-          enableClickSelection: true,
+          enableClickSelection: false,
         }}
         columnDefs={columnDefs}
         defaultColDef={defaultColDef}
-        rowHeight={36}
-        headerHeight={40}
+        rowHeight={26}
+        headerHeight={34}
         singleClickEdit={true}
         onCellKeyDown={(event) => {
           if (event.event.key !== "Enter") {
@@ -161,56 +193,54 @@ function PackGrid({
             colKey: nextColumnId,
           });
         }}
+        onCellContextMenu={(event) => {
+          event.event.preventDefault();
+          onCellContextMenu?.({
+            x: event.event.clientX,
+            y: event.event.clientY,
+            field: event.colDef.field,
+            rowData: event.data,
+          });
+        }}
         onRowClicked={(event) => {
           setSelectedRowIndex(event.rowIndex);
         }}
         onCellEditingStarted={() => {
           saveHistory();
         }}
-        getRowStyle={(params) => {
+        onCellValueChanged={(event) => {
+          const { _sel, ...data } = event.data;
+          setRows((prev) =>
+            prev.map((row) => (row.id === data.id ? { ...data } : row)),
+          );
+        }}
+        getRowClass={(params) => {
           const row = params.data;
           const normalizedWord = row.word?.trim().toLowerCase();
           const duplicateCount = rowData.filter(
             (r) => r.word?.trim().toLowerCase() === normalizedWord,
           ).length;
-
           const isDuplicate = normalizedWord && duplicateCount > 1;
+          const isChecked = selectedIdsRef.current.has(row.id);
           const missingRequiredField =
-            !row.word ||
-            !row.translation ||
-            !row.definition ||
-            !row.type ||
-            !row.level ||
-            !row.example_en ||
-            !row.example_sk ||
-            !row.topic;
+            !row.word || !row.translation || !row.definition ||
+            !row.type || !row.level || !row.example_en ||
+            !row.example_sk || !row.topic;
 
-          if (isDuplicate) {
-            return {
-              background: "#78350f",
-              color: "#fde68a",
-            };
-          }
-          if (params.rowIndex === selectedRowIndex) {
-            return {
-              background: "#1d4ed8",
-              color: "white",
-            };
-          }
-
-          if (missingRequiredField) {
-            return {
-              background: "#3f1d1d",
-              color: "#fecaca",
-            };
-          }
-
+          if (isDuplicate)                       return "row-duplicate";
+          if (params.rowIndex === selectedRowIndex) return "row-selected";
+          if (isChecked)                         return "row-checked";
+          if (missingRequiredField)              return "row-invalid";
           return null;
+        }}
+        onFilterChanged={(event) => {
+          setFilteredCount(event.api.getDisplayedRowCount());
         }}
         onSelectionChanged={(event) => {
           const selected = event.api.getSelectedRows();
-
-          setSelectedRows(selected);
+          selectedIdsRef.current = new Set(selected.map((r) => r.id));
+          event.api.redrawRows();
+          setSelectedRows(selected.map(({ _sel, ...r }) => r));
         }}
       />
     </div>

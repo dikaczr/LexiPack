@@ -1,0 +1,123 @@
+.settings-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 680px;
+}
+
+.settings-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--app-text2);
+  flex-shrink: 0;
+}
+
+.setting-section {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--app-border-sub);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.setting-section-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--app-muted);
+  background: var(--app-chrome);
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--app-border-sub);
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--app-border-faint);
+  gap: 24px;
+  background: var(--app-panel);
+}
+
+.setting-row:last-child {
+  border-bottom: none;
+}
+
+.setting-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.setting-label {
+  font-size: 14px;
+  color: var(--app-text2);
+  text-align: left;
+}
+
+.setting-desc {
+  font-size: 12px;
+  color: var(--app-muted);
+  text-align: left;
+}
+
+.setting-control {
+  flex-shrink: 0;
+}
+
+.setting-select {
+  background: var(--app-input);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 6px;
+  color: var(--app-text2);
+  font-size: 13px;
+  padding: 6px 10px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  min-width: 160px;
+}
+
+.setting-select:focus {
+  border-color: var(--app-accent);
+}
+
+.setting-select option {
+  background: var(--app-panel);
+}
+
+.setting-input {
+  background: var(--app-input);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 6px;
+  color: var(--app-text2);
+  font-size: 13px;
+  padding: 6px 10px;
+  outline: none;
+  transition: border-color 0.2s;
+  min-width: 280px;
+}
+
+.setting-input:focus {
+  border-color: var(--app-accent);
+}
+
+.setting-input::placeholder {
+  color: var(--app-muted);
+}
+
+.setting-browse-btn {
+  background: var(--app-nav-hov);
+  border: 1px solid var(--app-border);
+  border-radius: 6px;
+  padding: 5px 9px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--app-text2);
+}
+
+.setting-browse-btn:hover {
+  background: var(--app-nav-act);
+}

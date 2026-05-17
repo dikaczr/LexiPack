@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3001/api";
+import { API_BASE } from "../config";
+const API_URL = `${API_BASE}/api`;
 
 async function requestWithRetry(requestFn, retries = 3) {
   for (let attempt = 1; attempt <= retries; attempt++) {

@@ -1,0 +1,422 @@
+﻿[
+    {
+        "word":  "continent",
+        "phonetic":  "/ˈkɒn.tɪ.nənt/",
+        "translation":  "kontinent",
+        "definition":  "One of the main large land areas of the Earth.",
+        "type":  "noun",
+        "level":  "B1",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "We studied the concept of continent yesterday.",
+                             "sk":  "Včera sme študovali pojem kontinent."
+                         },
+                         {
+                             "en":  "The map shows how the continent shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako kontinent formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The seven continents are Asia, Africa, North America, South America, Antarctica, Europe, and Australia."
+                                 },
+                                 {
+                                     "en":  "The continent of Australia is sometimes referred to as Oceania when the Pacific islands are included."
+                                 }
+                             ]
+    },
+    {
+        "word":  "peninsula",
+        "phonetic":  "/pəˈnɪn.sjʊ.lə/",
+        "translation":  "polostrov",
+        "definition":  "A piece of land almost surrounded by water.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "We studied the concept of peninsula yesterday.",
+                             "sk":  "Včera sme študovali pojem polostrov."
+                         },
+                         {
+                             "en":  "The map shows how the peninsula shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako polostrov formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The Scandinavian peninsula stretches across Norway, Sweden, and the north of Finland."
+                                 },
+                                 {
+                                     "en":  "The Korean peninsula is divided between North Korea in the north and South Korea in the south."
+                                 }
+                             ]
+    },
+    {
+        "word":  "equator",
+        "phonetic":  "/ɪˈkweɪ.tə/",
+        "translation":  "rovník",
+        "definition":  "The imaginary line around the middle of the Earth.",
+        "type":  "noun",
+        "level":  "B1",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "This experiment shows how equator works.",
+                             "sk":  "Tento experiment ukazuje, ako funguje rovník."
+                         },
+                         {
+                             "en":  "The map shows how the equator shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako rovník formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Countries on the equator, such as Ecuador and Kenya, experience no distinct seasons."
+                                 },
+                                 {
+                                     "en":  "The equator is approximately 40,075 kilometres long and is the longest line of latitude."
+                                 }
+                             ]
+    },
+    {
+        "word":  "latitude",
+        "phonetic":  "/ˈlæt.ɪ.tjuːd/",
+        "translation":  "zemepisná šírka",
+        "definition":  "The distance north or south of the equator.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The latitude is important in this field.",
+                             "sk":  "Zemepisná šírka je v tejto oblasti dôležitý."
+                         },
+                         {
+                             "en":  "The map shows how the latitude shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako zemepisná šírka formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The 60th parallel north passes through cities such as Oslo, Helsinki, and St. Petersburg."
+                                 },
+                                 {
+                                     "en":  "The higher the latitude, the farther a location is from the equator."
+                                 }
+                             ]
+    },
+    {
+        "word":  "longitude",
+        "phonetic":  "/ˈlɒn.dʒɪ.tjuːd/",
+        "translation":  "zemepisná dĺžka",
+        "definition":  "The distance east or west of the prime meridian.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The longitude is important in this field.",
+                             "sk":  "Zemepisná dĺžka je v tejto oblasti dôležitý."
+                         },
+                         {
+                             "en":  "The map shows how the longitude shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako zemepisná dĺžka formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Lines of longitude run from pole to pole and cross the equator at right angles."
+                                 },
+                                 {
+                                     "en":  "A difference of 15 degrees of longitude corresponds to a time difference of one hour."
+                                 }
+                             ]
+    },
+    {
+        "word":  "climate",
+        "phonetic":  "/ˈklaɪ.mət/",
+        "translation":  "podnebie, klíma",
+        "definition":  "The usual weather conditions in a region over time.",
+        "type":  "noun",
+        "level":  "B1",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The climate is important in this field.",
+                             "sk":  "Podnebie je v tejto oblasti dôležitý."
+                         },
+                         {
+                             "en":  "The map shows how the climate shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako podnebie formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The climate of a place is influenced by factors such as latitude, altitude, and ocean currents."
+                                 },
+                                 {
+                                     "en":  "Continental climate, as found in Siberia, is characterised by very hot summers and extremely cold winters."
+                                 }
+                             ]
+    },
+    {
+        "word":  "glacier",
+        "phonetic":  "/ˈɡlæs.i.ə/",
+        "translation":  "ľadovec",
+        "definition":  "A large slow-moving mass of ice on land.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "This experiment shows how glacier works.",
+                             "sk":  "Tento experiment ukazuje, ako funguje ľadovec."
+                         },
+                         {
+                             "en":  "The map shows how the glacier shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako ľadovec formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Glaciers flow slowly downhill, shaped over thousands of years by the weight of the ice above."
+                                 },
+                                 {
+                                     "en":  "The melting of glaciers contributes to rising sea levels and threatens coastal regions."
+                                 }
+                             ]
+    },
+    {
+        "word":  "volcano",
+        "phonetic":  "/vɒlˈkeɪ.nəʊ/",
+        "translation":  "sopka",
+        "definition":  "A mountain that can erupt with lava and ash.",
+        "type":  "noun",
+        "level":  "B1",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "Understanding volcano is essential.",
+                             "sk":  "Pochopenie pojmu sopka je nevyhnutné."
+                         },
+                         {
+                             "en":  "The map shows how the volcano shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako sopka formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The eruption of Krakatoa in 1883 caused global temperatures to fall for several years."
+                                 },
+                                 {
+                                     "en":  "Shield volcanoes like those in Hawaii have broad, flat shapes and produce relatively gentle eruptions."
+                                 }
+                             ]
+    },
+    {
+        "word":  "valley",
+        "phonetic":  "/ˈvæl.i/",
+        "translation":  "údolie",
+        "definition":  "A low area of land between hills or mountains.",
+        "type":  "noun",
+        "level":  "A2",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The teacher explained the term valley.",
+                             "sk":  "Učiteľ vysvetlil pojem údolie."
+                         },
+                         {
+                             "en":  "The map shows how the valley shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako údolie formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The Nile Valley in Egypt was the foundation of ancient Egyptian civilisation thanks to its fertile soil."
+                                 },
+                                 {
+                                     "en":  "U-shaped valleys are formed by glaciers, while V-shaped valleys are carved by rivers."
+                                 }
+                             ]
+    },
+    {
+        "word":  "plateau",
+        "phonetic":  "/ˈplæt.əʊ/",
+        "translation":  "náhorná plošina",
+        "definition":  "A large flat area of land that is higher than the land around it.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The plateau is important in this field.",
+                             "sk":  "Náhorná plošina je v tejto oblasti dôležitý."
+                         },
+                         {
+                             "en":  "The map shows how the plateau shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako náhorná plošina formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The Anatolian plateau in Turkey lies at an average altitude of about 1,000 metres."
+                                 },
+                                 {
+                                     "en":  "On the Altiplano plateau in South America lies Lake Titicaca, the highest navigable lake in the world."
+                                 }
+                             ]
+    },
+    {
+        "word":  "delta",
+        "phonetic":  "/ˈdel.tə/",
+        "translation":  "delta",
+        "definition":  "An area of land formed at the mouth of a river.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The delta is important in this field.",
+                             "sk":  "Delta je v tejto oblasti dôležitý."
+                         },
+                         {
+                             "en":  "The map shows how the delta shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako delta formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The Ganges-Brahmaputra Delta is the largest delta in the world, spanning Bangladesh and India."
+                                 },
+                                 {
+                                     "en":  "Deltas are extremely fertile but are vulnerable to flooding and rising sea levels."
+                                 }
+                             ]
+    },
+    {
+        "word":  "coastline",
+        "phonetic":  "/ˈkəʊst.laɪn/",
+        "translation":  "pobrežie",
+        "definition":  "The outline of a coast as seen on a map.",
+        "type":  "noun",
+        "level":  "B1",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "Understanding coastline is essential.",
+                             "sk":  "Pochopenie pojmu pobrežie je nevyhnutné."
+                         },
+                         {
+                             "en":  "The map shows how the coastline shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako pobrežie formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Norway\u0027s coastline is shaped by deep fjords formed by glacial movement during the last Ice Age."
+                                 },
+                                 {
+                                     "en":  "Mangroves along tropical coastlines protect against storm surges and support rich marine habitats."
+                                 }
+                             ]
+    },
+    {
+        "word":  "desert",
+        "phonetic":  "/ˈdez.ət/",
+        "translation":  "púšť",
+        "definition":  "A very dry area of land with little vegetation.",
+        "type":  "noun",
+        "level":  "A2",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "We studied the concept of desert yesterday.",
+                             "sk":  "Včera sme študovali pojem púšť."
+                         },
+                         {
+                             "en":  "The map shows how the desert shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako púšť formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The Atacama Desert in Chile is the driest place on Earth – in some parts it never rains."
+                                 },
+                                 {
+                                     "en":  "Deserts cover about one third of the Earth\u0027s land surface and form in areas with very little rainfall."
+                                 }
+                             ]
+    },
+    {
+        "word":  "population",
+        "phonetic":  "/ˌpɒp.jəˈleɪ.ʃən/",
+        "translation":  "obyvateľstvo",
+        "definition":  "The number of people living in a place.",
+        "type":  "noun",
+        "level":  "B1",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "Understanding population is essential.",
+                             "sk":  "Pochopenie pojmu obyvateľstvo je nevyhnutné."
+                         },
+                         {
+                             "en":  "The map shows how the population shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako obyvateľstvo formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Asia is home to more than half of the world\u0027s total population."
+                                 },
+                                 {
+                                     "en":  "An ageing population poses major challenges for social welfare systems in many industrialised countries."
+                                 }
+                             ]
+    },
+    {
+        "word":  "hemisphere",
+        "phonetic":  "/ˈhem.ɪ.sfɪə/",
+        "translation":  "pologuľa",
+        "definition":  "One half of the Earth divided by the equator or a meridian.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "geography",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The teacher explained the term hemisphere.",
+                             "sk":  "Učiteľ vysvetlil pojem pologuľa."
+                         },
+                         {
+                             "en":  "The map shows how the hemisphere shapes the landscape of the region.",
+                             "sk":  "Mapa ukazuje, ako pologuľa formuje krajinu regiónu."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "In the Southern Hemisphere, seasons are reversed – it is summer in December and winter in June."
+                                 },
+                                 {
+                                     "en":  "The Western Hemisphere includes North and South America as well as parts of Europe and Africa."
+                                 }
+                             ]
+    }
+]

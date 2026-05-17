@@ -1,0 +1,209 @@
+{
+  "packId": "philosophy-b2",
+  "name": "Filozofia - ďalšie slová B2",
+  "description": "Odborná anglická slovná zásoba z oblasti filozofie",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "B2",
+  "category": "Philosophy",
+  "icon": "🦠",
+  "author": "doc. Jana Nováková, PhD.",
+  "version": "1.2",
+  "tags": [
+    "science",
+    "philosophy",
+    "academic",
+    "medical"
+  ],
+  "createdAt": "2026-05-15T13:04:59.825Z",
+  "words": [
+    {
+      "word": "belief",
+      "phonetic": "/bɪˈliːf/",
+      "translation": "presvedčenie",
+      "definition": "A strong feeling that something is true.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "philosophy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term belief.",
+          "sk": "Učiteľ vysvetlil pojem presvedčenie."
+        },
+        {
+          "en": "The debate focused on the concept of belief and its role in human decision-making.",
+          "sk": "Diskusia sa zamerala na pojem presvedčenie a jeho úlohu v rozhodovaní človeka."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A justified true belief was long considered the standard definition of knowledge until Gettier challenged it."
+        },
+        {
+          "en": "Philosophers distinguish between a belief one holds and a belief one is rationally entitled to hold."
+        }
+      ],
+      "id": "278931df-01fd-4012-b8be-d1ca2ccea2ce"
+    },
+    {
+      "word": "meaning",
+      "phonetic": "/ˈmiː.nɪŋ/",
+      "translation": "zmysel, význam",
+      "definition": "The idea or purpose that something expresses.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "philosophy",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how meaning works.",
+          "sk": "Tento experiment ukazuje, ako funguje zmysel."
+        },
+        {
+          "en": "The debate focused on the concept of meaning and its role in human decision-making.",
+          "sk": "Diskusia sa zamerala na pojem zmysel a jeho úlohu v rozhodovaní človeka."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "According to Viktor Frankl, the search for meaning is the deepest driving force in human life."
+        },
+        {
+          "en": "Camus argued that life has no inherent meaning, but that we can create our own."
+        }
+      ],
+      "id": "33835738-6e5c-489a-a6cb-de5e9a66254c"
+    },
+    {
+      "id": "514abd0d-d90e-4b2f-a246-4d5c60497db6",
+      "word": "ethics",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "Philosophy"
+    },
+    {
+      "id": "b0096187-54ae-40c7-9da3-7adba7295185",
+      "word": "reason",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "Philosophy"
+    },
+    {
+      "id": "1786affb-a770-4c0b-b5ca-f3943c69ebe5",
+      "word": "justice",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "Philosophy"
+    },
+    {
+      "id": "6eafadd6-d625-4352-be5d-5a92585d84ea",
+      "word": "virtue",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "Philosophy"
+    },
+    {
+      "id": "16a92586-a22f-4b74-b6ba-7ca85f37daf4",
+      "word": "wisdom",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "Philosophy"
+    },
+    {
+      "id": "e073804c-5e9b-4b50-8d4f-f3fb050e49a0",
+      "word": "freedom",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "Philosophy"
+    },
+    {
+      "id": "6ecf0049-1bca-41bd-bddb-8da0084c2a8a",
+      "word": "knowledge",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "Philosophy"
+    },
+    {
+      "id": "ff785e70-2dfc-40ca-8b28-7f1d82c07c00",
+      "word": "morality",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "Philosophy"
+    },
+    {
+      "id": "f2ad9b16-a5dd-47e3-b9d4-508426ab08d4",
+      "word": "consciousness",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "Philosophy"
+    },
+    {
+      "id": "11c85562-4de0-4653-9247-28a56f0488c1",
+      "word": "existence",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "Philosophy"
+    }
+  ]
+}
