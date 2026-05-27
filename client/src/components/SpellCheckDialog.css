@@ -1,0 +1,175 @@
+.scDialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scDialog {
+  background: var(--app-chrome, #1e293b);
+  border: 1px solid var(--app-border, #334155);
+  border-radius: 12px;
+  width: 560px;
+  max-width: 95vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.scDialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem 0.75rem;
+  border-bottom: 1px solid var(--app-border, #334155);
+  flex-shrink: 0;
+}
+
+.scDialog-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--app-text, #f1f5f9);
+}
+
+.scDialog-close {
+  background: none;
+  border: none;
+  color: var(--app-text-muted, #64748b);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.scDialog-close:hover {
+  color: var(--app-text, #f1f5f9);
+  background: var(--app-border, #334155);
+}
+
+.scDialog-summary {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.82rem;
+  color: var(--app-text-muted, #64748b);
+  flex-shrink: 0;
+}
+
+.scDialog-empty {
+  padding: 3rem 1.25rem;
+  text-align: center;
+  color: var(--app-accent, #3b82f6);
+  font-size: 1rem;
+}
+
+.scDialog-list {
+  overflow-y: auto;
+  flex: 1;
+  padding: 0.25rem 0.75rem;
+}
+
+.scDialog-item {
+  border: 1px solid var(--app-border, #334155);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.scDialog-item-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  background: var(--app-card-bg, #1e293b);
+}
+
+.scDialog-item-header:hover {
+  background: var(--app-border, #334155);
+}
+
+.scDialog-word {
+  font-weight: 600;
+  color: var(--app-text, #f1f5f9);
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.scDialog-field {
+  font-size: 0.75rem;
+  color: var(--app-text-muted, #64748b);
+  background: var(--app-bg, #0f172a);
+  padding: 1px 7px;
+  border-radius: 10px;
+}
+
+.scDialog-count {
+  font-size: 0.75rem;
+  color: var(--app-accent, #3b82f6);
+  font-weight: 600;
+}
+
+.scDialog-chevron {
+  font-size: 0.65rem;
+  color: var(--app-text-muted, #64748b);
+}
+
+.scDialog-issues {
+  padding: 0.5rem 0.9rem 0.75rem;
+  border-top: 1px solid var(--app-border, #334155);
+  background: var(--app-bg, #0f172a);
+}
+
+.scDialog-issue {
+  margin-bottom: 0.5rem;
+}
+
+.scDialog-issue-msg {
+  font-size: 0.82rem;
+  color: var(--app-text2, #cbd5e1);
+}
+
+.scDialog-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+  color: var(--app-text-muted, #64748b);
+  align-items: center;
+}
+
+.scDialog-suggestion {
+  background: var(--app-card-bg, #1e293b);
+  border: 1px solid var(--app-border, #334155);
+  border-radius: 4px;
+  padding: 1px 8px;
+  color: var(--app-accent, #3b82f6);
+  font-weight: 500;
+}
+
+.scDialog-goto {
+  margin-top: 0.6rem;
+  background: none;
+  border: 1px solid var(--app-border, #334155);
+  border-radius: 5px;
+  color: var(--app-text-muted, #64748b);
+  font-size: 0.78rem;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+
+.scDialog-goto:hover {
+  color: var(--app-text, #f1f5f9);
+  border-color: var(--app-accent, #3b82f6);
+}
+
+.scDialog-footer {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--app-border, #334155);
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}

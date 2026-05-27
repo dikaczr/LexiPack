@@ -183,3 +183,405 @@
   background: var(--app-nav-hov);
   color: var(--app-text2);
 }
+
+/* Contact dialog */
+.contact-panel {
+  background: var(--app-panel);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 12px;
+  padding: 28px 32px;
+  width: 460px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-panel h3 {
+  margin: 0 0 20px;
+  font-size: 16px;
+  color: var(--app-text2);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--app-muted);
+  text-align: left;
+}
+
+.contact-to {
+  font-size: 13px;
+  color: var(--app-accent);
+  font-weight: 500;
+}
+
+.contact-input,
+.contact-textarea {
+  background: var(--app-input);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 6px;
+  color: var(--app-text2);
+  font-size: 13px;
+  padding: 8px 10px;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.15s;
+}
+.contact-input:focus,
+.contact-textarea:focus {
+  outline: none;
+  border-color: var(--app-accent);
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.contact-send-btn {
+  background: var(--app-accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 20px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.contact-send-btn:disabled { opacity: 0.55; cursor: default; }
+.contact-send-btn:hover:not(:disabled) { opacity: 0.85; }
+
+.contact-sent {
+  font-size: 14px;
+  color: var(--app-accent);
+  text-align: center;
+  padding: 16px 0;
+  margin: 0;
+}
+
+.contact-error {
+  font-size: 12px;
+  color: #ff6b6b;
+  margin: 0;
+}
+
+.contact-no-email {
+  font-size: 13px;
+  color: var(--app-muted);
+  text-align: center;
+  padding: 16px 0;
+  margin: 0;
+}
+
+/* Privacy dialog */
+.privacy-panel {
+  background: var(--app-panel);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 12px;
+  width: 640px;
+  max-width: 96vw;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: left;
+}
+
+.privacy-header {
+  padding: 24px 28px 16px;
+  border-bottom: 1px solid var(--app-border-sub);
+  flex-shrink: 0;
+}
+
+.privacy-header h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  color: var(--app-text2);
+}
+
+.privacy-subtitle {
+  font-size: 11px;
+  color: var(--app-muted);
+}
+
+.privacy-body {
+  overflow-y: auto;
+  padding: 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1;
+}
+
+.privacy-body section h4 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--app-accent);
+}
+
+.privacy-body section p {
+  margin: 0 0 6px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--app-text2);
+}
+
+.privacy-body section ul {
+  margin: 4px 0 0;
+  padding-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.privacy-body section ul li {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--app-text2);
+}
+
+.privacy-last {
+  padding-bottom: 4px;
+}
+
+.privacy-footer {
+  padding: 14px 28px;
+  border-top: 1px solid var(--app-border-sub);
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+/* About dialog */
+.about-panel {
+  background: var(--app-panel);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 14px;
+  padding: 36px 40px 28px;
+  width: 380px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about-logo {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--app-accent);
+}
+
+.about-tagline {
+  font-size: 12px;
+  color: var(--app-muted);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.about-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--app-border-sub);
+  margin: 20px 0;
+}
+
+.about-rows {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 13px;
+  gap: 12px;
+}
+
+.about-key {
+  color: var(--app-muted);
+  white-space: nowrap;
+}
+
+.about-val {
+  color: var(--app-text2);
+  font-weight: 500;
+  text-align: right;
+}
+
+.about-copy {
+  font-size: 11px;
+  color: var(--app-muted);
+}
+
+/* My Account dialog */
+.myaccount-panel {
+  background: var(--app-panel);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 12px;
+  width: 520px;
+  max-width: 96vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.myaccount-header {
+  padding: 16px 24px 14px;
+  border-bottom: 1px solid var(--app-border-sub);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.myaccount-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--app-accent);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0;
+}
+
+.myaccount-header-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.myaccount-header h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--app-text2);
+}
+
+.myaccount-header-username {
+  font-size: 12px;
+  color: var(--app-muted);
+}
+
+.myaccount-body {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.myaccount-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.pw-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.pw-wrap input {
+  flex: 1;
+  padding-right: 34px;
+}
+.pw-toggle {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--app-muted);
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+.pw-toggle:hover { color: var(--app-text2); }
+
+.myaccount-section-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--app-muted);
+  margin-bottom: -6px;
+  padding: 5px 0 0 0;
+}
+
+.myaccount-info-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  align-items: baseline;
+}
+
+.myaccount-label {
+  font-size: 12px;
+  color: var(--app-muted);
+  text-align: left;
+}
+
+.myaccount-value {
+  font-size: 13px;
+  color: var(--app-text2);
+  font-weight: 500;
+}
+
+.myaccount-role {
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--app-accent);
+  letter-spacing: 0.4px;
+}
+
+.myaccount-divider {
+  height: 1px;
+  background: var(--app-border-sub);
+  margin: 2px 0;
+}
+
+.myaccount-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.myaccount-success {
+  font-size: 13px;
+  color: #4caf82;
+  padding: 8px 10px;
+  background: rgba(76, 175, 130, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(76, 175, 130, 0.25);
+}

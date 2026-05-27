@@ -90,6 +90,7 @@
   border-bottom: 1px solid var(--app-border-faint);
   color: var(--app-text2);
   vertical-align: middle;
+  text-align: left;
 }
 
 .users-table tbody tr:hover { background: var(--app-nav-hov); }
@@ -104,10 +105,10 @@
   text-transform: uppercase;
   letter-spacing: 0.4px;
 }
-.badge-role.admin    { background: #2a1a4a; color: #b48aff; }
-.badge-role.editor   { background: #1a2a3a; color: #4a9eff; }
-.badge-role.viewer   { background: #1a2a20; color: #4adf8a; }
-.badge-role.reviewer { background: #1a2a2a; color: #4adfd0; }
+.badge-role.admin    { background: #970747; color: #FFFFFF; }
+.badge-role.editor   { background: #970747; color: #FFFFFF; }
+.badge-role.viewer   { background: #970747; color: #FFFFFF; }
+.badge-role.reviewer { background: #970747; color: #FFFFFF; }
 
 .badge-status {
   display: inline-block;
@@ -116,8 +117,8 @@
   font-size: 11px;
   font-weight: 600;
 }
-.badge-status.active   { background: #1a3a20; color: #4adf8a; }
-.badge-status.inactive { background: #3a1a1a; color: #ff6b6b; }
+.badge-status.active   { background: #106EBE; color: #0FFCBE; }
+.badge-status.inactive { background: #6E6E6E; color: #FFFFFF; }
 
 .users-table .actions { display: flex; gap: 6px; }
 
@@ -137,10 +138,47 @@
   border: 1px solid var(--app-border-sub);
   border-radius: 12px;
   padding: 32px 36px;
-  width: 420px;
+  width: 500px;
+  max-height: 88vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
+}
+
+.modal-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pw-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.pw-wrap input {
+  flex: 1;
+  padding-right: 34px;
+}
+.pw-toggle {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--app-muted);
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+.pw-toggle:hover { color: var(--app-text2); }
+
+.modal-sep {
+  height: 1px;
+  background: var(--app-border-sub);
+  margin: 4px 0;
 }
 
 .modal-card h3 {
@@ -160,6 +198,7 @@
   color: var(--app-muted);
   text-transform: uppercase;
   letter-spacing: 0.4px;
+  text-align: left;
 }
 
 .modal-field input,
@@ -175,6 +214,16 @@
 }
 .modal-field input:focus,
 .modal-field select:focus { border-color: var(--app-accent); }
+
+.modal-field input:-webkit-autofill,
+.modal-field input:-webkit-autofill:hover,
+.modal-field input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--app-input) inset;
+  -webkit-text-fill-color: var(--app-text2);
+  caret-color: var(--app-text2);
+  border-color: var(--app-border-sub);
+  transition: background-color 9999s ease-in-out;
+}
 
 .modal-field select option { background: var(--app-panel); }
 

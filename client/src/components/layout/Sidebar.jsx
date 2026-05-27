@@ -19,7 +19,7 @@ const LANGUAGES = [
 
 const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
-export default function Sidebar({ activeScreen, setActiveScreen, packFilter, setPackFilter, statusFilter, setStatusFilter, langFilter, setLangFilter, themeFilter, setThemeFilter, packCategories = [], levelFilter, setLevelFilter, quickFilter, setQuickFilter }) {
+export default function Sidebar({ collapsed, onToggle, activeScreen, setActiveScreen, packFilter, setPackFilter, statusFilter, setStatusFilter, langFilter, setLangFilter, themeFilter, setThemeFilter, packCategories = [], levelFilter, setLevelFilter, quickFilter, setQuickFilter, quickFilterRef, onSearchEnter }) {
   const { user } = useAuth();
   const t = useT();
 
@@ -35,8 +35,12 @@ export default function Sidebar({ activeScreen, setActiveScreen, packFilter, set
   }
 
   return (
-    <aside className="sidebar">
-      {activeScreen === "projects" && (
+    <aside className={`sidebar${collapsed ? " sidebar--collapsed" : ""}`}>
+      <button className="sidebar-toggle" onClick={onToggle} title={collapsed ? t("sidebar.expand") : t("sidebar.collapse")}>
+        {collapsed ? "›" : "‹"}
+      </button>
+
+      {!collapsed && activeScreen === "projects" && (
         <>
           <div className="sidebar-filter">
             <label className="sidebar-filter-label">{t("filters.filter")}</label>
@@ -95,30 +99,35 @@ export default function Sidebar({ activeScreen, setActiveScreen, packFilter, set
         </>
       )}
 
-      {activeScreen === "editor" && (
+      {!collapsed && activeScreen === "editor" && (
         <div className="sidebar-filter sidebar-grid-search">
           <label className="sidebar-filter-label">Search</label>
           <input
+            ref={quickFilterRef}
             className="sidebar-filter-input"
             value={quickFilter ?? ""}
             onChange={(e) => setQuickFilter(e.target.value)}
+            onKeyDown={(e) => { if (e.key === "Enter") onSearchEnter?.(); }}
             placeholder="..."
           />
           {quickFilter && (
             <button
               className="sidebar-filter-clear"
-              onClick={() => setQuickFilter("")}
+              onClick={() => { setQuickFilter(""); onSearchEnter?.(""); }}
             >×</button>
           )}
         </div>
       )}
 
-      <nav className="sidebar-nav">
-        {btn("projects", t("nav.projects"))}
-        {btn("editor",   t("nav.editor"))}
-        {btn("settings", t("nav.settings"))}
-        {user?.role === "admin" && btn("users", t("nav.users"))}
-      </nav>
+      {!collapsed && (
+        <nav className="sidebar-nav">
+          {btn("projects",  t("nav.projects"))}
+          {btn("editor",    t("nav.editor"))}
+          {btn("analytics", t("nav.analytics"))}
+          {btn("settings",  t("nav.settings"))}
+          {user?.role === "admin" && btn("users", t("nav.users"))}
+        </nav>
+      )}
     </aside>
   );
 }

@@ -1,0 +1,3668 @@
+{
+  "languageCode": 2057,
+  "languageName": "en-GB",
+  "settings": {
+    "correctTwoInitialCaps": true,
+    "correctSentenceCaps": true,
+    "correctCapsLock": true,
+    "replaceTextAsYouType": false
+  },
+  "entries": [
+    {
+      "src": "(c)",
+      "trg": "©"
+    },
+    {
+      "src": "(e)",
+      "trg": "€"
+    },
+    {
+      "src": "(r)",
+      "trg": "®"
+    },
+    {
+      "src": "(tm)",
+      "trg": "™"
+    },
+    {
+      "src": "...",
+      "trg": "…"
+    },
+    {
+      "src": "abbout",
+      "trg": "about"
+    },
+    {
+      "src": "abotu",
+      "trg": "about"
+    },
+    {
+      "src": "abouta",
+      "trg": "about a"
+    },
+    {
+      "src": "aboutit",
+      "trg": "about it"
+    },
+    {
+      "src": "aboutthe",
+      "trg": "about the"
+    },
+    {
+      "src": "abscence",
+      "trg": "absence"
+    },
+    {
+      "src": "accesories",
+      "trg": "accessories"
+    },
+    {
+      "src": "accidant",
+      "trg": "accident"
+    },
+    {
+      "src": "accomodate",
+      "trg": "accommodate"
+    },
+    {
+      "src": "accordingto",
+      "trg": "according to"
+    },
+    {
+      "src": "accross",
+      "trg": "across"
+    },
+    {
+      "src": "acheive",
+      "trg": "achieve"
+    },
+    {
+      "src": "acheived",
+      "trg": "achieved"
+    },
+    {
+      "src": "acheiving",
+      "trg": "achieving"
+    },
+    {
+      "src": "acn",
+      "trg": "can"
+    },
+    {
+      "src": "acommodate",
+      "trg": "accommodate"
+    },
+    {
+      "src": "acomodate",
+      "trg": "accommodate"
+    },
+    {
+      "src": "actualyl",
+      "trg": "actually"
+    },
+    {
+      "src": "additinal",
+      "trg": "additional"
+    },
+    {
+      "src": "addtional",
+      "trg": "additional"
+    },
+    {
+      "src": "adequit",
+      "trg": "adequate"
+    },
+    {
+      "src": "adequite",
+      "trg": "adequate"
+    },
+    {
+      "src": "adn",
+      "trg": "and"
+    },
+    {
+      "src": "advanage",
+      "trg": "advantage"
+    },
+    {
+      "src": "affraid",
+      "trg": "afraid"
+    },
+    {
+      "src": "afterthe",
+      "trg": "after the"
+    },
+    {
+      "src": "againstt he",
+      "trg": "against the"
+    },
+    {
+      "src": "aganist",
+      "trg": "against"
+    },
+    {
+      "src": "aggresive",
+      "trg": "aggressive"
+    },
+    {
+      "src": "agian",
+      "trg": "again"
+    },
+    {
+      "src": "agreemeent",
+      "trg": "agreement"
+    },
+    {
+      "src": "agreemeents",
+      "trg": "agreements"
+    },
+    {
+      "src": "agreemnet",
+      "trg": "agreement"
+    },
+    {
+      "src": "agreemnets",
+      "trg": "agreements"
+    },
+    {
+      "src": "agressive",
+      "trg": "aggressive"
+    },
+    {
+      "src": "ahppen",
+      "trg": "happen"
+    },
+    {
+      "src": "ahve",
+      "trg": "have"
+    },
+    {
+      "src": "allwasy",
+      "trg": "always"
+    },
+    {
+      "src": "allwyas",
+      "trg": "always"
+    },
+    {
+      "src": "almots",
+      "trg": "almost"
+    },
+    {
+      "src": "almsot",
+      "trg": "almost"
+    },
+    {
+      "src": "alomst",
+      "trg": "almost"
+    },
+    {
+      "src": "alot",
+      "trg": "a lot"
+    },
+    {
+      "src": "alraedy",
+      "trg": "already"
+    },
+    {
+      "src": "alreayd",
+      "trg": "already"
+    },
+    {
+      "src": "alreday",
+      "trg": "already"
+    },
+    {
+      "src": "alwasy",
+      "trg": "always"
+    },
+    {
+      "src": "alwats",
+      "trg": "always"
+    },
+    {
+      "src": "alway",
+      "trg": "always"
+    },
+    {
+      "src": "alwyas",
+      "trg": "always"
+    },
+    {
+      "src": "amde",
+      "trg": "made"
+    },
+    {
+      "src": "Ameria",
+      "trg": "America"
+    },
+    {
+      "src": "amke",
+      "trg": "make"
+    },
+    {
+      "src": "amkes",
+      "trg": "makes"
+    },
+    {
+      "src": "anbd",
+      "trg": "and"
+    },
+    {
+      "src": "andone",
+      "trg": "and one"
+    },
+    {
+      "src": "andt he",
+      "trg": "and the"
+    },
+    {
+      "src": "andteh",
+      "trg": "and the"
+    },
+    {
+      "src": "andthe",
+      "trg": "and the"
+    },
+    {
+      "src": "anothe",
+      "trg": "another"
+    },
+    {
+      "src": "anual",
+      "trg": "annual"
+    },
+    {
+      "src": "apparant",
+      "trg": "apparent"
+    },
+    {
+      "src": "apparrent",
+      "trg": "apparent"
+    },
+    {
+      "src": "appearence",
+      "trg": "appearance"
+    },
+    {
+      "src": "appeares",
+      "trg": "appears"
+    },
+    {
+      "src": "applicaiton",
+      "trg": "application"
+    },
+    {
+      "src": "applicaitons",
+      "trg": "applications"
+    },
+    {
+      "src": "applyed",
+      "trg": "applied"
+    },
+    {
+      "src": "appointiment",
+      "trg": "appointment"
+    },
+    {
+      "src": "approrpiate",
+      "trg": "appropriate"
+    },
+    {
+      "src": "approrpriate",
+      "trg": "appropriate"
+    },
+    {
+      "src": "aquisition",
+      "trg": "acquisition"
+    },
+    {
+      "src": "aquisitions",
+      "trg": "acquisitions"
+    },
+    {
+      "src": "aren;t",
+      "trg": "aren’t"
+    },
+    {
+      "src": "arguement",
+      "trg": "argument"
+    },
+    {
+      "src": "arguements",
+      "trg": "arguments"
+    },
+    {
+      "src": "arn't",
+      "trg": "aren’t"
+    },
+    {
+      "src": "arond",
+      "trg": "around"
+    },
+    {
+      "src": "artical",
+      "trg": "article"
+    },
+    {
+      "src": "articel",
+      "trg": "article"
+    },
+    {
+      "src": "asdvertising",
+      "trg": "advertising"
+    },
+    {
+      "src": "askt he",
+      "trg": "ask the"
+    },
+    {
+      "src": "assistent",
+      "trg": "assistant"
+    },
+    {
+      "src": "asthe",
+      "trg": "as the"
+    },
+    {
+      "src": "atention",
+      "trg": "attention"
+    },
+    {
+      "src": "atmospher",
+      "trg": "atmosphere"
+    },
+    {
+      "src": "attentioin",
+      "trg": "attention"
+    },
+    {
+      "src": "atthe",
+      "trg": "at the"
+    },
+    {
+      "src": "audeince",
+      "trg": "audience"
+    },
+    {
+      "src": "audiance",
+      "trg": "audience"
+    },
+    {
+      "src": "availalbe",
+      "trg": "available"
+    },
+    {
+      "src": "awya",
+      "trg": "away"
+    },
+    {
+      "src": "aywa",
+      "trg": "away"
+    },
+    {
+      "src": "bakc",
+      "trg": "back"
+    },
+    {
+      "src": "balence",
+      "trg": "balance"
+    },
+    {
+      "src": "ballance",
+      "trg": "balance"
+    },
+    {
+      "src": "baout",
+      "trg": "about"
+    },
+    {
+      "src": "bcak",
+      "trg": "back"
+    },
+    {
+      "src": "beacuse",
+      "trg": "because"
+    },
+    {
+      "src": "becasue",
+      "trg": "because"
+    },
+    {
+      "src": "becaus",
+      "trg": "because"
+    },
+    {
+      "src": "becausea",
+      "trg": "because a"
+    },
+    {
+      "src": "becauseof",
+      "trg": "because of"
+    },
+    {
+      "src": "becausethe",
+      "trg": "because the"
+    },
+    {
+      "src": "becauseyou",
+      "trg": "because you"
+    },
+    {
+      "src": "becomeing",
+      "trg": "becoming"
+    },
+    {
+      "src": "becomming",
+      "trg": "becoming"
+    },
+    {
+      "src": "becuase",
+      "trg": "because"
+    },
+    {
+      "src": "becuse",
+      "trg": "because"
+    },
+    {
+      "src": "befoer",
+      "trg": "before"
+    },
+    {
+      "src": "beggining",
+      "trg": "beginning"
+    },
+    {
+      "src": "begining",
+      "trg": "beginning"
+    },
+    {
+      "src": "beginining",
+      "trg": "beginning"
+    },
+    {
+      "src": "beleiev",
+      "trg": "believe"
+    },
+    {
+      "src": "beleieve",
+      "trg": "believe"
+    },
+    {
+      "src": "beleif",
+      "trg": "belief"
+    },
+    {
+      "src": "beleive",
+      "trg": "believe"
+    },
+    {
+      "src": "beleived",
+      "trg": "believed"
+    },
+    {
+      "src": "beleives",
+      "trg": "believes"
+    },
+    {
+      "src": "benifit",
+      "trg": "benefit"
+    },
+    {
+      "src": "benifits",
+      "trg": "benefits"
+    },
+    {
+      "src": "betwen",
+      "trg": "between"
+    },
+    {
+      "src": "beutiful",
+      "trg": "beautiful"
+    },
+    {
+      "src": "blase",
+      "trg": "blasé"
+    },
+    {
+      "src": "boxs",
+      "trg": "boxes"
+    },
+    {
+      "src": "brodcast",
+      "trg": "broadcast"
+    },
+    {
+      "src": "butthe",
+      "trg": "but the"
+    },
+    {
+      "src": "bve",
+      "trg": "be"
+    },
+    {
+      "src": "byt he",
+      "trg": "by the"
+    },
+    {
+      "src": "cafe",
+      "trg": "café"
+    },
+    {
+      "src": "caharcter",
+      "trg": "character"
+    },
+    {
+      "src": "calcullated",
+      "trg": "calculated"
+    },
+    {
+      "src": "calulated",
+      "trg": "calculated"
+    },
+    {
+      "src": "can't of been",
+      "trg": "can’t have been"
+    },
+    {
+      "src": "can;t",
+      "trg": "can’t"
+    },
+    {
+      "src": "candidtae",
+      "trg": "candidate"
+    },
+    {
+      "src": "candidtaes",
+      "trg": "candidates"
+    },
+    {
+      "src": "catagory",
+      "trg": "category"
+    },
+    {
+      "src": "categiory",
+      "trg": "category"
+    },
+    {
+      "src": "certian",
+      "trg": "certain"
+    },
+    {
+      "src": "challange",
+      "trg": "challenge"
+    },
+    {
+      "src": "challanges",
+      "trg": "challenges"
+    },
+    {
+      "src": "chaneg",
+      "trg": "change"
+    },
+    {
+      "src": "chanegs",
+      "trg": "changes"
+    },
+    {
+      "src": "changable",
+      "trg": "changeable"
+    },
+    {
+      "src": "changeing",
+      "trg": "changing"
+    },
+    {
+      "src": "changng",
+      "trg": "changing"
+    },
+    {
+      "src": "charachter",
+      "trg": "character"
+    },
+    {
+      "src": "charachters",
+      "trg": "characters"
+    },
+    {
+      "src": "charactor",
+      "trg": "character"
+    },
+    {
+      "src": "charecter",
+      "trg": "character"
+    },
+    {
+      "src": "charector",
+      "trg": "character"
+    },
+    {
+      "src": "cheif",
+      "trg": "chief"
+    },
+    {
+      "src": "chekc",
+      "trg": "check"
+    },
+    {
+      "src": "chnage",
+      "trg": "change"
+    },
+    {
+      "src": "cieling",
+      "trg": "ceiling"
+    },
+    {
+      "src": "circut",
+      "trg": "circuit"
+    },
+    {
+      "src": "claer",
+      "trg": "clear"
+    },
+    {
+      "src": "claered",
+      "trg": "cleared"
+    },
+    {
+      "src": "claerly",
+      "trg": "clearly"
+    },
+    {
+      "src": "cliant",
+      "trg": "client"
+    },
+    {
+      "src": "cliche",
+      "trg": "cliché"
+    },
+    {
+      "src": "cna",
+      "trg": "can"
+    },
+    {
+      "src": "colection",
+      "trg": "collection"
+    },
+    {
+      "src": "comanies",
+      "trg": "companies"
+    },
+    {
+      "src": "comany",
+      "trg": "company"
+    },
+    {
+      "src": "comapnies",
+      "trg": "companies"
+    },
+    {
+      "src": "comapny",
+      "trg": "company"
+    },
+    {
+      "src": "combintation",
+      "trg": "combination"
+    },
+    {
+      "src": "comited",
+      "trg": "committed"
+    },
+    {
+      "src": "comittee",
+      "trg": "committee"
+    },
+    {
+      "src": "commadn",
+      "trg": "command"
+    },
+    {
+      "src": "comming",
+      "trg": "coming"
+    },
+    {
+      "src": "commitee",
+      "trg": "committee"
+    },
+    {
+      "src": "committe",
+      "trg": "committee"
+    },
+    {
+      "src": "committment",
+      "trg": "commitment"
+    },
+    {
+      "src": "committments",
+      "trg": "commitments"
+    },
+    {
+      "src": "committy",
+      "trg": "committee"
+    },
+    {
+      "src": "comntain",
+      "trg": "contain"
+    },
+    {
+      "src": "comntains",
+      "trg": "contains"
+    },
+    {
+      "src": "compair",
+      "trg": "compare"
+    },
+    {
+      "src": "company;s",
+      "trg": "company’s"
+    },
+    {
+      "src": "compleated",
+      "trg": "completed"
+    },
+    {
+      "src": "compleatly",
+      "trg": "completely"
+    },
+    {
+      "src": "compleatness",
+      "trg": "completeness"
+    },
+    {
+      "src": "completly",
+      "trg": "completely"
+    },
+    {
+      "src": "completness",
+      "trg": "completeness"
+    },
+    {
+      "src": "composate",
+      "trg": "composite"
+    },
+    {
+      "src": "comtain",
+      "trg": "contain"
+    },
+    {
+      "src": "comtains",
+      "trg": "contains"
+    },
+    {
+      "src": "comunicate",
+      "trg": "communicate"
+    },
+    {
+      "src": "comunity",
+      "trg": "community"
+    },
+    {
+      "src": "condolances",
+      "trg": "condolences"
+    },
+    {
+      "src": "conected",
+      "trg": "connected"
+    },
+    {
+      "src": "conferance",
+      "trg": "conference"
+    },
+    {
+      "src": "confirmmation",
+      "trg": "confirmation"
+    },
+    {
+      "src": "considerit",
+      "trg": "considerate"
+    },
+    {
+      "src": "considerite",
+      "trg": "considerate"
+    },
+    {
+      "src": "consonent",
+      "trg": "consonant"
+    },
+    {
+      "src": "conspiricy",
+      "trg": "conspiracy"
+    },
+    {
+      "src": "consultent",
+      "trg": "consultant"
+    },
+    {
+      "src": "convertable",
+      "trg": "convertible"
+    },
+    {
+      "src": "cooparate",
+      "trg": "cooperate"
+    },
+    {
+      "src": "cooporate",
+      "trg": "cooperate"
+    },
+    {
+      "src": "corproation",
+      "trg": "corporation"
+    },
+    {
+      "src": "corproations",
+      "trg": "corporations"
+    },
+    {
+      "src": "corruptable",
+      "trg": "corruptible"
+    },
+    {
+      "src": "cotten",
+      "trg": "cotton"
+    },
+    {
+      "src": "coudl",
+      "trg": "could"
+    },
+    {
+      "src": "coudln't",
+      "trg": "couldn’t"
+    },
+    {
+      "src": "coudn't",
+      "trg": "couldn’t"
+    },
+    {
+      "src": "could of been",
+      "trg": "could have been"
+    },
+    {
+      "src": "could of had",
+      "trg": "could have had"
+    },
+    {
+      "src": "couldn;t",
+      "trg": "couldn’t"
+    },
+    {
+      "src": "couldnt",
+      "trg": "couldn’t"
+    },
+    {
+      "src": "couldthe",
+      "trg": "could the"
+    },
+    {
+      "src": "cpoy",
+      "trg": "copy"
+    },
+    {
+      "src": "creme",
+      "trg": "crème"
+    },
+    {
+      "src": "ctaegory",
+      "trg": "category"
+    },
+    {
+      "src": "cusotmer",
+      "trg": "customer"
+    },
+    {
+      "src": "cusotmers",
+      "trg": "customers"
+    },
+    {
+      "src": "cutsomer",
+      "trg": "customer"
+    },
+    {
+      "src": "cutsomers",
+      "trg": "customers"
+    },
+    {
+      "src": "cxan",
+      "trg": "can"
+    },
+    {
+      "src": "danceing",
+      "trg": "dancing"
+    },
+    {
+      "src": "dcument",
+      "trg": "document"
+    },
+    {
+      "src": "deatils",
+      "trg": "details"
+    },
+    {
+      "src": "decison",
+      "trg": "decision"
+    },
+    {
+      "src": "decisons",
+      "trg": "decisions"
+    },
+    {
+      "src": "decor",
+      "trg": "décor"
+    },
+    {
+      "src": "defendent",
+      "trg": "defendant"
+    },
+    {
+      "src": "definately",
+      "trg": "definitely"
+    },
+    {
+      "src": "deja vu",
+      "trg": "déjà vu"
+    },
+    {
+      "src": "deptartment",
+      "trg": "department"
+    },
+    {
+      "src": "desicion",
+      "trg": "decision"
+    },
+    {
+      "src": "desicions",
+      "trg": "decisions"
+    },
+    {
+      "src": "desision",
+      "trg": "decision"
+    },
+    {
+      "src": "desisions",
+      "trg": "decisions"
+    },
+    {
+      "src": "detente",
+      "trg": "détente"
+    },
+    {
+      "src": "develeoprs",
+      "trg": "developers"
+    },
+    {
+      "src": "devellop",
+      "trg": "develop"
+    },
+    {
+      "src": "develloped",
+      "trg": "developed"
+    },
+    {
+      "src": "develloper",
+      "trg": "developer"
+    },
+    {
+      "src": "devellopers",
+      "trg": "developers"
+    },
+    {
+      "src": "develloping",
+      "trg": "developing"
+    },
+    {
+      "src": "devellopment",
+      "trg": "development"
+    },
+    {
+      "src": "devellopments",
+      "trg": "developments"
+    },
+    {
+      "src": "devellops",
+      "trg": "develop"
+    },
+    {
+      "src": "develope",
+      "trg": "develop"
+    },
+    {
+      "src": "developement",
+      "trg": "development"
+    },
+    {
+      "src": "developements",
+      "trg": "developments"
+    },
+    {
+      "src": "developor",
+      "trg": "developer"
+    },
+    {
+      "src": "developors",
+      "trg": "developers"
+    },
+    {
+      "src": "develpment",
+      "trg": "development"
+    },
+    {
+      "src": "diaplay",
+      "trg": "display"
+    },
+    {
+      "src": "didint",
+      "trg": "didn’t"
+    },
+    {
+      "src": "didn;t",
+      "trg": "didn’t"
+    },
+    {
+      "src": "didnot",
+      "trg": "did not"
+    },
+    {
+      "src": "didnt",
+      "trg": "didn’t"
+    },
+    {
+      "src": "difefrent",
+      "trg": "different"
+    },
+    {
+      "src": "diferences",
+      "trg": "differences"
+    },
+    {
+      "src": "differance",
+      "trg": "difference"
+    },
+    {
+      "src": "differances",
+      "trg": "differences"
+    },
+    {
+      "src": "differant",
+      "trg": "different"
+    },
+    {
+      "src": "differemt",
+      "trg": "different"
+    },
+    {
+      "src": "differnt",
+      "trg": "different"
+    },
+    {
+      "src": "diffrent",
+      "trg": "different"
+    },
+    {
+      "src": "directer",
+      "trg": "director"
+    },
+    {
+      "src": "directers",
+      "trg": "directors"
+    },
+    {
+      "src": "directiosn",
+      "trg": "direction"
+    },
+    {
+      "src": "disatisfied",
+      "trg": "dissatisfied"
+    },
+    {
+      "src": "discoverd",
+      "trg": "discovered"
+    },
+    {
+      "src": "disign",
+      "trg": "design"
+    },
+    {
+      "src": "dispaly",
+      "trg": "display"
+    },
+    {
+      "src": "dissonent",
+      "trg": "dissonant"
+    },
+    {
+      "src": "distribusion",
+      "trg": "distribution"
+    },
+    {
+      "src": "divsion",
+      "trg": "division"
+    },
+    {
+      "src": "do'nt",
+      "trg": "don’t"
+    },
+    {
+      "src": "docuement",
+      "trg": "documents"
+    },
+    {
+      "src": "docuemnt",
+      "trg": "document"
+    },
+    {
+      "src": "documetn",
+      "trg": "document"
+    },
+    {
+      "src": "documnet",
+      "trg": "document"
+    },
+    {
+      "src": "documnets",
+      "trg": "documents"
+    },
+    {
+      "src": "doe snot",
+      "trg": "does not"
+    },
+    {
+      "src": "doens't",
+      "trg": "doesn’t"
+    },
+    {
+      "src": "doese",
+      "trg": "does"
+    },
+    {
+      "src": "doesn;t",
+      "trg": "doesn’t"
+    },
+    {
+      "src": "doesnt",
+      "trg": "doesn’t"
+    },
+    {
+      "src": "doign",
+      "trg": "doing"
+    },
+    {
+      "src": "doimg",
+      "trg": "doing"
+    },
+    {
+      "src": "doind",
+      "trg": "doing"
+    },
+    {
+      "src": "dollers",
+      "trg": "dollars"
+    },
+    {
+      "src": "don't no",
+      "trg": "don’t know"
+    },
+    {
+      "src": "don;t",
+      "trg": "don’t"
+    },
+    {
+      "src": "donig",
+      "trg": "doing"
+    },
+    {
+      "src": "dont",
+      "trg": "don’t"
+    },
+    {
+      "src": "dosn't",
+      "trg": "doesn’t"
+    },
+    {
+      "src": "driveing",
+      "trg": "driving"
+    },
+    {
+      "src": "drnik",
+      "trg": "drink"
+    },
+    {
+      "src": "eclair",
+      "trg": "éclair"
+    },
+    {
+      "src": "efel",
+      "trg": "feel"
+    },
+    {
+      "src": "effecient",
+      "trg": "efficient"
+    },
+    {
+      "src": "efort",
+      "trg": "effort"
+    },
+    {
+      "src": "eforts",
+      "trg": "efforts"
+    },
+    {
+      "src": "ehr",
+      "trg": "her"
+    },
+    {
+      "src": "eligable",
+      "trg": "eligible"
+    },
+    {
+      "src": "embarass",
+      "trg": "embarrass"
+    },
+    {
+      "src": "emigre",
+      "trg": "émigré"
+    },
+    {
+      "src": "enought",
+      "trg": "enough"
+    },
+    {
+      "src": "entree",
+      "trg": "entrée"
+    },
+    {
+      "src": "equippment",
+      "trg": "equipment"
+    },
+    {
+      "src": "equivalant",
+      "trg": "equivalent"
+    },
+    {
+      "src": "esle",
+      "trg": "else"
+    },
+    {
+      "src": "especally",
+      "trg": "especially"
+    },
+    {
+      "src": "especialyl",
+      "trg": "especially"
+    },
+    {
+      "src": "espesially",
+      "trg": "especially"
+    },
+    {
+      "src": "excellant",
+      "trg": "excellent"
+    },
+    {
+      "src": "excercise",
+      "trg": "exercise"
+    },
+    {
+      "src": "exchagne",
+      "trg": "exchange"
+    },
+    {
+      "src": "exchagnes",
+      "trg": "exchanges"
+    },
+    {
+      "src": "excitment",
+      "trg": "excitement"
+    },
+    {
+      "src": "exhcange",
+      "trg": "exchange"
+    },
+    {
+      "src": "exhcanges",
+      "trg": "exchanges"
+    },
+    {
+      "src": "experiance",
+      "trg": "experience"
+    },
+    {
+      "src": "experienc",
+      "trg": "experience"
+    },
+    {
+      "src": "exprience",
+      "trg": "experience"
+    },
+    {
+      "src": "exprienced",
+      "trg": "experienced"
+    },
+    {
+      "src": "eyt",
+      "trg": "yet"
+    },
+    {
+      "src": "facade",
+      "trg": "façade"
+    },
+    {
+      "src": "faeture",
+      "trg": "feature"
+    },
+    {
+      "src": "faetures",
+      "trg": "features"
+    },
+    {
+      "src": "familair",
+      "trg": "familiar"
+    },
+    {
+      "src": "familar",
+      "trg": "familiar"
+    },
+    {
+      "src": "familliar",
+      "trg": "familiar"
+    },
+    {
+      "src": "fammiliar",
+      "trg": "familiar"
+    },
+    {
+      "src": "feild",
+      "trg": "field"
+    },
+    {
+      "src": "feilds",
+      "trg": "fields"
+    },
+    {
+      "src": "fianlly",
+      "trg": "finally"
+    },
+    {
+      "src": "fidn",
+      "trg": "find"
+    },
+    {
+      "src": "finalyl",
+      "trg": "finally"
+    },
+    {
+      "src": "firends",
+      "trg": "friends"
+    },
+    {
+      "src": "firts",
+      "trg": "first"
+    },
+    {
+      "src": "follwo",
+      "trg": "follow"
+    },
+    {
+      "src": "follwoing",
+      "trg": "following"
+    },
+    {
+      "src": "fora",
+      "trg": "for a"
+    },
+    {
+      "src": "foriegn",
+      "trg": "foreign"
+    },
+    {
+      "src": "forthe",
+      "trg": "for the"
+    },
+    {
+      "src": "forwrd",
+      "trg": "forward"
+    },
+    {
+      "src": "forwrds",
+      "trg": "forwards"
+    },
+    {
+      "src": "foudn",
+      "trg": "found"
+    },
+    {
+      "src": "foward",
+      "trg": "forward"
+    },
+    {
+      "src": "fowards",
+      "trg": "forwards"
+    },
+    {
+      "src": "freind",
+      "trg": "friend"
+    },
+    {
+      "src": "freindly",
+      "trg": "friendly"
+    },
+    {
+      "src": "freinds",
+      "trg": "friends"
+    },
+    {
+      "src": "frmo",
+      "trg": "from"
+    },
+    {
+      "src": "fromt he",
+      "trg": "from the"
+    },
+    {
+      "src": "fromthe",
+      "trg": "from the"
+    },
+    {
+      "src": "furneral",
+      "trg": "funeral"
+    },
+    {
+      "src": "fwe",
+      "trg": "few"
+    },
+    {
+      "src": "garantee",
+      "trg": "guarantee"
+    },
+    {
+      "src": "gaurd",
+      "trg": "guard"
+    },
+    {
+      "src": "gemeral",
+      "trg": "general"
+    },
+    {
+      "src": "gerat",
+      "trg": "great"
+    },
+    {
+      "src": "geting",
+      "trg": "getting"
+    },
+    {
+      "src": "gettin",
+      "trg": "getting"
+    },
+    {
+      "src": "gievn",
+      "trg": "given"
+    },
+    {
+      "src": "giveing",
+      "trg": "giving"
+    },
+    {
+      "src": "gloabl",
+      "trg": "global"
+    },
+    {
+      "src": "goign",
+      "trg": "going"
+    },
+    {
+      "src": "gonig",
+      "trg": "going"
+    },
+    {
+      "src": "govenment",
+      "trg": "government"
+    },
+    {
+      "src": "goverment",
+      "trg": "government"
+    },
+    {
+      "src": "gruop",
+      "trg": "group"
+    },
+    {
+      "src": "gruops",
+      "trg": "groups"
+    },
+    {
+      "src": "grwo",
+      "trg": "grow"
+    },
+    {
+      "src": "guidlines",
+      "trg": "guidelines"
+    },
+    {
+      "src": "hadbeen",
+      "trg": "had been"
+    },
+    {
+      "src": "hadn;t",
+      "trg": "hadn’t"
+    },
+    {
+      "src": "haev",
+      "trg": "have"
+    },
+    {
+      "src": "hapen",
+      "trg": "happen"
+    },
+    {
+      "src": "hapened",
+      "trg": "happened"
+    },
+    {
+      "src": "hapening",
+      "trg": "happening"
+    },
+    {
+      "src": "hapens",
+      "trg": "happens"
+    },
+    {
+      "src": "happend",
+      "trg": "happened"
+    },
+    {
+      "src": "hasbeen",
+      "trg": "has been"
+    },
+    {
+      "src": "hasn;t",
+      "trg": "hasn’t"
+    },
+    {
+      "src": "hasnt",
+      "trg": "hasn’t"
+    },
+    {
+      "src": "havebeen",
+      "trg": "have been"
+    },
+    {
+      "src": "haveing",
+      "trg": "having"
+    },
+    {
+      "src": "haven;t",
+      "trg": "haven’t"
+    },
+    {
+      "src": "hda",
+      "trg": "had"
+    },
+    {
+      "src": "he;ll",
+      "trg": "he’ll"
+    },
+    {
+      "src": "hearign",
+      "trg": "hearing"
+    },
+    {
+      "src": "helpfull",
+      "trg": "helpful"
+    },
+    {
+      "src": "here;s",
+      "trg": "here’s"
+    },
+    {
+      "src": "hesaid",
+      "trg": "he said"
+    },
+    {
+      "src": "hewas",
+      "trg": "he was"
+    },
+    {
+      "src": "hge",
+      "trg": "he"
+    },
+    {
+      "src": "hismelf",
+      "trg": "himself"
+    },
+    {
+      "src": "hlep",
+      "trg": "help"
+    },
+    {
+      "src": "hsa",
+      "trg": "has"
+    },
+    {
+      "src": "hsi",
+      "trg": "his"
+    },
+    {
+      "src": "hte",
+      "trg": "the"
+    },
+    {
+      "src": "htere",
+      "trg": "there"
+    },
+    {
+      "src": "htese",
+      "trg": "these"
+    },
+    {
+      "src": "htey",
+      "trg": "they"
+    },
+    {
+      "src": "hting",
+      "trg": "thing"
+    },
+    {
+      "src": "htink",
+      "trg": "think"
+    },
+    {
+      "src": "htis",
+      "trg": "this"
+    },
+    {
+      "src": "htp:",
+      "trg": "http:"
+    },
+    {
+      "src": "http:\\\\",
+      "trg": "http://"
+    },
+    {
+      "src": "httpL",
+      "trg": "http:"
+    },
+    {
+      "src": "hvae",
+      "trg": "have"
+    },
+    {
+      "src": "hvaing",
+      "trg": "having"
+    },
+    {
+      "src": "hwich",
+      "trg": "which"
+    },
+    {
+      "src": "i",
+      "trg": "I"
+    },
+    {
+      "src": "i snot",
+      "trg": "is not"
+    },
+    {
+      "src": "I&quot;m",
+      "trg": "I’m"
+    },
+    {
+      "src": "I;d",
+      "trg": "I’d"
+    },
+    {
+      "src": "I;ll",
+      "trg": "I’ll"
+    },
+    {
+      "src": "idae",
+      "trg": "idea"
+    },
+    {
+      "src": "idaes",
+      "trg": "ideas"
+    },
+    {
+      "src": "identofy",
+      "trg": "identify"
+    },
+    {
+      "src": "ihs",
+      "trg": "his"
+    },
+    {
+      "src": "iits the",
+      "trg": "it’s the"
+    },
+    {
+      "src": "imediate",
+      "trg": "immediate"
+    },
+    {
+      "src": "imediatly",
+      "trg": "immediately"
+    },
+    {
+      "src": "immediatly",
+      "trg": "immediately"
+    },
+    {
+      "src": "importent",
+      "trg": "important"
+    },
+    {
+      "src": "importnat",
+      "trg": "important"
+    },
+    {
+      "src": "impossable",
+      "trg": "impossible"
+    },
+    {
+      "src": "improvemnt",
+      "trg": "improvement"
+    },
+    {
+      "src": "improvment",
+      "trg": "improvement"
+    },
+    {
+      "src": "includ",
+      "trg": "include"
+    },
+    {
+      "src": "indecate",
+      "trg": "indicate"
+    },
+    {
+      "src": "indenpendence",
+      "trg": "independence"
+    },
+    {
+      "src": "indenpendent",
+      "trg": "independent"
+    },
+    {
+      "src": "indepedent",
+      "trg": "independent"
+    },
+    {
+      "src": "independance",
+      "trg": "independence"
+    },
+    {
+      "src": "independant",
+      "trg": "independent"
+    },
+    {
+      "src": "influance",
+      "trg": "influence"
+    },
+    {
+      "src": "infomation",
+      "trg": "information"
+    },
+    {
+      "src": "informatoin",
+      "trg": "information"
+    },
+    {
+      "src": "inital",
+      "trg": "initial"
+    },
+    {
+      "src": "instaleld",
+      "trg": "installed"
+    },
+    {
+      "src": "insted",
+      "trg": "instead"
+    },
+    {
+      "src": "insurence",
+      "trg": "insurance"
+    },
+    {
+      "src": "int he",
+      "trg": "in the"
+    },
+    {
+      "src": "inteh",
+      "trg": "in the"
+    },
+    {
+      "src": "interum",
+      "trg": "interim"
+    },
+    {
+      "src": "inthe",
+      "trg": "in the"
+    },
+    {
+      "src": "inwhich",
+      "trg": "in which"
+    },
+    {
+      "src": "isn;t",
+      "trg": "isn’t"
+    },
+    {
+      "src": "isthe",
+      "trg": "is the"
+    },
+    {
+      "src": "it snot",
+      "trg": "it’s not"
+    },
+    {
+      "src": "it' snot",
+      "trg": "it’s not"
+    },
+    {
+      "src": "it;ll",
+      "trg": "it’ll"
+    },
+    {
+      "src": "it;s",
+      "trg": "it’s"
+    },
+    {
+      "src": "itis",
+      "trg": "it is"
+    },
+    {
+      "src": "ititial",
+      "trg": "initial"
+    },
+    {
+      "src": "itnerest",
+      "trg": "interest"
+    },
+    {
+      "src": "itnerested",
+      "trg": "interested"
+    },
+    {
+      "src": "itneresting",
+      "trg": "interesting"
+    },
+    {
+      "src": "itnerests",
+      "trg": "interests"
+    },
+    {
+      "src": "its a",
+      "trg": "it’s a"
+    },
+    {
+      "src": "its the",
+      "trg": "it’s the"
+    },
+    {
+      "src": "itwas",
+      "trg": "it was"
+    },
+    {
+      "src": "iwll",
+      "trg": "will"
+    },
+    {
+      "src": "iwth",
+      "trg": "with"
+    },
+    {
+      "src": "jsut",
+      "trg": "just"
+    },
+    {
+      "src": "jugment",
+      "trg": "judgment"
+    },
+    {
+      "src": "knowldge",
+      "trg": "knowledge"
+    },
+    {
+      "src": "knowlege",
+      "trg": "knowledge"
+    },
+    {
+      "src": "knwo",
+      "trg": "know"
+    },
+    {
+      "src": "knwon",
+      "trg": "known"
+    },
+    {
+      "src": "knwos",
+      "trg": "knows"
+    },
+    {
+      "src": "konw",
+      "trg": "know"
+    },
+    {
+      "src": "konwn",
+      "trg": "known"
+    },
+    {
+      "src": "konws",
+      "trg": "knows"
+    },
+    {
+      "src": "labratory",
+      "trg": "laboratory"
+    },
+    {
+      "src": "lastyear",
+      "trg": "last year"
+    },
+    {
+      "src": "learnign",
+      "trg": "learning"
+    },
+    {
+      "src": "lenght",
+      "trg": "length"
+    },
+    {
+      "src": "let's him",
+      "trg": "lets him"
+    },
+    {
+      "src": "let's it",
+      "trg": "lets it"
+    },
+    {
+      "src": "let;s",
+      "trg": "let’s"
+    },
+    {
+      "src": "levle",
+      "trg": "level"
+    },
+    {
+      "src": "libary",
+      "trg": "library"
+    },
+    {
+      "src": "librarry",
+      "trg": "library"
+    },
+    {
+      "src": "librery",
+      "trg": "library"
+    },
+    {
+      "src": "liek",
+      "trg": "like"
+    },
+    {
+      "src": "liekd",
+      "trg": "liked"
+    },
+    {
+      "src": "lieutenent",
+      "trg": "lieutenant"
+    },
+    {
+      "src": "liev",
+      "trg": "live"
+    },
+    {
+      "src": "likly",
+      "trg": "likely"
+    },
+    {
+      "src": "lisense",
+      "trg": "license"
+    },
+    {
+      "src": "littel",
+      "trg": "little"
+    },
+    {
+      "src": "litttle",
+      "trg": "little"
+    },
+    {
+      "src": "liuke",
+      "trg": "like"
+    },
+    {
+      "src": "liveing",
+      "trg": "living"
+    },
+    {
+      "src": "loev",
+      "trg": "love"
+    },
+    {
+      "src": "lonly",
+      "trg": "lonely"
+    },
+    {
+      "src": "lookign",
+      "trg": "looking"
+    },
+    {
+      "src": "maintenence",
+      "trg": "maintenance"
+    },
+    {
+      "src": "makeing",
+      "trg": "making"
+    },
+    {
+      "src": "managment",
+      "trg": "management"
+    },
+    {
+      "src": "mantain",
+      "trg": "maintain"
+    },
+    {
+      "src": "marraige",
+      "trg": "marriage"
+    },
+    {
+      "src": "may of been",
+      "trg": "may have been"
+    },
+    {
+      "src": "may of had",
+      "trg": "may have had"
+    },
+    {
+      "src": "memeber",
+      "trg": "member"
+    },
+    {
+      "src": "merchent",
+      "trg": "merchant"
+    },
+    {
+      "src": "mesage",
+      "trg": "message"
+    },
+    {
+      "src": "mesages",
+      "trg": "messages"
+    },
+    {
+      "src": "might of been",
+      "trg": "might have been"
+    },
+    {
+      "src": "might of had",
+      "trg": "might have had"
+    },
+    {
+      "src": "mispell",
+      "trg": "misspell"
+    },
+    {
+      "src": "mispelling",
+      "trg": "misspelling"
+    },
+    {
+      "src": "mispellings",
+      "trg": "misspellings"
+    },
+    {
+      "src": "mkae",
+      "trg": "make"
+    },
+    {
+      "src": "mkaes",
+      "trg": "makes"
+    },
+    {
+      "src": "mkaing",
+      "trg": "making"
+    },
+    {
+      "src": "moeny",
+      "trg": "money"
+    },
+    {
+      "src": "morgage",
+      "trg": "mortgage"
+    },
+    {
+      "src": "mroe",
+      "trg": "more"
+    },
+    {
+      "src": "must of been",
+      "trg": "must have been"
+    },
+    {
+      "src": "must of had",
+      "trg": "must have had"
+    },
+    {
+      "src": "mysefl",
+      "trg": "myself"
+    },
+    {
+      "src": "myu",
+      "trg": "my"
+    },
+    {
+      "src": "naive",
+      "trg": "naïve"
+    },
+    {
+      "src": "necassarily",
+      "trg": "necessarily"
+    },
+    {
+      "src": "necassary",
+      "trg": "necessary"
+    },
+    {
+      "src": "neccessarily",
+      "trg": "necessarily"
+    },
+    {
+      "src": "neccessary",
+      "trg": "necessary"
+    },
+    {
+      "src": "necesarily",
+      "trg": "necessarily"
+    },
+    {
+      "src": "necesary",
+      "trg": "necessary"
+    },
+    {
+      "src": "negotiaing",
+      "trg": "negotiating"
+    },
+    {
+      "src": "nkow",
+      "trg": "know"
+    },
+    {
+      "src": "nothign",
+      "trg": "nothing"
+    },
+    {
+      "src": "nver",
+      "trg": "never"
+    },
+    {
+      "src": "nwe",
+      "trg": "new"
+    },
+    {
+      "src": "nwo",
+      "trg": "now"
+    },
+    {
+      "src": "obediant",
+      "trg": "obedient"
+    },
+    {
+      "src": "ocasion",
+      "trg": "occasion"
+    },
+    {
+      "src": "occassion",
+      "trg": "occasion"
+    },
+    {
+      "src": "occured",
+      "trg": "occurred"
+    },
+    {
+      "src": "occurence",
+      "trg": "occurrence"
+    },
+    {
+      "src": "occurrance",
+      "trg": "occurrence"
+    },
+    {
+      "src": "ocur",
+      "trg": "occur"
+    },
+    {
+      "src": "oeprator",
+      "trg": "operator"
+    },
+    {
+      "src": "ofits",
+      "trg": "of its"
+    },
+    {
+      "src": "oft he",
+      "trg": "of the"
+    },
+    {
+      "src": "ofthe",
+      "trg": "of the"
+    },
+    {
+      "src": "oging",
+      "trg": "going"
+    },
+    {
+      "src": "ohter",
+      "trg": "other"
+    },
+    {
+      "src": "omre",
+      "trg": "more"
+    },
+    {
+      "src": "oneof",
+      "trg": "one of"
+    },
+    {
+      "src": "onepoint",
+      "trg": "one point"
+    },
+    {
+      "src": "ont he",
+      "trg": "on the"
+    },
+    {
+      "src": "onthe",
+      "trg": "on the"
+    },
+    {
+      "src": "onyl",
+      "trg": "only"
+    },
+    {
+      "src": "oppasite",
+      "trg": "opposite"
+    },
+    {
+      "src": "opperation",
+      "trg": "operation"
+    },
+    {
+      "src": "oppertunity",
+      "trg": "opportunity"
+    },
+    {
+      "src": "opposate",
+      "trg": "opposite"
+    },
+    {
+      "src": "opposible",
+      "trg": "opposable"
+    },
+    {
+      "src": "opposit",
+      "trg": "opposite"
+    },
+    {
+      "src": "oppotunities",
+      "trg": "opportunities"
+    },
+    {
+      "src": "oppotunity",
+      "trg": "opportunity"
+    },
+    {
+      "src": "orginization",
+      "trg": "organization"
+    },
+    {
+      "src": "orginized",
+      "trg": "organized"
+    },
+    {
+      "src": "otehr",
+      "trg": "other"
+    },
+    {
+      "src": "otu",
+      "trg": "out"
+    },
+    {
+      "src": "outof",
+      "trg": "out of"
+    },
+    {
+      "src": "overthe",
+      "trg": "over the"
+    },
+    {
+      "src": "owrk",
+      "trg": "work"
+    },
+    {
+      "src": "owuld",
+      "trg": "would"
+    },
+    {
+      "src": "oxident",
+      "trg": "oxidant"
+    },
+    {
+      "src": "papaer",
+      "trg": "paper"
+    },
+    {
+      "src": "parliment",
+      "trg": "parliament"
+    },
+    {
+      "src": "partof",
+      "trg": "part of"
+    },
+    {
+      "src": "paymetn",
+      "trg": "payment"
+    },
+    {
+      "src": "paymetns",
+      "trg": "payments"
+    },
+    {
+      "src": "pciture",
+      "trg": "picture"
+    },
+    {
+      "src": "peice",
+      "trg": "piece"
+    },
+    {
+      "src": "peices",
+      "trg": "pieces"
+    },
+    {
+      "src": "peolpe",
+      "trg": "people"
+    },
+    {
+      "src": "peopel",
+      "trg": "people"
+    },
+    {
+      "src": "percentof",
+      "trg": "percent of"
+    },
+    {
+      "src": "percentto",
+      "trg": "percent to"
+    },
+    {
+      "src": "performence",
+      "trg": "performance"
+    },
+    {
+      "src": "perhasp",
+      "trg": "perhaps"
+    },
+    {
+      "src": "perhpas",
+      "trg": "perhaps"
+    },
+    {
+      "src": "permanant",
+      "trg": "permanent"
+    },
+    {
+      "src": "perminent",
+      "trg": "permanent"
+    },
+    {
+      "src": "personalyl",
+      "trg": "personally"
+    },
+    {
+      "src": "pleasent",
+      "trg": "pleasant"
+    },
+    {
+      "src": "poeple",
+      "trg": "people"
+    },
+    {
+      "src": "porblem",
+      "trg": "problem"
+    },
+    {
+      "src": "porblems",
+      "trg": "problems"
+    },
+    {
+      "src": "porvide",
+      "trg": "provide"
+    },
+    {
+      "src": "possable",
+      "trg": "possible"
+    },
+    {
+      "src": "postition",
+      "trg": "position"
+    },
+    {
+      "src": "potentialy",
+      "trg": "potentially"
+    },
+    {
+      "src": "pregnent",
+      "trg": "pregnant"
+    },
+    {
+      "src": "presance",
+      "trg": "presence"
+    },
+    {
+      "src": "probelm",
+      "trg": "problem"
+    },
+    {
+      "src": "probelms",
+      "trg": "problems"
+    },
+    {
+      "src": "prominant",
+      "trg": "prominent"
+    },
+    {
+      "src": "protege",
+      "trg": "protégé"
+    },
+    {
+      "src": "protoge",
+      "trg": "protégé"
+    },
+    {
+      "src": "psoition",
+      "trg": "position"
+    },
+    {
+      "src": "ptogress",
+      "trg": "progress"
+    },
+    {
+      "src": "puting",
+      "trg": "putting"
+    },
+    {
+      "src": "pwoer",
+      "trg": "power"
+    },
+    {
+      "src": "quater",
+      "trg": "quarter"
+    },
+    {
+      "src": "quaters",
+      "trg": "quarters"
+    },
+    {
+      "src": "quesion",
+      "trg": "question"
+    },
+    {
+      "src": "quesions",
+      "trg": "questions"
+    },
+    {
+      "src": "questioms",
+      "trg": "questions"
+    },
+    {
+      "src": "questiosn",
+      "trg": "questions"
+    },
+    {
+      "src": "questoin",
+      "trg": "question"
+    },
+    {
+      "src": "quetion",
+      "trg": "question"
+    },
+    {
+      "src": "quetions",
+      "trg": "questions"
+    },
+    {
+      "src": "realyl",
+      "trg": "really"
+    },
+    {
+      "src": "reccomend",
+      "trg": "recommend"
+    },
+    {
+      "src": "reccommend",
+      "trg": "recommend"
+    },
+    {
+      "src": "receieve",
+      "trg": "receive"
+    },
+    {
+      "src": "recieve",
+      "trg": "receive"
+    },
+    {
+      "src": "recieved",
+      "trg": "received"
+    },
+    {
+      "src": "recieving",
+      "trg": "receiving"
+    },
+    {
+      "src": "recomend",
+      "trg": "recommend"
+    },
+    {
+      "src": "recomendation",
+      "trg": "recommendation"
+    },
+    {
+      "src": "recomendations",
+      "trg": "recommendations"
+    },
+    {
+      "src": "recomended",
+      "trg": "recommended"
+    },
+    {
+      "src": "reconize",
+      "trg": "recognize"
+    },
+    {
+      "src": "recrod",
+      "trg": "record"
+    },
+    {
+      "src": "religous",
+      "trg": "religious"
+    },
+    {
+      "src": "reluctent",
+      "trg": "reluctant"
+    },
+    {
+      "src": "remeber",
+      "trg": "remember"
+    },
+    {
+      "src": "reommend",
+      "trg": "recommend"
+    },
+    {
+      "src": "representativs",
+      "trg": "representatives"
+    },
+    {
+      "src": "representives",
+      "trg": "representatives"
+    },
+    {
+      "src": "represetned",
+      "trg": "represented"
+    },
+    {
+      "src": "represnt",
+      "trg": "represent"
+    },
+    {
+      "src": "reserach",
+      "trg": "research"
+    },
+    {
+      "src": "resollution",
+      "trg": "resolution"
+    },
+    {
+      "src": "resorces",
+      "trg": "resources"
+    },
+    {
+      "src": "respomd",
+      "trg": "respond"
+    },
+    {
+      "src": "respomse",
+      "trg": "response"
+    },
+    {
+      "src": "responce",
+      "trg": "response"
+    },
+    {
+      "src": "responsability",
+      "trg": "responsibility"
+    },
+    {
+      "src": "responsable",
+      "trg": "responsible"
+    },
+    {
+      "src": "responsibile",
+      "trg": "responsible"
+    },
+    {
+      "src": "responsiblity",
+      "trg": "responsibility"
+    },
+    {
+      "src": "restaraunt",
+      "trg": "restaurant"
+    },
+    {
+      "src": "restuarant",
+      "trg": "restaurant"
+    },
+    {
+      "src": "reult",
+      "trg": "result"
+    },
+    {
+      "src": "reveiw",
+      "trg": "review"
+    },
+    {
+      "src": "reveiwing",
+      "trg": "reviewing"
+    },
+    {
+      "src": "rumers",
+      "trg": "rumors"
+    },
+    {
+      "src": "rwite",
+      "trg": "write"
+    },
+    {
+      "src": "rythm",
+      "trg": "rhythm"
+    },
+    {
+      "src": "saidhe",
+      "trg": "said he"
+    },
+    {
+      "src": "saidit",
+      "trg": "said it"
+    },
+    {
+      "src": "saidt he",
+      "trg": "said the"
+    },
+    {
+      "src": "saidthat",
+      "trg": "said that"
+    },
+    {
+      "src": "saidthe",
+      "trg": "said the"
+    },
+    {
+      "src": "scedule",
+      "trg": "schedule"
+    },
+    {
+      "src": "sceduled",
+      "trg": "scheduled"
+    },
+    {
+      "src": "seance",
+      "trg": "séance"
+    },
+    {
+      "src": "secratary",
+      "trg": "secretary"
+    },
+    {
+      "src": "sectino",
+      "trg": "section"
+    },
+    {
+      "src": "seh",
+      "trg": "she"
+    },
+    {
+      "src": "selectoin",
+      "trg": "selection"
+    },
+    {
+      "src": "sentance",
+      "trg": "sentence"
+    },
+    {
+      "src": "separeate",
+      "trg": "separate"
+    },
+    {
+      "src": "seperate",
+      "trg": "separate"
+    },
+    {
+      "src": "sercumstances",
+      "trg": "circumstances"
+    },
+    {
+      "src": "shcool",
+      "trg": "school"
+    },
+    {
+      "src": "she;ll",
+      "trg": "she’ll"
+    },
+    {
+      "src": "shesaid",
+      "trg": "she said"
+    },
+    {
+      "src": "shineing",
+      "trg": "shining"
+    },
+    {
+      "src": "shiped",
+      "trg": "shipped"
+    },
+    {
+      "src": "shoudl",
+      "trg": "should"
+    },
+    {
+      "src": "shoudln't",
+      "trg": "shouldn’t"
+    },
+    {
+      "src": "should of been",
+      "trg": "should have been"
+    },
+    {
+      "src": "should of had",
+      "trg": "should have had"
+    },
+    {
+      "src": "shouldent",
+      "trg": "shouldn’t"
+    },
+    {
+      "src": "shouldn;t",
+      "trg": "shouldn’t"
+    },
+    {
+      "src": "shouldnt",
+      "trg": "shouldn’t"
+    },
+    {
+      "src": "showinf",
+      "trg": "showing"
+    },
+    {
+      "src": "signifacnt",
+      "trg": "significant"
+    },
+    {
+      "src": "simalar",
+      "trg": "similar"
+    },
+    {
+      "src": "similiar",
+      "trg": "similar"
+    },
+    {
+      "src": "simpyl",
+      "trg": "simply"
+    },
+    {
+      "src": "sincerly",
+      "trg": "sincerely"
+    },
+    {
+      "src": "sitll",
+      "trg": "still"
+    },
+    {
+      "src": "smae",
+      "trg": "same"
+    },
+    {
+      "src": "smoe",
+      "trg": "some"
+    },
+    {
+      "src": "soem",
+      "trg": "some"
+    },
+    {
+      "src": "sohw",
+      "trg": "show"
+    },
+    {
+      "src": "soical",
+      "trg": "social"
+    },
+    {
+      "src": "somethign",
+      "trg": "something"
+    },
+    {
+      "src": "someting",
+      "trg": "something"
+    },
+    {
+      "src": "somewaht",
+      "trg": "somewhat"
+    },
+    {
+      "src": "somthing",
+      "trg": "something"
+    },
+    {
+      "src": "somtimes",
+      "trg": "sometimes"
+    },
+    {
+      "src": "sot hat",
+      "trg": "so that"
+    },
+    {
+      "src": "soudn",
+      "trg": "sound"
+    },
+    {
+      "src": "soudns",
+      "trg": "sounds"
+    },
+    {
+      "src": "speach",
+      "trg": "speech"
+    },
+    {
+      "src": "specificaly",
+      "trg": "specifically"
+    },
+    {
+      "src": "specificalyl",
+      "trg": "specifically"
+    },
+    {
+      "src": "statment",
+      "trg": "statement"
+    },
+    {
+      "src": "statments",
+      "trg": "statements"
+    },
+    {
+      "src": "stnad",
+      "trg": "stand"
+    },
+    {
+      "src": "stopry",
+      "trg": "story"
+    },
+    {
+      "src": "stoyr",
+      "trg": "story"
+    },
+    {
+      "src": "stpo",
+      "trg": "stop"
+    },
+    {
+      "src": "strentgh",
+      "trg": "strength"
+    },
+    {
+      "src": "stroy",
+      "trg": "story"
+    },
+    {
+      "src": "struggel",
+      "trg": "struggle"
+    },
+    {
+      "src": "strugle",
+      "trg": "struggle"
+    },
+    {
+      "src": "studnet",
+      "trg": "student"
+    },
+    {
+      "src": "successfull",
+      "trg": "successful"
+    },
+    {
+      "src": "successfuly",
+      "trg": "successfully"
+    },
+    {
+      "src": "successfulyl",
+      "trg": "successfully"
+    },
+    {
+      "src": "sucess",
+      "trg": "success"
+    },
+    {
+      "src": "sucessfull",
+      "trg": "successful"
+    },
+    {
+      "src": "sufficiant",
+      "trg": "sufficient"
+    },
+    {
+      "src": "suposed",
+      "trg": "supposed"
+    },
+    {
+      "src": "suppossed",
+      "trg": "supposed"
+    },
+    {
+      "src": "suprise",
+      "trg": "surprise"
+    },
+    {
+      "src": "suprised",
+      "trg": "surprised"
+    },
+    {
+      "src": "swiming",
+      "trg": "swimming"
+    },
+    {
+      "src": "tahn",
+      "trg": "than"
+    },
+    {
+      "src": "taht",
+      "trg": "that"
+    },
+    {
+      "src": "talekd",
+      "trg": "talked"
+    },
+    {
+      "src": "talkign",
+      "trg": "talking"
+    },
+    {
+      "src": "tath",
+      "trg": "that"
+    },
+    {
+      "src": "tecnical",
+      "trg": "technical"
+    },
+    {
+      "src": "teh",
+      "trg": "the"
+    },
+    {
+      "src": "tehy",
+      "trg": "they"
+    },
+    {
+      "src": "tellt he",
+      "trg": "tell the"
+    },
+    {
+      "src": "termoil",
+      "trg": "turmoil"
+    },
+    {
+      "src": "tghe",
+      "trg": "the"
+    },
+    {
+      "src": "tghis",
+      "trg": "this"
+    },
+    {
+      "src": "thansk",
+      "trg": "thanks"
+    },
+    {
+      "src": "thats",
+      "trg": "that’s"
+    },
+    {
+      "src": "thatt he",
+      "trg": "that the"
+    },
+    {
+      "src": "thatthe",
+      "trg": "that the"
+    },
+    {
+      "src": "thecompany",
+      "trg": "the company"
+    },
+    {
+      "src": "thefirst",
+      "trg": "the first"
+    },
+    {
+      "src": "thegovernment",
+      "trg": "the government"
+    },
+    {
+      "src": "their are",
+      "trg": "there are"
+    },
+    {
+      "src": "their is",
+      "trg": "there is"
+    },
+    {
+      "src": "themself",
+      "trg": "themselves"
+    },
+    {
+      "src": "themselfs",
+      "trg": "themselves"
+    },
+    {
+      "src": "thenew",
+      "trg": "the new"
+    },
+    {
+      "src": "there's is",
+      "trg": "theirs is"
+    },
+    {
+      "src": "theri",
+      "trg": "their"
+    },
+    {
+      "src": "thesame",
+      "trg": "the same"
+    },
+    {
+      "src": "thetwo",
+      "trg": "the two"
+    },
+    {
+      "src": "they're are",
+      "trg": "there are"
+    },
+    {
+      "src": "they're is",
+      "trg": "there is"
+    },
+    {
+      "src": "they;l",
+      "trg": "they’ll"
+    },
+    {
+      "src": "they;ll",
+      "trg": "they’ll"
+    },
+    {
+      "src": "they;r",
+      "trg": "they’re"
+    },
+    {
+      "src": "they;re",
+      "trg": "they’re"
+    },
+    {
+      "src": "they;v",
+      "trg": "they’ve"
+    },
+    {
+      "src": "they;ve",
+      "trg": "they’ve"
+    },
+    {
+      "src": "theyll",
+      "trg": "they’ll"
+    },
+    {
+      "src": "theyve",
+      "trg": "they’ve"
+    },
+    {
+      "src": "thgat",
+      "trg": "that"
+    },
+    {
+      "src": "thge",
+      "trg": "the"
+    },
+    {
+      "src": "thier",
+      "trg": "their"
+    },
+    {
+      "src": "thigsn",
+      "trg": "things"
+    },
+    {
+      "src": "thisyear",
+      "trg": "this year"
+    },
+    {
+      "src": "thna",
+      "trg": "than"
+    },
+    {
+      "src": "thne",
+      "trg": "then"
+    },
+    {
+      "src": "thnig",
+      "trg": "thing"
+    },
+    {
+      "src": "thnigs",
+      "trg": "things"
+    },
+    {
+      "src": "threatend",
+      "trg": "threatened"
+    },
+    {
+      "src": "thsi",
+      "trg": "this"
+    },
+    {
+      "src": "thsoe",
+      "trg": "those"
+    },
+    {
+      "src": "thta",
+      "trg": "that"
+    },
+    {
+      "src": "tihs",
+      "trg": "this"
+    },
+    {
+      "src": "timne",
+      "trg": "time"
+    },
+    {
+      "src": "tiogether",
+      "trg": "together"
+    },
+    {
+      "src": "tje",
+      "trg": "the"
+    },
+    {
+      "src": "tjhe",
+      "trg": "the"
+    },
+    {
+      "src": "tkae",
+      "trg": "take"
+    },
+    {
+      "src": "tkaes",
+      "trg": "takes"
+    },
+    {
+      "src": "tkaing",
+      "trg": "taking"
+    },
+    {
+      "src": "tlaking",
+      "trg": "talking"
+    },
+    {
+      "src": "todya",
+      "trg": "today"
+    },
+    {
+      "src": "togehter",
+      "trg": "together"
+    },
+    {
+      "src": "toldt he",
+      "trg": "told the"
+    },
+    {
+      "src": "tomorow",
+      "trg": "tomorrow"
+    },
+    {
+      "src": "tongiht",
+      "trg": "tonight"
+    },
+    {
+      "src": "tonihgt",
+      "trg": "tonight"
+    },
+    {
+      "src": "tot he",
+      "trg": "to the"
+    },
+    {
+      "src": "totaly",
+      "trg": "totally"
+    },
+    {
+      "src": "totalyl",
+      "trg": "totally"
+    },
+    {
+      "src": "tothe",
+      "trg": "to the"
+    },
+    {
+      "src": "towrad",
+      "trg": "toward"
+    },
+    {
+      "src": "traditionalyl",
+      "trg": "traditionally"
+    },
+    {
+      "src": "transfered",
+      "trg": "transferred"
+    },
+    {
+      "src": "truely",
+      "trg": "truly"
+    },
+    {
+      "src": "truley",
+      "trg": "truly"
+    },
+    {
+      "src": "tryed",
+      "trg": "tried"
+    },
+    {
+      "src": "tthe",
+      "trg": "the"
+    },
+    {
+      "src": "tyhat",
+      "trg": "that"
+    },
+    {
+      "src": "tyhe",
+      "trg": "the"
+    },
+    {
+      "src": "udnerstand",
+      "trg": "understand"
+    },
+    {
+      "src": "understnad",
+      "trg": "understand"
+    },
+    {
+      "src": "undert he",
+      "trg": "under the"
+    },
+    {
+      "src": "UnitedStates",
+      "trg": "United States"
+    },
+    {
+      "src": "unliek",
+      "trg": "unlike"
+    },
+    {
+      "src": "unpleasently",
+      "trg": "unpleasantly"
+    },
+    {
+      "src": "untilll",
+      "trg": "until"
+    },
+    {
+      "src": "useing",
+      "trg": "using"
+    },
+    {
+      "src": "usualyl",
+      "trg": "usually"
+    },
+    {
+      "src": "veyr",
+      "trg": "very"
+    },
+    {
+      "src": "virtualyl",
+      "trg": "virtually"
+    },
+    {
+      "src": "vis-a-vis",
+      "trg": "vis-à-vis"
+    },
+    {
+      "src": "vrey",
+      "trg": "very"
+    },
+    {
+      "src": "vulnerible",
+      "trg": "vulnerable"
+    },
+    {
+      "src": "wa snot",
+      "trg": "was not"
+    },
+    {
+      "src": "waht",
+      "trg": "what"
+    },
+    {
+      "src": "warrent",
+      "trg": "warrant"
+    },
+    {
+      "src": "wasnt",
+      "trg": "wasn’t"
+    },
+    {
+      "src": "watn",
+      "trg": "want"
+    },
+    {
+      "src": "we;d",
+      "trg": "we’d"
+    },
+    {
+      "src": "we;ll",
+      "trg": "we’ll"
+    },
+    {
+      "src": "we;re",
+      "trg": "we’re"
+    },
+    {
+      "src": "we;ve",
+      "trg": "we’ve"
+    },
+    {
+      "src": "wehn",
+      "trg": "when"
+    },
+    {
+      "src": "wern't",
+      "trg": "weren’t"
+    },
+    {
+      "src": "werre",
+      "trg": "were"
+    },
+    {
+      "src": "what;s",
+      "trg": "what’s"
+    },
+    {
+      "src": "whcih",
+      "trg": "which"
+    },
+    {
+      "src": "whent he",
+      "trg": "when the"
+    },
+    {
+      "src": "where;s",
+      "trg": "where’s"
+    },
+    {
+      "src": "wherre",
+      "trg": "where"
+    },
+    {
+      "src": "whic",
+      "trg": "which"
+    },
+    {
+      "src": "whicht he",
+      "trg": "which the"
+    },
+    {
+      "src": "whihc",
+      "trg": "which"
+    },
+    {
+      "src": "who;s",
+      "trg": "who’s"
+    },
+    {
+      "src": "who;ve",
+      "trg": "who’ve"
+    },
+    {
+      "src": "whta",
+      "trg": "what"
+    },
+    {
+      "src": "wief",
+      "trg": "wife"
+    },
+    {
+      "src": "wierd",
+      "trg": "weird"
+    },
+    {
+      "src": "wihch",
+      "trg": "which"
+    },
+    {
+      "src": "wiht",
+      "trg": "with"
+    },
+    {
+      "src": "will of been",
+      "trg": "will have been"
+    },
+    {
+      "src": "will of had",
+      "trg": "will have had"
+    },
+    {
+      "src": "willbe",
+      "trg": "will be"
+    },
+    {
+      "src": "windoes",
+      "trg": "windows"
+    },
+    {
+      "src": "witha",
+      "trg": "with a"
+    },
+    {
+      "src": "withe",
+      "trg": "with"
+    },
+    {
+      "src": "witht he",
+      "trg": "with the"
+    },
+    {
+      "src": "withthe",
+      "trg": "with the"
+    },
+    {
+      "src": "wiull",
+      "trg": "will"
+    },
+    {
+      "src": "wnat",
+      "trg": "want"
+    },
+    {
+      "src": "wnated",
+      "trg": "wanted"
+    },
+    {
+      "src": "wnats",
+      "trg": "wants"
+    },
+    {
+      "src": "wo'nt",
+      "trg": "won’t"
+    },
+    {
+      "src": "woh",
+      "trg": "who"
+    },
+    {
+      "src": "wohle",
+      "trg": "whole"
+    },
+    {
+      "src": "wokr",
+      "trg": "work"
+    },
+    {
+      "src": "won;t",
+      "trg": "won’t"
+    },
+    {
+      "src": "woudl",
+      "trg": "would"
+    },
+    {
+      "src": "woudln't",
+      "trg": "wouldn’t"
+    },
+    {
+      "src": "would of been",
+      "trg": "would have been"
+    },
+    {
+      "src": "would of had",
+      "trg": "would have had"
+    },
+    {
+      "src": "wouldbe",
+      "trg": "would be"
+    },
+    {
+      "src": "wouldn;t",
+      "trg": "wouldn’t"
+    },
+    {
+      "src": "wouldnt",
+      "trg": "wouldn’t"
+    },
+    {
+      "src": "wriet",
+      "trg": "write"
+    },
+    {
+      "src": "writting",
+      "trg": "writing"
+    },
+    {
+      "src": "wrod",
+      "trg": "word"
+    },
+    {
+      "src": "wroet",
+      "trg": "wrote"
+    },
+    {
+      "src": "wroking",
+      "trg": "working"
+    },
+    {
+      "src": "wtih",
+      "trg": "with"
+    },
+    {
+      "src": "wuould",
+      "trg": "would"
+    },
+    {
+      "src": "wya",
+      "trg": "way"
+    },
+    {
+      "src": "yera",
+      "trg": "year"
+    },
+    {
+      "src": "yeras",
+      "trg": "years"
+    },
+    {
+      "src": "yersa",
+      "trg": "years"
+    },
+    {
+      "src": "yoiu",
+      "trg": "you"
+    },
+    {
+      "src": "you're own",
+      "trg": "your own"
+    },
+    {
+      "src": "you;d",
+      "trg": "you’d"
+    },
+    {
+      "src": "you;re",
+      "trg": "you’re"
+    },
+    {
+      "src": "youare",
+      "trg": "you are"
+    },
+    {
+      "src": "your a",
+      "trg": "you’re a"
+    },
+    {
+      "src": "your an",
+      "trg": "you’re an"
+    },
+    {
+      "src": "your her",
+      "trg": "you’re her"
+    },
+    {
+      "src": "your here",
+      "trg": "you’re here"
+    },
+    {
+      "src": "your his",
+      "trg": "you’re his"
+    },
+    {
+      "src": "your the",
+      "trg": "you’re the"
+    },
+    {
+      "src": "your their",
+      "trg": "you’re their"
+    },
+    {
+      "src": "your your",
+      "trg": "you’re your"
+    },
+    {
+      "src": "youve",
+      "trg": "you’ve"
+    },
+    {
+      "src": "ytou",
+      "trg": "you"
+    },
+    {
+      "src": "yuo",
+      "trg": "you"
+    },
+    {
+      "src": "yuor",
+      "trg": "your"
+    }
+  ]
+}

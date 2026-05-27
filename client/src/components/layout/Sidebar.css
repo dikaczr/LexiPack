@@ -1,5 +1,5 @@
 .sidebar {
-  width: 220px;
+  width: 198px;
   border-right: 1px solid var(--app-border);
   background: var(--app-chrome);
   display: flex;
@@ -7,6 +7,37 @@
   padding: 12px;
   gap: 8px;
   flex-shrink: 0;
+  transition: width 0.2s ease;
+  overflow: hidden;
+}
+
+.sidebar--collapsed {
+  width: 36px;
+  padding: 8px 0;
+  align-items: center;
+}
+
+.sidebar-toggle {
+  background: transparent;
+  border: none;
+  color: var(--app-muted);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 4px;
+  align-self: flex-end;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.sidebar--collapsed .sidebar-toggle {
+  align-self: center;
+}
+
+.sidebar-toggle:hover {
+  color: var(--app-text);
+  background: var(--app-nav-hov);
 }
 
 .sidebar-nav {
@@ -37,7 +68,7 @@
 
 .sidebar-filter {
   margin-top: calc(19.3vh - 10px);
-  padding: 0 8px 6px;
+  padding: 0 1px 6px;
   display: flex;
   flex-direction: column;
   gap: 0;

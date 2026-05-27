@@ -1,0 +1,28 @@
+{
+  "packId": "testovac-bal-k-2",
+  "name": "Testovací balík 2",
+  "description": "Tester",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "B1",
+  "category": "test",
+  "icon": "📘",
+  "author": "Techdoc",
+  "version": "1.0",
+  "tags": [],
+  "words": [
+    {
+      "id": "71b85d9c-957a-45a7-9766-5698ff845a2d",
+      "word": "home",
+      "article": "",
+      "phonetic": "",
+      "translation": "dom",
+      "definition": "",
+      "type": "",
+      "level": "",
+      "example_en": "",
+      "example_sk": "",
+      "topic": ""
+    }
+  ]
+}

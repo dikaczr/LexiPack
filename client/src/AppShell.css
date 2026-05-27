@@ -54,10 +54,16 @@ body,
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  padding: 20px;
+  padding: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+/* Obrazovky ktoré potrebujú vlastný scroll */
+.app-main--scroll {
+  overflow-y: auto;
+  padding: 10px;
 }
 
 /* FOOTER */
@@ -73,4 +79,68 @@ body,
   font-size: 12px;
   color: var(--app-muted);
   flex-shrink: 0;
+}
+
+/* STARTUP BANNER */
+.startup-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: var(--app-chrome);
+  border-bottom: 1px solid var(--app-border);
+  font-size: 13px;
+  color: var(--app-text2);
+  flex-shrink: 0;
+}
+
+.startup-banner-btn {
+  padding: 5px 14px;
+  border-radius: 5px;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.startup-banner-btn:hover { opacity: 0.8; }
+
+.startup-banner-open {
+  background: var(--app-accent);
+  color: #fff;
+}
+
+.startup-banner-dismiss {
+  background: var(--app-input);
+  color: var(--app-text2);
+  border: 1px solid var(--app-border);
+}
+
+/* AUTOCORRECT NOTICE TOAST */
+@keyframes ac-notice-in {
+  from { opacity: 0; transform: translate(-50%, -46%); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+@keyframes ac-notice-out {
+  0%   { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.ac-notice {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--app-chrome, #1e293b);
+  border: 1px solid var(--app-warning, #f59e0b);
+  border-radius: 10px;
+  padding: 14px 22px;
+  color: var(--app-text, #e2e8f0);
+  font-size: 14px;
+  z-index: 8000;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  pointer-events: none;
+  animation: ac-notice-in 0.2s ease, ac-notice-out 5s forwards;
 }

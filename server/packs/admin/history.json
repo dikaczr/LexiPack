@@ -1,0 +1,422 @@
+﻿[
+    {
+        "word":  "empire",
+        "phonetic":  "/ˈem.paɪə/",
+        "translation":  "ríša",
+        "definition":  "A group of countries or regions ruled by one power.",
+        "type":  "noun",
+        "level":  "B1",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "This experiment shows how empire works.",
+                             "sk":  "Tento experiment ukazuje, ako funguje ríša."
+                         },
+                         {
+                             "en":  "The lesson explained how the empire influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako ríša ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The Byzantine Empire survived the fall of the Western Roman Empire by almost a thousand years."
+                                 },
+                                 {
+                                     "en":  "The Mongol Empire in the 13th century was the largest contiguous land empire in history."
+                                 }
+                             ]
+    },
+    {
+        "word":  "dynasty",
+        "phonetic":  "/ˈdɪn.ə.sti/",
+        "translation":  "dynastia",
+        "definition":  "A sequence of rulers from the same family.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "Understanding dynasty is essential.",
+                             "sk":  "Pochopenie pojmu dynastia je nevyhnutné."
+                         },
+                         {
+                             "en":  "The lesson explained how the dynasty influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako dynastia ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The Ming Dynasty ruled China from 1368 to 1644 and is known for completing the Great Wall."
+                                 },
+                                 {
+                                     "en":  "Dynastic marriages were used in the Middle Ages to forge political alliances between kingdoms."
+                                 }
+                             ]
+    },
+    {
+        "word":  "revolution",
+        "phonetic":  "/ˌrev.əˈluː.ʃən/",
+        "translation":  "revolúcia",
+        "definition":  "A major change in political or social systems.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "We studied the concept of revolution yesterday.",
+                             "sk":  "Včera sme študovali pojem revolúcia."
+                         },
+                         {
+                             "en":  "The lesson explained how the revolution influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako revolúcia ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The American Revolution of 1776 led to independence from British colonial rule."
+                                 },
+                                 {
+                                     "en":  "The October Revolution of 1917 ended tsarist rule in Russia and led to the founding of the Soviet Union."
+                                 }
+                             ]
+    },
+    {
+        "word":  "civilisation",
+        "phonetic":  "/ˌsɪv.əl.aɪˈzeɪ.ʃən/",
+        "translation":  "civilizácia",
+        "definition":  "An advanced human society with culture and institutions.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The teacher explained the term civilisation.",
+                             "sk":  "Učiteľ vysvetlil pojem civilizácia."
+                         },
+                         {
+                             "en":  "The lesson explained how the civilisation influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako civilizácia ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The Mesopotamian civilisation between the Euphrates and Tigris is considered the cradle of writing."
+                                 },
+                                 {
+                                     "en":  "Key features of a civilisation include writing, cities, specialised labour, and organised government."
+                                 }
+                             ]
+    },
+    {
+        "word":  "monarch",
+        "phonetic":  "/ˈmɒn.ək/",
+        "translation":  "panovník",
+        "definition":  "A king, queen, or other hereditary ruler.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "We studied the concept of monarch yesterday.",
+                             "sk":  "Včera sme študovali pojem panovník."
+                         },
+                         {
+                             "en":  "The lesson explained how the monarch influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako panovník ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Queen Victoria was the longest-reigning monarch of the 19th century."
+                                 },
+                                 {
+                                     "en":  "Louis XIV of France embodied absolute monarchy with his famous saying \"I am the state\"."
+                                 }
+                             ]
+    },
+    {
+        "word":  "treaty",
+        "phonetic":  "/ˈtriː.ti/",
+        "translation":  "zmluva",
+        "definition":  "A formal agreement between states or nations.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "Understanding treaty is essential.",
+                             "sk":  "Pochopenie pojmu zmluva je nevyhnutné."
+                         },
+                         {
+                             "en":  "The lesson explained how the treaty influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako zmluva ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The Peace of Westphalia in 1648 ended the Thirty Years\u0027 War through a comprehensive treaty."
+                                 },
+                                 {
+                                     "en":  "The Treaty of Maastricht in 1992 laid the foundations for today\u0027s European Union."
+                                 }
+                             ]
+    },
+    {
+        "word":  "battle",
+        "phonetic":  "/ˈbæt.əl/",
+        "translation":  "bitka",
+        "definition":  "A fight between armies or military forces.",
+        "type":  "noun",
+        "level":  "B1",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "This experiment shows how battle works.",
+                             "sk":  "Tento experiment ukazuje, ako funguje bitka."
+                         },
+                         {
+                             "en":  "The lesson explained how the battle influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako bitka ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The Battle of Stalingrad is widely regarded as the turning point of the Second World War."
+                                 },
+                                 {
+                                     "en":  "At the naval Battle of Salamis in 480 BC, a smaller Greek fleet defeated a much larger Persian one."
+                                 }
+                             ]
+    },
+    {
+        "word":  "colony",
+        "phonetic":  "/ˈkɒl.ə.ni/",
+        "translation":  "kolónia",
+        "definition":  "A territory controlled by a more powerful country.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "This experiment shows how colony works.",
+                             "sk":  "Tento experiment ukazuje, ako funguje kolónia."
+                         },
+                         {
+                             "en":  "The lesson explained how the colony influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako kolónia ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Most African countries gained independence from their colonial rulers during the 1950s and 1960s."
+                                 },
+                                 {
+                                     "en":  "The economic exploitation of a colony by its ruling power was a defining feature of colonialism."
+                                 }
+                             ]
+    },
+    {
+        "word":  "archaeology",
+        "phonetic":  "/ˌɑː.kiˈɒl.ə.dʒi/",
+        "translation":  "archeológia",
+        "definition":  "The study of human history through remains and artefacts.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The archaeology is important in this field.",
+                             "sk":  "Archeológia je v tejto oblasti dôležitý."
+                         },
+                         {
+                             "en":  "The lesson explained how the archaeology influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako archeológia ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Excavations at Pompeii have given archaeology a detailed picture of everyday Roman life."
+                                 },
+                                 {
+                                     "en":  "Modern archaeology uses non-invasive techniques such as ground-penetrating radar to explore sites."
+                                 }
+                             ]
+    },
+    {
+        "word":  "artifact",
+        "phonetic":  "/ˈɑː.tɪ.fækt/",
+        "translation":  "artefakt",
+        "definition":  "An object made by humans in the past.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "We studied the concept of artifact yesterday.",
+                             "sk":  "Včera sme študovali pojem artefakt."
+                         },
+                         {
+                             "en":  "The lesson explained how the artifact influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako artefakt ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The bust of Nefertiti is one of the most famous ancient Egyptian artifacts and is housed in Berlin."
+                                 },
+                                 {
+                                     "en":  "Each artifact tells a story and provides clues about the society in which it was created."
+                                 }
+                             ]
+    },
+    {
+        "word":  "chronology",
+        "phonetic":  "/krəˈnɒl.ə.dʒi/",
+        "translation":  "chronológia",
+        "definition":  "The arrangement of events in the order they happened.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "Understanding chronology is essential.",
+                             "sk":  "Pochopenie pojmu chronológia je nevyhnutné."
+                         },
+                         {
+                             "en":  "The lesson explained how the chronology influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako chronológia ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Radiocarbon dating allows scientists to establish a precise chronology for organic prehistoric finds."
+                                 },
+                                 {
+                                     "en":  "The chronology of the Egyptian pharaohs was reconstructed using hieroglyphic texts."
+                                 }
+                             ]
+    },
+    {
+        "word":  "heritage",
+        "phonetic":  "/ˈher.ɪ.tɪdʒ/",
+        "translation":  "dedičstvo",
+        "definition":  "The traditions, monuments, and values passed down from the past.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The teacher explained the term heritage.",
+                             "sk":  "Učiteľ vysvetlil pojem dedičstvo."
+                         },
+                         {
+                             "en":  "The lesson explained how the heritage influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako dedičstvo ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The ancient heritage of Greece lives on today in science, philosophy, and democratic ideals."
+                                 },
+                                 {
+                                     "en":  "UNESCO works worldwide to protect the cultural and natural heritage of humanity."
+                                 }
+                             ]
+    },
+    {
+        "word":  "medieval",
+        "phonetic":  "/ˌmed.iˈiː.vəl/",
+        "translation":  "stredoveký",
+        "definition":  "Relating to the Middle Ages.",
+        "type":  "adj",
+        "level":  "B2",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The medieval is important in this field.",
+                             "sk":  "Stredoveký je v tejto oblasti dôležitý."
+                         },
+                         {
+                             "en":  "The lesson explained how the medieval influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako stredoveký ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The medieval feudal system governed land ownership and obligations between lords and vassals."
+                                 },
+                                 {
+                                     "en":  "Medieval plague epidemics killed an estimated one-third of the European population in the 14th century."
+                                 }
+                             ]
+    },
+    {
+        "word":  "ancient",
+        "phonetic":  "/ˈeɪn.ʃənt/",
+        "translation":  "staroveký, dávny",
+        "definition":  "Belonging to a very distant past.",
+        "type":  "adj",
+        "level":  "B1",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "The teacher explained the term ancient.",
+                             "sk":  "Učiteľ vysvetlil pojem staroveký."
+                         },
+                         {
+                             "en":  "The lesson explained how the ancient influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako staroveký ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "Ancient city-states such as Athens and Sparta shaped the political ideas of Western civilisation."
+                                 },
+                                 {
+                                     "en":  "Ancient Rome developed a sophisticated legal system that forms the basis of many modern legal codes."
+                                 }
+                             ]
+    },
+    {
+        "word":  "migration",
+        "phonetic":  "/maɪˈɡreɪ.ʃən/",
+        "translation":  "migrácia",
+        "definition":  "The movement of people from one region to another.",
+        "type":  "noun",
+        "level":  "B2",
+        "topic":  "history",
+        "article":  "",
+        "examples":  [
+                         {
+                             "en":  "Understanding migration is essential.",
+                             "sk":  "Pochopenie pojmu migrácia je nevyhnutné."
+                         },
+                         {
+                             "en":  "The lesson explained how the migration influenced events in that historical period.",
+                             "sk":  "Hodina vysvetlila, ako migrácia ovplyvnil udalosti v danom historickom období."
+                         }
+                     ],
+        "contextSentences":  [
+                                 {
+                                     "en":  "The migration of people from rural areas to cities shaped European history in the 19th century."
+                                 },
+                                 {
+                                     "en":  "Historians estimate that the migration from Europe to the Americas in the 19th century involved millions of people."
+                                 }
+                             ]
+    }
+]

@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AutoCorrectProviderState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>Sdl.TranslationStudio.AutoCorrect</Id>
+  <LanguageCode>1031</LanguageCode>
+  <LanguageName>de-DE</LanguageName>
+  <State><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<ProviderConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TargetLanguageCode>1031</TargetLanguageCode>
+  <TargetLanguageName>de-DE</TargetLanguageName>
+  <AutoCorrectSettings>
+    <CorrectTwoInitialCaps>true</CorrectTwoInitialCaps>
+    <CorrectSentenceCaps>true</CorrectSentenceCaps>
+    <CorrectCapsLock>true</CorrectCapsLock>
+    <ReplaceTextAsYouType>false</ReplaceTextAsYouType>
+    <AutoCorrectEntries>
+      <Entry src="(c)" trg="©" />
+      <Entry src="(e)" trg="€" />
+      <Entry src="(r)" trg="®" />
+      <Entry src="(tm)" trg="™" />
+      <Entry src="..." trg="…" />
+      <Entry src="abeiten" trg="arbeiten" />
+      <Entry src="Abnachung" trg="Abmachung" />
+      <Entry src="Accesoir" trg="Accessoire" />
+      <Entry src="Acksessoir" trg="Accessoire" />
+      <Entry src="adnere" trg="andere" />
+      <Entry src="adneren" trg="anderen" />
+      <Entry src="adneres" trg="anderes" />
+      <Entry src="adners" trg="anders" />
+      <Entry src="Aksessoir" trg="Accessoire" />
+      <Entry src="aler" trg="aller" />
+      <Entry src="anderne" trg="andere" />
+      <Entry src="arbete" trg="arbeite" />
+      <Entry src="arbeten" trg="arbeiten" />
+      <Entry src="arbetest" trg="arbeitest" />
+      <Entry src="arbetet" trg="arbeitet" />
+      <Entry src="Argumnet" trg="Argument" />
+      <Entry src="Assessoir" trg="Accessoire" />
+      <Entry src="auslandisch" trg="ausländisch" />
+      <Entry src="Auswal" trg="Auswahl" />
+      <Entry src="awr" trg="war" />
+      <Entry src="beerits" trg="bereits" />
+      <Entry src="befor" trg="bevor" />
+      <Entry src="bekant" trg="bekannt" />
+      <Entry src="Bekante" trg="Bekannte" />
+      <Entry src="Bekanter" trg="Bekannter" />
+      <Entry src="bekantes" trg="bekanntes" />
+      <Entry src="Belästignug" trg="Belästigung" />
+      <Entry src="Belätsigung" trg="Belästigung" />
+      <Entry src="bereis" trg="bereits" />
+      <Entry src="Bescherde" trg="Beschwerde" />
+      <Entry src="bescämen" trg="beschämen" />
+      <Entry src="Bibliotekh" trg="Bibliothek" />
+      <Entry src="Bibliothrk" trg="Bibliothek" />
+      <Entry src="Blästigung" trg="Belästigung" />
+      <Entry src="brauchenicht" trg="brauche nicht" />
+      <Entry src="brauchstnicht" trg="brauchst nicht" />
+      <Entry src="brauchtnicht" trg="braucht nicht" />
+      <Entry src="Buchsabe" trg="Buchstabe" />
+      <Entry src="Buchstbae" trg="Buchstabe" />
+      <Entry src="dachet" trg="dachte" />
+      <Entry src="darfnicht" trg="darf nicht" />
+      <Entry src="darfstnicht" trg="darfst nicht" />
+      <Entry src="daselbe" trg="dasselbe" />
+      <Entry src="Datein" trg="Dateien" />
+      <Entry src="dei" trg="die" />
+      <Entry src="deis" trg="dies" />
+      <Entry src="deise" trg="diese" />
+      <Entry src="deiser" trg="dieser" />
+      <Entry src="dekne" trg="denke" />
+      <Entry src="deknst" trg="denkst" />
+      <Entry src="dersselbe" trg="derselbe" />
+      <Entry src="diesre" trg="dieser" />
+      <Entry src="diesselbe" trg="dieselbe" />
+      <Entry src="dirr" trg="dir" />
+      <Entry src="dise" trg="diese" />
+      <Entry src="disees" trg="dieses" />
+      <Entry src="diser" trg="dieser" />
+      <Entry src="dna" trg="dann" />
+      <Entry src="Dnak" trg="Dank" />
+      <Entry src="dnake" trg="danke" />
+      <Entry src="Dockument" trg="Dokument" />
+      <Entry src="Dokkument" trg="Dokument" />
+      <Entry src="Dokumnet" trg="Dokument" />
+      <Entry src="dre" trg="der" />
+      <Entry src="dsa" trg="das" />
+      <Entry src="dubist" trg="du bist" />
+      <Entry src="dürfennicht" trg="dürfen nicht" />
+      <Entry src="e-Mail" trg="E-Mail" />
+      <Entry src="edr" trg="der" />
+      <Entry src="ehielt" trg="erhielt" />
+      <Entry src="emfehlen" trg="empfehlen" />
+      <Entry src="empfelen" trg="empfehlen" />
+      <Entry src="empfelhen" trg="empfehlen" />
+      <Entry src="enige" trg="einige" />
+      <Entry src="eniges" trg="einiges" />
+      <Entry src="enldich" trg="endlich" />
+      <Entry src="Entwicklug" trg="Entwicklung" />
+      <Entry src="enu" trg="neu" />
+      <Entry src="Enwicklung" trg="Entwicklung" />
+      <Entry src="ereichen" trg="erreichen" />
+      <Entry src="ereicht" trg="erreicht" />
+      <Entry src="Erflg" trg="Erfolg" />
+      <Entry src="erhalen" trg="erhalten" />
+      <Entry src="erhaltn" trg="erhalten" />
+      <Entry src="erhlaten" trg="erhalten" />
+      <Entry src="erinern" trg="erinnern" />
+      <Entry src="erkennn" trg="erkennen" />
+      <Entry src="erknennen" trg="erkennen" />
+      <Entry src="erts" trg="erst" />
+      <Entry src="fandn" trg="fanden" />
+      <Entry src="fiden" trg="finden" />
+      <Entry src="findn" trg="finden" />
+      <Entry src="Firna" trg="Firma" />
+      <Entry src="fnad" trg="fand" />
+      <Entry src="fnaden" trg="fanden" />
+      <Entry src="fnadst" trg="fandst" />
+      <Entry src="Fnester" trg="Fenster" />
+      <Entry src="folgn" trg="folgen" />
+      <Entry src="folgnd" trg="folgend" />
+      <Entry src="follgen" trg="folgen" />
+      <Entry src="follgend" trg="folgend" />
+      <Entry src="follgende" trg="folgende" />
+      <Entry src="follgender" trg="folgender" />
+      <Entry src="follgendes" trg="folgendes" />
+      <Entry src="Forfall" trg="Vorfall" />
+      <Entry src="fpr" trg="für" />
+      <Entry src="Fra" trg="Frau" />
+      <Entry src="Fraeg" trg="Frage" />
+      <Entry src="fragn" trg="fragen" />
+      <Entry src="Freudne" trg="Freunde" />
+      <Entry src="Freundinen" trg="Freundinnen" />
+      <Entry src="Frima" trg="Firma" />
+      <Entry src="Fru" trg="Frau" />
+      <Entry src="fsat" trg="fast" />
+      <Entry src="fäöschlich" trg="fälschlich" />
+      <Entry src="Garanti" trg="Garantie" />
+      <Entry src="Garrantie" trg="Garantie" />
+      <Entry src="Gechichte" trg="Geschichte" />
+      <Entry src="Gecshichte" trg="Geschichte" />
+      <Entry src="Gefar" trg="Gefahr" />
+      <Entry src="gehn" trg="gehen" />
+      <Entry src="gehts" trg="geht’s" />
+      <Entry src="Geidcht" trg="Gedicht" />
+      <Entry src="Gelegenhet" trg="Gelegenheit" />
+      <Entry src="Gelgenheit" trg="Gelegenheit" />
+      <Entry src="geradde" trg="gerade" />
+      <Entry src="Geschichtne" trg="Geschichten" />
+      <Entry src="Geshichte" trg="Geschichte" />
+      <Entry src="ghe" trg="gehe" />
+      <Entry src="ghen" trg="gehen" />
+      <Entry src="ghest" trg="gehst" />
+      <Entry src="gibts" trg="gibt’s" />
+      <Entry src="glaben" trg="glauben" />
+      <Entry src="glaubn" trg="glauben" />
+      <Entry src="gnaz" trg="ganz" />
+      <Entry src="Grupe" trg="Gruppe" />
+      <Entry src="gschehen" trg="geschehen" />
+      <Entry src="habenicht" trg="habe nicht" />
+      <Entry src="habn" trg="haben" />
+      <Entry src="haett" trg="hatte" />
+      <Entry src="hastnicht" trg="hast nicht" />
+      <Entry src="hatnicht" trg="hat nicht" />
+      <Entry src="hbe" trg="habe" />
+      <Entry src="hoffendlich" trg="hoffentlich" />
+      <Entry src="hst" trg="hast" />
+      <Entry src="ht" trg="hat" />
+      <Entry src="Htp" trg="http" />
+      <Entry src="Http" trg="http" />
+      <Entry src="http:\\" trg="http://" />
+      <Entry src="huete" trg="heute" />
+      <Entry src="Hypotek" trg="Hypothek" />
+      <Entry src="ide" trg="die" />
+      <Entry src="ien" trg="ein" />
+      <Entry src="iene" trg="eine" />
+      <Entry src="ienes" trg="eines" />
+      <Entry src="ienige" trg="einige" />
+      <Entry src="ieniges" trg="einiges" />
+      <Entry src="ieronisch" trg="ironisch" />
+      <Entry src="ih" trg="ich" />
+      <Entry src="ihc" trg="ich" />
+      <Entry src="imer" trg="immer" />
+      <Entry src="inRichtung" trg="in Richtung" />
+      <Entry src="Intriege" trg="Intrige" />
+      <Entry src="intriegieren" trg="intrigieren" />
+      <Entry src="Intrife" trg="Intrige" />
+      <Entry src="ires" trg="ihres" />
+      <Entry src="its" trg="ist" />
+      <Entry src="Jare" trg="Jahre" />
+      <Entry src="jettz" trg="jetzt" />
+      <Entry src="jezt" trg="jetzt" />
+      <Entry src="Jhar" trg="Jahr" />
+      <Entry src="kalrer" trg="klarer" />
+      <Entry src="kan" trg="kann" />
+      <Entry src="kannicht" trg="kann nicht" />
+      <Entry src="kannnicht" trg="kann nicht" />
+      <Entry src="kien" trg="kein" />
+      <Entry src="kiene" trg="keine" />
+      <Entry src="kienes" trg="keines" />
+      <Entry src="kiense" trg="keines" />
+      <Entry src="klin" trg="klein" />
+      <Entry src="klint" trg="klingt" />
+      <Entry src="klnnen" trg="können" />
+      <Entry src="klr" trg="klar" />
+      <Entry src="klra" trg="klar" />
+      <Entry src="kna" trg="kann" />
+      <Entry src="Komite" trg="Komitee" />
+      <Entry src="Komittee" trg="Komitee" />
+      <Entry src="Kommitee" trg="Komitee" />
+      <Entry src="Kommittee" trg="Komitee" />
+      <Entry src="komunizieren" trg="kommunizieren" />
+      <Entry src="konte" trg="konnte" />
+      <Entry src="koonte" trg="konnte" />
+      <Entry src="Kopei" trg="Kopie" />
+      <Entry src="Kres" trg="Kreis" />
+      <Entry src="könte" trg="könnte" />
+      <Entry src="Labaratorium" trg="Laboratorium" />
+      <Entry src="Labbor" trg="Labor" />
+      <Entry src="Labohratorium" trg="Laboratorium" />
+      <Entry src="lebn" trg="leben" />
+      <Entry src="Leistnug" trg="Leistung" />
+      <Entry src="Leistug" trg="Leistung" />
+      <Entry src="Leisung" trg="Leistung" />
+      <Entry src="Lestung" trg="Leistung" />
+      <Entry src="Libe" trg="Liebe" />
+      <Entry src="Liestung" trg="Leistung" />
+      <Entry src="Lizentz" trg="Lizenz" />
+      <Entry src="Luete" trg="Leute" />
+      <Entry src="macen" trg="machen" />
+      <Entry src="machn" trg="machen" />
+      <Entry src="macst" trg="machst" />
+      <Entry src="Mact" trg="Macht" />
+      <Entry src="macte" trg="machte" />
+      <Entry src="magts" trg="magst" />
+      <Entry src="Mathemaitk" trg="Mathematik" />
+      <Entry src="Mathematikk" trg="Mathematik" />
+      <Entry src="Mathemetik" trg="Mathematik" />
+      <Entry src="Mathrmatik" trg="Mathematik" />
+      <Entry src="Mattematik" trg="Mathematik" />
+      <Entry src="mene" trg="meine" />
+      <Entry src="Mesnchen" trg="Menschen" />
+      <Entry src="mga" trg="mag" />
+      <Entry src="michselbst" trg="mich selbst" />
+      <Entry src="mirselbst" trg="mir selbst" />
+      <Entry src="mocte" trg="mochte" />
+      <Entry src="mti" trg="mit" />
+      <Entry src="möcht" trg="möchte" />
+      <Entry src="nachste" trg="nächste" />
+      <Entry src="nachster" trg="nächster" />
+      <Entry src="nachstes" trg="nächstes" />
+      <Entry src="nciht" trg="nicht" />
+      <Entry src="nehmem" trg="nehmen" />
+      <Entry src="nemen" trg="nehmen" />
+      <Entry src="Nihcte" trg="Nichte" />
+      <Entry src="nimst" trg="nimmst" />
+      <Entry src="nltig" trg="nötig" />
+      <Entry src="Nunner" trg="Nummer" />
+      <Entry src="nurr" trg="nur" />
+      <Entry src="nähmlich" trg="nämlich" />
+      <Entry src="nätig" trg="nötig" />
+      <Entry src="Nörigung" trg="Nötigung" />
+      <Entry src="oaky" trg="okay" />
+      <Entry src="ofenbar" trg="offenbar" />
+      <Entry src="ofensichtlich" trg="offensichtlich" />
+      <Entry src="offensicgtlich" trg="offensichtlich" />
+      <Entry src="offensichylich" trg="offensichtlich" />
+      <Entry src="partioniere" trg="partitioniere" />
+      <Entry src="partionieren" trg="partitionieren" />
+      <Entry src="pber" trg="über" />
+      <Entry src="pbertreiben" trg="übertreiben" />
+      <Entry src="Piknick" trg="Picknick" />
+      <Entry src="Piknik" trg="Picknick" />
+      <Entry src="Porblem" trg="Problem" />
+      <Entry src="Porzelan" trg="Porzellan" />
+      <Entry src="Porzellam" trg="Porzellan" />
+      <Entry src="Porzellna" trg="Porzellan" />
+      <Entry src="Potzellan" trg="Porzellan" />
+      <Entry src="Prioität" trg="Priorität" />
+      <Entry src="priorität" trg="Priorität" />
+      <Entry src="Problen" trg="Problem" />
+      <Entry src="Prozellan" trg="Porzellan" />
+      <Entry src="Psycgologie" trg="Psychologie" />
+      <Entry src="Rechnug" trg="Rechnung" />
+      <Entry src="Rekrod" trg="Rekord" />
+      <Entry src="Rhytmus" trg="Rhythmus" />
+      <Entry src="Rythmus" trg="Rhythmus" />
+      <Entry src="Rytmus" trg="Rhythmus" />
+      <Entry src="Sachem" trg="Sachen" />
+      <Entry src="Sahce" trg="Sache" />
+      <Entry src="schonn" trg="schon" />
+      <Entry src="schrebe" trg="schreibe" />
+      <Entry src="schrebst" trg="schreibst" />
+      <Entry src="schreibn" trg="schreiben" />
+      <Entry src="schriben" trg="schreiben" />
+      <Entry src="scon" trg="schon" />
+      <Entry src="Seckretärin" trg="Sekretärin" />
+      <Entry src="seinse" trg="seines" />
+      <Entry src="Sekretätin" trg="Sekretärin" />
+      <Entry src="seperat" trg="separat" />
+      <Entry src="serh" trg="sehr" />
+      <Entry src="seteht" trg="steht" />
+      <Entry src="sgdh" trg="Sehr geehrte Damen und Herren" />
+      <Entry src="sichausdenken" trg="sich ausdenken" />
+      <Entry src="sien" trg="sein" />
+      <Entry src="siene" trg="seine" />
+      <Entry src="sienem" trg="seinem" />
+      <Entry src="sienes" trg="seines" />
+      <Entry src="sioe" trg="sie" />
+      <Entry src="slebst" trg="selbst" />
+      <Entry src="solltenicht" trg="sollte nicht" />
+      <Entry src="solltennicht" trg="sollten nicht" />
+      <Entry src="solltestnicht" trg="solltest nicht" />
+      <Entry src="solte" trg="sollte" />
+      <Entry src="solten" trg="sollten" />
+      <Entry src="soltest" trg="solltest" />
+      <Entry src="sparch" trg="sprach" />
+      <Entry src="spircht" trg="spricht" />
+      <Entry src="sprechn" trg="sprechen" />
+      <Entry src="sprischt" trg="sprichst" />
+      <Entry src="steen" trg="stehen" />
+      <Entry src="stpo" trg="stopp" />
+      <Entry src="Stärkke" trg="Stärke" />
+      <Entry src="synonüm" trg="synonym" />
+      <Entry src="sünonym" trg="synonym" />
+      <Entry src="sünonüm" trg="synonym" />
+      <Entry src="tirnkst" trg="trinkst" />
+      <Entry src="tnu" trg="tun" />
+      <Entry src="Traume" trg="Träume" />
+      <Entry src="trinkn" trg="trinken" />
+      <Entry src="trint" trg="trinkt" />
+      <Entry src="täusvhen" trg="täuschen" />
+      <Entry src="uas" trg="aus" />
+      <Entry src="ud" trg="du" />
+      <Entry src="udn" trg="und" />
+      <Entry src="umbedingt" trg="unbedingt" />
+      <Entry src="Unabhägnigkeit" trg="Unabhängigkeit" />
+      <Entry src="Unabhängigket" trg="Unabhängigkeit" />
+      <Entry src="Unahangigkeit" trg="Unabhängigkeit" />
+      <Entry src="unbdingt" trg="unbedingt" />
+      <Entry src="unbedinkt" trg="unbedingt" />
+      <Entry src="unbedint" trg="unbedingt" />
+      <Entry src="unddas" trg="und das" />
+      <Entry src="undder" trg="und der" />
+      <Entry src="unddie" trg="und die" />
+      <Entry src="unrerbringen" trg="unterbringen" />
+      <Entry src="unterbingen" trg="unterbringen" />
+      <Entry src="Unterbingung" trg="Unterbringung" />
+      <Entry src="Unterbrignug" trg="Unterbringung" />
+      <Entry src="unzufriden" trg="unzufrieden" />
+      <Entry src="uz" trg="zu" />
+      <Entry src="veilleicht" trg="vielleicht" />
+      <Entry src="Versamlung" trg="Versammlung" />
+      <Entry src="vieleicht" trg="vielleicht" />
+      <Entry src="vno" trg="von" />
+      <Entry src="Vorang" trg="Vorrang" />
+      <Entry src="Vorfal" trg="Vorfall" />
+      <Entry src="Vorvall" trg="Vorfall" />
+      <Entry src="vro" trg="vor" />
+      <Entry src="vuchstabieren" trg="buchstabieren" />
+      <Entry src="wachesn" trg="wachsen" />
+      <Entry src="wasist" trg="was ist" />
+      <Entry src="wechle" trg="welche" />
+      <Entry src="wechler" trg="welcher" />
+      <Entry src="wechles" trg="welches" />
+      <Entry src="wedre" trg="werde" />
+      <Entry src="wei" trg="wie" />
+      <Entry src="weider" trg="wieder" />
+      <Entry src="weng" trg="wenig" />
+      <Entry src="wenge" trg="wenige" />
+      <Entry src="werd" trg="wird" />
+      <Entry src="Wge" trg="Weg" />
+      <Entry src="Widnows" trg="Windows" />
+      <Entry src="wiel" trg="weil" />
+      <Entry src="wiklich" trg="wirklich" />
+      <Entry src="wil" trg="will" />
+      <Entry src="wilst" trg="willst" />
+      <Entry src="wirds" trg="wird’s" />
+      <Entry src="wisen" trg="wissen" />
+      <Entry src="wissn" trg="wissen" />
+      <Entry src="wolen" trg="wollen" />
+      <Entry src="wolltn" trg="wollten" />
+      <Entry src="wolte" trg="wollte" />
+      <Entry src="wolten" trg="wollten" />
+      <Entry src="woltest" trg="wolltest" />
+      <Entry src="woolten" trg="wollten" />
+      <Entry src="wra" trg="war" />
+      <Entry src="wre" trg="wer" />
+      <Entry src="wri" trg="wir" />
+      <Entry src="wriklich" trg="wirklich" />
+      <Entry src="wriklih" trg="wirklich" />
+      <Entry src="Wrot" trg="Wort" />
+      <Entry src="wüdre" trg="würde" />
+      <Entry src="wüdren" trg="würden" />
+      <Entry src="würdst" trg="würdest" />
+      <Entry src="zeigem" trg="zeigen" />
+      <Entry src="Zeti" trg="Zeit" />
+      <Entry src="Zite" trg="Zeit" />
+      <Entry src="Zuhschauer" trg="Zuschauer" />
+      <Entry src="Zuhärer" trg="Zuhörer" />
+      <Entry src="zuruck" trg="zurück" />
+      <Entry src="zürück" trg="zurück" />
+      <Entry src="änlich" trg="ähnlich" />
+      <Entry src="übertreibn" trg="übertreiben" />
+      <Entry src="übetrreiben" trg="übertreiben" />
+      <Entry src="ühnlich" trg="ähnlich" />
+    </AutoCorrectEntries>
+    <TwoInitialCapsExceptions />
+    <SentenceCapsExceptions>
+      <string>a.</string>
+      <string>abk.</string>
+      <string>abs.</string>
+      <string>abt.</string>
+      <string>allg.</string>
+      <string>anm.</string>
+      <string>aufl.</string>
+      <string>aug.</string>
+      <string>ausschl.</string>
+      <string>b.</string>
+      <string>bes.</string>
+      <string>best.</string>
+      <string>bzw.</string>
+      <string>c.</string>
+      <string>ca.</string>
+      <string>d.</string>
+      <string>dergl.</string>
+      <string>dez.</string>
+      <string>di.</string>
+      <string>dipl.</string>
+      <string>do.</string>
+      <string>dr.</string>
+      <string>dt.</string>
+      <string>durchschn.</string>
+      <string>e.</string>
+      <string>eigtl.</string>
+      <string>einschl.</string>
+      <string>erw.</string>
+      <string>etc.</string>
+      <string>etw.</string>
+      <string>evtl.</string>
+      <string>f.</string>
+      <string>ff.</string>
+      <string>fr.</string>
+      <string>frl.</string>
+      <string>g.</string>
+      <string>geb.</string>
+      <string>gebr.</string>
+      <string>gem.</string>
+      <string>ges.</string>
+      <string>gesch.</string>
+      <string>geschl.</string>
+      <string>gest.</string>
+      <string>ggf.</string>
+      <string>h.</string>
+      <string>hbf.</string>
+      <string>hr.</string>
+      <string>i.</string>
+      <string>ii.</string>
+      <string>iii.</string>
+      <string>ing.</string>
+      <string>iv.</string>
+      <string>ix.</string>
+      <string>j.</string>
+      <string>jan.</string>
+      <string>jur.</string>
+      <string>k.</string>
+      <string>l.</string>
+      <string>lfd.</string>
+      <string>m.</string>
+      <string>max.</string>
+      <string>med.</string>
+      <string>mi.</string>
+      <string>min.</string>
+      <string>mio.</string>
+      <string>mrd.</string>
+      <string>mwst.</string>
+      <string>möbl.</string>
+      <string>n.</string>
+      <string>nat.</string>
+      <string>neg.</string>
+      <string>nr.</string>
+      <string>nrn.</string>
+      <string>nördl.</string>
+      <string>o.</string>
+      <string>od.</string>
+      <string>org.</string>
+      <string>orig.</string>
+      <string>orth.</string>
+      <string>p.</string>
+      <string>pfg.</string>
+      <string>priv.</string>
+      <string>prof.</string>
+      <string>q.</string>
+      <string>r.</string>
+      <string>s.</string>
+      <string>sep.</string>
+      <string>sept.</string>
+      <string>so.</string>
+      <string>stck.</string>
+      <string>std.</string>
+      <string>str.</string>
+      <string>svw.</string>
+      <string>südl.</string>
+      <string>t.</string>
+      <string>tel.</string>
+      <string>tgl.</string>
+      <string>u.</string>
+      <string>ungew.</string>
+      <string>univ.</string>
+      <string>urspr.</string>
+      <string>usf.</string>
+      <string>usw.</string>
+      <string>v.</string>
+      <string>verz.</string>
+      <string>vgl.</string>
+      <string>vi.</string>
+      <string>vii.</string>
+      <string>viii.</string>
+      <string>vol.</string>
+      <string>volksw.</string>
+      <string>vollm.</string>
+      <string>vorn.</string>
+      <string>w.</string>
+      <string>wahrsch.</string>
+      <string>wdhlg.</string>
+      <string>westl.</string>
+      <string>whg.</string>
+      <string>wö.</string>
+      <string>x.</string>
+      <string>xi.</string>
+      <string>xii.</string>
+      <string>xiii.</string>
+      <string>xiv.</string>
+      <string>xix.</string>
+      <string>xv.</string>
+      <string>xvi.</string>
+      <string>xvii.</string>
+      <string>xviii.</string>
+      <string>xx.</string>
+      <string>y.</string>
+      <string>z.</string>
+      <string>ä.</string>
+      <string>ö.</string>
+      <string>östl.</string>
+      <string>ü.</string>
+    </SentenceCapsExceptions>
+    <OtherExceptions />
+  </AutoCorrectSettings>
+  <AutoFormatSettings>
+    <ReplaceQuotes>true</ReplaceQuotes>
+  </AutoFormatSettings>
+</ProviderConfiguration>]]></State>
+</AutoCorrectProviderState>

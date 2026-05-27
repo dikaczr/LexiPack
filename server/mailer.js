@@ -206,3 +206,52 @@ export async function sendPasswordResetEmail({ to, username, tempPassword }) {
     html,
   });
 }
+
+/**
+ * Odošle správu od používateľa na kontaktnú adresu.
+ * @param {{ to: string, fromUser: string, subject: string, message: string, replyTo?: string }} opts
+ */
+export async function sendContactEmail({ to, fromUser, subject, message, replyTo }) {
+  const html = `
+<!DOCTYPE html>
+<html lang="sk">
+<head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#0f1923;font-family:Inter,Calibri,sans-serif;color:#c8d8f0;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#0f1923;padding:40px 0;">
+    <tr><td align="center">
+      <table width="480" cellpadding="0" cellspacing="0"
+             style="background:#1a2535;border:1px solid #2a3a50;border-radius:12px;overflow:hidden;">
+        <tr>
+          <td style="background:#1b1c1d;padding:24px 32px;border-bottom:1px solid #2a3a50;">
+            <span style="font-size:22px;font-weight:700;color:#4a9eff;letter-spacing:1px;">LexiPack</span>
+            <span style="font-size:13px;color:#6b8cae;margin-left:10px;">Správa od používateľa</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:28px 32px;">
+            <p style="margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:#4a6a8a;">Od</p>
+            <p style="margin:0 0 20px;font-size:15px;font-weight:600;color:#c8d8f0;">${fromUser}</p>
+            <p style="margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:#4a6a8a;">Predmet</p>
+            <p style="margin:0 0 20px;font-size:15px;color:#c8d8f0;">${subject}</p>
+            <p style="margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:#4a6a8a;">Správa</p>
+            <div style="background:#0f1923;border:1px solid #2a3a50;border-radius:6px;padding:14px 18px;font-size:14px;line-height:1.7;color:#b0c8e0;white-space:pre-wrap;">${message}</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#131e2b;padding:14px 32px;border-top:1px solid #2a3a50;">
+            <span style="font-size:12px;color:#4a6a8a;">LexiLab ©2026 Techdoc &nbsp;·&nbsp; Správa odoslaná cez LexiPack.</span>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body></html>`;
+
+  await transporter.sendMail({
+    from:    process.env.SMTP_FROM,
+    to,
+    subject: `LexiPack: ${subject}`,
+    html,
+    ...(replyTo ? { replyTo } : {}),
+  });
+}

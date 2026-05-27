@@ -1,0 +1,71 @@
+.vp-doc img {
+  margin-top: 20px;
+}
+
+/* Skryté na obrazovke, viditeľné len pri tlači */
+.print-only {
+  display: none;
+}
+
+/* ── Okraje strany ──────────────────────────────────────────── */
+@page        { margin: 2cm 2.5cm 2cm 2.5cm; }
+@page :left  { margin: 2cm 2.5cm 2cm 2.5cm; }
+@page :right { margin: 2cm 2.5cm 2cm 2.5cm; }
+
+/* ── Print — tlač jednej kapitoly ──────────────────────────── */
+@media print {
+  /* Proporčné zmenšenie všetkého na ~11pt (zoom škáluje px aj rem aj paddingy) */
+  html {
+    zoom: 0.916;
+  }
+
+  /* Skry celú navigáciu a postranné panely */
+  .VPNav,
+  .VPNavBar,
+  .VPSidebar,
+  .VPLocalNav,
+  .VPDocFooter,
+  .VPFooter,
+  .no-print,
+  .print-toolbar {
+    display: none !important;
+  }
+
+  /* Obsah na celú šírku */
+  .VPContent,
+  .VPDoc,
+  .VPDoc .container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .VPDoc .content,
+  .VPDoc .content-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* Skry URL za odkazmi (výchozí správanie prehliadača) */
+  a[href]::after {
+    content: none !important;
+  }
+
+  /* Zabraň rozdeleniu nadpisov od tela — h1–h4 nesmú byť posledný riadok strany */
+  h1, h2, h3, h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Zabraň rozdeleniu obrázkov cez stranu */
+  img {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    max-width: 100%;
+  }
+
+  pre, table, tr, blockquote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

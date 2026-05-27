@@ -1,0 +1,483 @@
+{
+  "packId": "39e5d885-1859-4687-9401-9ecaa5acf692",
+  "name": "Strojárstvo - I.",
+  "description": "ZZákladné pojmy z obororu strojárstva, výroby strojov a obrábania",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "B1",
+  "category": "",
+  "icon": "📘",
+  "author": "Techdoc",
+  "version": "1.0",
+  "tags": [
+    "industry",
+    "machinery"
+  ],
+  "words": [
+    {
+      "word": "structure",
+      "phonetic": "/ˈstrʌk.tʃə/",
+      "translation": "konštrukcia, štruktúra",
+      "definition": "Something built or arranged from connected parts.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "The structure is important in this field.",
+          "sk": "Konštrukcia je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "The engineer adjusted the structure to improve performance and reliability.",
+          "sk": "Inžinier upravil konštrukcia, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "When designing a structure, engineers must account for wind loads, earthquakes, and material fatigue."
+        },
+        {
+          "en": "Computer-aided design (CAD) has revolutionised how engineering structures are planned and built."
+        }
+      ],
+      "example_en": "The structure is important in this field.",
+      "example_sk": "Konštrukcia je v tejto oblasti dôležitý.",
+      "id": "d5eb28c0-93a2-4b2c-acea-335c6b02f72b"
+    },
+    {
+      "word": "design",
+      "phonetic": "/dɪˈzaɪn/",
+      "translation": "návrh, navrhovať",
+      "definition": "A plan or drawing showing how something will be made.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of design yesterday.",
+          "sk": "Včera sme študovali pojem návrh."
+        },
+        {
+          "en": "The engineer adjusted the design to improve performance and reliability.",
+          "sk": "Inžinier upravil návrh, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Even in the early design phase, manufacturability and cost-effectiveness are taken into account."
+        },
+        {
+          "en": "Parametric design tools allow engineers to quickly create and compare many different variants."
+        }
+      ],
+      "example_en": "We studied the concept of design yesterday.",
+      "example_sk": "Včera sme študovali pojem návrh.",
+      "id": "89277e37-624c-4a87-a43d-47769e18beae"
+    },
+    {
+      "word": "circuit",
+      "phonetic": "/ˈsɜː.kɪt/",
+      "translation": "obvod",
+      "definition": "A complete path through which electric current flows.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term circuit.",
+          "sk": "Učiteľ vysvetlil pojem obvod."
+        },
+        {
+          "en": "The engineer adjusted the circuit to improve performance and reliability.",
+          "sk": "Inžinier upravil obvod, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Integrated circuits (chips) now contain billions of transistors in an incredibly small space."
+        },
+        {
+          "en": "A printed circuit board connects electronic components both mechanically and electrically."
+        }
+      ],
+      "example_en": "The teacher explained the term circuit.",
+      "example_sk": "Učiteľ vysvetlil pojem obvod.",
+      "id": "44ef753b-67a7-431b-935e-c35bd4df7dd7"
+    },
+    {
+      "word": "sensor",
+      "phonetic": "/ˈsen.sə/",
+      "translation": "senzor",
+      "definition": "A device that detects and measures a physical property.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of sensor yesterday.",
+          "sk": "Včera sme študovali pojem senzor."
+        },
+        {
+          "en": "The engineer adjusted the sensor to improve performance and reliability.",
+          "sk": "Inžinier upravil senzor, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Gyroscopic sensors in smartphones detect the device's orientation and enable automatic screen rotation."
+        },
+        {
+          "en": "Pressure sensors are used in medical devices to continuously monitor blood pressure."
+        }
+      ],
+      "example_en": "We studied the concept of sensor yesterday.",
+      "example_sk": "Včera sme študovali pojem senzor.",
+      "id": "4cb00325-1de3-41ed-88c3-ee101a2e3d50"
+    },
+    {
+      "word": "actuator",
+      "phonetic": "/ˈæk.tʃu.eɪ.tə/",
+      "translation": "akčný člen, aktuátor",
+      "definition": "A device that converts energy into movement.",
+      "type": "noun",
+      "level": "C1",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "The actuator is important in this field.",
+          "sk": "Akčný člen je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "The engineer adjusted the actuator to improve performance and reliability.",
+          "sk": "Inžinier upravil akčný člen, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Hydraulic actuators generate large forces and are used in construction machinery and aircraft controls."
+        },
+        {
+          "en": "Piezoelectric actuators enable extremely precise micro-movements in nanotechnology."
+        }
+      ],
+      "example_en": "The actuator is important in this field.",
+      "example_sk": "Akčný člen je v tejto oblasti dôležitý.",
+      "id": "d918e7e5-0fb4-4d1f-bcbc-6b1654d11716"
+    },
+    {
+      "word": "prototype",
+      "phonetic": "/ˈprəʊ.tə.taɪp/",
+      "translation": "prototyp",
+      "definition": "An early model built to test a concept or design.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding prototype is essential.",
+          "sk": "Pochopenie pojmu prototyp je nevyhnutné."
+        },
+        {
+          "en": "The engineer adjusted the prototype to improve performance and reliability.",
+          "sk": "Inžinier upravil prototyp, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "3D printing has dramatically sped up and reduced the cost of producing a prototype."
+        },
+        {
+          "en": "Testing a prototype reveals design flaws before the product goes into mass production."
+        }
+      ],
+      "example_en": "Understanding prototype is essential.",
+      "example_sk": "Pochopenie pojmu prototyp je nevyhnutné.",
+      "id": "f972ca9e-a680-4148-9a05-fc7acb006aa8"
+    },
+    {
+      "word": "maintenance",
+      "phonetic": "/ˈmeɪn.tən.əns/",
+      "translation": "údržba",
+      "definition": "Work done to keep equipment in good condition.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "The maintenance is important in this field.",
+          "sk": "Údržba je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "The engineer adjusted the maintenance to improve performance and reliability.",
+          "sk": "Inžinier upravil údržba, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Preventive maintenance extends the life of machines and avoids unplanned breakdowns."
+        },
+        {
+          "en": "Digital maintenance systems allow the condition of equipment to be monitored in real time."
+        }
+      ],
+      "example_en": "The maintenance is important in this field.",
+      "example_sk": "Údržba je v tejto oblasti dôležitý.",
+      "id": "abaef22c-a8da-4b60-bb51-8c5bdec5f497"
+    },
+    {
+      "word": "bearing",
+      "phonetic": "/ˈbeə.rɪŋ/",
+      "translation": "ložisko",
+      "definition": "A machine part that supports movement and reduces friction.",
+      "type": "noun",
+      "level": "C1",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding bearing is essential.",
+          "sk": "Pochopenie pojmu ložisko je nevyhnutné."
+        },
+        {
+          "en": "The engineer adjusted the bearing to improve performance and reliability.",
+          "sk": "Inžinier upravil ložisko, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Ball bearings are used in electric motors, gearboxes, and vehicle axles."
+        },
+        {
+          "en": "Magnetic bearings provide contactless support, eliminating friction losses entirely."
+        }
+      ],
+      "example_en": "Understanding bearing is essential.",
+      "example_sk": "Pochopenie pojmu ložisko je nevyhnutné.",
+      "id": "4205baa6-b44b-4081-af5b-056e6ab96b31"
+    },
+    {
+      "word": "valve",
+      "phonetic": "/vælv/",
+      "translation": "ventil",
+      "definition": "A device that controls the flow of liquid or gas.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of valve yesterday.",
+          "sk": "Včera sme študovali pojem ventil."
+        },
+        {
+          "en": "The engineer adjusted the valve to improve performance and reliability.",
+          "sk": "Inžinier upravil ventil, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Safety valves protect vessels and pipelines from dangerous pressure build-up."
+        },
+        {
+          "en": "In hydraulics, a proportional valve controls flow smoothly and precisely."
+        }
+      ],
+      "example_en": "We studied the concept of valve yesterday.",
+      "example_sk": "Včera sme študovali pojem ventil.",
+      "id": "ff1cf8e6-42de-4652-b024-281cbef66d73"
+    },
+    {
+      "word": "welding",
+      "phonetic": "/ˈwel.dɪŋ/",
+      "translation": "zváranie",
+      "definition": "The process of joining metal parts using heat.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding welding is essential.",
+          "sk": "Pochopenie pojmu zváranie je nevyhnutné."
+        },
+        {
+          "en": "The engineer adjusted the welding to improve performance and reliability.",
+          "sk": "Inžinier upravil zváranie, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Laser welding enables highly precise joints with minimal heat stress on the material."
+        },
+        {
+          "en": "Underwater welding requires special techniques that allow the process to work despite water contact."
+        }
+      ],
+      "example_en": "Understanding welding is essential.",
+      "example_sk": "Pochopenie pojmu zváranie je nevyhnutné.",
+      "id": "dced1634-51ef-4819-95b8-c5353496356c"
+    },
+    {
+      "word": "blueprint",
+      "phonetic": "/ˈbluː.prɪnt/",
+      "translation": "technický výkres, plán",
+      "definition": "A detailed technical drawing of a building or machine.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding blueprint is essential.",
+          "sk": "Pochopenie pojmu technický výkres je nevyhnutné."
+        },
+        {
+          "en": "The engineer adjusted the blueprint to improve performance and reliability.",
+          "sk": "Inžinier upravil technický výkres, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Standardised blueprints ensure that components can be manufactured correctly in any country."
+        },
+        {
+          "en": "In a blueprint, cross-sectional views are used to reveal internal details of a part."
+        }
+      ],
+      "example_en": "Understanding blueprint is essential.",
+      "example_sk": "Pochopenie pojmu technický výkres je nevyhnutné.",
+      "id": "8ab97e2e-5244-4051-9edd-885555310449"
+    },
+    {
+      "word": "torque",
+      "phonetic": "/tɔːk/",
+      "translation": "krútiaci moment",
+      "definition": "A turning force that causes rotation.",
+      "type": "noun",
+      "level": "C1",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how torque works.",
+          "sk": "Tento experiment ukazuje, ako funguje krútiaci moment."
+        },
+        {
+          "en": "The engineer adjusted the torque to improve performance and reliability.",
+          "sk": "Inžinier upravil krútiaci moment, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The torque of an electric motor determines how well a vehicle can accelerate."
+        },
+        {
+          "en": "When assembling bolts, the specified torque must be applied to avoid damage."
+        }
+      ],
+      "example_en": "This experiment shows how torque works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje krútiaci moment.",
+      "id": "02d313b9-22a9-4c7a-95d3-55c1d5b3dcd0"
+    },
+    {
+      "word": "load",
+      "phonetic": "/ləʊd/",
+      "translation": "zaťaženie",
+      "definition": "The force or weight supported by a structure or machine.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "The load is important in this field.",
+          "sk": "Zaťaženie je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "The engineer adjusted the load to improve performance and reliability.",
+          "sk": "Inžinier upravil zaťaženie, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "A static load acts permanently on a structure, while a dynamic load results from movement or vibration."
+        },
+        {
+          "en": "Wind turbines must be designed to remain safe even under extreme load caused by storms."
+        }
+      ],
+      "example_en": "The load is important in this field.",
+      "example_sk": "Zaťaženie je v tejto oblasti dôležitý.",
+      "id": "8f0e199e-1079-4858-835f-d8a9aa7558dd"
+    },
+    {
+      "word": "efficiency",
+      "phonetic": "/ɪˈfɪʃ.ən.si/",
+      "translation": "účinnosť",
+      "definition": "The ability to work well without waste.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term efficiency.",
+          "sk": "Učiteľ vysvetlil pojem účinnosť."
+        },
+        {
+          "en": "The engineer adjusted the efficiency to improve performance and reliability.",
+          "sk": "Inžinier upravil účinnosť, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The efficiency of a steam power plant is typically between 35 and 45 per cent."
+        },
+        {
+          "en": "Losses from heat, friction, and stray fields reduce the efficiency of every real machine."
+        }
+      ],
+      "example_en": "The teacher explained the term efficiency.",
+      "example_sk": "Učiteľ vysvetlil pojem účinnosť.",
+      "id": "9894c153-b781-4bf8-a3f4-b222f2efe11c"
+    },
+    {
+      "word": "assembly",
+      "phonetic": "/əˈsem.bli/",
+      "translation": "montáž",
+      "definition": "The process of putting parts together into a whole.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "engineering",
+      "article": "",
+      "examples": [
+        {
+          "en": "The assembly is important in this field.",
+          "sk": "Montáž je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "The engineer adjusted the assembly to improve performance and reliability.",
+          "sk": "Inžinier upravil montáž, aby zlepšil výkon a spoľahlivosť."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "In car manufacturing, assembly takes place on a production line with precisely timed steps."
+        },
+        {
+          "en": "After assembly, every subassembly is tested to confirm it works correctly."
+        }
+      ],
+      "example_en": "The assembly is important in this field.",
+      "example_sk": "Montáž je v tejto oblasti dôležitý.",
+      "id": "42ba7b23-6be9-41ad-b67c-25fa2db71ed7"
+    }
+  ]
+}

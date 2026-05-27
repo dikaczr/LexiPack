@@ -44,7 +44,8 @@
   --app-btn-pub-hov:  #b45309;
   --app-btn-del:      #b91c1c;
   --app-btn-del-hov:  #991b1b;
-  --app-meta-bg:      #243040;   /* editor metadata panel bg  */
+  --app-meta-bg:      #243040;
+  --app-card-bg:      #202124;     /* editor metadata panel bg  */
 }
 
 /* ── DARK BLUE — GitHub dark / navy ───────────────────── */
@@ -78,7 +79,8 @@
   --app-grid-hdr:     #21262d;
   --app-grid-hov:     #253040;
   --app-grid-edit:    #1f3a5a;
-  --app-meta-bg:      #21293a;   /* editor metadata panel bg  */
+  --app-meta-bg:      #21293a; 
+  --app-card-bg:      #0d1117;  /* editor metadata panel bg  */
 }
 
 /* ── SOLARIZED DARK — classic warm dark ───────────────── */
@@ -113,6 +115,7 @@
   --app-grid-hov:     #10505f;
   --app-grid-edit:    #0a3d4a;
   --app-meta-bg:      #0a3d4a;   /* editor metadata panel bg  */
+  --app-card-bg:      #002b36;
 }
 
 /* ── MONOKAI — classic Sublime / VSCode ───────────────── */
@@ -120,14 +123,14 @@
   --app-bg:           #272822;
   --app-chrome:       #1e1f1c;
   --app-panel:        #2d2e2a;
-  --app-input:        #1e1f1c;
-  --app-border:       #3e3d32;
+  --app-input:        #2e2f2c;
+  --app-border:       #4f4e44;
   --app-border-sub:   #3e3d32;
   --app-border-faint: rgba(255,255,255,0.06);
   --app-text:         #f8f8f2;
   --app-text2:        #cfcfc2;
   --app-muted:        #75715e;
-  --app-accent:       #a6e22e;
+  --app-accent:       #a0e028;
   --app-btn:          #75507e;
   --app-btn-hov:      #9060a0;
   --app-nav-hov:      #3e3d32;
@@ -146,7 +149,8 @@
   --app-grid-hdr:     #3e3d32;
   --app-grid-hov:     #464740;
   --app-grid-edit:    #49483e;
-  --app-meta-bg:      #3e3d32;   /* editor metadata panel bg  */
+  --app-meta-bg:      #3e3d32;   
+  --app-card-bg:      #272822;  /* editor metadata panel bg  */
 }
 
 /* ── LIGHT — clean Google-style light ─────────────────── */
@@ -172,6 +176,7 @@
   --app-invalid-bg:   #fde8e8;
   --app-invalid-text: #9b1c1c;
   --app-duplicate-bg:   #fff3cd;
+  --app-card-bg:      #f8f9fa;
   --app-duplicate-text: #92400e;
   --app-selected-bg:    #1a73e8;
   --app-selected-text:  #ffffff;

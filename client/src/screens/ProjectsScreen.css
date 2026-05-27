@@ -1,3 +1,45 @@
+/* ── Context menu ────────────────────────────────────── */
+.ctx-menu {
+  position: fixed;
+  z-index: 9999;
+  min-width: 180px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  padding: 6px;
+  font-family: Calibri, sans-serif;
+  font-size: 12px;
+}
+
+.ctx-menu-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: #64748b;
+  padding: 4px 10px 6px;
+}
+
+.ctx-menu-item {
+  padding: 7px 10px;
+  font-size: 12px;
+  font-family: Calibri, sans-serif;
+  color: #e2e8f0;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background .12s;
+}
+
+.ctx-menu-item:hover {
+  background: #334155;
+}
+
+.ctx-menu-item--down {
+  opacity: 0.65;
+}
+
+/* ── Projects screen ─────────────────────────────────── */
 .projects-screen {
   height: 100%;
   min-height: 0;
@@ -77,6 +119,17 @@
   background: var(--app-btn-save-hov);
   border-color: var(--app-btn-save-hov);
 }
+.projects-btn.review-pack {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+  font-weight: 600;
+}
+.projects-btn.review-pack:hover:not(:disabled) {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
 .projects-btn.publish-pack {
   background: var(--app-btn-pub);
   border-color: var(--app-btn-pub);
@@ -367,6 +420,7 @@
   color: var(--app-muted);
   text-transform: uppercase;
   letter-spacing: 0.4px;
+  text-align: left;
 }
 
 .np-field input,

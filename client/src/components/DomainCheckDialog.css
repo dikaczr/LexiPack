@@ -1,0 +1,192 @@
+.dcDialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dcDialog {
+  background: var(--app-chrome, #1e293b);
+  border: 1px solid var(--app-border, #334155);
+  border-radius: 12px;
+  width: 620px;
+  max-width: 96vw;
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.dcDialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem 0.75rem;
+  border-bottom: 1px solid var(--app-border, #334155);
+  flex-shrink: 0;
+}
+
+.dcDialog-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--app-text, #f1f5f9);
+}
+
+.dcDialog-close {
+  background: none;
+  border: none;
+  color: var(--app-text-muted, #64748b);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.dcDialog-close:hover {
+  color: var(--app-text, #f1f5f9);
+  background: var(--app-border, #334155);
+}
+
+.dcDialog-meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.82rem;
+  color: var(--app-text-muted, #64748b);
+  border-bottom: 1px solid var(--app-border, #334155);
+  flex-shrink: 0;
+}
+
+.dcDialog-meta strong {
+  color: var(--app-text, #f1f5f9);
+}
+
+.dcDialog-warn {
+  color: var(--app-warning, #f59e0b) !important;
+}
+
+.dcDialog-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 0.75rem 1.25rem 0.5rem;
+}
+
+.dcDialog-section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--app-text-muted, #64748b);
+  margin: 0.75rem 0 0.4rem;
+}
+
+.dcDialog-section-warn {
+  color: var(--app-warning, #f59e0b);
+}
+
+.dcDialog-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+}
+
+.dcDialog-table th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--app-text-muted, #64748b);
+  padding: 0 0.5rem 0.4rem;
+  border-bottom: 1px solid var(--app-border, #334155);
+}
+
+.dcDialog-table td {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--app-border-sub, #1e293b);
+  color: var(--app-text2, #cbd5e1);
+}
+
+.dcDialog-table tr:last-child td {
+  border-bottom: none;
+}
+
+.dcDialog-row-outlier td {
+  color: var(--app-warning, #f59e0b);
+}
+
+.dcDialog-topic-name {
+  font-weight: 500;
+  color: var(--app-text, #f1f5f9) !important;
+}
+
+.dcDialog-bar-cell {
+  width: 35%;
+}
+
+.dcDialog-bar-wrap {
+  height: 5px;
+  background: var(--app-border, #334155);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.dcDialog-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+.dcDialog-num {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.dcDialog-reason {
+  font-size: 0.75rem;
+  color: var(--app-warning, #f59e0b);
+}
+
+.dcDialog-goto {
+  background: none;
+  border: 1px solid var(--app-border, #334155);
+  border-radius: 4px;
+  color: var(--app-text-muted, #64748b);
+  font-size: 0.78rem;
+  padding: 1px 8px;
+  cursor: pointer;
+}
+
+.dcDialog-goto:hover {
+  color: var(--app-text, #f1f5f9);
+  border-color: var(--app-accent, #3b82f6);
+}
+
+.dcDialog-ok {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--app-accent, #3b82f6);
+  font-size: 0.95rem;
+}
+
+.dcDialog-footer {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--app-border, #334155);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.dcDialog-hint {
+  font-size: 0.78rem;
+  color: var(--app-text-muted, #64748b);
+}
+
+.dcDialog-hint strong {
+  color: var(--app-text2, #cbd5e1);
+}

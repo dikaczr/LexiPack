@@ -5,50 +5,43 @@ import "./ProjectsScreen.css";
 import { useMemo, useState, useEffect, useCallback, useRef } from "react";
 import { useT } from "../i18n";
 import { useAuth } from "../context/AuthContext";
+import { API_BASE } from "../config";
+import { logAudit } from "../api/auditApi";
+import { resizeImageFile } from "../utils/resizeImage";
 
+const API = `${API_BASE}/api/packs`;
 const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
+const STATUS_ORDER = ["Draft", "Complete", "In Review", "Approved", "Published", "Archived"];
+
 
 function PublishConfirmModal({ pack, onConfirm, onClose }) {
+  const t = useT();
   return (
     <div className="np-backdrop" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className="np-modal" style={{ width: 420 }}>
         <div className="np-header">
-          <h3>Publikovať balík</h3>
+          <h3>{t("projects.publishConfirm.title")}</h3>
           <button type="button" className="np-close" onClick={onClose}>✕</button>
         </div>
         <div className="np-body">
           <div className="sa-confirm-text">
-            Nasledujúci balík bude publikovaný:<br /><br />
+            {t("projects.publishConfirm.desc")}<br /><br />
             <strong>{pack.name}</strong><br />
-            Počet slov: <strong>{pack.words}</strong><br />
-            Autor: <strong>{pack.author || "—"}</strong><br /><br />
+            {t("projects.publishConfirm.words")}: <strong>{pack.words}</strong><br />
+            {t("projects.publishConfirm.author")}: <strong>{pack.author || "—"}</strong><br /><br />
             <span style={{ color: "#f0c040", fontSize: 12 }}>
-              Po publikovaní sa status zmení na Published.
+              {t("projects.publishConfirm.warning")}
             </span>
           </div>
         </div>
         <div className="np-footer">
-          <button className="projects-btn" onClick={onClose}>Zrušiť</button>
-          <button className="projects-btn primary" onClick={onConfirm}>Áno, publikovať</button>
+          <button className="projects-btn" onClick={onClose}>{t("projects.publishConfirm.cancel")}</button>
+          <button className="projects-btn primary" onClick={onConfirm}>{t("projects.publishConfirm.confirm")}</button>
         </div>
       </div>
     </div>
   );
 }
-
-function ProgressBarCell({ value }) {
-  const pct = parseInt(value) || 0;
-  const color = pct >= 80 ? "#4adf8a" : pct >= 40 ? "#f0c040" : "#4a9eff";
-  return (
-    <div style={{ display: "flex", alignItems: "center", height: "100%", padding: "0 4px" }}>
-      <div style={{ flex: 1, height: 6, borderRadius: 4, background: "rgba(255,255,255,0.08)", overflow: "hidden" }}>
-        <div style={{ width: `${pct}%`, height: "100%", borderRadius: 4, background: color, transition: "width 0.3s ease" }} />
-      </div>
-    </div>
-  );
-}
-import { API_BASE } from "../config";
-const API = `${API_BASE}/api/packs`;
 
 const LANGUAGES = [
   { code: "en", label: "EN – English" },
@@ -118,6 +111,7 @@ function NewPackModal({ onClose, onCreated }) {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
+      logAudit(token, "NEW_PACK", { name: form.name, fileName: effectiveFileName, targetLang: form.targetLang, nativeLang: form.nativeLang });
       onCreated(data.fileName);
       onClose();
     } catch (err) {
@@ -245,7 +239,9 @@ function SaveAsModal({ sourcePack, onClose, onSaved }) {
     setSaving(true);
     setError(null);
     try {
-      const srcRes = await fetch(`${API}/${sourcePack.fileName}`);
+      const srcRes = await fetch(`${API}/${sourcePack.fileName}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       if (!srcRes.ok) throw new Error("Nepodarilo sa načítať zdrojový balík");
       const srcData = await srcRes.json();
 
@@ -390,67 +386,184 @@ function DeletePackModal({ pack, onClose, onDeleted }) {
   );
 }
 
-function resizeImageFile(file, maxSize = 256) {
-  return new Promise((resolve) => {
-    const url = URL.createObjectURL(file);
-    const img = new Image();
-    img.onload = () => {
-      URL.revokeObjectURL(url);
-      const scale = Math.min(maxSize / img.width, maxSize / img.height, 1);
-      const w = Math.round(img.width * scale);
-      const h = Math.round(img.height * scale);
-      const canvas = document.createElement("canvas");
-      canvas.width = w;
-      canvas.height = h;
-      canvas.getContext("2d").drawImage(img, 0, 0, w, h);
-      resolve(canvas.toDataURL("image/png"));
-    };
-    img.src = url;
-  });
-}
 
 // ── Hlavná obrazovka ──────────────────────────────────
-export default function ProjectsScreen({ setActiveScreen, setActivePack, filter = "", statusFilter = "", langFilter = "", themeFilter = "", levelFilter = "", onCategoriesLoaded }) {
+export default function ProjectsScreen({ setActiveScreen, setActivePack, filter = "", statusFilter = "", langFilter = "", themeFilter = "", levelFilter = "", onCategoriesLoaded, onNotification }) {
   const t = useT();
-  const { token } = useAuth();
+  const { token, user } = useAuth();
+  const prevPacksRef = useRef(null);
+  const onNotificationRef = useRef(onNotification);
+  useEffect(() => { onNotificationRef.current = onNotification; }, [onNotification]);
   const [rowData, setRowData]       = useState([]);
   const [selectedPack, setSelectedPack] = useState(null);
   const [showNewPack, setShowNewPack]       = useState(false);
   const [showSaveAs, setShowSaveAs]         = useState(false);
-  const iconInputRef = useRef(null);
+  const iconInputRef      = useRef(null);
+  const importPackRef     = useRef(null);
   const [iconSaving, setIconSaving] = useState(false);
   const [showDeletePack, setShowDeletePack] = useState(false);
   const [publishing, setPublishing]         = useState(false);
   const [publishMsg, setPublishMsg]         = useState(null);
   const [showPublishConfirm, setShowPublishConfirm] = useState(false);
+  const [contextMenu, setContextMenu]       = useState(null); // { x, y, pack }
+
+  useEffect(() => {
+    function onKey(e) {
+      if (e.ctrlKey && e.key === "n") { e.preventDefault(); setShowNewPack(true); }
+    }
+    function onClickOutside() { setContextMenu(null); }
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("click", onClickOutside);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("click", onClickOutside);
+    };
+  }, []);
+
+  function getStatusOptions(currentStatus) {
+    const idx = STATUS_ORDER.indexOf(currentStatus);
+    if (idx <= 0) return [];
+    if (user?.role === "reviewer") {
+      return currentStatus === "Approved" ? ["In Review"] : [];
+    }
+    return STATUS_ORDER.slice(0, idx).reverse();
+  }
+
+  async function handleStatusChange(pack, newStatus) {
+    setContextMenu(null);
+    try {
+      const url = pack.packDbId
+        ? `${API}/by-id/${pack.packDbId}/status`
+        : `${API}/${pack.fileName}/status`;
+      const res = await fetch(url, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ status: newStatus }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      loadPacks();
+    } catch (err) {
+      alert(err.message);
+    }
+  }
+
+  function handleCellContextMenu(params) {
+    params.event.preventDefault();
+    const x = params.event.clientX;
+    const y = params.event.clientY;
+    const menuH = 220; // odhad výšky menu (5 položiek + label)
+    const menuW = 200;
+    const adjY = y + menuH > window.innerHeight ? y - menuH : y;
+    const adjX = x + menuW > window.innerWidth  ? x - menuW : x;
+    setContextMenu({ x: Math.max(4, adjX), y: Math.max(4, adjY), pack: params.data });
+  }
 
   const columnDefs = useMemo(() => [
-    { headerName: t("projects.grid.words"),    field: "words",    width: 110 },
-    { headerName: t("projects.grid.packName"), field: "name",     flex: 1 },
-    { headerName: t("projects.grid.progress"), field: "progress", width: 90 },
-    { headerName: "", field: "progress", width: 120, sortable: false, cellRenderer: ProgressBarCell },
+    { headerName: t("projects.grid.words"),    field: "words",    width: 100 },
+    { headerName: t("projects.grid.lang"),     field: "targetLang", width: 80,
+      cellRenderer: (p) => p.value ? p.value.toUpperCase() : "—" },
+    { headerName: t("projects.grid.packName"), field: "name", flex: 1,
+      cellRenderer: (p) => {
+        if (user?.role !== "reviewer" && p.data?.status === "In Review" && p.data?.reviewSentBy) {
+          const dt = p.data.reviewSentAt ? new Date(p.data.reviewSentAt) : null;
+          const ds = dt ? `${dt.getDate()}.${dt.getMonth() + 1}.${dt.getFullYear()}` : "";
+          return <span>{p.value}&nbsp;&nbsp;<em style={{ color: "var(--app-muted)", fontWeight: 400 }}>{t("projects.inReviewBy")(p.data.reviewSentBy, ds)}</em></span>;
+        }
+        return p.value || "";
+      },
+    },
+    {
+      headerName: t("projects.grid.progress"),
+      field: "progress",
+      width: 200,
+      cellRenderer: (params) => {
+        const pct = parseInt(params.value) || 0;
+        const color = pct >= 80 ? "#4adf8a" : pct >= 40 ? "#f0c040" : "#4a9eff";
+        return (
+          <div style={{ display:"grid", gridTemplateColumns:"38px 1fr", alignItems:"center", gap:6, padding:"0 6px", width:"100%" }}>
+            <span style={{ fontSize:11, color:"#94a3b8", textAlign:"right" }}>{pct}&nbsp;%</span>
+            <div style={{ height:6, borderRadius:3, background:"rgba(255,255,255,0.15)", overflow:"hidden" }}>
+              <div style={{ width:`${pct}%`, height:"100%", borderRadius:3, background:color }} />
+            </div>
+          </div>
+        );
+      },
+    },
     { headerName: t("projects.grid.status"),   field: "status",   width: 160 },
-  ], [t]);
+  ], [t, user]);
 
-  const loadPacks = useCallback(() => {
-    fetch(API)
+  const loadPacks = useCallback((silent = false) => {
+    fetch(API, { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => res.json())
       .then((data) => {
-        setRowData(data);
+        const packs = Array.isArray(data) ? data : [];
+
+        if (silent && prevPacksRef.current) {
+          const unchanged = JSON.stringify(prevPacksRef.current) === JSON.stringify(packs);
+          if (!unchanged && onNotificationRef.current) {
+            const prevMap = Object.fromEntries(prevPacksRef.current.map(p => [p.fileName, p.status]));
+            for (const pack of packs) {
+              const prevStatus = prevMap[pack.fileName];
+              if (!prevStatus && pack.status === "In Review")
+                onNotificationRef.current(t("projects.notifications.newInReview")(pack.name), "🔔");
+              else if (prevStatus && prevStatus !== pack.status) {
+                if (pack.status === "In Review")
+                  onNotificationRef.current(t("projects.notifications.sentToReview")(pack.name), "🔔");
+                else if (pack.status === "Approved")
+                  onNotificationRef.current(t("projects.notifications.approved")(pack.name), "✅");
+              }
+            }
+          }
+          prevPacksRef.current = packs;
+          if (unchanged) return;
+        } else {
+          prevPacksRef.current = packs;
+        }
+
+        setRowData(packs);
         if (onCategoriesLoaded) {
           const unique = [...new Set(
-            data.map(p => p.category).filter(c => c && c !== "-")
+            packs.map(p => p.category).filter(c => c && c !== "-")
           )].sort();
           onCategoriesLoaded(unique);
         }
       })
       .catch(console.error);
-  }, [onCategoriesLoaded]);
+  }, [token, onCategoriesLoaded]);
 
   useEffect(() => { loadPacks(); }, [loadPacks]);
 
+  const loadPacksRef = useRef(loadPacks);
+  useEffect(() => { loadPacksRef.current = loadPacks; }, [loadPacks]);
+
+  useEffect(() => {
+    const id = setInterval(() => loadPacksRef.current(true), 30_000);
+    return () => clearInterval(id);
+  }, []);
+
   function handleCreated(fileName) {
     loadPacks();
+  }
+
+  async function handleSendToReview() {
+    if (!selectedPack) return;
+    if (selectedPack.status !== "Complete") {
+      alert(`${t("projects.toReviewNeedComplete")}${selectedPack.status}).`);
+      return;
+    }
+    try {
+      const res = await fetch(`${API}/${selectedPack.fileName}/status`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ status: "In Review" }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      loadPacks();
+    } catch (err) {
+      alert(err.message);
+    }
   }
 
   async function handlePublish() {
@@ -465,11 +578,15 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
-      const archiveNote = data.archivePath ? `  |  Archív: ${data.archivePath}` : "";
-      setPublishMsg({ ok: true, text: `Publikovaný do: ${data.destPath}${archiveNote}` });
+      if (data.archiveError) {
+        setPublishMsg({ ok: "warn", text: `Publikovaný do: ${data.destPath}  |  ⚠ Archivácia zlyhala: ${data.archiveError} — kontaktujte správcu.` });
+      } else {
+        const archiveNote = data.archivePath ? `  |  Archív: ${data.archivePath}` : "";
+        setPublishMsg({ ok: true, text: `Publikovaný do: ${data.destPath}${archiveNote}` });
+      }
       loadPacks();
     } catch (err) {
-      setPublishMsg({ ok: false, text: err.message });
+      setPublishMsg({ ok: false, text: `${err.message} — kontaktujte správcu.` });
     } finally {
       setPublishing(false);
       setTimeout(() => setPublishMsg(null), 7000);
@@ -505,10 +622,71 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
       } else {
         const err = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
         console.error("Icon save failed:", err);
-        alert(`Chyba pri ukladaní ikony: ${err.error || res.status}`);
+        alert(t("projects.errors.iconSave")(err.error || res.status));
       }
     } finally {
       setIconSaving(false);
+    }
+  }
+
+  async function handleExportPack() {
+    if (!selectedPack) return;
+    try {
+      const res = await fetch(`${API}/${selectedPack.fileName}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      if (window.showSaveFilePicker) {
+        try {
+          const handle = await window.showSaveFilePicker({
+            suggestedName: selectedPack.fileName,
+            types: [{ description: "JSON Pack", accept: { "application/json": [".json"] } }],
+          });
+          const writable = await handle.createWritable();
+          await writable.write(blob);
+          await writable.close();
+        } catch (e) {
+          if (e.name === "AbortError") return;
+          throw e;
+        }
+      } else {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = selectedPack.fileName;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+      await logAudit(token, "EXPORT_PACK", { pack: selectedPack.name, fileName: selectedPack.fileName });
+    } catch (err) {
+      console.error(err);
+      alert(t("projects.errors.exportPack")(err.message));
+    }
+  }
+
+  async function handleImportPack(e) {
+    const file = e.target.files[0];
+    e.target.value = "";
+    if (!file) return;
+    try {
+      const text = await file.text();
+      const data = JSON.parse(text);
+      if (!data.name) throw new Error("Neplatný formát pack súboru");
+      const fileName = file.name;
+      const res = await fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ ...data, fileName }),
+      });
+      const result = await res.json();
+      if (!res.ok) throw new Error(result.error);
+      await logAudit(token, "IMPORT_PACK", { pack: data.name, fileName, wordCount: data.words?.length ?? 0 });
+      loadPacks();
+    } catch (err) {
+      console.error(err);
+      alert(t("projects.errors.importPack")(err.message));
     }
   }
 
@@ -523,6 +701,26 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
         <button className="projects-btn new-pack" style={{ marginLeft: "auto" }} onClick={() => setShowNewPack(true)}>
           {t("projects.newPack")}
         </button>
+        <button className="projects-btn" onClick={() => importPackRef.current.click()}>
+          Import Pack
+        </button>
+        <button
+          className="projects-btn"
+          onClick={handleExportPack}
+          disabled={!selectedPack}
+          title={!selectedPack ? t("projects.selectFirst") : ""}
+        >
+          Export Pack
+        </button>
+        <input ref={importPackRef} type="file" accept=".json" hidden onChange={handleImportPack} />
+        <button
+          className="projects-btn review-pack"
+          disabled={!selectedPack || selectedPack.status !== "Complete"}
+          title={!selectedPack ? t("projects.selectFirst") : selectedPack.status !== "Complete" ? `${t("projects.toReviewNeedComplete")}${selectedPack?.status})` : t("projects.toReviewTitle")}
+          onClick={handleSendToReview}
+        >
+          {t("projects.toReview")}
+        </button>
         <button
           className="projects-btn save-pack"
           onClick={() => setShowSaveAs(true)}
@@ -533,10 +731,10 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
         </button>
         <button
           className="projects-btn publish-pack"
-          disabled={selectedPack?.status !== "Approved" || publishing}
-          title={selectedPack?.status !== "Approved" ? "Pack musí byť Approved" : ""}
+          disabled={selectedPack?.status !== "Approved" || publishing || user?.role === "reviewer"}
+          title={user?.role === "reviewer" ? t("projects.publishNoPermission") : selectedPack?.status !== "Approved" ? t("projects.publishNeedApproved") : ""}
           onClick={() => setShowPublishConfirm(true)}
-        >{publishing ? "Publikujem…" : t("projects.publish")}</button>
+        >{publishing ? t("projects.publishing") : t("projects.publish")}</button>
         <button
           className="projects-btn danger"
           onClick={() => setShowDeletePack(true)}
@@ -594,9 +792,18 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
               {selectedPack?.name || "-"}
             </div>
           </div>
-          <div className="meta-item" style={{ gridColumn: "2 / 6", gridRow: "2" }}>
+          <div className="meta-item" style={{ gridColumn: "2 / 5", gridRow: "2" }}>
             <div className="meta-label">{t("projects.meta.description")}</div>
             <div className="meta-value meta-text">{selectedPack?.description || "-"}</div>
+          </div>
+          <div className="meta-item" style={{ gridColumn: "5", gridRow: "2" }}>
+            <div className="meta-label">{t("projects.meta.color")}</div>
+            <div className="meta-value" style={{ padding: "4px 8px" }}>
+              {selectedPack?.color
+                ? <div style={{ width: "100%", height: 22, borderRadius: 4, background: selectedPack.color }} title={selectedPack.color} />
+                : <span>-</span>
+              }
+            </div>
           </div>
           <div className="meta-item">
             <div className="meta-label">{t("projects.meta.category")}</div>
@@ -651,6 +858,8 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
             setActivePack(event.data);
             setActiveScreen("editor");
           }}
+          preventDefaultOnContextMenu={true}
+          onCellContextMenu={handleCellContextMenu}
         />
       </div>
 
@@ -660,7 +869,7 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
         {publishMsg && (
           <span
             className="projects-statusbar-msg"
-            style={{ color: publishMsg.ok ? "var(--app-save-ok)" : "#f87171" }}
+            style={{ color: publishMsg.ok === true ? "var(--app-save-ok)" : publishMsg.ok === "warn" ? "var(--app-warning)" : "#f87171" }}
           >
             {publishMsg.text}
           </span>
@@ -696,6 +905,25 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
           onConfirm={handlePublish}
           onClose={() => setShowPublishConfirm(false)}
         />
+      )}
+
+      {contextMenu && (
+        <div
+          className="ctx-menu"
+          style={{ top: contextMenu.y, left: contextMenu.x }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="ctx-menu-label">Zmeniť status</div>
+          {getStatusOptions(contextMenu.pack?.status).map((s) => (
+            <div
+              key={s}
+              className="ctx-menu-item"
+              onClick={() => handleStatusChange(contextMenu.pack, s)}
+            >
+              {s}
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

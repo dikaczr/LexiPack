@@ -1,0 +1,158 @@
+.cefrDialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cefrDialog {
+  background: var(--app-chrome, #1e293b);
+  border: 1px solid var(--app-border, #334155);
+  border-radius: 12px;
+  width: 680px;
+  max-width: 96vw;
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.cefrDialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem 0.75rem;
+  border-bottom: 1px solid var(--app-border, #334155);
+  flex-shrink: 0;
+}
+
+.cefrDialog-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--app-text, #f1f5f9);
+}
+
+.cefrDialog-close {
+  background: none;
+  border: none;
+  color: var(--app-text-muted, #64748b);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.cefrDialog-close:hover {
+  color: var(--app-text, #f1f5f9);
+  background: var(--app-border, #334155);
+}
+
+.cefrDialog-meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.82rem;
+  color: var(--app-text-muted, #64748b);
+  border-bottom: 1px solid var(--app-border, #334155);
+  flex-shrink: 0;
+}
+
+.cefrDialog-meta strong { color: var(--app-text, #f1f5f9); }
+.cefrDialog-warn  { color: var(--app-warning, #f59e0b) !important; }
+.cefrDialog-muted { color: var(--app-text-muted, #64748b) !important; font-style: italic; }
+
+.cefrDialog-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 0.75rem 1.25rem 0.5rem;
+}
+
+.cefrDialog-section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--app-text-muted, #64748b);
+  margin: 0.75rem 0 0.5rem;
+}
+
+.cefrDialog-ok {
+  text-align: center;
+  padding: 2.5rem 0;
+  color: var(--app-accent, #3b82f6);
+  font-size: 0.95rem;
+}
+
+.cefrDialog-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+  margin-bottom: 1rem;
+}
+
+.cefrDialog-table th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--app-text-muted, #64748b);
+  padding: 0 0.5rem 0.4rem;
+  border-bottom: 1px solid var(--app-border, #334155);
+}
+
+.cefrDialog-table td {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--app-border-sub, #1e293b);
+  color: var(--app-text2, #cbd5e1);
+  vertical-align: middle;
+}
+
+.cefrDialog-table tr:last-child td { border-bottom: none; }
+
+.cefrDialog-word {
+  font-weight: 600;
+  color: var(--app-text, #f1f5f9) !important;
+}
+
+.cefrDialog-badge {
+  display: inline-block;
+  padding: 1px 9px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+.cefrDialog-note {
+  font-size: 0.78rem;
+  color: var(--app-text-muted, #64748b);
+  font-style: italic;
+}
+
+.cefrDialog-goto {
+  background: none;
+  border: 1px solid var(--app-border, #334155);
+  border-radius: 4px;
+  color: var(--app-text-muted, #64748b);
+  font-size: 0.78rem;
+  padding: 1px 8px;
+  cursor: pointer;
+}
+
+.cefrDialog-goto:hover {
+  color: var(--app-text, #f1f5f9);
+  border-color: var(--app-accent, #3b82f6);
+}
+
+.cefrDialog-footer {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--app-border, #334155);
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}

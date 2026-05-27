@@ -1,31 +1,35 @@
 import { useState } from "react";
+import { useT } from "../i18n";
 import "./PackPreview.css";
 
-const ACTION_LABELS = {
-  FLAG:    { label: "Problém", color: "#f87171" },
-  OK:      { label: "OK",      color: "#4ade80" },
-  COMMENT: { label: "Komentár", color: "#60a5fa" },
+const ACTION_COLORS = {
+  FLAG:    "#f87171",
+  OK:      "#4ade80",
+  COMMENT: "#60a5fa",
 };
 
-function ReviewBadge({ action }) {
-  const cfg = ACTION_LABELS[action] ?? { label: action, color: "#94a3b8" };
+function ReviewBadge({ action, label }) {
+  const color = ACTION_COLORS[action] ?? "#94a3b8";
   return (
     <span style={{
-      background: `${cfg.color}22`,
-      color: cfg.color,
-      border: `1px solid ${cfg.color}55`,
-      borderRadius: 6,
-      padding: "1px 8px",
-      fontSize: 11,
+      background: `${color}22`,
+      color: color,
+      border: `1px solid ${color}55`,
+      borderRadius: 4,
+      padding: "0px 6px",
+      fontSize: 10,
       fontWeight: 600,
+      lineHeight: "16px",
+      display: "inline-block",
     }}>
-      {cfg.label}
+      {label}
     </span>
   );
 }
 
 export default function PackPreview({ row, reviews = [], onAddReview, onDeleteReview, userRole }) {
-  const [action, setAction]   = useState("FLAG");
+  const t = useT();
+  const [action, setAction]   = useState("OK");
   const [comment, setComment] = useState("");
   const [adding, setAdding]   = useState(false);
 
@@ -35,13 +39,16 @@ export default function PackPreview({ row, reviews = [], onAddReview, onDeleteRe
     e.preventDefault();
     if (!comment.trim() && action === "COMMENT") return;
     setAdding(true);
-    await onAddReview?.({ word_id: row.id, word: row.word, action, comment: comment.trim() || null });
-    setComment("");
-    setAdding(false);
+    try {
+      await onAddReview?.({ word_id: row.id, word: row.word, action, comment: comment.trim() || null });
+      setComment("");
+    } finally {
+      setAdding(false);
+    }
   }
 
   if (!row) {
-    return <div className="preview-empty">Select a row to preview</div>;
+    return <div className="preview-empty">{t("review.selectRow")}</div>;
   }
 
   const canReview = ["admin", "reviewer"].includes(userRole);
@@ -54,7 +61,7 @@ export default function PackPreview({ row, reviews = [], onAddReview, onDeleteRe
           {row.article ? `${row.article} ${row.word}` : row.word}
           {wordReviews.length > 0 && (
             <span style={{ marginLeft: 10, fontSize: 11, fontWeight: 600, color: "#4ade80", verticalAlign: "middle" }}>
-              Pozn.
+              {t("review.note")}
             </span>
           )}
         </div>
@@ -78,31 +85,7 @@ export default function PackPreview({ row, reviews = [], onAddReview, onDeleteRe
 
       {/* REVIEWS SEKCIA */}
       <div className="word-reviews">
-        <div className="word-reviews-title">Review poznámky</div>
-
-        {wordReviews.length === 0 && (
-          <div className="word-reviews-empty">Žiadne poznámky</div>
-        )}
-
-        {wordReviews.map((r) => (
-          <div key={r.id} className="word-review-item">
-            <div className="word-review-header">
-              <ReviewBadge action={r.action} />
-              <span className="word-review-author">{r.reviewer_name}</span>
-              <span className="word-review-date">
-                {new Date(r.created_at).toLocaleDateString("sk")}
-              </span>
-              {["admin", "reviewer"].includes(userRole) && (
-                <button
-                  className="word-review-delete"
-                  onClick={() => onDeleteReview?.(r.id)}
-                  title="Odstrániť"
-                >✕</button>
-              )}
-            </div>
-            {r.comment && <div className="word-review-comment">{r.comment}</div>}
-          </div>
-        ))}
+        <div className="word-reviews-title">{t("review.title")}</div>
 
         {/* FORMULÁR */}
         {canReview && (
@@ -113,14 +96,14 @@ export default function PackPreview({ row, reviews = [], onAddReview, onDeleteRe
                 onChange={(e) => setAction(e.target.value)}
                 className="word-review-select"
               >
-                <option value="FLAG">🚩 Problém</option>
-                <option value="OK">✅ OK</option>
-                <option value="COMMENT">💬 Komentár</option>
+                <option value="OK">✅ {t("review.actions.OK")}</option>
+                <option value="FLAG">🚩 {t("review.actions.FLAG")}</option>
+                <option value="COMMENT">💬 {t("review.actions.COMMENT")}</option>
               </select>
             </div>
             <textarea
               className="word-review-textarea"
-              placeholder="Komentár (voliteľný)..."
+              placeholder={t("review.commentPlaceholder")}
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               rows={2}
@@ -130,10 +113,34 @@ export default function PackPreview({ row, reviews = [], onAddReview, onDeleteRe
               className="word-review-submit"
               disabled={adding}
             >
-              {adding ? "Ukladám..." : "Potvrdiť"}
+              {adding ? t("review.submitting") : t("review.submit")}
             </button>
           </form>
         )}
+
+        {wordReviews.length === 0 && (
+          <div className="word-reviews-empty">{t("review.empty")}</div>
+        )}
+
+        {wordReviews.map((r) => (
+          <div key={r.id} className="word-review-item">
+            <div className="word-review-header">
+              <ReviewBadge action={r.action} label={t(`review.actions.${r.action}`) || r.action} />
+              <span className="word-review-author">{r.reviewer_name}</span>
+              <span className="word-review-date">
+                {new Date(r.created_at).toLocaleDateString("sk")}
+              </span>
+              {["admin", "reviewer"].includes(userRole) && (
+                <button
+                  className="word-review-delete"
+                  onClick={() => onDeleteReview?.(r.id)}
+                  title={t("review.deleteTitle")}
+                >✕</button>
+              )}
+            </div>
+            {r.comment && <div className="word-review-comment">{r.comment}</div>}
+          </div>
+        ))}
       </div>
     </div>
   );

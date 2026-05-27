@@ -1,0 +1,1218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AutoCorrectProviderState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>Sdl.TranslationStudio.AutoCorrect</Id>
+  <LanguageCode>2057</LanguageCode>
+  <LanguageName>en-GB</LanguageName>
+  <State><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<ProviderConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TargetLanguageCode>2057</TargetLanguageCode>
+  <TargetLanguageName>en-GB</TargetLanguageName>
+  <AutoCorrectSettings>
+    <CorrectTwoInitialCaps>true</CorrectTwoInitialCaps>
+    <CorrectSentenceCaps>true</CorrectSentenceCaps>
+    <CorrectCapsLock>true</CorrectCapsLock>
+    <ReplaceTextAsYouType>false</ReplaceTextAsYouType>
+    <AutoCorrectEntries>
+      <Entry src="(c)" trg="©" />
+      <Entry src="(e)" trg="€" />
+      <Entry src="(r)" trg="®" />
+      <Entry src="(tm)" trg="™" />
+      <Entry src="..." trg="…" />
+      <Entry src="abbout" trg="about" />
+      <Entry src="abotu" trg="about" />
+      <Entry src="abouta" trg="about a" />
+      <Entry src="aboutit" trg="about it" />
+      <Entry src="aboutthe" trg="about the" />
+      <Entry src="abscence" trg="absence" />
+      <Entry src="accesories" trg="accessories" />
+      <Entry src="accidant" trg="accident" />
+      <Entry src="accomodate" trg="accommodate" />
+      <Entry src="accordingto" trg="according to" />
+      <Entry src="accross" trg="across" />
+      <Entry src="acheive" trg="achieve" />
+      <Entry src="acheived" trg="achieved" />
+      <Entry src="acheiving" trg="achieving" />
+      <Entry src="acn" trg="can" />
+      <Entry src="acommodate" trg="accommodate" />
+      <Entry src="acomodate" trg="accommodate" />
+      <Entry src="actualyl" trg="actually" />
+      <Entry src="additinal" trg="additional" />
+      <Entry src="addtional" trg="additional" />
+      <Entry src="adequit" trg="adequate" />
+      <Entry src="adequite" trg="adequate" />
+      <Entry src="adn" trg="and" />
+      <Entry src="advanage" trg="advantage" />
+      <Entry src="affraid" trg="afraid" />
+      <Entry src="afterthe" trg="after the" />
+      <Entry src="againstt he" trg="against the" />
+      <Entry src="aganist" trg="against" />
+      <Entry src="aggresive" trg="aggressive" />
+      <Entry src="agian" trg="again" />
+      <Entry src="agreemeent" trg="agreement" />
+      <Entry src="agreemeents" trg="agreements" />
+      <Entry src="agreemnet" trg="agreement" />
+      <Entry src="agreemnets" trg="agreements" />
+      <Entry src="agressive" trg="aggressive" />
+      <Entry src="ahppen" trg="happen" />
+      <Entry src="ahve" trg="have" />
+      <Entry src="allwasy" trg="always" />
+      <Entry src="allwyas" trg="always" />
+      <Entry src="almots" trg="almost" />
+      <Entry src="almsot" trg="almost" />
+      <Entry src="alomst" trg="almost" />
+      <Entry src="alot" trg="a lot" />
+      <Entry src="alraedy" trg="already" />
+      <Entry src="alreayd" trg="already" />
+      <Entry src="alreday" trg="already" />
+      <Entry src="alwasy" trg="always" />
+      <Entry src="alwats" trg="always" />
+      <Entry src="alway" trg="always" />
+      <Entry src="alwyas" trg="always" />
+      <Entry src="amde" trg="made" />
+      <Entry src="Ameria" trg="America" />
+      <Entry src="amke" trg="make" />
+      <Entry src="amkes" trg="makes" />
+      <Entry src="anbd" trg="and" />
+      <Entry src="andone" trg="and one" />
+      <Entry src="andt he" trg="and the" />
+      <Entry src="andteh" trg="and the" />
+      <Entry src="andthe" trg="and the" />
+      <Entry src="anothe" trg="another" />
+      <Entry src="anual" trg="annual" />
+      <Entry src="apparant" trg="apparent" />
+      <Entry src="apparrent" trg="apparent" />
+      <Entry src="appearence" trg="appearance" />
+      <Entry src="appeares" trg="appears" />
+      <Entry src="applicaiton" trg="application" />
+      <Entry src="applicaitons" trg="applications" />
+      <Entry src="applyed" trg="applied" />
+      <Entry src="appointiment" trg="appointment" />
+      <Entry src="approrpiate" trg="appropriate" />
+      <Entry src="approrpriate" trg="appropriate" />
+      <Entry src="aquisition" trg="acquisition" />
+      <Entry src="aquisitions" trg="acquisitions" />
+      <Entry src="aren;t" trg="aren’t" />
+      <Entry src="arguement" trg="argument" />
+      <Entry src="arguements" trg="arguments" />
+      <Entry src="arn't" trg="aren’t" />
+      <Entry src="arond" trg="around" />
+      <Entry src="artical" trg="article" />
+      <Entry src="articel" trg="article" />
+      <Entry src="asdvertising" trg="advertising" />
+      <Entry src="askt he" trg="ask the" />
+      <Entry src="assistent" trg="assistant" />
+      <Entry src="asthe" trg="as the" />
+      <Entry src="atention" trg="attention" />
+      <Entry src="atmospher" trg="atmosphere" />
+      <Entry src="attentioin" trg="attention" />
+      <Entry src="atthe" trg="at the" />
+      <Entry src="audeince" trg="audience" />
+      <Entry src="audiance" trg="audience" />
+      <Entry src="availalbe" trg="available" />
+      <Entry src="awya" trg="away" />
+      <Entry src="aywa" trg="away" />
+      <Entry src="bakc" trg="back" />
+      <Entry src="balence" trg="balance" />
+      <Entry src="ballance" trg="balance" />
+      <Entry src="baout" trg="about" />
+      <Entry src="bcak" trg="back" />
+      <Entry src="beacuse" trg="because" />
+      <Entry src="becasue" trg="because" />
+      <Entry src="becaus" trg="because" />
+      <Entry src="becausea" trg="because a" />
+      <Entry src="becauseof" trg="because of" />
+      <Entry src="becausethe" trg="because the" />
+      <Entry src="becauseyou" trg="because you" />
+      <Entry src="becomeing" trg="becoming" />
+      <Entry src="becomming" trg="becoming" />
+      <Entry src="becuase" trg="because" />
+      <Entry src="becuse" trg="because" />
+      <Entry src="befoer" trg="before" />
+      <Entry src="beggining" trg="beginning" />
+      <Entry src="begining" trg="beginning" />
+      <Entry src="beginining" trg="beginning" />
+      <Entry src="beleiev" trg="believe" />
+      <Entry src="beleieve" trg="believe" />
+      <Entry src="beleif" trg="belief" />
+      <Entry src="beleive" trg="believe" />
+      <Entry src="beleived" trg="believed" />
+      <Entry src="beleives" trg="believes" />
+      <Entry src="benifit" trg="benefit" />
+      <Entry src="benifits" trg="benefits" />
+      <Entry src="betwen" trg="between" />
+      <Entry src="beutiful" trg="beautiful" />
+      <Entry src="blase" trg="blasé" />
+      <Entry src="boxs" trg="boxes" />
+      <Entry src="brodcast" trg="broadcast" />
+      <Entry src="butthe" trg="but the" />
+      <Entry src="bve" trg="be" />
+      <Entry src="byt he" trg="by the" />
+      <Entry src="cafe" trg="café" />
+      <Entry src="caharcter" trg="character" />
+      <Entry src="calcullated" trg="calculated" />
+      <Entry src="calulated" trg="calculated" />
+      <Entry src="can't of been" trg="can’t have been" />
+      <Entry src="can;t" trg="can’t" />
+      <Entry src="candidtae" trg="candidate" />
+      <Entry src="candidtaes" trg="candidates" />
+      <Entry src="catagory" trg="category" />
+      <Entry src="categiory" trg="category" />
+      <Entry src="certian" trg="certain" />
+      <Entry src="challange" trg="challenge" />
+      <Entry src="challanges" trg="challenges" />
+      <Entry src="chaneg" trg="change" />
+      <Entry src="chanegs" trg="changes" />
+      <Entry src="changable" trg="changeable" />
+      <Entry src="changeing" trg="changing" />
+      <Entry src="changng" trg="changing" />
+      <Entry src="charachter" trg="character" />
+      <Entry src="charachters" trg="characters" />
+      <Entry src="charactor" trg="character" />
+      <Entry src="charecter" trg="character" />
+      <Entry src="charector" trg="character" />
+      <Entry src="cheif" trg="chief" />
+      <Entry src="chekc" trg="check" />
+      <Entry src="chnage" trg="change" />
+      <Entry src="cieling" trg="ceiling" />
+      <Entry src="circut" trg="circuit" />
+      <Entry src="claer" trg="clear" />
+      <Entry src="claered" trg="cleared" />
+      <Entry src="claerly" trg="clearly" />
+      <Entry src="cliant" trg="client" />
+      <Entry src="cliche" trg="cliché" />
+      <Entry src="cna" trg="can" />
+      <Entry src="colection" trg="collection" />
+      <Entry src="comanies" trg="companies" />
+      <Entry src="comany" trg="company" />
+      <Entry src="comapnies" trg="companies" />
+      <Entry src="comapny" trg="company" />
+      <Entry src="combintation" trg="combination" />
+      <Entry src="comited" trg="committed" />
+      <Entry src="comittee" trg="committee" />
+      <Entry src="commadn" trg="command" />
+      <Entry src="comming" trg="coming" />
+      <Entry src="commitee" trg="committee" />
+      <Entry src="committe" trg="committee" />
+      <Entry src="committment" trg="commitment" />
+      <Entry src="committments" trg="commitments" />
+      <Entry src="committy" trg="committee" />
+      <Entry src="comntain" trg="contain" />
+      <Entry src="comntains" trg="contains" />
+      <Entry src="compair" trg="compare" />
+      <Entry src="company;s" trg="company’s" />
+      <Entry src="compleated" trg="completed" />
+      <Entry src="compleatly" trg="completely" />
+      <Entry src="compleatness" trg="completeness" />
+      <Entry src="completly" trg="completely" />
+      <Entry src="completness" trg="completeness" />
+      <Entry src="composate" trg="composite" />
+      <Entry src="comtain" trg="contain" />
+      <Entry src="comtains" trg="contains" />
+      <Entry src="comunicate" trg="communicate" />
+      <Entry src="comunity" trg="community" />
+      <Entry src="condolances" trg="condolences" />
+      <Entry src="conected" trg="connected" />
+      <Entry src="conferance" trg="conference" />
+      <Entry src="confirmmation" trg="confirmation" />
+      <Entry src="considerit" trg="considerate" />
+      <Entry src="considerite" trg="considerate" />
+      <Entry src="consonent" trg="consonant" />
+      <Entry src="conspiricy" trg="conspiracy" />
+      <Entry src="consultent" trg="consultant" />
+      <Entry src="convertable" trg="convertible" />
+      <Entry src="cooparate" trg="cooperate" />
+      <Entry src="cooporate" trg="cooperate" />
+      <Entry src="corproation" trg="corporation" />
+      <Entry src="corproations" trg="corporations" />
+      <Entry src="corruptable" trg="corruptible" />
+      <Entry src="cotten" trg="cotton" />
+      <Entry src="coudl" trg="could" />
+      <Entry src="coudln't" trg="couldn’t" />
+      <Entry src="coudn't" trg="couldn’t" />
+      <Entry src="could of been" trg="could have been" />
+      <Entry src="could of had" trg="could have had" />
+      <Entry src="couldn;t" trg="couldn’t" />
+      <Entry src="couldnt" trg="couldn’t" />
+      <Entry src="couldthe" trg="could the" />
+      <Entry src="cpoy" trg="copy" />
+      <Entry src="creme" trg="crème" />
+      <Entry src="ctaegory" trg="category" />
+      <Entry src="cusotmer" trg="customer" />
+      <Entry src="cusotmers" trg="customers" />
+      <Entry src="cutsomer" trg="customer" />
+      <Entry src="cutsomers" trg="customers" />
+      <Entry src="cxan" trg="can" />
+      <Entry src="danceing" trg="dancing" />
+      <Entry src="dcument" trg="document" />
+      <Entry src="deatils" trg="details" />
+      <Entry src="decison" trg="decision" />
+      <Entry src="decisons" trg="decisions" />
+      <Entry src="decor" trg="décor" />
+      <Entry src="defendent" trg="defendant" />
+      <Entry src="definately" trg="definitely" />
+      <Entry src="deja vu" trg="déjà vu" />
+      <Entry src="deptartment" trg="department" />
+      <Entry src="desicion" trg="decision" />
+      <Entry src="desicions" trg="decisions" />
+      <Entry src="desision" trg="decision" />
+      <Entry src="desisions" trg="decisions" />
+      <Entry src="detente" trg="détente" />
+      <Entry src="develeoprs" trg="developers" />
+      <Entry src="devellop" trg="develop" />
+      <Entry src="develloped" trg="developed" />
+      <Entry src="develloper" trg="developer" />
+      <Entry src="devellopers" trg="developers" />
+      <Entry src="develloping" trg="developing" />
+      <Entry src="devellopment" trg="development" />
+      <Entry src="devellopments" trg="developments" />
+      <Entry src="devellops" trg="develop" />
+      <Entry src="develope" trg="develop" />
+      <Entry src="developement" trg="development" />
+      <Entry src="developements" trg="developments" />
+      <Entry src="developor" trg="developer" />
+      <Entry src="developors" trg="developers" />
+      <Entry src="develpment" trg="development" />
+      <Entry src="diaplay" trg="display" />
+      <Entry src="didint" trg="didn’t" />
+      <Entry src="didn;t" trg="didn’t" />
+      <Entry src="didnot" trg="did not" />
+      <Entry src="didnt" trg="didn’t" />
+      <Entry src="difefrent" trg="different" />
+      <Entry src="diferences" trg="differences" />
+      <Entry src="differance" trg="difference" />
+      <Entry src="differances" trg="differences" />
+      <Entry src="differant" trg="different" />
+      <Entry src="differemt" trg="different" />
+      <Entry src="differnt" trg="different" />
+      <Entry src="diffrent" trg="different" />
+      <Entry src="directer" trg="director" />
+      <Entry src="directers" trg="directors" />
+      <Entry src="directiosn" trg="direction" />
+      <Entry src="disatisfied" trg="dissatisfied" />
+      <Entry src="discoverd" trg="discovered" />
+      <Entry src="disign" trg="design" />
+      <Entry src="dispaly" trg="display" />
+      <Entry src="dissonent" trg="dissonant" />
+      <Entry src="distribusion" trg="distribution" />
+      <Entry src="divsion" trg="division" />
+      <Entry src="do'nt" trg="don’t" />
+      <Entry src="docuement" trg="documents" />
+      <Entry src="docuemnt" trg="document" />
+      <Entry src="documetn" trg="document" />
+      <Entry src="documnet" trg="document" />
+      <Entry src="documnets" trg="documents" />
+      <Entry src="doe snot" trg="does not" />
+      <Entry src="doens't" trg="doesn’t" />
+      <Entry src="doese" trg="does" />
+      <Entry src="doesn;t" trg="doesn’t" />
+      <Entry src="doesnt" trg="doesn’t" />
+      <Entry src="doign" trg="doing" />
+      <Entry src="doimg" trg="doing" />
+      <Entry src="doind" trg="doing" />
+      <Entry src="dollers" trg="dollars" />
+      <Entry src="don't no" trg="don’t know" />
+      <Entry src="don;t" trg="don’t" />
+      <Entry src="donig" trg="doing" />
+      <Entry src="dont" trg="don’t" />
+      <Entry src="dosn't" trg="doesn’t" />
+      <Entry src="driveing" trg="driving" />
+      <Entry src="drnik" trg="drink" />
+      <Entry src="eclair" trg="éclair" />
+      <Entry src="efel" trg="feel" />
+      <Entry src="effecient" trg="efficient" />
+      <Entry src="efort" trg="effort" />
+      <Entry src="eforts" trg="efforts" />
+      <Entry src="ehr" trg="her" />
+      <Entry src="eligable" trg="eligible" />
+      <Entry src="embarass" trg="embarrass" />
+      <Entry src="emigre" trg="émigré" />
+      <Entry src="enought" trg="enough" />
+      <Entry src="entree" trg="entrée" />
+      <Entry src="equippment" trg="equipment" />
+      <Entry src="equivalant" trg="equivalent" />
+      <Entry src="esle" trg="else" />
+      <Entry src="especally" trg="especially" />
+      <Entry src="especialyl" trg="especially" />
+      <Entry src="espesially" trg="especially" />
+      <Entry src="excellant" trg="excellent" />
+      <Entry src="excercise" trg="exercise" />
+      <Entry src="exchagne" trg="exchange" />
+      <Entry src="exchagnes" trg="exchanges" />
+      <Entry src="excitment" trg="excitement" />
+      <Entry src="exhcange" trg="exchange" />
+      <Entry src="exhcanges" trg="exchanges" />
+      <Entry src="experiance" trg="experience" />
+      <Entry src="experienc" trg="experience" />
+      <Entry src="exprience" trg="experience" />
+      <Entry src="exprienced" trg="experienced" />
+      <Entry src="eyt" trg="yet" />
+      <Entry src="facade" trg="façade" />
+      <Entry src="faeture" trg="feature" />
+      <Entry src="faetures" trg="features" />
+      <Entry src="familair" trg="familiar" />
+      <Entry src="familar" trg="familiar" />
+      <Entry src="familliar" trg="familiar" />
+      <Entry src="fammiliar" trg="familiar" />
+      <Entry src="feild" trg="field" />
+      <Entry src="feilds" trg="fields" />
+      <Entry src="fianlly" trg="finally" />
+      <Entry src="fidn" trg="find" />
+      <Entry src="finalyl" trg="finally" />
+      <Entry src="firends" trg="friends" />
+      <Entry src="firts" trg="first" />
+      <Entry src="follwo" trg="follow" />
+      <Entry src="follwoing" trg="following" />
+      <Entry src="fora" trg="for a" />
+      <Entry src="foriegn" trg="foreign" />
+      <Entry src="forthe" trg="for the" />
+      <Entry src="forwrd" trg="forward" />
+      <Entry src="forwrds" trg="forwards" />
+      <Entry src="foudn" trg="found" />
+      <Entry src="foward" trg="forward" />
+      <Entry src="fowards" trg="forwards" />
+      <Entry src="freind" trg="friend" />
+      <Entry src="freindly" trg="friendly" />
+      <Entry src="freinds" trg="friends" />
+      <Entry src="frmo" trg="from" />
+      <Entry src="fromt he" trg="from the" />
+      <Entry src="fromthe" trg="from the" />
+      <Entry src="furneral" trg="funeral" />
+      <Entry src="fwe" trg="few" />
+      <Entry src="garantee" trg="guarantee" />
+      <Entry src="gaurd" trg="guard" />
+      <Entry src="gemeral" trg="general" />
+      <Entry src="gerat" trg="great" />
+      <Entry src="geting" trg="getting" />
+      <Entry src="gettin" trg="getting" />
+      <Entry src="gievn" trg="given" />
+      <Entry src="giveing" trg="giving" />
+      <Entry src="gloabl" trg="global" />
+      <Entry src="goign" trg="going" />
+      <Entry src="gonig" trg="going" />
+      <Entry src="govenment" trg="government" />
+      <Entry src="goverment" trg="government" />
+      <Entry src="gruop" trg="group" />
+      <Entry src="gruops" trg="groups" />
+      <Entry src="grwo" trg="grow" />
+      <Entry src="guidlines" trg="guidelines" />
+      <Entry src="hadbeen" trg="had been" />
+      <Entry src="hadn;t" trg="hadn’t" />
+      <Entry src="haev" trg="have" />
+      <Entry src="hapen" trg="happen" />
+      <Entry src="hapened" trg="happened" />
+      <Entry src="hapening" trg="happening" />
+      <Entry src="hapens" trg="happens" />
+      <Entry src="happend" trg="happened" />
+      <Entry src="hasbeen" trg="has been" />
+      <Entry src="hasn;t" trg="hasn’t" />
+      <Entry src="hasnt" trg="hasn’t" />
+      <Entry src="havebeen" trg="have been" />
+      <Entry src="haveing" trg="having" />
+      <Entry src="haven;t" trg="haven’t" />
+      <Entry src="hda" trg="had" />
+      <Entry src="he;ll" trg="he’ll" />
+      <Entry src="hearign" trg="hearing" />
+      <Entry src="helpfull" trg="helpful" />
+      <Entry src="here;s" trg="here’s" />
+      <Entry src="hesaid" trg="he said" />
+      <Entry src="hewas" trg="he was" />
+      <Entry src="hge" trg="he" />
+      <Entry src="hismelf" trg="himself" />
+      <Entry src="hlep" trg="help" />
+      <Entry src="hsa" trg="has" />
+      <Entry src="hsi" trg="his" />
+      <Entry src="hte" trg="the" />
+      <Entry src="htere" trg="there" />
+      <Entry src="htese" trg="these" />
+      <Entry src="htey" trg="they" />
+      <Entry src="hting" trg="thing" />
+      <Entry src="htink" trg="think" />
+      <Entry src="htis" trg="this" />
+      <Entry src="htp:" trg="http:" />
+      <Entry src="http:\\" trg="http://" />
+      <Entry src="httpL" trg="http:" />
+      <Entry src="hvae" trg="have" />
+      <Entry src="hvaing" trg="having" />
+      <Entry src="hwich" trg="which" />
+      <Entry src="i" trg="I" />
+      <Entry src="i snot" trg="is not" />
+      <Entry src="I&quot;m" trg="I’m" />
+      <Entry src="I;d" trg="I’d" />
+      <Entry src="I;ll" trg="I’ll" />
+      <Entry src="idae" trg="idea" />
+      <Entry src="idaes" trg="ideas" />
+      <Entry src="identofy" trg="identify" />
+      <Entry src="ihs" trg="his" />
+      <Entry src="iits the" trg="it’s the" />
+      <Entry src="imediate" trg="immediate" />
+      <Entry src="imediatly" trg="immediately" />
+      <Entry src="immediatly" trg="immediately" />
+      <Entry src="importent" trg="important" />
+      <Entry src="importnat" trg="important" />
+      <Entry src="impossable" trg="impossible" />
+      <Entry src="improvemnt" trg="improvement" />
+      <Entry src="improvment" trg="improvement" />
+      <Entry src="includ" trg="include" />
+      <Entry src="indecate" trg="indicate" />
+      <Entry src="indenpendence" trg="independence" />
+      <Entry src="indenpendent" trg="independent" />
+      <Entry src="indepedent" trg="independent" />
+      <Entry src="independance" trg="independence" />
+      <Entry src="independant" trg="independent" />
+      <Entry src="influance" trg="influence" />
+      <Entry src="infomation" trg="information" />
+      <Entry src="informatoin" trg="information" />
+      <Entry src="inital" trg="initial" />
+      <Entry src="instaleld" trg="installed" />
+      <Entry src="insted" trg="instead" />
+      <Entry src="insurence" trg="insurance" />
+      <Entry src="int he" trg="in the" />
+      <Entry src="inteh" trg="in the" />
+      <Entry src="interum" trg="interim" />
+      <Entry src="inthe" trg="in the" />
+      <Entry src="inwhich" trg="in which" />
+      <Entry src="isn;t" trg="isn’t" />
+      <Entry src="isthe" trg="is the" />
+      <Entry src="it snot" trg="it’s not" />
+      <Entry src="it' snot" trg="it’s not" />
+      <Entry src="it;ll" trg="it’ll" />
+      <Entry src="it;s" trg="it’s" />
+      <Entry src="itis" trg="it is" />
+      <Entry src="ititial" trg="initial" />
+      <Entry src="itnerest" trg="interest" />
+      <Entry src="itnerested" trg="interested" />
+      <Entry src="itneresting" trg="interesting" />
+      <Entry src="itnerests" trg="interests" />
+      <Entry src="its a" trg="it’s a" />
+      <Entry src="its the" trg="it’s the" />
+      <Entry src="itwas" trg="it was" />
+      <Entry src="iwll" trg="will" />
+      <Entry src="iwth" trg="with" />
+      <Entry src="jsut" trg="just" />
+      <Entry src="jugment" trg="judgment" />
+      <Entry src="knowldge" trg="knowledge" />
+      <Entry src="knowlege" trg="knowledge" />
+      <Entry src="knwo" trg="know" />
+      <Entry src="knwon" trg="known" />
+      <Entry src="knwos" trg="knows" />
+      <Entry src="konw" trg="know" />
+      <Entry src="konwn" trg="known" />
+      <Entry src="konws" trg="knows" />
+      <Entry src="labratory" trg="laboratory" />
+      <Entry src="lastyear" trg="last year" />
+      <Entry src="learnign" trg="learning" />
+      <Entry src="lenght" trg="length" />
+      <Entry src="let's him" trg="lets him" />
+      <Entry src="let's it" trg="lets it" />
+      <Entry src="let;s" trg="let’s" />
+      <Entry src="levle" trg="level" />
+      <Entry src="libary" trg="library" />
+      <Entry src="librarry" trg="library" />
+      <Entry src="librery" trg="library" />
+      <Entry src="liek" trg="like" />
+      <Entry src="liekd" trg="liked" />
+      <Entry src="lieutenent" trg="lieutenant" />
+      <Entry src="liev" trg="live" />
+      <Entry src="likly" trg="likely" />
+      <Entry src="lisense" trg="license" />
+      <Entry src="littel" trg="little" />
+      <Entry src="litttle" trg="little" />
+      <Entry src="liuke" trg="like" />
+      <Entry src="liveing" trg="living" />
+      <Entry src="loev" trg="love" />
+      <Entry src="lonly" trg="lonely" />
+      <Entry src="lookign" trg="looking" />
+      <Entry src="maintenence" trg="maintenance" />
+      <Entry src="makeing" trg="making" />
+      <Entry src="managment" trg="management" />
+      <Entry src="mantain" trg="maintain" />
+      <Entry src="marraige" trg="marriage" />
+      <Entry src="may of been" trg="may have been" />
+      <Entry src="may of had" trg="may have had" />
+      <Entry src="memeber" trg="member" />
+      <Entry src="merchent" trg="merchant" />
+      <Entry src="mesage" trg="message" />
+      <Entry src="mesages" trg="messages" />
+      <Entry src="might of been" trg="might have been" />
+      <Entry src="might of had" trg="might have had" />
+      <Entry src="mispell" trg="misspell" />
+      <Entry src="mispelling" trg="misspelling" />
+      <Entry src="mispellings" trg="misspellings" />
+      <Entry src="mkae" trg="make" />
+      <Entry src="mkaes" trg="makes" />
+      <Entry src="mkaing" trg="making" />
+      <Entry src="moeny" trg="money" />
+      <Entry src="morgage" trg="mortgage" />
+      <Entry src="mroe" trg="more" />
+      <Entry src="must of been" trg="must have been" />
+      <Entry src="must of had" trg="must have had" />
+      <Entry src="mysefl" trg="myself" />
+      <Entry src="myu" trg="my" />
+      <Entry src="naive" trg="naïve" />
+      <Entry src="necassarily" trg="necessarily" />
+      <Entry src="necassary" trg="necessary" />
+      <Entry src="neccessarily" trg="necessarily" />
+      <Entry src="neccessary" trg="necessary" />
+      <Entry src="necesarily" trg="necessarily" />
+      <Entry src="necesary" trg="necessary" />
+      <Entry src="negotiaing" trg="negotiating" />
+      <Entry src="nkow" trg="know" />
+      <Entry src="nothign" trg="nothing" />
+      <Entry src="nver" trg="never" />
+      <Entry src="nwe" trg="new" />
+      <Entry src="nwo" trg="now" />
+      <Entry src="obediant" trg="obedient" />
+      <Entry src="ocasion" trg="occasion" />
+      <Entry src="occassion" trg="occasion" />
+      <Entry src="occured" trg="occurred" />
+      <Entry src="occurence" trg="occurrence" />
+      <Entry src="occurrance" trg="occurrence" />
+      <Entry src="ocur" trg="occur" />
+      <Entry src="oeprator" trg="operator" />
+      <Entry src="ofits" trg="of its" />
+      <Entry src="oft he" trg="of the" />
+      <Entry src="ofthe" trg="of the" />
+      <Entry src="oging" trg="going" />
+      <Entry src="ohter" trg="other" />
+      <Entry src="omre" trg="more" />
+      <Entry src="oneof" trg="one of" />
+      <Entry src="onepoint" trg="one point" />
+      <Entry src="ont he" trg="on the" />
+      <Entry src="onthe" trg="on the" />
+      <Entry src="onyl" trg="only" />
+      <Entry src="oppasite" trg="opposite" />
+      <Entry src="opperation" trg="operation" />
+      <Entry src="oppertunity" trg="opportunity" />
+      <Entry src="opposate" trg="opposite" />
+      <Entry src="opposible" trg="opposable" />
+      <Entry src="opposit" trg="opposite" />
+      <Entry src="oppotunities" trg="opportunities" />
+      <Entry src="oppotunity" trg="opportunity" />
+      <Entry src="orginization" trg="organization" />
+      <Entry src="orginized" trg="organized" />
+      <Entry src="otehr" trg="other" />
+      <Entry src="otu" trg="out" />
+      <Entry src="outof" trg="out of" />
+      <Entry src="overthe" trg="over the" />
+      <Entry src="owrk" trg="work" />
+      <Entry src="owuld" trg="would" />
+      <Entry src="oxident" trg="oxidant" />
+      <Entry src="papaer" trg="paper" />
+      <Entry src="parliment" trg="parliament" />
+      <Entry src="partof" trg="part of" />
+      <Entry src="paymetn" trg="payment" />
+      <Entry src="paymetns" trg="payments" />
+      <Entry src="pciture" trg="picture" />
+      <Entry src="peice" trg="piece" />
+      <Entry src="peices" trg="pieces" />
+      <Entry src="peolpe" trg="people" />
+      <Entry src="peopel" trg="people" />
+      <Entry src="percentof" trg="percent of" />
+      <Entry src="percentto" trg="percent to" />
+      <Entry src="performence" trg="performance" />
+      <Entry src="perhasp" trg="perhaps" />
+      <Entry src="perhpas" trg="perhaps" />
+      <Entry src="permanant" trg="permanent" />
+      <Entry src="perminent" trg="permanent" />
+      <Entry src="personalyl" trg="personally" />
+      <Entry src="pleasent" trg="pleasant" />
+      <Entry src="poeple" trg="people" />
+      <Entry src="porblem" trg="problem" />
+      <Entry src="porblems" trg="problems" />
+      <Entry src="porvide" trg="provide" />
+      <Entry src="possable" trg="possible" />
+      <Entry src="postition" trg="position" />
+      <Entry src="potentialy" trg="potentially" />
+      <Entry src="pregnent" trg="pregnant" />
+      <Entry src="presance" trg="presence" />
+      <Entry src="probelm" trg="problem" />
+      <Entry src="probelms" trg="problems" />
+      <Entry src="prominant" trg="prominent" />
+      <Entry src="protege" trg="protégé" />
+      <Entry src="protoge" trg="protégé" />
+      <Entry src="psoition" trg="position" />
+      <Entry src="ptogress" trg="progress" />
+      <Entry src="puting" trg="putting" />
+      <Entry src="pwoer" trg="power" />
+      <Entry src="quater" trg="quarter" />
+      <Entry src="quaters" trg="quarters" />
+      <Entry src="quesion" trg="question" />
+      <Entry src="quesions" trg="questions" />
+      <Entry src="questioms" trg="questions" />
+      <Entry src="questiosn" trg="questions" />
+      <Entry src="questoin" trg="question" />
+      <Entry src="quetion" trg="question" />
+      <Entry src="quetions" trg="questions" />
+      <Entry src="realyl" trg="really" />
+      <Entry src="reccomend" trg="recommend" />
+      <Entry src="reccommend" trg="recommend" />
+      <Entry src="receieve" trg="receive" />
+      <Entry src="recieve" trg="receive" />
+      <Entry src="recieved" trg="received" />
+      <Entry src="recieving" trg="receiving" />
+      <Entry src="recomend" trg="recommend" />
+      <Entry src="recomendation" trg="recommendation" />
+      <Entry src="recomendations" trg="recommendations" />
+      <Entry src="recomended" trg="recommended" />
+      <Entry src="reconize" trg="recognize" />
+      <Entry src="recrod" trg="record" />
+      <Entry src="religous" trg="religious" />
+      <Entry src="reluctent" trg="reluctant" />
+      <Entry src="remeber" trg="remember" />
+      <Entry src="reommend" trg="recommend" />
+      <Entry src="representativs" trg="representatives" />
+      <Entry src="representives" trg="representatives" />
+      <Entry src="represetned" trg="represented" />
+      <Entry src="represnt" trg="represent" />
+      <Entry src="reserach" trg="research" />
+      <Entry src="resollution" trg="resolution" />
+      <Entry src="resorces" trg="resources" />
+      <Entry src="respomd" trg="respond" />
+      <Entry src="respomse" trg="response" />
+      <Entry src="responce" trg="response" />
+      <Entry src="responsability" trg="responsibility" />
+      <Entry src="responsable" trg="responsible" />
+      <Entry src="responsibile" trg="responsible" />
+      <Entry src="responsiblity" trg="responsibility" />
+      <Entry src="restaraunt" trg="restaurant" />
+      <Entry src="restuarant" trg="restaurant" />
+      <Entry src="reult" trg="result" />
+      <Entry src="reveiw" trg="review" />
+      <Entry src="reveiwing" trg="reviewing" />
+      <Entry src="rumers" trg="rumors" />
+      <Entry src="rwite" trg="write" />
+      <Entry src="rythm" trg="rhythm" />
+      <Entry src="saidhe" trg="said he" />
+      <Entry src="saidit" trg="said it" />
+      <Entry src="saidt he" trg="said the" />
+      <Entry src="saidthat" trg="said that" />
+      <Entry src="saidthe" trg="said the" />
+      <Entry src="scedule" trg="schedule" />
+      <Entry src="sceduled" trg="scheduled" />
+      <Entry src="seance" trg="séance" />
+      <Entry src="secratary" trg="secretary" />
+      <Entry src="sectino" trg="section" />
+      <Entry src="seh" trg="she" />
+      <Entry src="selectoin" trg="selection" />
+      <Entry src="sentance" trg="sentence" />
+      <Entry src="separeate" trg="separate" />
+      <Entry src="seperate" trg="separate" />
+      <Entry src="sercumstances" trg="circumstances" />
+      <Entry src="shcool" trg="school" />
+      <Entry src="she;ll" trg="she’ll" />
+      <Entry src="shesaid" trg="she said" />
+      <Entry src="shineing" trg="shining" />
+      <Entry src="shiped" trg="shipped" />
+      <Entry src="shoudl" trg="should" />
+      <Entry src="shoudln't" trg="shouldn’t" />
+      <Entry src="should of been" trg="should have been" />
+      <Entry src="should of had" trg="should have had" />
+      <Entry src="shouldent" trg="shouldn’t" />
+      <Entry src="shouldn;t" trg="shouldn’t" />
+      <Entry src="shouldnt" trg="shouldn’t" />
+      <Entry src="showinf" trg="showing" />
+      <Entry src="signifacnt" trg="significant" />
+      <Entry src="simalar" trg="similar" />
+      <Entry src="similiar" trg="similar" />
+      <Entry src="simpyl" trg="simply" />
+      <Entry src="sincerly" trg="sincerely" />
+      <Entry src="sitll" trg="still" />
+      <Entry src="smae" trg="same" />
+      <Entry src="smoe" trg="some" />
+      <Entry src="soem" trg="some" />
+      <Entry src="sohw" trg="show" />
+      <Entry src="soical" trg="social" />
+      <Entry src="somethign" trg="something" />
+      <Entry src="someting" trg="something" />
+      <Entry src="somewaht" trg="somewhat" />
+      <Entry src="somthing" trg="something" />
+      <Entry src="somtimes" trg="sometimes" />
+      <Entry src="sot hat" trg="so that" />
+      <Entry src="soudn" trg="sound" />
+      <Entry src="soudns" trg="sounds" />
+      <Entry src="speach" trg="speech" />
+      <Entry src="specificaly" trg="specifically" />
+      <Entry src="specificalyl" trg="specifically" />
+      <Entry src="statment" trg="statement" />
+      <Entry src="statments" trg="statements" />
+      <Entry src="stnad" trg="stand" />
+      <Entry src="stopry" trg="story" />
+      <Entry src="stoyr" trg="story" />
+      <Entry src="stpo" trg="stop" />
+      <Entry src="strentgh" trg="strength" />
+      <Entry src="stroy" trg="story" />
+      <Entry src="struggel" trg="struggle" />
+      <Entry src="strugle" trg="struggle" />
+      <Entry src="studnet" trg="student" />
+      <Entry src="successfull" trg="successful" />
+      <Entry src="successfuly" trg="successfully" />
+      <Entry src="successfulyl" trg="successfully" />
+      <Entry src="sucess" trg="success" />
+      <Entry src="sucessfull" trg="successful" />
+      <Entry src="sufficiant" trg="sufficient" />
+      <Entry src="suposed" trg="supposed" />
+      <Entry src="suppossed" trg="supposed" />
+      <Entry src="suprise" trg="surprise" />
+      <Entry src="suprised" trg="surprised" />
+      <Entry src="swiming" trg="swimming" />
+      <Entry src="tahn" trg="than" />
+      <Entry src="taht" trg="that" />
+      <Entry src="talekd" trg="talked" />
+      <Entry src="talkign" trg="talking" />
+      <Entry src="tath" trg="that" />
+      <Entry src="tecnical" trg="technical" />
+      <Entry src="teh" trg="the" />
+      <Entry src="tehy" trg="they" />
+      <Entry src="tellt he" trg="tell the" />
+      <Entry src="termoil" trg="turmoil" />
+      <Entry src="tghe" trg="the" />
+      <Entry src="tghis" trg="this" />
+      <Entry src="thansk" trg="thanks" />
+      <Entry src="thats" trg="that’s" />
+      <Entry src="thatt he" trg="that the" />
+      <Entry src="thatthe" trg="that the" />
+      <Entry src="thecompany" trg="the company" />
+      <Entry src="thefirst" trg="the first" />
+      <Entry src="thegovernment" trg="the government" />
+      <Entry src="their are" trg="there are" />
+      <Entry src="their is" trg="there is" />
+      <Entry src="themself" trg="themselves" />
+      <Entry src="themselfs" trg="themselves" />
+      <Entry src="thenew" trg="the new" />
+      <Entry src="there's is" trg="theirs is" />
+      <Entry src="theri" trg="their" />
+      <Entry src="thesame" trg="the same" />
+      <Entry src="thetwo" trg="the two" />
+      <Entry src="they're are" trg="there are" />
+      <Entry src="they're is" trg="there is" />
+      <Entry src="they;l" trg="they’ll" />
+      <Entry src="they;ll" trg="they’ll" />
+      <Entry src="they;r" trg="they’re" />
+      <Entry src="they;re" trg="they’re" />
+      <Entry src="they;v" trg="they’ve" />
+      <Entry src="they;ve" trg="they’ve" />
+      <Entry src="theyll" trg="they’ll" />
+      <Entry src="theyve" trg="they’ve" />
+      <Entry src="thgat" trg="that" />
+      <Entry src="thge" trg="the" />
+      <Entry src="thier" trg="their" />
+      <Entry src="thigsn" trg="things" />
+      <Entry src="thisyear" trg="this year" />
+      <Entry src="thna" trg="than" />
+      <Entry src="thne" trg="then" />
+      <Entry src="thnig" trg="thing" />
+      <Entry src="thnigs" trg="things" />
+      <Entry src="threatend" trg="threatened" />
+      <Entry src="thsi" trg="this" />
+      <Entry src="thsoe" trg="those" />
+      <Entry src="thta" trg="that" />
+      <Entry src="tihs" trg="this" />
+      <Entry src="timne" trg="time" />
+      <Entry src="tiogether" trg="together" />
+      <Entry src="tje" trg="the" />
+      <Entry src="tjhe" trg="the" />
+      <Entry src="tkae" trg="take" />
+      <Entry src="tkaes" trg="takes" />
+      <Entry src="tkaing" trg="taking" />
+      <Entry src="tlaking" trg="talking" />
+      <Entry src="todya" trg="today" />
+      <Entry src="togehter" trg="together" />
+      <Entry src="toldt he" trg="told the" />
+      <Entry src="tomorow" trg="tomorrow" />
+      <Entry src="tongiht" trg="tonight" />
+      <Entry src="tonihgt" trg="tonight" />
+      <Entry src="tot he" trg="to the" />
+      <Entry src="totaly" trg="totally" />
+      <Entry src="totalyl" trg="totally" />
+      <Entry src="tothe" trg="to the" />
+      <Entry src="towrad" trg="toward" />
+      <Entry src="traditionalyl" trg="traditionally" />
+      <Entry src="transfered" trg="transferred" />
+      <Entry src="truely" trg="truly" />
+      <Entry src="truley" trg="truly" />
+      <Entry src="tryed" trg="tried" />
+      <Entry src="tthe" trg="the" />
+      <Entry src="tyhat" trg="that" />
+      <Entry src="tyhe" trg="the" />
+      <Entry src="udnerstand" trg="understand" />
+      <Entry src="understnad" trg="understand" />
+      <Entry src="undert he" trg="under the" />
+      <Entry src="UnitedStates" trg="United States" />
+      <Entry src="unliek" trg="unlike" />
+      <Entry src="unpleasently" trg="unpleasantly" />
+      <Entry src="untilll" trg="until" />
+      <Entry src="useing" trg="using" />
+      <Entry src="usualyl" trg="usually" />
+      <Entry src="veyr" trg="very" />
+      <Entry src="virtualyl" trg="virtually" />
+      <Entry src="vis-a-vis" trg="vis-à-vis" />
+      <Entry src="vrey" trg="very" />
+      <Entry src="vulnerible" trg="vulnerable" />
+      <Entry src="wa snot" trg="was not" />
+      <Entry src="waht" trg="what" />
+      <Entry src="warrent" trg="warrant" />
+      <Entry src="wasnt" trg="wasn’t" />
+      <Entry src="watn" trg="want" />
+      <Entry src="we;d" trg="we’d" />
+      <Entry src="we;ll" trg="we’ll" />
+      <Entry src="we;re" trg="we’re" />
+      <Entry src="we;ve" trg="we’ve" />
+      <Entry src="wehn" trg="when" />
+      <Entry src="wern't" trg="weren’t" />
+      <Entry src="werre" trg="were" />
+      <Entry src="what;s" trg="what’s" />
+      <Entry src="whcih" trg="which" />
+      <Entry src="whent he" trg="when the" />
+      <Entry src="where;s" trg="where’s" />
+      <Entry src="wherre" trg="where" />
+      <Entry src="whic" trg="which" />
+      <Entry src="whicht he" trg="which the" />
+      <Entry src="whihc" trg="which" />
+      <Entry src="who;s" trg="who’s" />
+      <Entry src="who;ve" trg="who’ve" />
+      <Entry src="whta" trg="what" />
+      <Entry src="wief" trg="wife" />
+      <Entry src="wierd" trg="weird" />
+      <Entry src="wihch" trg="which" />
+      <Entry src="wiht" trg="with" />
+      <Entry src="will of been" trg="will have been" />
+      <Entry src="will of had" trg="will have had" />
+      <Entry src="willbe" trg="will be" />
+      <Entry src="windoes" trg="windows" />
+      <Entry src="witha" trg="with a" />
+      <Entry src="withe" trg="with" />
+      <Entry src="witht he" trg="with the" />
+      <Entry src="withthe" trg="with the" />
+      <Entry src="wiull" trg="will" />
+      <Entry src="wnat" trg="want" />
+      <Entry src="wnated" trg="wanted" />
+      <Entry src="wnats" trg="wants" />
+      <Entry src="wo'nt" trg="won’t" />
+      <Entry src="woh" trg="who" />
+      <Entry src="wohle" trg="whole" />
+      <Entry src="wokr" trg="work" />
+      <Entry src="won;t" trg="won’t" />
+      <Entry src="woudl" trg="would" />
+      <Entry src="woudln't" trg="wouldn’t" />
+      <Entry src="would of been" trg="would have been" />
+      <Entry src="would of had" trg="would have had" />
+      <Entry src="wouldbe" trg="would be" />
+      <Entry src="wouldn;t" trg="wouldn’t" />
+      <Entry src="wouldnt" trg="wouldn’t" />
+      <Entry src="wriet" trg="write" />
+      <Entry src="writting" trg="writing" />
+      <Entry src="wrod" trg="word" />
+      <Entry src="wroet" trg="wrote" />
+      <Entry src="wroking" trg="working" />
+      <Entry src="wtih" trg="with" />
+      <Entry src="wuould" trg="would" />
+      <Entry src="wya" trg="way" />
+      <Entry src="yera" trg="year" />
+      <Entry src="yeras" trg="years" />
+      <Entry src="yersa" trg="years" />
+      <Entry src="yoiu" trg="you" />
+      <Entry src="you're own" trg="your own" />
+      <Entry src="you;d" trg="you’d" />
+      <Entry src="you;re" trg="you’re" />
+      <Entry src="youare" trg="you are" />
+      <Entry src="your a" trg="you’re a" />
+      <Entry src="your an" trg="you’re an" />
+      <Entry src="your her" trg="you’re her" />
+      <Entry src="your here" trg="you’re here" />
+      <Entry src="your his" trg="you’re his" />
+      <Entry src="your the" trg="you’re the" />
+      <Entry src="your their" trg="you’re their" />
+      <Entry src="your your" trg="you’re your" />
+      <Entry src="youve" trg="you’ve" />
+      <Entry src="ytou" trg="you" />
+      <Entry src="yuo" trg="you" />
+      <Entry src="yuor" trg="your" />
+    </AutoCorrectEntries>
+    <TwoInitialCapsExceptions>
+      <string>IDs</string>
+    </TwoInitialCapsExceptions>
+    <SentenceCapsExceptions>
+      <string>a.</string>
+      <string>abbr.</string>
+      <string>abs.</string>
+      <string>acct.</string>
+      <string>addn.</string>
+      <string>adj.</string>
+      <string>advt.</string>
+      <string>al.</string>
+      <string>alt.</string>
+      <string>amt.</string>
+      <string>anon.</string>
+      <string>approx.</string>
+      <string>appt.</string>
+      <string>apr.</string>
+      <string>apt.</string>
+      <string>assn.</string>
+      <string>assoc.</string>
+      <string>asst.</string>
+      <string>attn.</string>
+      <string>attrib.</string>
+      <string>aug.</string>
+      <string>aux.</string>
+      <string>ave.</string>
+      <string>avg.</string>
+      <string>b.</string>
+      <string>bal.</string>
+      <string>bldg.</string>
+      <string>blvd.</string>
+      <string>bot.</string>
+      <string>bro.</string>
+      <string>bros.</string>
+      <string>c.</string>
+      <string>ca.</string>
+      <string>calc.</string>
+      <string>cc.</string>
+      <string>cert.</string>
+      <string>certif.</string>
+      <string>cf.</string>
+      <string>cit.</string>
+      <string>cm.</string>
+      <string>co.</string>
+      <string>comp.</string>
+      <string>conf.</string>
+      <string>confed.</string>
+      <string>const.</string>
+      <string>cont.</string>
+      <string>contrib.</string>
+      <string>coop.</string>
+      <string>corp.</string>
+      <string>ct.</string>
+      <string>d.</string>
+      <string>dbl.</string>
+      <string>dec.</string>
+      <string>decl.</string>
+      <string>def.</string>
+      <string>defn.</string>
+      <string>dept.</string>
+      <string>deriv.</string>
+      <string>diag.</string>
+      <string>diff.</string>
+      <string>div.</string>
+      <string>dm.</string>
+      <string>dr.</string>
+      <string>dup.</string>
+      <string>dupl.</string>
+      <string>e.</string>
+      <string>encl.</string>
+      <string>eq.</string>
+      <string>eqn.</string>
+      <string>equip.</string>
+      <string>equiv.</string>
+      <string>esp.</string>
+      <string>esq.</string>
+      <string>est.</string>
+      <string>etc.</string>
+      <string>excl.</string>
+      <string>ext.</string>
+      <string>f.</string>
+      <string>feb.</string>
+      <string>ff.</string>
+      <string>fig.</string>
+      <string>freq.</string>
+      <string>fri.</string>
+      <string>ft.</string>
+      <string>fwd.</string>
+      <string>g.</string>
+      <string>gal.</string>
+      <string>gen.</string>
+      <string>gov.</string>
+      <string>govt.</string>
+      <string>h.</string>
+      <string>hdqrs.</string>
+      <string>hgt.</string>
+      <string>hist.</string>
+      <string>hosp.</string>
+      <string>hq.</string>
+      <string>hr.</string>
+      <string>hrs.</string>
+      <string>ht.</string>
+      <string>hwy.</string>
+      <string>i.</string>
+      <string>ib.</string>
+      <string>ibid.</string>
+      <string>illus.</string>
+      <string>in.</string>
+      <string>inc.</string>
+      <string>incl.</string>
+      <string>incr.</string>
+      <string>int.</string>
+      <string>intl.</string>
+      <string>irreg.</string>
+      <string>ital.</string>
+      <string>j.</string>
+      <string>jan.</string>
+      <string>jct.</string>
+      <string>jr.</string>
+      <string>jul.</string>
+      <string>jun.</string>
+      <string>k.</string>
+      <string>kg.</string>
+      <string>km.</string>
+      <string>kmh.</string>
+      <string>l.</string>
+      <string>lang.</string>
+      <string>lb.</string>
+      <string>lbs.</string>
+      <string>lg.</string>
+      <string>lit.</string>
+      <string>ln.</string>
+      <string>lt.</string>
+      <string>m.</string>
+      <string>mar.</string>
+      <string>masc.</string>
+      <string>max.</string>
+      <string>mfg.</string>
+      <string>mg.</string>
+      <string>mgmt.</string>
+      <string>mgr.</string>
+      <string>mgt.</string>
+      <string>mhz.</string>
+      <string>mi.</string>
+      <string>min.</string>
+      <string>misc.</string>
+      <string>mkt.</string>
+      <string>mktg.</string>
+      <string>ml.</string>
+      <string>mm.</string>
+      <string>mngr.</string>
+      <string>mon.</string>
+      <string>mph.</string>
+      <string>mr.</string>
+      <string>msec.</string>
+      <string>msg.</string>
+      <string>mt.</string>
+      <string>mtg.</string>
+      <string>mtn.</string>
+      <string>mun.</string>
+      <string>n.</string>
+      <string>na.</string>
+      <string>name.</string>
+      <string>nat.</string>
+      <string>natl.</string>
+      <string>ne.</string>
+      <string>neg.</string>
+      <string>ng.</string>
+      <string>no.</string>
+      <string>norm.</string>
+      <string>nos.</string>
+      <string>nov.</string>
+      <string>num.</string>
+      <string>nw.</string>
+      <string>o.</string>
+      <string>obj.</string>
+      <string>occas.</string>
+      <string>oct.</string>
+      <string>op.</string>
+      <string>opt.</string>
+      <string>ord.</string>
+      <string>org.</string>
+      <string>orig.</string>
+      <string>oz.</string>
+      <string>p.</string>
+      <string>pa.</string>
+      <string>pg.</string>
+      <string>pkg.</string>
+      <string>pl.</string>
+      <string>pls.</string>
+      <string>pos.</string>
+      <string>pp.</string>
+      <string>ppt.</string>
+      <string>pred.</string>
+      <string>pref.</string>
+      <string>prepd.</string>
+      <string>prev.</string>
+      <string>priv.</string>
+      <string>prof.</string>
+      <string>proj.</string>
+      <string>pseud.</string>
+      <string>psi.</string>
+      <string>pt.</string>
+      <string>publ.</string>
+      <string>q.</string>
+      <string>qlty.</string>
+      <string>qt.</string>
+      <string>qty.</string>
+      <string>r.</string>
+      <string>rd.</string>
+      <string>re.</string>
+      <string>rec.</string>
+      <string>ref.</string>
+      <string>reg.</string>
+      <string>rel.</string>
+      <string>rep.</string>
+      <string>req.</string>
+      <string>reqd.</string>
+      <string>resp.</string>
+      <string>rev.</string>
+      <string>s.</string>
+      <string>sat.</string>
+      <string>sci.</string>
+      <string>se.</string>
+      <string>sec.</string>
+      <string>sect.</string>
+      <string>sep.</string>
+      <string>sept.</string>
+      <string>seq.</string>
+      <string>sig.</string>
+      <string>soln.</string>
+      <string>soph.</string>
+      <string>spec.</string>
+      <string>specif.</string>
+      <string>sq.</string>
+      <string>sr.</string>
+      <string>st.</string>
+      <string>sta.</string>
+      <string>stat.</string>
+      <string>std.</string>
+      <string>subj.</string>
+      <string>subst.</string>
+      <string>sun.</string>
+      <string>supvr.</string>
+      <string>sw.</string>
+      <string>t.</string>
+      <string>tbs.</string>
+      <string>tbsp.</string>
+      <string>tech.</string>
+      <string>tel.</string>
+      <string>temp.</string>
+      <string>thur.</string>
+      <string>thurs.</string>
+      <string>tkt.</string>
+      <string>tot.</string>
+      <string>transf.</string>
+      <string>transl.</string>
+      <string>tsp.</string>
+      <string>tues.</string>
+      <string>u.</string>
+      <string>univ.</string>
+      <string>util.</string>
+      <string>v.</string>
+      <string>var.</string>
+      <string>veg.</string>
+      <string>vert.</string>
+      <string>viz.</string>
+      <string>vol.</string>
+      <string>vs.</string>
+      <string>w.</string>
+      <string>wed.</string>
+      <string>wk.</string>
+      <string>wkly.</string>
+      <string>wt.</string>
+      <string>x.</string>
+      <string>y.</string>
+      <string>yd.</string>
+      <string>yr.</string>
+      <string>z.</string>
+    </SentenceCapsExceptions>
+    <OtherExceptions />
+  </AutoCorrectSettings>
+  <AutoFormatSettings>
+    <ReplaceQuotes>true</ReplaceQuotes>
+  </AutoFormatSettings>
+</ProviderConfiguration>]]></State>
+</AutoCorrectProviderState>

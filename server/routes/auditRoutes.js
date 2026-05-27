@@ -1,8 +1,17 @@
 import express from "express";
 import { getPool, sql } from "../db.js";
 import { requireAuth, requireRole } from "../middleware/auth.js";
+import { auditLog } from "../middleware/audit.js";
 
 const router = express.Router();
+
+// ── ZAPÍSAŤ ZÁZNAM (autentifikovaný user) ─────────────
+router.post("/log", requireAuth, async (req, res) => {
+  const { action, details } = req.body;
+  if (!action) return res.status(400).json({ error: "action required" });
+  await auditLog(req.user, action, details ?? {}, req.ip);
+  res.json({ ok: true });
+});
 
 // ── AUDIT LOG (len admin) ─────────────────────────────
 router.get("/", requireAuth, requireRole("admin"), async (req, res) => {

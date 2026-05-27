@@ -142,3 +142,9 @@
 }
 
 .dp-btn--primary:hover { background: var(--app-btn-hov); }
+
+.dp-manual-hint {
+  padding: 14px 18px 8px;
+  font-size: 12px;
+  color: var(--app-muted);
+}

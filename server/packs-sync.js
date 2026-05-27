@@ -4,14 +4,19 @@ import { fileURLToPath } from "url";
 import { getPool, sql } from "./db.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const packsPath = path.join(__dirname, "packs");
 
-/**
- * Zaregistruje balík v SQL ak ešte neexistuje.
- * @param {string} fileName  - napr. "astronomy.json"
- * @param {string} packId    - z JSON metadát
- * @param {number|null} userId - id usera ktorý ho vytvoril (null = neznámy)
- */
+function getWorkspaceBase() {
+  return process.env.WORKSPACE_BASE
+    ? path.resolve(process.env.WORKSPACE_BASE)
+    : path.join(__dirname, "packs");
+}
+
+// "robert/astronomy.json" → absolútna cesta na disku
+function resolvePackPath(dbFileName) {
+  const parts = dbFileName.replace(/\\/g, "/").split("/");
+  return path.join(getWorkspaceBase(), ...parts);
+}
+
 export async function registerPack(fileName, packId = null, userId = null) {
   const pool = await getPool();
   await pool.request()
@@ -25,19 +30,18 @@ export async function registerPack(fileName, packId = null, userId = null) {
     `);
 }
 
-/**
- * Zmaže záznam balíka z SQL.
- */
 export async function unregisterPack(fileName) {
   const pool = await getPool();
-  await pool.request()
+  const packRow = await pool.request()
     .input("file_name", sql.NVarChar, fileName)
-    .query("DELETE FROM Packs WHERE file_name = @file_name");
+    .query("SELECT id FROM Packs WHERE file_name = @file_name");
+  const packId = packRow.recordset[0]?.id;
+  if (!packId) return;
+  await pool.request().input("pack_id", sql.Int, packId).query("DELETE FROM WordReviews WHERE pack_id = @pack_id");
+  await pool.request().input("pack_id", sql.Int, packId).query("DELETE FROM PackReviews WHERE pack_id = @pack_id");
+  await pool.request().input("pack_id", sql.Int, packId).query("DELETE FROM Packs WHERE id = @pack_id");
 }
 
-/**
- * Vráti SQL záznam balíka (status, dátumy...).
- */
 export async function getPackRecord(fileName) {
   const pool = await getPool();
   const result = await pool.request()
@@ -46,9 +50,6 @@ export async function getPackRecord(fileName) {
   return result.recordset[0] ?? null;
 }
 
-/**
- * Aktualizuje status balíka.
- */
 export async function setPackStatus(fileName, status) {
   const pool = await getPool();
   await pool.request()
@@ -61,17 +62,10 @@ export async function setPackStatus(fileName, status) {
     `);
 }
 
-const PROGRESS_FIELDS = ["word", "translation", "phonetic", "definition", "type", "level", "example_en", "example_sk"];
+const PROGRESS_FIELDS = ["word", "translation", "phonetic", "definition", "type", "level", "example_en", "example_sk", "topic"];
 
-/**
- * Po pridaní review prehodnotí status balíka podľa pravidiel:
- *  - Nie všetky progress polia vyplnené        → žiadna zmena
- *  - Všetky progress polia + všetky reviews OK  → Approved
- *  - Všetky progress polia + aspoň 1 review     → In Review
- * @returns {string|null} nový status ak sa zmenil, inak null
- */
 export async function evaluatePackStatusAfterReview(fileName, packDbId, user) {
-  const fullPath = path.join(packsPath, fileName);
+  const fullPath = resolvePackPath(fileName);
   if (!fs.existsSync(fullPath)) return null;
 
   const content = fs.readFileSync(fullPath, "utf8").replace(/^﻿/, "");
@@ -90,7 +84,6 @@ export async function evaluatePackStatusAfterReview(fileName, packDbId, user) {
   const currentStatus = packRow.recordset[0]?.status;
   if (["Published", "Archived"].includes(currentStatus)) return null;
 
-  // Najnovší FLAG/OK review pre každé slovo
   const reviewsResult = await pool.request()
     .input("pack_id", sql.Int, packDbId)
     .query(`
@@ -124,7 +117,6 @@ export async function evaluatePackStatusAfterReview(fileName, packDbId, user) {
     return "Approved";
   }
 
-  // In Review len ak sú všetky progress polia vyplnené
   const allComplete = words.every((w) =>
     PROGRESS_FIELDS.every((f) => w[f] && String(w[f]).trim() !== "")
   );
@@ -134,30 +126,42 @@ export async function evaluatePackStatusAfterReview(fileName, packDbId, user) {
   return "In Review";
 }
 
-/**
- * Sync sken — pri štarte servera zaregistruje všetky .json súbory
- * z adresára /packs ktoré ešte nie sú v SQL.
- */
+// Startup sync — prehľadá všetky user podadresáre v WORKSPACE_BASE
 export async function syncPacksOnStartup() {
-  if (!fs.existsSync(packsPath)) return;
-  const files = fs.readdirSync(packsPath).filter(f => f.toLowerCase().endsWith(".json"));
+  const base = getWorkspaceBase();
+  if (!fs.existsSync(base)) return;
+
   let registered = 0;
-  for (const fileName of files) {
-    try {
-      const content = fs.readFileSync(path.join(packsPath, fileName), "utf8").replace(/^\uFEFF/, "");
-      const json = JSON.parse(content);
-      const pool = await getPool();
-      const exists = await pool.request()
-        .input("file_name", sql.NVarChar, fileName)
-        .query("SELECT 1 FROM Packs WHERE file_name = @file_name");
-      if (exists.recordset.length === 0) {
-        await registerPack(fileName, json.packId ?? null, null);
-        registered++;
+  const entries = fs.readdirSync(base, { withFileTypes: true });
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const username = entry.name;
+    const userDir = path.join(base, username);
+
+    let files = [];
+    try { files = fs.readdirSync(userDir).filter(f => f.toLowerCase().endsWith(".json")); }
+    catch { continue; }
+
+    for (const fileName of files) {
+      const dbFileName = `${username}/${fileName}`;
+      try {
+        const content = fs.readFileSync(path.join(userDir, fileName), "utf8").replace(/^﻿/, "");
+        const json = JSON.parse(content);
+        const pool = await getPool();
+        const exists = await pool.request()
+          .input("file_name", sql.NVarChar, dbFileName)
+          .query("SELECT 1 FROM Packs WHERE file_name = @file_name");
+        if (exists.recordset.length === 0) {
+          await registerPack(dbFileName, json.packId ?? null, null);
+          registered++;
+        }
+      } catch {
+        // preskočí poškodený súbor
       }
-    } catch {
-      // preskočí poškodený súbor
     }
   }
+
   if (registered > 0)
     console.log(`✅ Packs sync: ${registered} nových balíkov zaregistrovaných`);
   else

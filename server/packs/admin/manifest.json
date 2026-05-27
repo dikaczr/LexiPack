@@ -1,0 +1,14 @@
+[
+  { "id": "astronomy",   "name": "Astronómia",        "description": "Vesmír, hviezdy, planéty a kozmický výskum", "wordCount": 15, "level": "B1", "icon": "🔭", "category": "science",   "file": "astronomy.json",   "color": "#1a3a6c" },
+  { "id": "biology",     "name": "Biológia",           "description": "Živé organizmy, bunky, genetika a ekológia",  "wordCount": 15, "level": "B1", "icon": "🧬", "category": "science",   "file": "biology.json",     "color": "#1a5c35" },
+  { "id": "chemistry",   "name": "Chémia",             "description": "Prvky, reakcie, zlúčeniny a laboratórium",   "wordCount": 15, "level": "B2", "icon": "⚗️", "category": "science",   "file": "chemistry.json",   "color": "#5c1a4a" },
+  { "id": "physics",     "name": "Fyzika",             "description": "Sily, energia, pohyb a kvantová mechanika",  "wordCount": 15, "level": "B2", "icon": "⚛️", "category": "science",   "file": "physics.json",     "color": "#1a4a5c" },
+  { "id": "science",     "name": "Veda",               "description": "Všeobecná vedecká slovná zásoba",            "wordCount": 15, "level": "B1", "icon": "🔬", "category": "science",   "file": "science.json",     "color": "#2a5c3a" },
+  { "id": "engineering", "name": "Inžinierstvo",       "description": "Konštrukcia, materiály a technické procesy", "wordCount": 15, "level": "B2", "icon": "⚙️", "category": "science",   "file": "engineering.json", "color": "#4a3a1a" },
+  { "id": "it",          "name": "IT & Technológie",   "description": "Počítače, siete, programovanie a softvér",   "wordCount": 15, "level": "B1", "icon": "💻", "category": "it",        "file": "it.json",          "color": "#1a2a5c" },
+  { "id": "history",     "name": "História",           "description": "Dejiny, historické udalosti a civilizácie",  "wordCount": 15, "level": "B1", "icon": "🏛️", "category": "culture",   "file": "history.json",     "color": "#5c3a1a" },
+  { "id": "philosophy",  "name": "Filozofia",          "description": "Myslenie, etika, logika a filozofické smery","wordCount": 15, "level": "C1", "icon": "🦉", "category": "culture",   "file": "philosophy.json",  "color": "#3a1a5c" },
+  { "id": "geography",   "name": "Geografia",          "description": "Krajiny, reliéf, podnebie a geopolitika",    "wordCount": 15, "level": "A2", "icon": "🌍", "category": "travel",    "file": "geography.json",   "color": "#1a5c4a" },
+  { "id": "transport",   "name": "Doprava",            "description": "Cestovanie, vozidlá, letectvo a lodná doprava","wordCount": 15, "level": "A2", "icon": "🚗", "category": "travel",   "file": "transport.json",   "color": "#3a4a1a" },
+  { "id": "energy",      "name": "Energia",            "description": "Obnoviteľné zdroje, elektrická energia a palivá","wordCount": 15, "level": "B1", "icon": "⚡", "category": "science","file": "energy.json",      "color": "#5c4a1a" }
+]

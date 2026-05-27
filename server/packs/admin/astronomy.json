@@ -1,0 +1,676 @@
+{
+  "packId": "8acc276e-3f5a-4370-91e9-54c815aafce9",
+  "name": "Astronómia - základy",
+  "description": "Základné pojmy z astronómie",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "B2",
+  "category": "astronomy",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABECAYAAAAiL3M8AAAgAElEQVR4Xu18B5hVxdn/b+aU27f3RpGlI1WxoAgaMRgRG0YNRiEBo0ZJxJKigFjyxS/qp1ExscSKosagRhJBadIEkQ7LArvsAtvr3VtPmf/zzrl3BWGBGBOT5/m/+9x2zpyZd37nrTPvWYb/T8cl1vntZEkItgDg2AElVA/e4gJLj0H4cmBn18M+7zxYjDHR2f6/nE4aICEE+8PnULM05Ao7dqoJXlrbgZ6tYTMz4NZbC9LMSpWzfUKzv0Czu3bHmYjNZszu7OC/lE4I0GwheMY6+C0r1FMV6piWiLisJYTBobhIsRiXQihsATALXkXEMv18Z4oHyzRV+0t7xNhzdk9P05geLNrZ4X8ZHRegZzcIbzwa7t8SFpObIuy6ljDPNGwGXWVQOEHDpJIKIWDbgGUJRE0BARsBnSE3IHbkBfjjQYN9MrzEdWB8KYt1dv5fQl0C9OpakXIoGrq4Kcxm1rSKYYyr0HUODiEBccwXS3xPEAFFHwAMkyMSs6HBQEmO2JDuUu4vSfWuuXYEa+xs/19AxwTo2Q0itaY18sP6dnFfa5Rnprg4OAesBBZfYtI1QNL6MMC0GdoiJgIa4qdks3lcs/5wzhh/2RjGzM7r/oPpKICe2i78rXXhSfsa8TvTVtP8bkeFaNK2cJqfDEDyC1HCoUUNjlhcGEXp8Q1uBQ9f1d9cMeKUjLZEq3+KyE6OroSe4YHizYXZC4h/U570CICe3bBBi0b6nl/Zwp9sjii9fC46bcsZ/1MAyQMMhsURill2QIsf6JOvPtArT7w/aYC/NtHypGmDENquLZHc+qCS2hS009tCRpbOlQyXAlfUEmEAdZl+1pidobSkp7saJ53CvvaNOAKgBZsjPbbVWM+XN6tj0n0KmLA7AfhnAUo2swVHxBDQuFlXlG6/lJ8i/nx695QtZxWziNPiaBJCKFvbkPJFWSy7oskoaonwUhsYGrdEN8tWukcNu5tpCo9pMXAFlq6yFl0Re1UuKlTOtnl0c0PfPG176khPzSTGrM6OT4I6AXp2g9CMeOSWjQfxqKaoTFWcCX9zAB12LwQQNgQEs0MZHrHRreCD/FS2KzPAmqKmYXo1DcJkWsiw3O1RLbUpbOUbpl1sCaVbLG4PiJqsTygG1bLBBGNQOZM2ksINITgsIWBahIMNl6oYHk3s96p8qV+Pr+xVoi297QzvgU5eTkCdXC/Y3pG3uYotqW5TBqR6qGsa8ZsHKNnahoBhAXETcCki4lVZNeeingEGYyS8QrMEPLZQ0g0LuRHD9tg2mMUYFMagyQiDkU91/pIdCzr2JS+mDZim01LX7AMB3VrUPd1+8+qRqesG5LCOxFVdkuR66VKhNufExv9th/2OonDVkR7p0L9ZgOgEdcEEbJqgjKEYTAvyRV3R5G1bwKabI80fg6I4cRdxRNfQW3JY27Zle+onOYZ0KeJLFmhQy2YyRlNgxX2ata5nNl4Z2Z0tvHxwoL6z2TFIznj5QVG8vTr64Kp9YnK6j6JjYpY+/3mAGKdJkQooEDQZIWDZNiybJkeMc2mXLMOGZdmwLTrujEF9J7t3RqYvAow7aqVq1C/9FlBUkngHXApY6TLn2sSVDmZSamOGBZdi7euZIV7pnqX98efnew86jY4mefWHldHvrt1j/b6qWenpdzknvg5A0gaQZHBA4wxkH0zTQjwmECM3HxOIxCwYcQEzzmAJVYJkGAZsocK0bAgzLqVGjk8ZTGfnjio5BzkUzqGqAqoK6BqDy8vg9XC43QScwwuB0anah/EppckgETPreuWI13ukaU/eOc5T0dngMJJXL9wdv2llufVYa4y53aRessOTBcgZnMIOqZqcUbyDeEQgEmdoD1oIhy1Eo4BlOjaBJIQzFWAmggd3IHioDKklg+DJ7QubRIsaShuYhOdLPpxfHIzOSzG1ne8c0FUBf4AjkMrg8zNoGpeSSurLDr9eqiMQiRPzdv3AAvuZgdl4asq5gYbORgmSHLyzKz5jZbl4NGSAuRQaNHEHTwSQNIgCmkrHBUJRgfZ2C80tFjqCJBl0t5xr6b0zdOMKuGIjUr0WrOJdZKEKB9lAiJ6XI6NkMKy4CSG90JcAkerQT+cI8eYYY1Jb5yYlmiYk2OcVyMpSEEhTpYczzYSOSf6/nAfxzGEeGnUKnzVyuHf+uDwWclo5JFvO3xqf8nmV+URbTPGdGCDHLtAgZDxJaiIRgbp6C/VNFiIRsjN0BXcAoUs6J0bMcwhVILhrFeLb3sRVp23D9SP34vVPe+PFsrHwDbwCaSWDYMfjEKYl7RcRGWOnA3qToko+KiFlSR4dlZfj2wKKIpCSqiAvX4Xbw2BQIi27SXLjANwWYcjy2HtGlrDrR1zkWX94GiRbLtobOX9dpXi6olHpHXCfGCAytJrC5GTr6kwcOGgiGCK1YQAZTdnaucuyPf0mD8VVMN1Ca/mniG5dAK9HRZ+0Kjxw6RfI8Mfw9N/74bldYxAYNAmpRQNgxw0pSQRSJ0CKBkXTwSwBy4xLXphUtYREJcaSH1KdbXj9QFGRBn8KT4BEvCVI2LCEgqagZY/sFns/M8X+6a/HZVYnT0uA/ra9LaMypP9m+W7x48wAHeoaIPpJUiOYQPVBC9XVlhRfToAl7ra0DRJMpw85CUWBonO07ViG0PqXMXXKuRh5+ul4at5fkdawBL+evAt+l4HfvjcQ8/efh9SBE5FaMAjCMCBsS95ppnugKCqi+/4KWAa0bhfLc4CjjocDJG9NwgtapoDfz1BYosLnV2AaznwkyflxhAwBZpmhc/vzqZfle94dMIDF6bSc0QIhFFd5bOyHm82PhKJBV2iQxIBfAYjiEaKKAxb2H7Sk8ZMmiEjGJw6bXwJkQ3AV3KMitHMZzF2vYso15+H26ZPgdrmwav1e3H//G8gML8Xd15ShwBfBY4tK8Vb1KKh9boQ3uw+EacDmLmhuAudDdGyaBy17GPwjfwFh0g0wE0Hj0QARydDCBFJSGEq6u6DpHBZ5i0SM5sgmR0OrheGn2IsDHnHdw+Mdg52cGp5Y25TSHnb/dUcNG5XpVxJ25EiASJhJeg7VWNhTKWASOLRw5ij20QDRi1xyQEOwbBUq33oaI0b3woIX70BxXqa8hGKf5WvL8etZryEjuBxzp+5AWY0PD/51GJqLpiK911gwxS0NbaT8HUT2fggRbYan91Xw9LsKRiwmx5GAyNfRANEBGVvZDFnZHPmFSkJtnbPyQ5BToRjNMCcMVS7LqfEumjSJWZ0AUUL42ub4lct3G28I1UXhvxS/ToDIhqgcHWGBXWUG2kMCqkaGmLpPMnI4QPRbh57iQtOOFahZPg/f/1471m7JQt9eZ+G1eZPhcXvlVZZpYcnqMvz2mT+j/cA6cMtGvW8svP2vhuIrBFMYYuXvI7L7LWdiwoJvwE+gF4+EEYskAOlagugACQu5e00jKVLhT1FkQEltkwAxW6Cu3cbEYexxb3fPPbeVslgnQEQvrWvPrIvpz26oxhU5AZ5I/pKDkBQy1Naa2FtpyYUwlXTr8PNJpujFVGgpHgR3f4bK157ELT9rwG8fbMfSFW5cfHUAE7/3Pbz+wlSoUg2JGBa8vwp3/vJPiPgHIueMq8D8BTK1iO1dhPCu18GZJoNPaC74h/8CzFcIHovASqzOdQ2QQ/STTFZGFkmRJr0wxV2dAAmgOSzQLzdWbkaN4S9MzQ4eARDtXPzf6vCIqmb2l+awUkCLZTL+IGwUIG4I7K00Ud9AmkNGOTFqghzmEuAENLRtW4Oqt3+Pu3/Vjjm/bgMMGwalNmv8mDQlAxeNvRBPPfJ9pAa8WL5mEx544g1sqctEzogfyMkzw0R87/uI7n0fcpVC8UHEg1DSesJ/xkwwpsMkT28YUrJOBBCdoPYeN0NhNx0+HwHkpEeOSRAIWxweHscN5yijLh/gWXMEQETb64V/9f7wtWv2sN+ruqqpFBcJiik4wjGB3XtMtLRS7pO4NMkEqaNMQFWoPhWtW9fg4PvPY8bt9XhobrNcr7XbVHDVhuER+OAjP26akYVLLhqPG34wFPc/8Dw2VLqR/52bofrzAYshVr0SHZueBuwoFF8eFKbCEhaYlgIlpRusaD3U3PPg6X4+7HjopAAiO0R/ufkMmTmKjOekDEgJEiBz3xaycN0Z9s3c5X/uKICInt8YKjjUzB7fXc+vCHhIBxxAQhFg924LLe22TBQlSSYcpigxUjSG1u2r0Lj4Zdx+az3un90KQSF9SFpz5xouYHkZPl7hx4z7UlFRrSGrxyCkDr0GakohrGgcYBqs1j2wGr+QsYrRsgd2qEYeh7BgRGoAI4rA0JnQelwAOxo+CYAcdoXFkJnFkVekyhSJov0kQPS1scPEpcOU30ZZ3axjAiSE4I+s7DjnYDN/uS2mlHh1Aa4yRKLA7nITLW0kUYnwOAEQowBOtdCyYw2Cq1/FrTfV4a6ft8LFDIiQJlWyU9o4EFdsrFjvwSOPZ2Nj1Ujkjrkaij8XNoFD7cgLqxq4V4eIdiC08Y8wm3dI9RUWtbHg6T8ZerfzYYWjcpfgZAGyDYbUdAWFJYpMeMnjHw5QcxgYXWq/EIl4bz0mQERLDojMDXvit5XViZmqCq9LA4w4w54KA/WNBAjZoAQzlFupJpo2rYS1/T1Mn1qBO29vh04nwww2rfjJpgLQBAxFYNmnfsz531yUd5yO/DOuAHy5EFGyUE5u5cyTgbvcsFr2IbL5j7AMUlUTgrvg63sd9JKzYZg2GCV95E1Z0iMdByDymnEgkMJR1E2Drh8NUFuU4bTuxhtBJTi1S4CIHv00NKI+yB870MZHpbjJhduoPmSh+iDlW5RqCLnOw7mFlu1rYGx6E1MmH8AdM9oQcNmOWknJSXSo2oirNtZt8GLWAwXYUncW8kZfAi0tHxaBI5dLHNCT13C3B0bNRoS3vQQ73gqoPnh7XwW9xxgIg8O2KbdU5bXkohK29rgAmXHIyLqkBwHkrDAcAVCM4bSS2JtBNTTluAB90SLSFm0K3VDZqDxM0Zqu22hsFijfayIaF1B1FQq30bbzM1jbFmDa9RWYNrUNGX4biCTWTRiFChxMNWGowCcrfPif32VjS+O5yB9zGRR/FmwCR87FQSYpQRRkck1DdO8HiJS9Baanwl06Ea7uYwDmQqylGqF9K+HO7gVP4TDYRtxJS44LEINpCAQCDMVSgo4GqDUKnNndeMWIB6YfFyCiR5aFz6wPiWfrO/iggNvZLS3bY6ClncPl1dG+bzNC6+fjpkk78dNbW5DmsYAorfU4zMmlBV3A1m0s+cSH2Q/mYk/HGcgdeyVUX46jVgkPmETG+aDIVJdMh3e+CqNho4yetcIzAcUDu60S0R1vIqfjY9ShN6zeNyKleBAsw4QwE6nHMQGiNI4hNY2hqEQ7pg1qCloYPxhPmJrv7hMC9N6uSI8NVZizvwWTPTqF6AIHDpmorlMR72hG7cpXcOHANXjo3kZ0L4gCYXJ6cuPemThJv0dg1Wov7p2ThR0to5A7+lJoKQWO5CR1STY/HCA6QuMBRvN2CCsGLW8ouOZDvGUfGla/gT7e5Zh7RRn+/lkW5m07F6lDf4CUooGwaT2JAp5jEPVtWwwZmRwFRYpcO0p6MbJjtPzW0m7imjPZPTkZvsdOCNCnDSKwdHP01oNtbK4huOLWBcJhoLzaRvnyj1FsvImH76rCeWdEocQT9oZmRZ+aDeYVWLQkgAcfysKu4DnIHTsRii8LiNB6qGNYE29HA5TsS1EhuA6ucBhNZejYPh/utoPI8Nfh2SmrUeyJ4zcL++CFstHwDrwaqUWnwjYsCLkyeTg5ORm50ZxcejlmQG6pJwCK0/p43MTVp7MJB6KfLTohQOTy534cvbYpxH/fFkOqW6NIX8HeskP4fMHLuPXS1Zh2YxOyPWT9ZKToDKaagNfGXz/OwuxZaaiMjkD+d64B92TAihngtrNmfTgDRwEkD9J8NMClI16/A/WrX8GFI1249JIL8Nz8dXDtWYTZU7ajd1YYv/ugH+ZtHw1X6USkdxsB26RlEpLS5Ci0oA+ZQxYWqUhNJSPvqFVSxdpiHIWpRuOYUmXEj85yV50QIKLZH0UnNEfwTDDGCqj0Rfeo2LRsFUJb/4RH7y7HqBExcCMBDBHNMGDho5VpuHNmDqqCuSgcdxP0rFNgRkJy0g40Rw7/VYBkWMApvnIh1rgL7dtexzmlKu6c8X0MO7U31m3aj1/d9ya02sWYM3kHSnM7MG9xHzy/4wzYPa+Br+A02DJmkhAk1EsgkMpRWKxD1w/PxRyzWR8UOLu3+LOft02efUlB+OQAWhSd0BzDM8E4K/B4OOLRGFa9vRDDMt/F/TMPoke2gEyyCCPyWB4D5QfcmPbzUqxfHUXuqNFIGTYVIkIrgJQ8UdPDVvUSdDhAdDcFU8HcLphNFaj/9HXodiX+8Ph0jBs9HLrmqMeKz/Zi1qw34K5fhjk3bEOaEsONr5+GbdoVKBz2w8T+miFTWVIv+swrUJGZRY7EwS4JEGX74biJi4eo01L82/80fcQIuu0npvsXhyc1RZRn2qLIoACr4UANPlvwGm4c8wlund6OVEo7qCty6bRvFRD45W+LMe/ZDGSlNYAP+ik8vcfA7uggProAKCE5yU+mgus6InW7Edy2EKeXfIYD9S706z0aD8++CsV5GU6yDIaVn+3Bo0++j2jdEvTMrMNHVach1vNG+PKGQJDrl6aXElUBj5ehpJsGj5dLdSNeCCAmGJo7BHpmm9tGFIurfjomUOYcPQGtrhaej3dGptV28EeiFtd8KRz7t5dh199exr3XrcXVV0Sg0DapxeVA3GOiscWNC67vjd7KQVQHLTT0fBiBXsNghymhTKYCRwKUPE7o2FyF4tIRqdmNupXv4KLhGzHjtkaEwhp+OSsduQXn4rmnJiM3I01KAanN2k3l+P6PH0ZHPIDM4ZOh5w6CbdoyLiLVIU9FMWteAUdWjuZs/UiLTSMzxE0VkWgUo0rZXcX5vqemj2BUJfIVI3AMWndAZC7aGZl5sJXdQ2seHh/H7g1bUbvmVTxwy0ZcfF4IgrwXLYQTJwELa9dn4sqfFOGRC9Zj3tpM7Cmag9wBZ8MKhjoj5WMCRNEwLc+6dEQb9qFu9bsY0+8zzLi5EWcMCUNxcyxe5sOtM9MxZNgYPP3oD5CTkYJwOI5fPfwsXnj3C6SfOg3+kqGwDQKH1NmRSJKWQICjuLtTKWeRQ5G3lEbmaOyw0TvHWNs/T5k+83zf1mR90QkBerc8esrmSjG3opld49I4dC/HzrVfoHXja3jw9i0Yd2bYydZJisj0Bkws/Dgfk2fmYfuPFmHWkjzMb78F/S64HmYkmmD6qwARaCQ5tLDvlpJTv/49jO2/Fnfd3oih/eLQnUgSppth5VovfjAtDaePHI0X503BnLnP4aUFq5F+9m3wFo6Aadhgzm6htGumweByCRSWaEhNV509Mkev5OhtYSDgtmt75mBKT9ehT24bX9pZS3lCgB5fEx55qBXP1LbxoR4Xg+ZVULZuM5rWvYYHbt+E754ThqDuZBxBEmRi6ap0TJjWB1tvWoiaIHDOq5ej5/lTECgeAIO4kbwlgsmkatGWEKlVbTlqP30LYwZ9jl/e0YihfWNQSTpt2k0lCaOlEoGy3T5Mu7sQbVVetClxuAffAlfhIFjRxOZ+IumlUIhxW+5oZGdpsCxa/3GAoeE7olQnYGJoCbu3d7Hx5PQRR1a9HRcgioEeWBYe3xDEy6Gokk47qLpPQeWWMpQveRn33bgGV06IgpsUjsrgHvCZqK91o/dlw/HLoasw44pNuOJ3Y/Bx3YXoM+46IDUbRsQCN0w4ZdS0kahB0VWE6ypQu/ptXDhwLe64pRnDBsWgywk5QYFjpwR4igXGPbjsOj/+siQDpRf/DFrBqRAxw9k/E7JwSIIBYSKvUEVuPtkdJw6Skg7yWAKhuI3+RfyFs3qwh3443LXvq6V7xwVodZvIWLExNK2ikT0IrnJyGy4fR11FFda8/Rp+Mn4ZbpnSDr/KZGbt7JFbEB7g0tv6Y/MnJqoeeQX7a9Iw6YVR2Bo+B4VnXgJvbqnsLhG8AkYM4eqtqPt8Ec7t9wVm/6IJg/vGoRDwsk4mwZAtwPwWbK7jhzel4r2lOSgcOwM8dwBE2KAw0IGRgDCcyo/cfI68ApdciaD9MZo9Lc+GY45LH1qM50/vKR69bqh/FztG4ftxAXp1Y7D/ngZ+/74mdoXPTV6KySg60t6GlfPfxvmlf8OvflaLghQKIpyJSJlIMbBjewrOnHAqLu9bhhfvWITGGj9+Nv80zN/TG0jpDy27F9I8GnyiCWZLORoqqzBqWDMevrcJQ/pEwOJOdYe829QveaFAHBbcuOEnfrz9QTeUTPg53HmlMDpC8uaQBFN1GRVPeHSBou4qMjM1aXNkUYRswdAaouqTOPrk80fP6cUfvWqw59BXJSdJxwVo7pKOC4JR/lJ9iBd4dGfjkLglkDZ8uBSi4mX835wKjOwXdzxZsjvaSU218PaiHFz1veG4bPRGvDl9KZSsCGq2ZWDhzkxsqnejMerFlkM52FuTifEXhPDgr2owpDQCQUslciynuyQ4pvDgxzf78MYHJeh+5V3QM3rC7HBsGpkVKqsh6UnPYSgpVuDxKIjFnJohcvER00ZbWKAoxa4+tQAPXHuR/+Ue7PhPAXQJ0AYhvIs+iUw90CKeEEyRO6rO3jzg8Ss4tK8Cy//0PO65/nPceG07UumGd+ZilIhbYAEb7y/Jx4TpfaB3dODm83bh8j7V8OkxbKzLxvytPbCqOgsTx3XggZkH0Ks4DDtC6X9ix0RuWwPcZyEudNxwkx8LF3dD0fjb4SroC6udamqo1icuRTc1Q0VOPpCZ4UTZcVnewmDaHO0RGyozMKBALBnWQ/zi+mFpG2SjE1CXAL2zOVy0s4nNLq8XU30uKn5LAkT78ApURcHSV95Gdugt/GZWDU7rF4VtqNI4ysmR7VAo+DDRUOPD3D8W4pVPMmA3UYhvQXcDg/uEMOWyelx5UTN0ldaRZJGdwwDFL8Sgz0I4pmPGnWl48/1uyBr7I7iKBsJqp6zTgKrZSE1RkJ4mkJ5OeRtJDXkmGzFbEeGIsHTFjHXPFLv657Inx5/ne6OUnfwjEV0C9Id10d7V7XiiskmMC7gIFsebENFddfsVNFbsw9Jnnsfki7fgjttbkU2VIXKz1kk7ZGuapZcmwxBp01BboyNqK8gMxJGdGwfTbIDYJZvjiI28RgaUHgv1bS7MmhvAOx+VIv870+Ar6g3FNCi5h9cLqG7A46GVTSHLcOIWp8qZmCLMSJrPCuZnsk19s8Vzw7oHPhlR4ETH/wh1CdBvlscGtUbxYk2rGO7TnXA8CZAMIziHN6Dg84WLUb74TfxuThUumxCETkmr9WVtkHT90p7QhGnRnoxlIrAku0XAHM5G4jrhNtHY7sZd9wbwwYqeGHT1FBQOGAhBVRhkkJkFQ3BEY8KIhc2YgG0GXDyW4bVbi7LYF1kpyscFKXz1xAGuHZ19fw3qEqAHl8aHBCPitboO9PdotKVyJED00jy04mdixWvvIbR9IR57qAbnnxuiZSDYtiL3upO25DhDOaeJCETyWLrAoUYdc/8nBe+t6If+l30fPYYPghESiJlUOkzRsdXsdaOhWzovL8xgW/weu6o4T9+aydRNX0dSuqIuub5/cXxo0BSvN3agr0d17MEREkSfNoPLz2FaUax84W2Eyz/CvT9vwHfHhZCTZoIZJB0UzlLrZOT8JTm9OoclkIpAyAJ2lrvx+z+m4aP1fTHo8mtQNKgfaBkpFhX0OGObj0V3n9aLLxzRw//WOUVsd6K7fwl1CRCpWEtY/Km2DcN80gYdDRCpDrlVys9sM4pV7yxC3RfLcN139uPSK1rRv5eFrDQbIlmK1DkafUnC4wRuURs4WMuwYqUXLy3IQXlwEAZffAkK+/ZGJAyEYxaYbZUNKlI+HFbqeWxiL9ZZBfavpC4Bkka6VTy5vwkX+j3SkhwNEFkYmS0LuH0Uu1jYsfJz7Pr7YuRl7cHlY1pw1qh2FOXZyEiz4HZRdZqdqM1hiBlAR5ijrpFh1y633Ipe+Xkh1Pwz0HvsaGQVFyASEugIm/C77O2D8+xHsnyxP08dlR1McvCvpi4B+vMekbO1InZPRZP9M7cus4wuASKiUhlNV6B6ORoP1mL3p5vRsHcbvNiDQT1DKC0JIjstBr/XlB6H6qab2jQcanJjR0UKqupzwVNLUTJkCAoH9oGqexHrsNARseF3WVtG9uSzJxR5FvX4Nz/e2SVA9MjR4uWRiTVt7IlgjOW5tUQVRBcASZWhjQqFlkQYuKWgvaUR+3dXoLGyBtG2Q7IyTEXcSQmgwuIeaL4cBHKLkdejCJmFBdC9HhhxG4ZhIxwV9CDetiFF4qFr+3kWFnyDxvdkqUuAiJ5f396nqlW9r6JRXOtxqZ3HuwRI1m7S9OmYAt3jBI2xiIVYRxDhjnaYVLkqTyvQ3S54vKnQfV5w2sCTFfhUDUbPvlLvVlOfXPbgsO6ely/vx5oSA/1b6bgAra6u9qyrSLt4TwP/35CpdCMporkdGyDnRCLKcbJWIrLNnMvyGdqkk9cnTyeK6i16NIq2jGVzRnVWiBm2KE7F6/1y+H03n+Pel+jt307HBYjohY3B7L21uPVQUJsBxlJcKuVHyctOBiBnQayzul2+Eh7sK8edN4ZgxEaa29rRL5/dc/dY7yL2LT7fekKAiJ5e23FqeT17uKGDjycposTVSSS+OYAkCXq2lUplzNbCFPPJMQPZE5f0SflWn5I+KYDKhXD9fV3s/F2HzLtbosq5bo2etklM+BsEiJ7OicYE8gLWgsFF2tyfnO3a1nnyW6KTAohowyHhXb0/dlZZjfhFSwRjNZXDrX65vivpawJEZ8juhGIWMrxYNQEN/YIAAAGHSURBVKIbn3XLme4VjDHK7L5VOmmAiD4sF669zcagqkZzZn07vmfZqs+tkxV2YEmWj0j16xIgBxzn02kXNxkicQsZHvHZkAJ17um9XB8f7yHffyf9QwARLRVCXftprCQSEdc1hvDjlhCK6eE2KtGjRdmTAYiIlm9JpUJxAZ1bZr5PfNItlT06KMf36bjBRz6S9G3SPwxQkl78oiWtscPVJxRhP2oIYmJrxMqi5QdasHIptDuTUD0JEKUj9OgllZpQiiEQNyx4NNjZqXxPlt9+QkRi71/VM702+RDJfwp9bYCI6D8epC5DiqXEC9yadUF9q315W5SPaIkJb9wgaBhspjiDWJbckvFpsFM9aMpKweJMP3+nJY71vbWmxklnFf9HqNRX6Z8CKElUof/KljpvXa3Pl5npKmqPxAfaplYQh5UqTOGHYJaiipDfozdx26gy4sq2oBVrGNIt0PGf/h9hvhGADicCa84yKP1zwGv3gzV7KuUYGZHu4qwc2PuGw/5H//vBt0n/Dyr/BgSJ5gf5AAAAEGRlQkcyODY3MDY0RTRGQjI5REYz2LrpBgAAAABJRU5ErkJggg==",
+  "author": "Techdoc, Ltd.",
+  "version": "1.0",
+  "tags": [],
+  "color": "#db2777",
+  "words": [
+    {
+      "word": "asteroid",
+      "phonetic": "/ˈæs.tə.rɔɪd/",
+      "translation": "asteroid",
+      "definition": "A small rocky body orbiting the Sun.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how asteroid works.",
+          "sk": "Tento experiment ukazuje, ako funguje asteroid."
+        },
+        {
+          "en": "Astronomers observed the asteroid through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali asteroid veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The asteroid 2004 BL86 flew past Earth at a distance of about 1.2 million kilometres."
+        },
+        {
+          "en": "Scientists study the composition of asteroids to learn about the early solar system."
+        }
+      ],
+      "example_en": "This experiment shows how asteroid works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje asteroid.",
+      "id": "1ebae96f-c2ea-42c8-a9c8-e665cf7f79c5"
+    },
+    {
+      "word": "atmosphere",
+      "phonetic": "/ˈæt.mə.sfɪə/",
+      "translation": "atmosféra",
+      "definition": "The layer of gases surrounding a planet or star.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding atmosphere is essential.",
+          "sk": "Pochopenie pojmu atmosféra je nevyhnutné."
+        },
+        {
+          "en": "Astronomers observed the atmosphere through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali atmosféra veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The Earth's atmosphere is divided into several layers, including the troposphere and stratosphere."
+        },
+        {
+          "en": "Without a protective atmosphere, the surface of a planet is exposed to harmful radiation."
+        }
+      ],
+      "example_en": "Understanding atmosphere is essential.",
+      "example_sk": "Pochopenie pojmu atmosféra je nevyhnutné.",
+      "id": "a2de85ff-e3ec-4265-a696-f2886b6ed686"
+    },
+    {
+      "word": "black hole",
+      "phonetic": "/ˌblæk ˈhəʊl/",
+      "translation": "čierna diera",
+      "definition": "A region in space where gravity is so strong that nothing can escape.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding black hole is essential.",
+          "sk": "Pochopenie pojmu čierna diera je nevyhnutné."
+        },
+        {
+          "en": "Astronomers observed the black hole through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali čierna diera veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The first ever image of a black hole was captured and released in 2019."
+        },
+        {
+          "en": "Nothing, not even light, can escape the gravitational pull of a black hole."
+        }
+      ],
+      "example_en": "Understanding black hole is essential.",
+      "example_sk": "Pochopenie pojmu čierna diera je nevyhnutné.",
+      "id": "f49f76d9-390c-4c78-8c9f-84dffcf6761f"
+    },
+    {
+      "word": "comet",
+      "phonetic": "/ˈkɒm.ɪt/",
+      "translation": "kométa",
+      "definition": "An icy object in space that forms a bright tail near the Sun.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "This experiment shows how comet works.",
+          "sk": "Tento experiment ukazuje, ako funguje kométa."
+        },
+        {
+          "en": "Astronomers observed the comet through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali kométa veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Halley's comet is visible from Earth roughly every 75 years."
+        },
+        {
+          "en": "As the comet approached the Sun, it developed a bright, glowing tail."
+        }
+      ],
+      "example_en": "This experiment shows how comet works.",
+      "example_sk": "Tento experiment ukazuje, ako funguje kométa.",
+      "id": "1ba2a9d8-8617-4e2a-80d3-fa6a4e886039"
+    },
+    {
+      "word": "constellation",
+      "phonetic": "/ˌkɒn.stəˈleɪ.ʃən/",
+      "translation": "súhvezdie",
+      "definition": "A group of stars forming a recognised pattern.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term constellation.",
+          "sk": "Učiteľ vysvetlil pojem súhvezdie."
+        },
+        {
+          "en": "Astronomers observed the constellation through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali súhvezdie veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The constellation Orion is one of the easiest to spot in the winter night sky."
+        },
+        {
+          "en": "Ancient sailors used the positions of constellations to navigate at sea."
+        }
+      ],
+      "example_en": "The teacher explained the term constellation.",
+      "example_sk": "Učiteľ vysvetlil pojem súhvezdie.",
+      "id": "5f34e6d2-b8f6-45dc-a8bb-62d0159685ff"
+    },
+    {
+      "word": "eclipse",
+      "phonetic": "/ɪˈklɪps/",
+      "translation": "zatmenie",
+      "definition": "An event in which one celestial body moves into the shadow of another.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term eclipse.",
+          "sk": "Učiteľ vysvetlil pojem zatmenie."
+        },
+        {
+          "en": "Astronomers observed the eclipse through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali zatmenie veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "During a total solar eclipse, the Moon completely blocks the Sun's light."
+        },
+        {
+          "en": "A lunar eclipse occurs when the Earth passes between the Sun and the Moon."
+        }
+      ],
+      "example_en": "The teacher explained the term eclipse.",
+      "example_sk": "Učiteľ vysvetlil pojem zatmenie.",
+      "id": "adcf10d2-4410-4b64-937c-938b3f94db05"
+    },
+    {
+      "word": "galaxy",
+      "phonetic": "/ˈɡæl.ək.si/",
+      "translation": "galaxia",
+      "definition": "A huge system of stars, gas, and dust held together by gravity.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding galaxy is essential.",
+          "sk": "Pochopenie pojmu galaxia je nevyhnutné."
+        },
+        {
+          "en": "Astronomers observed the galaxy through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali galaxia veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Our galaxy, the Milky Way, contains an estimated 200 to 400 billion stars."
+        },
+        {
+          "en": "The Andromeda galaxy is the nearest large galaxy to the Milky Way."
+        }
+      ],
+      "example_en": "Understanding galaxy is essential.",
+      "example_sk": "Pochopenie pojmu galaxia je nevyhnutné.",
+      "id": "384ce1bd-7373-414a-a15a-b97a0c534dc3"
+    },
+    {
+      "word": "gravity",
+      "phonetic": "/ˈɡræv.ɪ.ti/",
+      "translation": "gravitácia",
+      "definition": "The force that attracts objects toward each other.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding gravity is essential.",
+          "sk": "Pochopenie pojmu gravitácia je nevyhnutné."
+        },
+        {
+          "en": "Astronomers observed the gravity through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali gravitácia veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Gravity keeps the planets in orbit around the Sun and the Moon around the Earth."
+        },
+        {
+          "en": "Albert Einstein described gravity as a curvature of space and time."
+        }
+      ],
+      "example_en": "Understanding gravity is essential.",
+      "example_sk": "Pochopenie pojmu gravitácia je nevyhnutné.",
+      "id": "3b6f48a3-92d2-4d23-9e37-ec519fc40088"
+    },
+    {
+      "word": "lunar",
+      "phonetic": "/ˈluː.nə/",
+      "translation": "lunárny, mesačný",
+      "definition": "Relating to the Moon.",
+      "type": "adj",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "We studied the concept of lunar yesterday.",
+          "sk": "Včera sme študovali pojem lunárny."
+        },
+        {
+          "en": "Astronomers observed the lunar through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali lunárny veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The lunar surface is covered with craters formed by meteorite impacts."
+        },
+        {
+          "en": "The lunar cycle lasts approximately 29.5 days and influences ocean tides."
+        }
+      ],
+      "example_en": "We studied the concept of lunar yesterday.",
+      "example_sk": "Včera sme študovali pojem lunárny.",
+      "id": "b73d735f-5330-42ee-b1fb-9fea2338fca2"
+    },
+    {
+      "word": "meteor",
+      "phonetic": "/ˈmiː.ti.ə/",
+      "translation": "meteor",
+      "definition": "A piece of rock from space that burns brightly in the atmosphere.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The meteor is important in this field.",
+          "sk": "Meteor je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "Astronomers observed the meteor through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali meteor veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "During the Perseid meteor shower, hundreds of meteors can be seen in a single night."
+        },
+        {
+          "en": "A meteor burns up as it enters the Earth's atmosphere, creating a streak of light."
+        }
+      ],
+      "example_en": "The meteor is important in this field.",
+      "example_sk": "Meteor je v tejto oblasti dôležitý.",
+      "id": "4d8d608b-ce23-4b12-b9c7-46b4f79ed8b0"
+    },
+    {
+      "word": "nebula",
+      "phonetic": "/ˈneb.jʊ.lə/",
+      "translation": "hmlovina",
+      "definition": "A cloud of gas and dust in outer space.",
+      "type": "noun",
+      "level": "C1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The teacher explained the term nebula.",
+          "sk": "Učiteľ vysvetlil pojem hmlovina."
+        },
+        {
+          "en": "Astronomers observed the nebula through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali hmlovina veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The Orion Nebula is a region of active star formation visible to the naked eye."
+        },
+        {
+          "en": "Nebulae are vast clouds of gas and dust that serve as the birthplaces of new stars."
+        }
+      ],
+      "example_en": "The teacher explained the term nebula.",
+      "example_sk": "Učiteľ vysvetlil pojem hmlovina.",
+      "id": "d0a0b042-059a-4916-b4e2-dca6151a0570"
+    },
+    {
+      "word": "orbit",
+      "phonetic": "/ˈɔː.bɪt/",
+      "translation": "obežná dráha, obiehať",
+      "definition": "The curved path of an object around a star, planet, or moon.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "Understanding orbit is essential.",
+          "sk": "Pochopenie pojmu obežná dráha je nevyhnutné."
+        },
+        {
+          "en": "Astronomers observed the orbit through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali obežná dráha veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "The International Space Station completes one orbit of the Earth every 90 minutes."
+        },
+        {
+          "en": "The Moon travels in a slightly elliptical orbit around the Earth."
+        }
+      ],
+      "example_en": "Understanding orbit is essential.",
+      "example_sk": "Pochopenie pojmu obežná dráha je nevyhnutné.",
+      "id": "31a12e4b-bf1d-4392-be93-fe391de401ea"
+    },
+    {
+      "word": "planet",
+      "phonetic": "/ˈplæn.ɪt/",
+      "translation": "planéta",
+      "definition": "A large round object in space that moves around a star.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The planet is important in this field.",
+          "sk": "Planéta je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "Astronomers observed the planet through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali planéta veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Jupiter is the largest planet in our solar system, with a mass greater than all others combined."
+        },
+        {
+          "en": "Since 2006, Pluto has been classified as a dwarf planet rather than a full planet."
+        }
+      ],
+      "example_en": "The planet is important in this field.",
+      "example_sk": "Planéta je v tejto oblasti dôležitý.",
+      "id": "0c5b6987-89ed-4fdf-b98c-ed443faceca9"
+    },
+    {
+      "word": "solar system",
+      "phonetic": "/ˈsəʊ.lə ˌsɪs.təm/",
+      "translation": "slnečná sústava",
+      "definition": "The Sun and all the objects that orbit it.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The solar system is important in this field.",
+          "sk": "Slnečná sústava je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "Astronomers observed the solar system through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali slnečná sústava veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Our solar system formed roughly 4.6 billion years ago from a collapsing cloud of gas and dust."
+        },
+        {
+          "en": "The Voyager 1 spacecraft has left the solar system and is now travelling through interstellar space."
+        }
+      ],
+      "example_en": "The solar system is important in this field.",
+      "example_sk": "Slnečná sústava je v tejto oblasti dôležitý.",
+      "id": "50d0360d-53fd-44ce-b501-c29188bdb41d"
+    },
+    {
+      "word": "telescope",
+      "phonetic": "/ˈtel.ɪ.skəʊp/",
+      "translation": "ďalekohľad, teleskop",
+      "definition": "An instrument used to observe distant objects in space.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "astronomy",
+      "article": "",
+      "examples": [
+        {
+          "en": "The telescope is important in this field.",
+          "sk": "Ďalekohľad je v tejto oblasti dôležitý."
+        },
+        {
+          "en": "Astronomers observed the telescope through a large telescope during the night.",
+          "sk": "Astronómovia pozorovali ďalekohľad veľkým ďalekohľadom počas noci."
+        }
+      ],
+      "contextSentences": [
+        {
+          "en": "Galileo Galilei was among the first to use a telescope for astronomical observations."
+        },
+        {
+          "en": "The James Webb Space Telescope provides the most detailed images of the early universe ever taken."
+        }
+      ],
+      "example_en": "The telescope is important in this field.",
+      "example_sk": "Ďalekohľad je v tejto oblasti dôležitý.",
+      "id": "8d9501df-e21a-457e-bb1c-40aadbf62d77"
+    },
+    {
+      "id": "267ef675-04c0-43a0-97cd-3160b9a3c5fa",
+      "word": "celestial",
+      "article": "",
+      "phonetic": "/səˈlɛs.tʃəl/",
+      "translation": "nebeský",
+      "definition": "Relating to the sky, the heavens, or outer space; of or relating to celestial bodies.",
+      "type": "adjective",
+      "level": "C1",
+      "example_en": "The telescope revealed several celestial bodies in the distant galaxy.",
+      "example_sk": "Teleskop odhalil niekoľko nebeských telies vo vzdialenej galaxii.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "14504909-c66d-4998-bc4c-7358547481f7",
+      "word": "crater",
+      "article": "",
+      "phonetic": "/ˈkreɪtər/",
+      "translation": "kráter",
+      "definition": "A large bowl-shaped hollow on the surface of the Earth, the Moon, or another planet, often caused by an impact or volcanic activity.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "The meteor left a huge crater in the desert.",
+      "example_sk": "Meteorit zanechal v púšti obrovský kráter.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "ecb14871-5451-4ea3-a568-64ab1c02d42f",
+      "word": "equator",
+      "article": "",
+      "phonetic": "/ɪˈkweɪtər/",
+      "translation": "rovník",
+      "definition": "An imaginary line circling a planet at equal distance from the poles, dividing it into the Northern and Southern Hemispheres.",
+      "type": "noun",
+      "level": "B1",
+      "example_en": "The airplane crossed the equator during the flight.",
+      "example_sk": "Lietadlo preletelo cez rovník počas letu.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "49491572-e062-494c-9c91-b1d2d41b6c4c",
+      "word": "interstellar",
+      "article": "",
+      "phonetic": "/ˌɪntərˈstɛlər/",
+      "translation": "medzihviezdny",
+      "definition": "Existing or occurring among or between the stars.",
+      "type": "adjective",
+      "level": "B2",
+      "example_en": "Interstellar travel remains science fiction.",
+      "example_sk": "Medzihviezdne cestovanie zostáva vedeckou fantastikou.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "4ca953b9-052f-477a-9440-b2db1394ac55",
+      "word": "satellite",
+      "article": "",
+      "phonetic": "/ˈsætəlaɪt/",
+      "translation": "satelit",
+      "definition": "A natural or artificial body that orbits a larger body in space, such as a moon orbiting a planet or a man-made object used for communication, navigation, or observation.",
+      "type": "noun",
+      "level": "B1",
+      "example_en": "Scientists launched a new satellite to study Earth's atmosphere.",
+      "example_sk": "Vedci vypustili nový satelit, aby skúmal atmosféru Zeme.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "51e71f03-797c-4802-b99a-1e19f2fc9f2c",
+      "word": "spectrum",
+      "article": "",
+      "phonetic": "/ˈspɛktrəm/",
+      "translation": "spektrum",
+      "definition": "A range or band of related values, qualities, or ideas; specifically, the continuous sequence of colors produced when light is dispersed, or the distribution of electromagnetic radiation by wavelength or frequency.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "A prism splits white light into a spectrum of colors.",
+      "example_sk": "Hranol rozloží biele svetlo na spektrum farieb.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "d69984a3-53cd-4199-9ce4-ac587989a8d4",
+      "word": "starship",
+      "article": "",
+      "phonetic": "/ˈstɑːrʃɪp/",
+      "translation": "hviezdna loď",
+      "definition": "A large spacecraft designed for travel between stars, especially as depicted in science fiction.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "The crew boarded the starship for their journey to the distant system.",
+      "example_sk": "Posádka nastúpila na hviezdnu loď na cestu do vzdialeného systému.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "fb38e87a-fcb7-4d15-a4ef-841865c9feb2",
+      "word": "universe",
+      "article": "",
+      "phonetic": "/ˈjuːnɪvɜːrs/",
+      "translation": "vesmír",
+      "definition": "All of space and everything in it, including stars, planets, galaxies, matter, and energy.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "Scientists study the origins of the universe.",
+      "example_sk": "Vedci študujú pôvod vesmíru.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "fe18f566-e39f-464c-a725-f871166c7b80",
+      "word": "zenith",
+      "article": "",
+      "phonetic": "/ˈzenɪθ/",
+      "translation": "zenit",
+      "definition": "The point in the sky directly above an observer; the highest point or culmination.",
+      "type": "noun",
+      "level": "C1",
+      "example_en": "At noon the sun reached its zenith.",
+      "example_sk": "O poludní slnko dosiahlo svoj zenit.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "cc2b5138-c883-4549-abb7-a7d0d094f2b6",
+      "word": "equinox",
+      "article": "",
+      "phonetic": "/ˈiːkwɪnɒks/",
+      "translation": "rovnodennosť",
+      "definition": "Either of the two times each year when the sun crosses the celestial equator and day and night are approximately equal in length.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "The spring equinox marks the beginning of astronomical spring.",
+      "example_sk": "Jarná rovnodennosť označuje začiatok astronomického jara.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "0f8ed6d9-9f69-4ed9-a0fd-ec71afe8ba6d",
+      "word": "solstice",
+      "article": "",
+      "phonetic": "/ˈsɒlstɪs/",
+      "translation": "slnovrat",
+      "definition": "Either of the two times in the year when the sun is at its greatest distance from the celestial equator, causing the longest day (summer solstice) or the shortest day (winter solstice).",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "We celebrated the summer solstice with a bonfire on the beach.",
+      "example_sk": "Letný slnovrat sme oslávili ohňom na pláži.",
+      "topic": "astronomy"
+    },
+    {
+      "id": "76b66163-95d6-4a5f-b7a7-c143b9a30f61",
+      "word": "light-year",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "astronomy"
+    },
+    {
+      "id": "12ea087c-9eac-448d-8aa9-f0f578e2a170",
+      "word": "supernova",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "astronomy"
+    },
+    {
+      "id": "a08ee6b3-c0b4-4911-bd63-9c9d5acd08c0",
+      "word": "trajectory",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "astronomy"
+    },
+    {
+      "id": "35488c1f-6cb5-4f0f-be31-7c269c124a24",
+      "word": "rotation",
+      "article": "",
+      "phonetic": "",
+      "translation": "",
+      "definition": "",
+      "type": "",
+      "level": "B2",
+      "example_en": "",
+      "example_sk": "",
+      "topic": "astronomy"
+    }
+  ]
+}

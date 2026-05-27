@@ -34,16 +34,40 @@
   border-color: var(--app-accent);
 }
 
-/* červená bodka */
+/* červená bodka s počtom */
 .nbell-dot {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 7px;
-  height: 7px;
+  top: 4px;
+  right: 4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
   background: #ff4d4d;
-  border-radius: 50%;
+  border-radius: 8px;
   border: 1.5px solid var(--app-chrome);
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* animácia zvonenia */
+@keyframes nbellRing {
+  0%   { transform: rotate(0deg); }
+  15%  { transform: rotate(18deg); }
+  30%  { transform: rotate(-16deg); }
+  45%  { transform: rotate(12deg); }
+  60%  { transform: rotate(-8deg); }
+  75%  { transform: rotate(4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.nbell-btn.ringing svg {
+  animation: nbellRing 0.8s ease;
+  transform-origin: top center;
 }
 
 /* dropdown panel */
@@ -67,14 +91,30 @@
 }
 
 .nbell-header {
-  padding: 12px 16px 10px;
+  padding: 10px 14px 8px;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--app-muted);
   border-bottom: 1px solid var(--app-border-sub);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.nbell-clear {
+  background: transparent;
+  border: none;
+  font-size: 11px;
+  color: var(--app-muted);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.nbell-clear:hover { color: var(--app-text2); background: var(--app-nav-hov); }
 
 .nbell-empty {
   padding: 24px 16px;
@@ -82,3 +122,21 @@
   color: var(--app-muted);
   text-align: center;
 }
+
+.nbell-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--app-border-faint);
+  font-size: 13px;
+}
+.nbell-item:last-child { border-bottom: none; }
+
+.nbell-item-icon { font-size: 18px; flex-shrink: 0; }
+
+.nbell-item-body { display: flex; flex-direction: column; gap: 2px; }
+
+.nbell-item-title { color: var(--app-text2); line-height: 1.4; }
+
+.nbell-item-time { font-size: 11px; color: var(--app-muted); }

@@ -6,6 +6,17 @@ import { API_BASE } from "../config";
 
 const API = `${API_BASE}/api/auth`;
 
+const Eye = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+  </svg>
+);
+const EyeOff = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>
+  </svg>
+);
+
 function formatDate(val) {
   if (!val) return "—";
   return new Date(val).toLocaleString("sk-SK", {
@@ -19,15 +30,21 @@ function UserModal({ user, onClose, onSave }) {
   const t = useT();
   const isEdit = !!user;
   const [form, setForm] = useState({
-    username:  user?.username  ?? "",
-    email:     user?.email     ?? "",
-    password:  "",
-    role:      user?.role      ?? "viewer",
-    is_active: user?.is_active ?? true,
+    username:         user?.username         ?? "",
+    email:            user?.email            ?? "",
+    password:         "",
+    role:             user?.role             ?? "viewer",
+    is_active:        user?.is_active        ?? true,
+    personal_name:    user?.personal_name    ?? "",
+    personal_surname: user?.personal_surname ?? "",
+    company:          user?.company          ?? "",
+    phone:            user?.phone            ?? "",
+    address:          user?.address          ?? "",
   });
-  const [error, setError]   = useState(null);
-  const [notice, setNotice] = useState(null);
-  const [saving, setSaving] = useState(false);
+  const [error, setError]     = useState(null);
+  const [notice, setNotice]   = useState(null);
+  const [saving, setSaving]   = useState(false);
+  const [showPwd, setShowPwd] = useState(false);
 
   function set(field, value) {
     setForm((f) => ({ ...f, [field]: value }));
@@ -82,12 +99,17 @@ function UserModal({ user, onClose, onSave }) {
 
         <div className="modal-field">
           <label>{isEdit ? t("users.passwordNew") : t("users.passwordReq")}</label>
-          <input
-            type="password"
-            value={form.password}
-            onChange={(e) => set("password", e.target.value)}
-            required={!isEdit}
-          />
+          <div className="pw-wrap">
+            <input
+              type={showPwd ? "text" : "password"}
+              value={form.password}
+              onChange={(e) => set("password", e.target.value)}
+              required={!isEdit}
+            />
+            <button type="button" className="pw-toggle" onClick={() => setShowPwd((v) => !v)}>
+              {showPwd ? <EyeOff /> : <Eye />}
+            </button>
+          </div>
         </div>
 
         <div className="modal-field">
@@ -112,6 +134,51 @@ function UserModal({ user, onClose, onSave }) {
             </select>
           </div>
         )}
+
+        <div className="modal-sep" />
+
+        <div className="modal-two-col">
+          <div className="modal-field">
+            <label>{t("users.personalName")}</label>
+            <input
+              value={form.personal_name}
+              onChange={(e) => set("personal_name", e.target.value)}
+            />
+          </div>
+          <div className="modal-field">
+            <label>{t("users.personalSurname")}</label>
+            <input
+              value={form.personal_surname}
+              onChange={(e) => set("personal_surname", e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="modal-two-col">
+          <div className="modal-field">
+            <label>{t("users.company")}</label>
+            <input
+              value={form.company}
+              onChange={(e) => set("company", e.target.value)}
+            />
+          </div>
+          <div className="modal-field">
+            <label>{t("users.phone")}</label>
+            <input
+              type="tel"
+              value={form.phone}
+              onChange={(e) => set("phone", e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="modal-field">
+          <label>{t("users.address")}</label>
+          <input
+            value={form.address}
+            onChange={(e) => set("address", e.target.value)}
+          />
+        </div>
 
         {error  && <div className="modal-error">{error}</div>}
         {notice && <div className="modal-notice">{notice}</div>}
@@ -163,11 +230,16 @@ export default function UsersScreen() {
       method: "POST",
       headers,
       body: JSON.stringify({
-        username:  form.username,
-        email:     form.email || undefined,
-        password:  form.password,
-        role:      form.role,
-        sendEmail: !!form.email,
+        username:         form.username,
+        email:            form.email            || undefined,
+        password:         form.password,
+        role:             form.role,
+        sendEmail:        !!form.email,
+        personal_name:    form.personal_name    || undefined,
+        personal_surname: form.personal_surname || undefined,
+        company:          form.company          || undefined,
+        phone:            form.phone            || undefined,
+        address:          form.address          || undefined,
       }),
     });
     const data = await res.json();
@@ -177,7 +249,15 @@ export default function UsersScreen() {
   }
 
   async function handleEdit(userId, form) {
-    const body = { role: form.role, is_active: form.is_active };
+    const body = {
+      role:             form.role,
+      is_active:        form.is_active,
+      personal_name:    form.personal_name,
+      personal_surname: form.personal_surname,
+      company:          form.company,
+      phone:            form.phone,
+      address:          form.address,
+    };
     if (form.password) body.password = form.password;
     if (form.email !== undefined) body.email = form.email;
 
@@ -219,6 +299,8 @@ export default function UsersScreen() {
               <tr>
                 <th>{t("users.table.id")}</th>
                 <th>{t("users.table.username")}</th>
+                <th>{t("users.table.name")}</th>
+                <th>{t("users.table.company")}</th>
                 <th>{t("users.table.email")}</th>
                 <th>{t("users.table.role")}</th>
                 <th>{t("users.table.status")}</th>
@@ -232,6 +314,8 @@ export default function UsersScreen() {
                 <tr key={u.id}>
                   <td style={{ color: "#4a6a8a" }}>{u.id}</td>
                   <td style={{ fontWeight: 600 }}>{u.username}</td>
+                  <td>{[u.personal_name, u.personal_surname].filter(Boolean).join(" ") || "—"}</td>
+                  <td style={{ color: "#6b8cae" }}>{u.company || "—"}</td>
                   <td style={{ color: "#6b8cae" }}>{u.email || "—"}</td>
                   <td>
                     <span className={`badge-role ${u.role}`}>{u.role}</span>

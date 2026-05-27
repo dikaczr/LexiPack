@@ -7,27 +7,39 @@ import { API_BASE } from "../config";
 const API = `${API_BASE}/api/settings`;
 
 const DEFAULTS = {
-  appLang:          "sk",
-  appTheme:         "dark",
-  autoSaveInterval: 5,
+  appLang:              "sk",
+  appTheme:             "dark",
+  autoSaveInterval:     5,
+  autosaveEnabled:      true,
+  autosaveInterval:     2,
+  startupBehavior:      "prompt",
+  autoCorrectEnabled:      true,
+  autoCorrectLocale:       "sk-SK",
+  correctTwoInitialCaps:   true,
+  correctCapsLock:         true,
 };
 
 export function SettingsProvider({ children }) {
   const { user, token } = useAuth();
-  const [settings, setSettings] = useState(DEFAULTS);
-  const [loading, setLoading]   = useState(false);
+  const [settings, setSettings]           = useState(DEFAULTS);
+  const [globalSettings, setGlobalSettings] = useState({});
+  const [loading, setLoading]             = useState(false);
 
   const loadSettings = useCallback(async () => {
     if (!token) return;
     setLoading(true);
     try {
-      const res = await fetch(API, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (res.ok) {
-        const data = await res.json();
-        setSettings({ ...DEFAULTS, ...data });
-      }
+      const h = { Authorization: `Bearer ${token}` };
+      const [settingsRes, defaultsRes, globalRes] = await Promise.all([
+        fetch(API,               { headers: h }),
+        fetch(`${API}/defaults`, { headers: h }),
+        fetch(`${API}/global`,   { headers: h }),
+      ]);
+      const data     = settingsRes.ok ? await settingsRes.json() : {};
+      const computed = defaultsRes.ok ? await defaultsRes.json() : {};
+      const global   = globalRes.ok   ? await globalRes.json()   : {};
+      setSettings({ ...DEFAULTS, ...computed, ...data });
+      setGlobalSettings(global);
     } catch {
       // fallback na defaults
     } finally {
@@ -51,10 +63,7 @@ export function SettingsProvider({ children }) {
     try {
       await fetch(API, {
         method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ [key]: value }),
       });
     } catch (err) {
@@ -62,8 +71,21 @@ export function SettingsProvider({ children }) {
     }
   }, [token]);
 
+  const saveGlobalSetting = useCallback(async (key, value) => {
+    setGlobalSettings((prev) => ({ ...prev, [key]: value }));
+    try {
+      await fetch(`${API}/global`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ [key]: value }),
+      });
+    } catch (err) {
+      console.error("Global settings save failed:", err);
+    }
+  }, [token]);
+
   return (
-    <SettingsContext.Provider value={{ settings, saveSetting, loading }}>
+    <SettingsContext.Provider value={{ settings, saveSetting, globalSettings, saveGlobalSetting, loading }}>
       {children}
     </SettingsContext.Provider>
   );

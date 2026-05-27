@@ -1,0 +1,212 @@
+.ts-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ts-dialog {
+  background: var(--app-chrome, #1e293b);
+  border: 1px solid var(--app-border, #334155);
+  border-radius: 12px;
+  width: 600px;
+  max-width: 96vw;
+  max-height: 84vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.ts-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem 0.75rem;
+  border-bottom: 1px solid var(--app-border, #334155);
+  flex-shrink: 0;
+}
+
+.ts-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--app-text, #f1f5f9);
+}
+
+.ts-close {
+  background: none;
+  border: none;
+  color: var(--app-text-muted, #64748b);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.ts-close:hover { color: var(--app-text, #f1f5f9); background: var(--app-border, #334155); }
+
+.ts-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+  color: var(--app-text-muted, #64748b);
+  border-bottom: 1px solid var(--app-border, #334155);
+  flex-shrink: 0;
+}
+.ts-meta strong  { color: var(--app-text, #f1f5f9); }
+.ts-neighbors    { color: var(--app-text-muted, #64748b); }
+
+.ts-input-row {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--app-border, #334155);
+  flex-shrink: 0;
+}
+
+.ts-input {
+  flex: 1;
+  background: var(--app-card-bg, #0f172a);
+  border: 1px solid var(--app-border, #334155);
+  border-radius: 6px;
+  color: var(--app-text, #f1f5f9);
+  font-size: 0.95rem;
+  padding: 0.4rem 0.75rem;
+  outline: none;
+}
+.ts-input:focus { border-color: var(--app-accent, #3b82f6); }
+
+.ts-btn-analyze {
+  background: var(--app-accent, #3b82f6);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+.ts-btn-analyze:disabled { opacity: 0.5; cursor: not-allowed; }
+.ts-btn-analyze:not(:disabled):hover { opacity: 0.85; }
+
+.ts-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 0.85rem 1.25rem 0.5rem;
+}
+
+.ts-hint {
+  color: var(--app-text-muted, #64748b);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 2rem 0;
+  font-style: italic;
+}
+
+.ts-error {
+  color: #ef4444;
+  font-size: 0.85rem;
+  padding: 0.75rem;
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.25);
+  border-radius: 6px;
+}
+
+.ts-section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--app-text-muted, #64748b);
+  margin: 0 0 0.5rem;
+}
+
+/* Meaning card */
+.ts-meaning-card {
+  background: var(--app-card-bg, #0f172a);
+  border: 1px solid var(--app-border, #334155);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.ts-meaning {
+  font-size: 0.92rem;
+  color: var(--app-text, #f1f5f9);
+  line-height: 1.55;
+  margin-bottom: 0.4rem;
+}
+
+.ts-context {
+  font-size: 0.82rem;
+  color: var(--app-text-muted, #64748b);
+  font-style: italic;
+  line-height: 1.45;
+}
+
+/* Source cards */
+.ts-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ts-source-card {
+  background: var(--app-card-bg, #0f172a);
+  border: 1px solid var(--app-border, #334155);
+  border-radius: 8px;
+  padding: 0.6rem 0.85rem;
+  transition: border-color 0.15s;
+}
+.ts-source-card:hover { border-color: var(--app-accent, #3b82f6); }
+
+.ts-source-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ts-source-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.ts-source-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--app-text, #f1f5f9);
+  flex: 1;
+}
+
+.ts-source-link {
+  font-size: 0.8rem;
+  color: var(--app-accent, #3b82f6);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 2px 8px;
+  border: 1px solid var(--app-accent, #3b82f6);
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+.ts-source-link:hover {
+  background: rgba(59,130,246,0.15);
+}
+
+.ts-source-reason {
+  font-size: 0.79rem;
+  color: var(--app-text-muted, #64748b);
+  margin-top: 0.3rem;
+  font-style: italic;
+}
+
+.ts-footer {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--app-border, #334155);
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}

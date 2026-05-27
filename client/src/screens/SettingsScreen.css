@@ -1,8 +1,15 @@
+.settings-scroll-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
 .settings-screen {
   display: flex;
   flex-direction: column;
   gap: 24px;
   max-width: 680px;
+  padding-bottom: 16px;
 }
 
 .settings-title {
@@ -10,6 +17,7 @@
   font-weight: 600;
   color: var(--app-text2);
   flex-shrink: 0;
+  text-align: left;
 }
 
 .setting-section {
@@ -21,7 +29,7 @@
 }
 
 .setting-section-title {
-  font-size: 11px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.6px;
   color: var(--app-muted);
@@ -51,7 +59,7 @@
 }
 
 .setting-label {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--app-text2);
   text-align: left;
 }
@@ -120,4 +128,230 @@
 
 .setting-browse-btn:hover {
   background: var(--app-nav-act);
+}
+
+.setting-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--app-accent);
+  cursor: pointer;
+}
+
+.setting-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.setting-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--app-text2);
+  cursor: pointer;
+}
+
+.setting-radio-label input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--app-accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.setting-select:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── AutoCorrect pairs table ──────────────────────────── */
+
+.ac-pairs-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--app-border-sub);
+  background: var(--app-panel);
+}
+
+.ac-pairs-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px 8px;
+}
+
+.ac-pairs-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ac-filter-input {
+  background: var(--app-input, #1e293b);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 5px;
+  color: var(--app-text);
+  font-size: 12px;
+  padding: 3px 8px;
+  width: 130px;
+  outline: none;
+}
+
+.ac-filter-input:focus {
+  border-color: var(--app-accent);
+}
+
+.ac-count {
+  font-size: 11px;
+  color: var(--app-muted);
+  white-space: nowrap;
+}
+
+.ac-table-wrap {
+  max-height: 280px;
+  overflow-y: auto;
+  border-top: 1px solid var(--app-border-sub);
+  border-bottom: 1px solid var(--app-border-sub);
+  margin: 0 12px;
+}
+
+.ac-empty {
+  padding: 16px;
+  font-size: 12px;
+  color: var(--app-muted);
+  text-align: center;
+}
+
+.ac-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.ac-table th {
+  position: sticky;
+  top: 0;
+  background: var(--app-chrome);
+  color: var(--app-text2);
+  font-weight: 600;
+  text-align: left;
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--app-border-sub);
+  z-index: 1;
+}
+
+.ac-table td {
+  padding: 2px 4px;
+  border-bottom: 1px solid var(--app-border-sub);
+}
+
+.ac-table tr:last-child td {
+  border-bottom: none;
+}
+
+.ac-table tr:hover td {
+  background: var(--app-input, #1e293b);
+}
+
+.ac-arrow-col {
+  width: 24px;
+  text-align: center;
+  color: var(--app-muted);
+  padding: 2px 2px !important;
+}
+
+.ac-del-col {
+  width: 28px;
+  text-align: center;
+  padding: 2px 2px !important;
+}
+
+.ac-cell-input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: var(--app-text);
+  font-size: 12px;
+  padding: 2px 5px;
+  outline: none;
+  font-family: inherit;
+}
+
+.ac-cell-input:focus {
+  background: var(--app-input, #1e293b);
+  border-color: var(--app-accent);
+}
+
+.ac-del-btn {
+  background: transparent;
+  border: none;
+  color: var(--app-muted);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.ac-del-btn:hover {
+  background: var(--app-danger, #ef4444);
+  color: #fff;
+}
+
+.ac-pairs-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 16px;
+  border-bottom: 1px solid var(--app-border-sub);
+}
+
+.ac-save-btn {
+  background: var(--app-accent) !important;
+  color: #fff !important;
+  opacity: 1;
+}
+
+.ac-save-btn:disabled {
+  opacity: 0.35 !important;
+  cursor: not-allowed;
+}
+
+.ac-import-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 16px 10px;
+}
+
+.ac-imported-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ac-imported-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--app-chrome);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 12px;
+  font-size: 11px;
+  color: var(--app-text2);
+  padding: 2px 8px;
+}
+
+.settings-server-note {
+  padding: 8px 16px;
+  font-size: 11px;
+  color: var(--app-accent);
+  background: var(--app-panel);
+  border-bottom: 1px solid var(--app-border-faint);
 }

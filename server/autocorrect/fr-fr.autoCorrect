@@ -1,0 +1,1156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AutoCorrectProviderState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>Sdl.TranslationStudio.AutoCorrect</Id>
+  <LanguageCode>1036</LanguageCode>
+  <LanguageName>fr-FR</LanguageName>
+  <State><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<ProviderConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TargetLanguageCode>1036</TargetLanguageCode>
+  <TargetLanguageName>fr-FR</TargetLanguageName>
+  <AutoCorrectSettings>
+    <CorrectTwoInitialCaps>true</CorrectTwoInitialCaps>
+    <CorrectSentenceCaps>true</CorrectSentenceCaps>
+    <CorrectCapsLock>true</CorrectCapsLock>
+    <ReplaceTextAsYouType>false</ReplaceTextAsYouType>
+    <AutoCorrectEntries>
+      <Entry src="(c)" trg="©" />
+      <Entry src="(e)" trg="€" />
+      <Entry src="(r)" trg="®" />
+      <Entry src="(tm)" trg="™" />
+      <Entry src="..." trg="…" />
+      <Entry src="a t elle" trg="a-t-elle" />
+      <Entry src="a t il" trg="a-t-il" />
+      <Entry src="a t on" trg="a-t-on" />
+      <Entry src="a t'elle" trg="a-t-elle" />
+      <Entry src="a t'il" trg="a-t-il" />
+      <Entry src="a t'on" trg="a-t-on" />
+      <Entry src="a t-elle" trg="a-t-elle" />
+      <Entry src="a t-il" trg="a-t-il" />
+      <Entry src="a t-on" trg="a-t-on" />
+      <Entry src="abcisse" trg="abscisse" />
+      <Entry src="absisse" trg="abscisse" />
+      <Entry src="acalmie" trg="accalmie" />
+      <Entry src="accompte" trg="acompte" />
+      <Entry src="accordeon" trg="accordéon" />
+      <Entry src="accummuler" trg="accumuler" />
+      <Entry src="acroc" trg="accroc" />
+      <Entry src="acréditif" trg="accréditif" />
+      <Entry src="afaires" trg="affaires" />
+      <Entry src="afiliation" trg="affiliation" />
+      <Entry src="afirmer" trg="affirmer" />
+      <Entry src="aggio" trg="agio" />
+      <Entry src="aggios" trg="agios" />
+      <Entry src="agrèer" trg="agréer" />
+      <Entry src="ai je" trg="ai-je" />
+      <Entry src="aler" trg="aller" />
+      <Entry src="allemagne" trg="Allemagne" />
+      <Entry src="allieurs" trg="ailleurs" />
+      <Entry src="alocation" trg="allocation" />
+      <Entry src="alocations" trg="allocations" />
+      <Entry src="amorticement" trg="amortissement" />
+      <Entry src="annnée" trg="année" />
+      <Entry src="annuller" trg="annuler" />
+      <Entry src="anonces" trg="annonces" />
+      <Entry src="anotation" trg="annotation" />
+      <Entry src="anotations" trg="annotations" />
+      <Entry src="antologie" trg="anthologie" />
+      <Entry src="anuller" trg="annuler" />
+      <Entry src="anée" trg="année" />
+      <Entry src="anées" trg="années" />
+      <Entry src="apareil" trg="appareil" />
+      <Entry src="apel" trg="appel" />
+      <Entry src="apels" trg="appels" />
+      <Entry src="apliquer" trg="appliquer" />
+      <Entry src="apointements" trg="appointements" />
+      <Entry src="appeller" trg="appeler" />
+      <Entry src="appercevoir" trg="apercevoir" />
+      <Entry src="applciation" trg="application" />
+      <Entry src="aprendre" trg="apprendre" />
+      <Entry src="aprè sce" trg="après ce" />
+      <Entry src="aprè sces" trg="après ces" />
+      <Entry src="aprè scet" trg="après cet" />
+      <Entry src="aprè scette" trg="après cette" />
+      <Entry src="aprè sdes" trg="après des" />
+      <Entry src="aprè sla" trg="après la" />
+      <Entry src="aprè sle" trg="après le" />
+      <Entry src="aprè sles" trg="après les" />
+      <Entry src="aprè sun" trg="après un" />
+      <Entry src="aprè sune" trg="après une" />
+      <Entry src="aprèsc e" trg="après ce" />
+      <Entry src="aprèsc es" trg="après ces" />
+      <Entry src="aprèsc et" trg="après cet" />
+      <Entry src="aprèsc ette" trg="après cette" />
+      <Entry src="aprèsd es" trg="après des" />
+      <Entry src="aprèsl a" trg="après la" />
+      <Entry src="aprèsl e" trg="après le" />
+      <Entry src="aprèsl es" trg="après les" />
+      <Entry src="aprèsu n" trg="après un" />
+      <Entry src="aprèsu ne" trg="après une" />
+      <Entry src="aprécie" trg="apprécie" />
+      <Entry src="aprécier" trg="apprécier" />
+      <Entry src="aprécies" trg="apprécies" />
+      <Entry src="aprés" trg="après" />
+      <Entry src="aritmétique" trg="arithmétique" />
+      <Entry src="arondissement" trg="arrondissement" />
+      <Entry src="arondissements" trg="arrondissements" />
+      <Entry src="artiset" trg="artiste" />
+      <Entry src="artisets" trg="artistes" />
+      <Entry src="artisna" trg="artisan" />
+      <Entry src="artisnas" trg="artisans" />
+      <Entry src="arute" trg="autre" />
+      <Entry src="as tu" trg="as-tu" />
+      <Entry src="asociation" trg="association" />
+      <Entry src="asociations" trg="associations" />
+      <Entry src="asurance" trg="assurance" />
+      <Entry src="ateindre" trg="atteindre" />
+      <Entry src="atestation" trg="attestation" />
+      <Entry src="atrapper" trg="attraper" />
+      <Entry src="au dedans" trg="au-dedans" />
+      <Entry src="au delà" trg="au-delà" />
+      <Entry src="aujourd'hiu" trg="aujourd’hui" />
+      <Entry src="aujourdhiu" trg="aujourd’hui" />
+      <Entry src="aura t elle" trg="aura-t-elle" />
+      <Entry src="aura t il" trg="aura-t-il" />
+      <Entry src="aura t on" trg="aura-t-on" />
+      <Entry src="aura t'elle" trg="aura-t-elle" />
+      <Entry src="aura t'il" trg="aura-t-il" />
+      <Entry src="aura t'on" trg="aura-t-on" />
+      <Entry src="aura t-elle" trg="aura-t-elle" />
+      <Entry src="aura t-il" trg="aura-t-il" />
+      <Entry src="aura t-on" trg="aura-t-on" />
+      <Entry src="auront elles" trg="auront-elles" />
+      <Entry src="auront ils" trg="auront-ils" />
+      <Entry src="ausi" trg="aussi" />
+      <Entry src="aussitot" trg="aussitôt" />
+      <Entry src="autentique" trg="authentique" />
+      <Entry src="autentiques" trg="authentiques" />
+      <Entry src="authorisation" trg="autorisation" />
+      <Entry src="autorization" trg="autorisation" />
+      <Entry src="autriche" trg="Autriche" />
+      <Entry src="avan tce" trg="avant ce" />
+      <Entry src="avan tces" trg="avant ces" />
+      <Entry src="avan tcet" trg="avant cet" />
+      <Entry src="avan tcette" trg="avant cette" />
+      <Entry src="avan tdes" trg="avant des" />
+      <Entry src="avan tla" trg="avant la" />
+      <Entry src="avan tle" trg="avant le" />
+      <Entry src="avan tles" trg="avant les" />
+      <Entry src="avan tun" trg="avant un" />
+      <Entry src="avan tune" trg="avant une" />
+      <Entry src="avant garde" trg="avant-garde" />
+      <Entry src="avant gardes" trg="avant-gardes" />
+      <Entry src="avant hier" trg="avant-hier" />
+      <Entry src="avant veille" trg="avant-veille" />
+      <Entry src="avant veilles" trg="avant-veilles" />
+      <Entry src="avantc e" trg="avant ce" />
+      <Entry src="avantc es" trg="avant ces" />
+      <Entry src="avantc et" trg="avant cet" />
+      <Entry src="avantc ette" trg="avant cette" />
+      <Entry src="avantd es" trg="avant des" />
+      <Entry src="avantl a" trg="avant la" />
+      <Entry src="avantl e" trg="avant le" />
+      <Entry src="avantl es" trg="avant les" />
+      <Entry src="avantu n" trg="avant un" />
+      <Entry src="avantu ne" trg="avant une" />
+      <Entry src="ave cce" trg="avec ce" />
+      <Entry src="ave cces" trg="avec ces" />
+      <Entry src="ave ccet" trg="avec cet" />
+      <Entry src="ave ccette" trg="avec cette" />
+      <Entry src="ave cdes" trg="avec des" />
+      <Entry src="ave cla" trg="avec la" />
+      <Entry src="ave cle" trg="avec le" />
+      <Entry src="ave cles" trg="avec les" />
+      <Entry src="ave cun" trg="avec un" />
+      <Entry src="ave cune" trg="avec une" />
+      <Entry src="avecc e" trg="avec ce" />
+      <Entry src="avecc es" trg="avec ces" />
+      <Entry src="avecc et" trg="avec cet" />
+      <Entry src="avecc ette" trg="avec cette" />
+      <Entry src="avecd es" trg="avec des" />
+      <Entry src="avecl a" trg="avec la" />
+      <Entry src="avecl e" trg="avec le" />
+      <Entry src="avecl es" trg="avec les" />
+      <Entry src="avecu n" trg="avec un" />
+      <Entry src="avecu ne" trg="avec une" />
+      <Entry src="avez vous" trg="avez-vous" />
+      <Entry src="avons nous" trg="avons-nous" />
+      <Entry src="bacalauréat" trg="baccalauréat" />
+      <Entry src="barage" trg="barrage" />
+      <Entry src="baucoup" trg="beaucoup" />
+      <Entry src="belgique" trg="Belgique" />
+      <Entry src="bibliotèque" trg="bibliothèque" />
+      <Entry src="bientot" trg="bientôt" />
+      <Entry src="boeuf" trg="bœuf" />
+      <Entry src="boeufs" trg="bœufs" />
+      <Entry src="bonnification" trg="bonification" />
+      <Entry src="bonnifications" trg="bonifications" />
+      <Entry src="boussolle" trg="boussole" />
+      <Entry src="Brézil" trg="Brésil" />
+      <Entry src="buletin" trg="bulletin" />
+      <Entry src="c '" trg="c’" />
+      <Entry src="c ‘" trg="c’" />
+      <Entry src="c'est a dire" trg="c’est-à-dire" />
+      <Entry src="c'est à dire" trg="c’est-à-dire" />
+      <Entry src="carefour" trg="carrefour" />
+      <Entry src="ceal" trg="cela" />
+      <Entry src="celle ci" trg="celle-ci" />
+      <Entry src="celles ci" trg="celles-ci" />
+      <Entry src="celui ci" trg="celui-ci" />
+      <Entry src="celulle" trg="cellule" />
+      <Entry src="celà" trg="cela" />
+      <Entry src="cetrain" trg="certain" />
+      <Entry src="ceux ci" trg="ceux-ci" />
+      <Entry src="chaqun" trg="chacun" />
+      <Entry src="charette" trg="charrette" />
+      <Entry src="chateau" trg="château" />
+      <Entry src="che zce" trg="chez ce" />
+      <Entry src="che zces" trg="chez ces" />
+      <Entry src="che zcet" trg="chez cet" />
+      <Entry src="che zcette" trg="chez cette" />
+      <Entry src="che zdes" trg="chez des" />
+      <Entry src="che zla" trg="chez la" />
+      <Entry src="che zle" trg="chez le" />
+      <Entry src="che zles" trg="chez les" />
+      <Entry src="che zun" trg="chez un" />
+      <Entry src="che zune" trg="chez une" />
+      <Entry src="chezc e" trg="chez ce" />
+      <Entry src="chezc es" trg="chez ces" />
+      <Entry src="chezc et" trg="chez cet" />
+      <Entry src="chezc ette" trg="chez cette" />
+      <Entry src="chezd es" trg="chez des" />
+      <Entry src="chezl a" trg="chez la" />
+      <Entry src="chezl e" trg="chez le" />
+      <Entry src="chezl es" trg="chez les" />
+      <Entry src="chezu n" trg="chez un" />
+      <Entry src="chezu ne" trg="chez une" />
+      <Entry src="chifre" trg="chiffre" />
+      <Entry src="chifres" trg="chiffres" />
+      <Entry src="choeur" trg="chœur" />
+      <Entry src="choeurs" trg="chœurs" />
+      <Entry src="ci dessous" trg="ci-dessous" />
+      <Entry src="ci dessus" trg="ci-dessus" />
+      <Entry src="ci joint" trg="ci-joint" />
+      <Entry src="circonstantiel" trg="circonstanciel" />
+      <Entry src="cleui" trg="celui" />
+      <Entry src="clientéle" trg="clientèle" />
+      <Entry src="cnet" trg="cent" />
+      <Entry src="coeur" trg="cœur" />
+      <Entry src="coeurs" trg="cœurs" />
+      <Entry src="comerce" trg="commerce" />
+      <Entry src="cometre" trg="commettre" />
+      <Entry src="concesion" trg="concession" />
+      <Entry src="concesions" trg="concessions" />
+      <Entry src="concluse" trg="conclue" />
+      <Entry src="concurence" trg="concurrence" />
+      <Entry src="confidenciel" trg="confidentiel" />
+      <Entry src="contencieux" trg="contentieux" />
+      <Entry src="contr ece" trg="contre ce" />
+      <Entry src="contr eces" trg="contre ces" />
+      <Entry src="contr ecet" trg="contre cet" />
+      <Entry src="contr ecette" trg="contre cette" />
+      <Entry src="contr edes" trg="contre des" />
+      <Entry src="contr ela" trg="contre la" />
+      <Entry src="contr ele" trg="contre le" />
+      <Entry src="contr eles" trg="contre les" />
+      <Entry src="contr eun" trg="contre un" />
+      <Entry src="contr eune" trg="contre une" />
+      <Entry src="contre-ordre" trg="contrordre" />
+      <Entry src="contrec e" trg="contre ce" />
+      <Entry src="contrec es" trg="contre ces" />
+      <Entry src="contrec et" trg="contre cet" />
+      <Entry src="contrec ette" trg="contre cette" />
+      <Entry src="contred es" trg="contre des" />
+      <Entry src="contrel a" trg="contre la" />
+      <Entry src="contrel e" trg="contre le" />
+      <Entry src="contrel es" trg="contre les" />
+      <Entry src="contreu n" trg="contre un" />
+      <Entry src="contreu ne" trg="contre une" />
+      <Entry src="controle" trg="contrôle" />
+      <Entry src="corection" trg="correction" />
+      <Entry src="corections" trg="corrections" />
+      <Entry src="couleru" trg="couleur" />
+      <Entry src="courament" trg="couramment" />
+      <Entry src="creer" trg="créer" />
+      <Entry src="créee" trg="créée" />
+      <Entry src="crême" trg="crème" />
+      <Entry src="curiculum" trg="curriculum" />
+      <Entry src="côté là" trg="côté-là" />
+      <Entry src="d '" trg="d’" />
+      <Entry src="d ece" trg="de ce" />
+      <Entry src="d eces" trg="de ces" />
+      <Entry src="d ecet" trg="de cet" />
+      <Entry src="d ecette" trg="de cette" />
+      <Entry src="d ela" trg="de la" />
+      <Entry src="d ele" trg="de le" />
+      <Entry src="d eles" trg="de les" />
+      <Entry src="d eun" trg="d’un" />
+      <Entry src="d eune" trg="d’une" />
+      <Entry src="d ‘" trg="d’" />
+      <Entry src="d'ou" trg="d’où" />
+      <Entry src="dan sce" trg="dans ce" />
+      <Entry src="dan sces" trg="dans ces" />
+      <Entry src="dan scet" trg="dans cet" />
+      <Entry src="dan scette" trg="dans cette" />
+      <Entry src="dan sdes" trg="dans des" />
+      <Entry src="dan sla" trg="dans la" />
+      <Entry src="dan sle" trg="dans le" />
+      <Entry src="dan sles" trg="dans les" />
+      <Entry src="dan sun" trg="dans un" />
+      <Entry src="dan sune" trg="dans une" />
+      <Entry src="dansc e" trg="dans ce" />
+      <Entry src="dansc es" trg="dans ces" />
+      <Entry src="dansc et" trg="dans cet" />
+      <Entry src="dansc ette" trg="dans cette" />
+      <Entry src="dansd es" trg="dans des" />
+      <Entry src="dansl a" trg="dans la" />
+      <Entry src="dansl e" trg="dans le" />
+      <Entry src="dansl es" trg="dans les" />
+      <Entry src="dansu n" trg="dans un" />
+      <Entry src="dansu ne" trg="dans une" />
+      <Entry src="dec e" trg="de ce" />
+      <Entry src="dec es" trg="de ces" />
+      <Entry src="dec et" trg="de cet" />
+      <Entry src="dec ette" trg="de cette" />
+      <Entry src="deja" trg="déjà" />
+      <Entry src="del a" trg="de la" />
+      <Entry src="del e" trg="de le" />
+      <Entry src="del es" trg="de les" />
+      <Entry src="depui sce" trg="depuis ce" />
+      <Entry src="depui sces" trg="depuis ces" />
+      <Entry src="depui scet" trg="depuis cet" />
+      <Entry src="depui scette" trg="depuis cette" />
+      <Entry src="depui sdes" trg="depuis des" />
+      <Entry src="depui sla" trg="depuis la" />
+      <Entry src="depui sle" trg="depuis le" />
+      <Entry src="depui sles" trg="depuis les" />
+      <Entry src="depui sun" trg="depuis un" />
+      <Entry src="depui sune" trg="depuis une" />
+      <Entry src="depuisc e" trg="depuis ce" />
+      <Entry src="depuisc es" trg="depuis ces" />
+      <Entry src="depuisc et" trg="depuis cet" />
+      <Entry src="depuisc ette" trg="depuis cette" />
+      <Entry src="depuisd es" trg="depuis des" />
+      <Entry src="depuisl a" trg="depuis la" />
+      <Entry src="depuisl e" trg="depuis le" />
+      <Entry src="depuisl es" trg="depuis les" />
+      <Entry src="depuisu n" trg="depuis un" />
+      <Entry src="depuisu ne" trg="depuis une" />
+      <Entry src="derrièr ece" trg="derrière ce" />
+      <Entry src="derrièr eces" trg="derrière ces" />
+      <Entry src="derrièr ecet" trg="derrière cet" />
+      <Entry src="derrièr ecette" trg="derrière cette" />
+      <Entry src="derrièr edes" trg="derrière des" />
+      <Entry src="derrièr ela" trg="derrière la" />
+      <Entry src="derrièr ele" trg="derrière le" />
+      <Entry src="derrièr eles" trg="derrière les" />
+      <Entry src="derrièr eun" trg="derrière un" />
+      <Entry src="derrièr eune" trg="derrière une" />
+      <Entry src="derrièrec e" trg="derrière ce" />
+      <Entry src="derrièrec es" trg="derrière ces" />
+      <Entry src="derrièrec et" trg="derrière cet" />
+      <Entry src="derrièrec ette" trg="derrière cette" />
+      <Entry src="derrièred es" trg="derrière des" />
+      <Entry src="derrièrel a" trg="derrière la" />
+      <Entry src="derrièrel e" trg="derrière le" />
+      <Entry src="derrièrel es" trg="derrière les" />
+      <Entry src="derrièreu n" trg="derrière un" />
+      <Entry src="derrièreu ne" trg="derrière une" />
+      <Entry src="deu n" trg="d’un" />
+      <Entry src="deu ne" trg="d’une" />
+      <Entry src="devan tce" trg="devant ce" />
+      <Entry src="devan tces" trg="devant ces" />
+      <Entry src="devan tcet" trg="devant cet" />
+      <Entry src="devan tcette" trg="devant cette" />
+      <Entry src="devan tdes" trg="devant des" />
+      <Entry src="devan tla" trg="devant la" />
+      <Entry src="devan tle" trg="devant le" />
+      <Entry src="devan tles" trg="devant les" />
+      <Entry src="devan tun" trg="devant un" />
+      <Entry src="devan tune" trg="devant une" />
+      <Entry src="devantc e" trg="devant ce" />
+      <Entry src="devantc es" trg="devant ces" />
+      <Entry src="devantc et" trg="devant cet" />
+      <Entry src="devantc ette" trg="devant cette" />
+      <Entry src="devantd es" trg="devant des" />
+      <Entry src="devantl a" trg="devant la" />
+      <Entry src="devantl e" trg="devant le" />
+      <Entry src="devantl es" trg="devant les" />
+      <Entry src="devantu n" trg="devant un" />
+      <Entry src="devantu ne" trg="devant une" />
+      <Entry src="dexu" trg="deux" />
+      <Entry src="dictionaire" trg="dictionnaire" />
+      <Entry src="dilemne" trg="dilemme" />
+      <Entry src="dilemnes" trg="dilemmes" />
+      <Entry src="diplome" trg="diplôme" />
+      <Entry src="disponnible" trg="disponible" />
+      <Entry src="disponnibles" trg="disponibles" />
+      <Entry src="dnas" trg="dans" />
+      <Entry src="dnot" trg="dont" />
+      <Entry src="domages" trg="dommages" />
+      <Entry src="dse" trg="des" />
+      <Entry src="dè sce" trg="dès ce" />
+      <Entry src="dè sces" trg="dès ces" />
+      <Entry src="dè scet" trg="dès cet" />
+      <Entry src="dè scette" trg="dès cette" />
+      <Entry src="dè sla" trg="dès la" />
+      <Entry src="dè sle" trg="dès le" />
+      <Entry src="dè sles" trg="dès les" />
+      <Entry src="dè sun" trg="dès un" />
+      <Entry src="dè sune" trg="dès une" />
+      <Entry src="dèsc e" trg="dès ce" />
+      <Entry src="dèsc es" trg="dès ces" />
+      <Entry src="dèsc et" trg="dès cet" />
+      <Entry src="dèsc ette" trg="dès cette" />
+      <Entry src="dèsl a" trg="dès la" />
+      <Entry src="dèsl e" trg="dès le" />
+      <Entry src="dèsl es" trg="dès les" />
+      <Entry src="dèsu n" trg="dès un" />
+      <Entry src="dèsu ne" trg="dès une" />
+      <Entry src="dégrévement" trg="dégrèvement" />
+      <Entry src="déja" trg="déjà" />
+      <Entry src="démarer" trg="démarrer" />
+      <Entry src="dépanage" trg="dépannage" />
+      <Entry src="dépaner" trg="dépanner" />
+      <Entry src="dépot" trg="dépôt" />
+      <Entry src="déveloper" trg="développer" />
+      <Entry src="e nce" trg="en ce" />
+      <Entry src="e nces" trg="en ces" />
+      <Entry src="e ncet" trg="en cet" />
+      <Entry src="e ncette" trg="en cette" />
+      <Entry src="e ndes" trg="en des" />
+      <Entry src="e nla" trg="en la" />
+      <Entry src="e nle" trg="en le" />
+      <Entry src="e nles" trg="en les" />
+      <Entry src="e nun" trg="en un" />
+      <Entry src="e nune" trg="en une" />
+      <Entry src="echéance" trg="échéance" />
+      <Entry src="echéances" trg="échéances" />
+      <Entry src="efets" trg="effets" />
+      <Entry src="elle meme" trg="elle-même" />
+      <Entry src="elle même" trg="elle-même" />
+      <Entry src="embarasser" trg="embarrasser" />
+      <Entry src="emmission" trg="émission" />
+      <Entry src="enc e" trg="en ce" />
+      <Entry src="enc es" trg="en ces" />
+      <Entry src="enc et" trg="en cet" />
+      <Entry src="enc ette" trg="en cette" />
+      <Entry src="end es" trg="en des" />
+      <Entry src="endomagé" trg="endommagé" />
+      <Entry src="enl a" trg="en la" />
+      <Entry src="enl e" trg="en le" />
+      <Entry src="enl es" trg="en les" />
+      <Entry src="enrégistrer" trg="enregistrer" />
+      <Entry src="entr ece" trg="entre ce" />
+      <Entry src="entr eces" trg="entre ces" />
+      <Entry src="entr ecet" trg="entre cet" />
+      <Entry src="entr ecette" trg="entre cette" />
+      <Entry src="entr edes" trg="entre des" />
+      <Entry src="entr ela" trg="entre la" />
+      <Entry src="entr ele" trg="entre le" />
+      <Entry src="entr eles" trg="entre les" />
+      <Entry src="entr eun" trg="entre un" />
+      <Entry src="entr eune" trg="entre une" />
+      <Entry src="entr'acte" trg="entracte" />
+      <Entry src="entrec e" trg="entre ce" />
+      <Entry src="entrec es" trg="entre ces" />
+      <Entry src="entrec et" trg="entre cet" />
+      <Entry src="entrec ette" trg="entre cette" />
+      <Entry src="entred es" trg="entre des" />
+      <Entry src="entrel a" trg="entre la" />
+      <Entry src="entrel e" trg="entre le" />
+      <Entry src="entrel es" trg="entre les" />
+      <Entry src="entreu n" trg="entre un" />
+      <Entry src="entreu ne" trg="entre une" />
+      <Entry src="enu n" trg="en un" />
+      <Entry src="enu ne" trg="en une" />
+      <Entry src="enveloper" trg="envelopper" />
+      <Entry src="erronné" trg="erroné" />
+      <Entry src="erronnés" trg="erronés" />
+      <Entry src="espagne" trg="Espagne" />
+      <Entry src="Est ce" trg="Est-ce" />
+      <Entry src="etait" trg="était" />
+      <Entry src="ete" trg="été" />
+      <Entry src="eux memes" trg="eux-mêmes" />
+      <Entry src="eux mêmes" trg="eux-mêmes" />
+      <Entry src="excelent" trg="excellent" />
+      <Entry src="excelents" trg="excellents" />
+      <Entry src="exelent" trg="excellent" />
+      <Entry src="exelents" trg="excellents" />
+      <Entry src="exigeance" trg="exigence" />
+      <Entry src="existe t elle" trg="existe-t-elle" />
+      <Entry src="existe t il" trg="existe-t-il" />
+      <Entry src="existe t'elle" trg="existe-t-elle" />
+      <Entry src="existe t'il" trg="existe-t-il" />
+      <Entry src="existe t-elle" trg="existe-t-elle" />
+      <Entry src="existe t-il" trg="existe-t-il" />
+      <Entry src="existent elles" trg="existent-elles" />
+      <Entry src="existent ils" trg="existent-ils" />
+      <Entry src="falange" trg="phalange" />
+      <Entry src="faloir" trg="falloir" />
+      <Entry src="ficheir" trg="fichier" />
+      <Entry src="ficheirs" trg="fichiers" />
+      <Entry src="filialle" trg="filiale" />
+      <Entry src="filliale" trg="filiale" />
+      <Entry src="financiaire" trg="financière" />
+      <Entry src="fios" trg="fois" />
+      <Entry src="flêche" trg="flèche" />
+      <Entry src="foetal" trg="fœtal" />
+      <Entry src="foetale" trg="fœtale" />
+      <Entry src="foetales" trg="fœtales" />
+      <Entry src="foetaux" trg="fœtaux" />
+      <Entry src="foetus" trg="fœtus" />
+      <Entry src="fonctionaire" trg="fonctionnaire" />
+      <Entry src="fonctioner" trg="fonctionner" />
+      <Entry src="Francais" trg="Français" />
+      <Entry src="france" trg="France" />
+      <Entry src="francofone" trg="francophone" />
+      <Entry src="fuire" trg="fuir" />
+      <Entry src="gasomètre" trg="gazomètre" />
+      <Entry src="gestionaire" trg="gestionnaire" />
+      <Entry src="globul" trg="globule" />
+      <Entry src="goufre" trg="gouffre" />
+      <Entry src="grand chose" trg="grand-chose" />
+      <Entry src="grand mère" trg="grand-mère" />
+      <Entry src="grande-bretagne" trg="Grande-Bretagne" />
+      <Entry src="grands mères" trg="grands-mères" />
+      <Entry src="griffoner" trg="griffonner" />
+      <Entry src="gràce" trg="grâce" />
+      <Entry src="gèrer" trg="gérer" />
+      <Entry src="hatu" trg="haut" />
+      <Entry src="hipocrisie" trg="hypocrisie" />
+      <Entry src="hor sce" trg="hors ce" />
+      <Entry src="hor sces" trg="hors ces" />
+      <Entry src="hor scet" trg="hors cet" />
+      <Entry src="hor scette" trg="hors cette" />
+      <Entry src="hor sdes" trg="hors des" />
+      <Entry src="hor sla" trg="hors la" />
+      <Entry src="hor sle" trg="hors le" />
+      <Entry src="hor sles" trg="hors les" />
+      <Entry src="hor sun" trg="hors un" />
+      <Entry src="hor sune" trg="hors une" />
+      <Entry src="hors-d'oeuvre" trg="hors-d’œuvre" />
+      <Entry src="horsc e" trg="hors ce" />
+      <Entry src="horsc es" trg="hors ces" />
+      <Entry src="horsc et" trg="hors cet" />
+      <Entry src="horsc ette" trg="hors cette" />
+      <Entry src="horsd es" trg="hors des" />
+      <Entry src="horsl a" trg="hors la" />
+      <Entry src="horsl e" trg="hors le" />
+      <Entry src="horsl es" trg="hors les" />
+      <Entry src="horsu n" trg="hors un" />
+      <Entry src="horsu ne" trg="hors une" />
+      <Entry src="Htp" trg="http" />
+      <Entry src="Http" trg="http" />
+      <Entry src="http:\\" trg="http://" />
+      <Entry src="hémoragie" trg="hémorragie" />
+      <Entry src="impressionisme" trg="impressionnisme" />
+      <Entry src="inclu" trg="inclus" />
+      <Entry src="indémniser" trg="indemniser" />
+      <Entry src="indépendent" trg="indépendant" />
+      <Entry src="innitialiser" trg="initialiser" />
+      <Entry src="innonder" trg="inonder" />
+      <Entry src="inovation" trg="innovation" />
+      <Entry src="intervale" trg="intervalle" />
+      <Entry src="intéret" trg="intérêt" />
+      <Entry src="intérresser" trg="intéresser" />
+      <Entry src="ira t elle" trg="ira-t-elle" />
+      <Entry src="ira t il" trg="ira-t-il" />
+      <Entry src="ira t on" trg="ira-t-on" />
+      <Entry src="ira t'elle" trg="ira-t-elle" />
+      <Entry src="ira t'il" trg="ira-t-il" />
+      <Entry src="ira t'on" trg="ira-t-on" />
+      <Entry src="ira t-elle" trg="ira-t-elle" />
+      <Entry src="ira t-il" trg="ira-t-il" />
+      <Entry src="ira t-on" trg="ira-t-on" />
+      <Entry src="irlande" trg="Irlande" />
+      <Entry src="italie" trg="Italie" />
+      <Entry src="j '" trg="j’" />
+      <Entry src="j ‘" trg="j’" />
+      <Entry src="jamias" trg="jamais" />
+      <Entry src="jusqu'a" trg="jusqu’à" />
+      <Entry src="jusquau" trg="jusqu’au" />
+      <Entry src="jutse" trg="juste" />
+      <Entry src="l '" trg="l’" />
+      <Entry src="l ‘" trg="l’" />
+      <Entry src="leru" trg="leur" />
+      <Entry src="litterature" trg="littérature" />
+      <Entry src="lse" trg="les" />
+      <Entry src="lui meme" trg="lui-même" />
+      <Entry src="lui même" trg="lui-même" />
+      <Entry src="luxembourg" trg="Luxembourg" />
+      <Entry src="là dessous" trg="là-dessous" />
+      <Entry src="là dessus" trg="là-dessus" />
+      <Entry src="m '" trg="m’" />
+      <Entry src="m ‘" trg="m’" />
+      <Entry src="main-d'oeuvre" trg="main-d’œuvre" />
+      <Entry src="maisonette" trg="maisonnette" />
+      <Entry src="maléable" trg="malléable" />
+      <Entry src="maniere" trg="manière" />
+      <Entry src="manoeuvre" trg="manœuvre" />
+      <Entry src="manoeuvrer" trg="manœuvrer" />
+      <Entry src="manoeuvres" trg="manœuvres" />
+      <Entry src="manoeuvrier" trg="manœuvrier" />
+      <Entry src="manoeuvriers" trg="manœuvriers" />
+      <Entry src="manoeuvrière" trg="manœuvrière" />
+      <Entry src="manoeuvrières" trg="manœuvrières" />
+      <Entry src="manoeuvré" trg="manœuvré" />
+      <Entry src="manoeuvrée" trg="manœuvrée" />
+      <Entry src="manoeuvrées" trg="manœuvrées" />
+      <Entry src="manoeuvrés" trg="manœuvrés" />
+      <Entry src="marronier" trg="marronnier" />
+      <Entry src="memoire" trg="mémoire" />
+      <Entry src="mexique" trg="Mexique" />
+      <Entry src="milion" trg="million" />
+      <Entry src="millon" trg="million" />
+      <Entry src="mio" trg="moi" />
+      <Entry src="mions" trg="moins" />
+      <Entry src="modéle" trg="modèle" />
+      <Entry src="moeurs" trg="mœurs" />
+      <Entry src="moi meme" trg="moi-même" />
+      <Entry src="moi même" trg="moi-même" />
+      <Entry src="mourrir" trg="mourir" />
+      <Entry src="mème" trg="même" />
+      <Entry src="Méditerannée" trg="Méditerranée" />
+      <Entry src="mémotechnique" trg="mnémotechnique" />
+      <Entry src="n '" trg="n’" />
+      <Entry src="n ‘" trg="n’" />
+      <Entry src="Nations-unies" trg="Nations-Unies" />
+      <Entry src="noeud" trg="nœud" />
+      <Entry src="noeuds" trg="nœuds" />
+      <Entry src="non conformité" trg="non-conformité" />
+      <Entry src="nosu" trg="nous" />
+      <Entry src="nourir" trg="nourrir" />
+      <Entry src="nouriture" trg="nourriture" />
+      <Entry src="nous memes" trg="nous-mêmes" />
+      <Entry src="nous mêmes" trg="nous-mêmes" />
+      <Entry src="nul part" trg="nulle part" />
+      <Entry src="occupper" trg="occuper" />
+      <Entry src="occurence" trg="occurrence" />
+      <Entry src="occurences" trg="occurrences" />
+      <Entry src="ocuper" trg="occuper" />
+      <Entry src="ocurrence" trg="occurrence" />
+      <Entry src="ocurrences" trg="occurrences" />
+      <Entry src="oecuménique" trg="œcuménique" />
+      <Entry src="oecuméniques" trg="œcuméniques" />
+      <Entry src="oecuménisme" trg="œcuménisme" />
+      <Entry src="Oedipe" trg="Œdipe" />
+      <Entry src="oedème" trg="œdème" />
+      <Entry src="oeil" trg="œil" />
+      <Entry src="oeil-de-boeuf" trg="œil-de-bœuf" />
+      <Entry src="oeil-de-chat" trg="œil-de-chat" />
+      <Entry src="oeillade" trg="œillade" />
+      <Entry src="oeillades" trg="œillades" />
+      <Entry src="oeillet" trg="œillet" />
+      <Entry src="oeilleton" trg="œilleton" />
+      <Entry src="oeilletons" trg="œilletons" />
+      <Entry src="oeillets" trg="œillets" />
+      <Entry src="oeillère" trg="œillère" />
+      <Entry src="oeillères" trg="œillères" />
+      <Entry src="oeils-de-boeuf" trg="œils-de-bœuf" />
+      <Entry src="oeils-de-chat" trg="œils-de-chat" />
+      <Entry src="oenologie" trg="œnologie" />
+      <Entry src="oenologique" trg="œnologique" />
+      <Entry src="oenologiques" trg="œnologiques" />
+      <Entry src="oenologue" trg="œnologue" />
+      <Entry src="oenologues" trg="œnologues" />
+      <Entry src="oesophage" trg="œsophage" />
+      <Entry src="oesophages" trg="œsophages" />
+      <Entry src="oestrogène" trg="œstrogène" />
+      <Entry src="oeuf" trg="œuf" />
+      <Entry src="oeufs" trg="œufs" />
+      <Entry src="oeuvre" trg="œuvre" />
+      <Entry src="oeuvrer" trg="œuvrer" />
+      <Entry src="oeuvres" trg="œuvres" />
+      <Entry src="oeuvré" trg="œuvré" />
+      <Entry src="oeuvrée" trg="œuvrée" />
+      <Entry src="oeuvrées" trg="œuvrées" />
+      <Entry src="oeuvrés" trg="œuvrés" />
+      <Entry src="oficiel" trg="officiel" />
+      <Entry src="oficiels" trg="officiels" />
+      <Entry src="ofre" trg="offre" />
+      <Entry src="ofres" trg="offres" />
+      <Entry src="ont elles" trg="ont-elles" />
+      <Entry src="ont ils" trg="ont-ils" />
+      <Entry src="outr ece" trg="outre ce" />
+      <Entry src="outr eces" trg="outre ces" />
+      <Entry src="outr ecet" trg="outre cet" />
+      <Entry src="outr ecette" trg="outre cette" />
+      <Entry src="outr edes" trg="outre des" />
+      <Entry src="outr ela" trg="outre la" />
+      <Entry src="outr ele" trg="outre le" />
+      <Entry src="outr eles" trg="outre les" />
+      <Entry src="outr eun" trg="outre un" />
+      <Entry src="outr eune" trg="outre une" />
+      <Entry src="outrec e" trg="outre ce" />
+      <Entry src="outrec es" trg="outre ces" />
+      <Entry src="outrec et" trg="outre cet" />
+      <Entry src="outrec ette" trg="outre cette" />
+      <Entry src="outred es" trg="outre des" />
+      <Entry src="outrel a" trg="outre la" />
+      <Entry src="outrel e" trg="outre le" />
+      <Entry src="outrel es" trg="outre les" />
+      <Entry src="outreu n" trg="outre un" />
+      <Entry src="outreu ne" trg="outre une" />
+      <Entry src="pa rces" trg="par ces" />
+      <Entry src="pa rcet" trg="par cet" />
+      <Entry src="pa rcette" trg="par cette" />
+      <Entry src="pa rdes" trg="par des" />
+      <Entry src="pa run" trg="par un" />
+      <Entry src="pa rune" trg="par une" />
+      <Entry src="Paques" trg="Pâques" />
+      <Entry src="par dessous" trg="par-dessous" />
+      <Entry src="par dessus" trg="par-dessus" />
+      <Entry src="parafine" trg="paraffine" />
+      <Entry src="paralèlle" trg="parallèle" />
+      <Entry src="paralèlles" trg="parallèles" />
+      <Entry src="paranoyaque" trg="paranoïaque" />
+      <Entry src="parc es" trg="par ces" />
+      <Entry src="parc et" trg="par cet" />
+      <Entry src="parc ette" trg="par cette" />
+      <Entry src="pard es" trg="par des" />
+      <Entry src="parm ice" trg="parmi ce" />
+      <Entry src="parm ices" trg="parmi ces" />
+      <Entry src="parm icet" trg="parmi cet" />
+      <Entry src="parm icette" trg="parmi cette" />
+      <Entry src="parm ides" trg="parmi des" />
+      <Entry src="parm ila" trg="parmi la" />
+      <Entry src="parm ile" trg="parmi le" />
+      <Entry src="parm iles" trg="parmi les" />
+      <Entry src="parm iun" trg="parmi un" />
+      <Entry src="parm iune" trg="parmi une" />
+      <Entry src="parmic e" trg="parmi ce" />
+      <Entry src="parmic es" trg="parmi ces" />
+      <Entry src="parmic et" trg="parmi cet" />
+      <Entry src="parmic ette" trg="parmi cette" />
+      <Entry src="parmid es" trg="parmi des" />
+      <Entry src="parmil a" trg="parmi la" />
+      <Entry src="parmil e" trg="parmi le" />
+      <Entry src="parmil es" trg="parmi les" />
+      <Entry src="parmiu n" trg="parmi un" />
+      <Entry src="parmiu ne" trg="parmi une" />
+      <Entry src="paru n" trg="par un" />
+      <Entry src="peid" trg="pied" />
+      <Entry src="pendan tce" trg="pendant ce" />
+      <Entry src="pendan tces" trg="pendant ces" />
+      <Entry src="pendan tcet" trg="pendant cet" />
+      <Entry src="pendan tcette" trg="pendant cette" />
+      <Entry src="pendan tdes" trg="pendant des" />
+      <Entry src="pendan tla" trg="pendant la" />
+      <Entry src="pendan tle" trg="pendant le" />
+      <Entry src="pendan tles" trg="pendant les" />
+      <Entry src="pendan tun" trg="pendant un" />
+      <Entry src="pendan tune" trg="pendant une" />
+      <Entry src="pendantc e" trg="pendant ce" />
+      <Entry src="pendantc es" trg="pendant ces" />
+      <Entry src="pendantc et" trg="pendant cet" />
+      <Entry src="pendantc ette" trg="pendant cette" />
+      <Entry src="pendantd es" trg="pendant des" />
+      <Entry src="pendantl a" trg="pendant la" />
+      <Entry src="pendantl e" trg="pendant le" />
+      <Entry src="pendantl es" trg="pendant les" />
+      <Entry src="pendantu n" trg="pendant un" />
+      <Entry src="pendantu ne" trg="pendant une" />
+      <Entry src="pere" trg="père" />
+      <Entry src="personalité" trg="personnalité" />
+      <Entry src="personel" trg="personnel" />
+      <Entry src="peut t'il" trg="peut-il" />
+      <Entry src="peut t'on" trg="peut-on" />
+      <Entry src="peut t-il" trg="peut-il" />
+      <Entry src="peut t-on" trg="peut-on" />
+      <Entry src="peut-t'il" trg="peut-il" />
+      <Entry src="peut-t'on" trg="peut-on" />
+      <Entry src="peut-tu" trg="peux-tu" />
+      <Entry src="peux t'il" trg="peut-il" />
+      <Entry src="peux t'on" trg="peut-on" />
+      <Entry src="peux t-il" trg="peut-il" />
+      <Entry src="peux t-on" trg="peut-on" />
+      <Entry src="peux-t'il" trg="peut-il" />
+      <Entry src="peux-t'on" trg="peut-on" />
+      <Entry src="peux-t-il" trg="peut-il" />
+      <Entry src="peux-t-on" trg="peut-on" />
+      <Entry src="plein-pied" trg="plain-pied" />
+      <Entry src="plutot" trg="plutôt" />
+      <Entry src="portugal" trg="Portugal" />
+      <Entry src="pou rce" trg="pour ce" />
+      <Entry src="pou rces" trg="pour ces" />
+      <Entry src="pou rcet" trg="pour cet" />
+      <Entry src="pou rcette" trg="pour cette" />
+      <Entry src="pou rdes" trg="pour des" />
+      <Entry src="pou rla" trg="pour la" />
+      <Entry src="pou rle" trg="pour le" />
+      <Entry src="pou rles" trg="pour les" />
+      <Entry src="pou run" trg="pour un" />
+      <Entry src="pou rune" trg="pour une" />
+      <Entry src="pourc e" trg="pour ce" />
+      <Entry src="pourc es" trg="pour ces" />
+      <Entry src="pourc et" trg="pour cet" />
+      <Entry src="pourc ette" trg="pour cette" />
+      <Entry src="pourd es" trg="pour des" />
+      <Entry src="pourl a" trg="pour la" />
+      <Entry src="pourl e" trg="pour le" />
+      <Entry src="pourl es" trg="pour les" />
+      <Entry src="pouru n" trg="pour un" />
+      <Entry src="pouru ne" trg="pour une" />
+      <Entry src="pouvior" trg="pouvoir" />
+      <Entry src="pret" trg="prêt" />
+      <Entry src="problemme" trg="problème" />
+      <Entry src="problemmes" trg="problèmes" />
+      <Entry src="professionel" trg="professionnel" />
+      <Entry src="professionelle" trg="professionnelle" />
+      <Entry src="professionelles" trg="professionnelles" />
+      <Entry src="professionels" trg="professionnels" />
+      <Entry src="proffesseur" trg="professeur" />
+      <Entry src="proffessionel" trg="professionnel" />
+      <Entry src="proffessionelle" trg="professionnelle" />
+      <Entry src="proffessionelles" trg="professionnelles" />
+      <Entry src="proffessionels" trg="professionnels" />
+      <Entry src="proffessionnel" trg="professionnel" />
+      <Entry src="proffessionnelle" trg="professionnelle" />
+      <Entry src="proffessionnelles" trg="professionnelles" />
+      <Entry src="proffessionnels" trg="professionnels" />
+      <Entry src="programe" trg="programme" />
+      <Entry src="programer" trg="programmer" />
+      <Entry src="programes" trg="programmes" />
+      <Entry src="prè sdes" trg="près des" />
+      <Entry src="prèsd es" trg="près des" />
+      <Entry src="pélerin" trg="pèlerin" />
+      <Entry src="pélerinage" trg="pèlerinage" />
+      <Entry src="périférique" trg="périphérique" />
+      <Entry src="qu '" trg="qu’" />
+      <Entry src="qu ‘" trg="qu’" />
+      <Entry src="quasi total" trg="quasi-total" />
+      <Entry src="quasi totale" trg="quasi-totale" />
+      <Entry src="quasi totalité" trg="quasi-totalité" />
+      <Entry src="quelqun" trg="quelqu’un" />
+      <Entry src="questionaire" trg="questionnaire" />
+      <Entry src="quio" trg="quoi" />
+      <Entry src="quitance" trg="quittance" />
+      <Entry src="quitances" trg="quittances" />
+      <Entry src="racourci" trg="raccourci" />
+      <Entry src="raffinner" trg="raffiner" />
+      <Entry src="raffoller" trg="raffoler" />
+      <Entry src="rancoeur" trg="rancœur" />
+      <Entry src="rapel" trg="rappel" />
+      <Entry src="rapelle" trg="rappelle" />
+      <Entry src="rapeller" trg="rappeler" />
+      <Entry src="rapels" trg="rappels" />
+      <Entry src="recepissé" trg="récépissé" />
+      <Entry src="recomandé" trg="recommandé" />
+      <Entry src="recomandée" trg="recommandée" />
+      <Entry src="reférence" trg="référence" />
+      <Entry src="reférences" trg="références" />
+      <Entry src="remèdier" trg="remédier" />
+      <Entry src="resembler" trg="ressembler" />
+      <Entry src="resentir" trg="ressentir" />
+      <Entry src="resortir" trg="ressortir" />
+      <Entry src="rhytme" trg="rythme" />
+      <Entry src="rhytmes" trg="rythmes" />
+      <Entry src="rintroduire" trg="réintroduire" />
+      <Entry src="royaume-uni" trg="Royaume-Uni" />
+      <Entry src="règler" trg="régler" />
+      <Entry src="réference" trg="référence" />
+      <Entry src="réferences" trg="références" />
+      <Entry src="réflection" trg="réflexion" />
+      <Entry src="réfèrence" trg="référence" />
+      <Entry src="réfèrences" trg="références" />
+      <Entry src="réglement" trg="règlement" />
+      <Entry src="réhausser" trg="rehausser" />
+      <Entry src="réouvrir" trg="rouvrir" />
+      <Entry src="s '" trg="s’" />
+      <Entry src="s ‘" trg="s’" />
+      <Entry src="san sce" trg="sans ce" />
+      <Entry src="san sces" trg="sans ces" />
+      <Entry src="san scet" trg="sans cet" />
+      <Entry src="san scette" trg="sans cette" />
+      <Entry src="san sdes" trg="sans des" />
+      <Entry src="san sla" trg="sans la" />
+      <Entry src="san sle" trg="sans le" />
+      <Entry src="san sles" trg="sans les" />
+      <Entry src="san sun" trg="sans un" />
+      <Entry src="san sune" trg="sans une" />
+      <Entry src="sansc e" trg="sans ce" />
+      <Entry src="sansc es" trg="sans ces" />
+      <Entry src="sansc et" trg="sans cet" />
+      <Entry src="sansc ette" trg="sans cette" />
+      <Entry src="sansd es" trg="sans des" />
+      <Entry src="sansl a" trg="sans la" />
+      <Entry src="sansl e" trg="sans le" />
+      <Entry src="sansl es" trg="sans les" />
+      <Entry src="sansu n" trg="sans un" />
+      <Entry src="sansu ne" trg="sans une" />
+      <Entry src="sau fce" trg="sauf ce" />
+      <Entry src="sau fces" trg="sauf ces" />
+      <Entry src="sau fcet" trg="sauf cet" />
+      <Entry src="sau fcette" trg="sauf cette" />
+      <Entry src="sau fdes" trg="sauf des" />
+      <Entry src="sau fla" trg="sauf la" />
+      <Entry src="sau fle" trg="sauf le" />
+      <Entry src="sau fles" trg="sauf les" />
+      <Entry src="sau fun" trg="sauf un" />
+      <Entry src="sau fune" trg="sauf une" />
+      <Entry src="saufc e" trg="sauf ce" />
+      <Entry src="saufc es" trg="sauf ces" />
+      <Entry src="saufc et" trg="sauf cet" />
+      <Entry src="saufc ette" trg="sauf cette" />
+      <Entry src="saufd es" trg="sauf des" />
+      <Entry src="saufl a" trg="sauf la" />
+      <Entry src="saufl e" trg="sauf le" />
+      <Entry src="saufl es" trg="sauf les" />
+      <Entry src="saufu n" trg="sauf un" />
+      <Entry src="saufu ne" trg="sauf une" />
+      <Entry src="selo nce" trg="selon ce" />
+      <Entry src="selo nces" trg="selon ces" />
+      <Entry src="selo ncet" trg="selon cet" />
+      <Entry src="selo ncette" trg="selon cette" />
+      <Entry src="selo ndes" trg="selon des" />
+      <Entry src="selo nla" trg="selon la" />
+      <Entry src="selo nle" trg="selon le" />
+      <Entry src="selo nles" trg="selon les" />
+      <Entry src="selo nun" trg="selon un" />
+      <Entry src="selo nune" trg="selon une" />
+      <Entry src="selonc e" trg="selon ce" />
+      <Entry src="selonc es" trg="selon ces" />
+      <Entry src="selonc et" trg="selon cet" />
+      <Entry src="selonc ette" trg="selon cette" />
+      <Entry src="selond es" trg="selon des" />
+      <Entry src="selonl a" trg="selon la" />
+      <Entry src="selonl e" trg="selon le" />
+      <Entry src="selonl es" trg="selon les" />
+      <Entry src="selonu n" trg="selon un" />
+      <Entry src="selonu ne" trg="selon une" />
+      <Entry src="sera t elle" trg="sera-t-elle" />
+      <Entry src="sera t il" trg="sera-t-il" />
+      <Entry src="sera t'elle" trg="sera-t-elle" />
+      <Entry src="sera t'il" trg="sera-t-il" />
+      <Entry src="sera t-elle" trg="sera-t-elle" />
+      <Entry src="sera t-il" trg="sera-t-il" />
+      <Entry src="serait t il" trg="serait-t-il" />
+      <Entry src="serait t'il" trg="serait-t-il" />
+      <Entry src="serait t-il" trg="serait-t-il" />
+      <Entry src="seront elles" trg="seront-elles" />
+      <Entry src="seront ils" trg="seront-ils" />
+      <Entry src="socièté" trg="société" />
+      <Entry src="soeur" trg="sœur" />
+      <Entry src="soeurs" trg="sœurs" />
+      <Entry src="sou sce" trg="sous ce" />
+      <Entry src="sou sces" trg="sous ces" />
+      <Entry src="sou scet" trg="sous cet" />
+      <Entry src="sou scette" trg="sous cette" />
+      <Entry src="sou sdes" trg="sous des" />
+      <Entry src="sou sla" trg="sous la" />
+      <Entry src="sou sle" trg="sous le" />
+      <Entry src="sou sles" trg="sous les" />
+      <Entry src="sou sun" trg="sous un" />
+      <Entry src="sou sune" trg="sous une" />
+      <Entry src="sousc e" trg="sous ce" />
+      <Entry src="sousc es" trg="sous ces" />
+      <Entry src="sousc et" trg="sous cet" />
+      <Entry src="sousc ette" trg="sous cette" />
+      <Entry src="sousd es" trg="sous des" />
+      <Entry src="sousl a" trg="sous la" />
+      <Entry src="sousl e" trg="sous le" />
+      <Entry src="sousl es" trg="sous les" />
+      <Entry src="sousu n" trg="sous un" />
+      <Entry src="sousu ne" trg="sous une" />
+      <Entry src="soutraitant" trg="sous-traitant" />
+      <Entry src="su rce" trg="sur ce" />
+      <Entry src="su rces" trg="sur ces" />
+      <Entry src="su rcet" trg="sur cet" />
+      <Entry src="su rcette" trg="sur cette" />
+      <Entry src="su rdes" trg="sur des" />
+      <Entry src="su rla" trg="sur la" />
+      <Entry src="su rle" trg="sur le" />
+      <Entry src="su rles" trg="sur les" />
+      <Entry src="su run" trg="sur un" />
+      <Entry src="su rune" trg="sur une" />
+      <Entry src="sucursale" trg="succursale" />
+      <Entry src="sucursales" trg="succursales" />
+      <Entry src="suis je" trg="suis-je" />
+      <Entry src="suport" trg="support" />
+      <Entry src="surc e" trg="sur ce" />
+      <Entry src="surc es" trg="sur ces" />
+      <Entry src="surc et" trg="sur cet" />
+      <Entry src="surc ette" trg="sur cette" />
+      <Entry src="surd es" trg="sur des" />
+      <Entry src="surl a" trg="sur la" />
+      <Entry src="surl e" trg="sur le" />
+      <Entry src="surl es" trg="sur les" />
+      <Entry src="suru n" trg="sur un" />
+      <Entry src="suru ne" trg="sur une" />
+      <Entry src="symmétrie" trg="symétrie" />
+      <Entry src="synonime" trg="synonyme" />
+      <Entry src="systeme" trg="système" />
+      <Entry src="t '" trg="t’" />
+      <Entry src="t ‘" trg="t’" />
+      <Entry src="tepms" trg="temps" />
+      <Entry src="timpan" trg="tympan" />
+      <Entry src="toi meme" trg="toi-même" />
+      <Entry src="toi même" trg="toi-même" />
+      <Entry src="toujorus" trg="toujours" />
+      <Entry src="tricotter" trg="tricoter" />
+      <Entry src="trotoir" trg="trottoir" />
+      <Entry src="trés" trg="très" />
+      <Entry src="va t elle" trg="va-t-elle" />
+      <Entry src="va t il" trg="va-t-il" />
+      <Entry src="va t on" trg="va-t-on" />
+      <Entry src="va t'elle" trg="va-t-elle" />
+      <Entry src="va t'il" trg="va-t-il" />
+      <Entry src="va t'on" trg="va-t-on" />
+      <Entry src="va t-elle" trg="va-t-elle" />
+      <Entry src="va t-il" trg="va-t-il" />
+      <Entry src="va t-on" trg="va-t-on" />
+      <Entry src="vais je" trg="vais-je" />
+      <Entry src="valeru" trg="valeur" />
+      <Entry src="vas tu" trg="vas-tu" />
+      <Entry src="ver sce" trg="vers ce" />
+      <Entry src="ver sces" trg="vers ces" />
+      <Entry src="ver scet" trg="vers cet" />
+      <Entry src="ver scette" trg="vers cette" />
+      <Entry src="ver sdes" trg="vers des" />
+      <Entry src="ver sla" trg="vers la" />
+      <Entry src="ver sle" trg="vers le" />
+      <Entry src="ver sles" trg="vers les" />
+      <Entry src="ver sun" trg="vers un" />
+      <Entry src="ver sune" trg="vers une" />
+      <Entry src="versc e" trg="vers ce" />
+      <Entry src="versc es" trg="vers ces" />
+      <Entry src="versc et" trg="vers cet" />
+      <Entry src="versc ette" trg="vers cette" />
+      <Entry src="versd es" trg="vers des" />
+      <Entry src="versl a" trg="vers la" />
+      <Entry src="versl e" trg="vers le" />
+      <Entry src="versl es" trg="vers les" />
+      <Entry src="versu n" trg="vers un" />
+      <Entry src="versu ne" trg="vers une" />
+      <Entry src="veulliez" trg="veuillez" />
+      <Entry src="vis a vis" trg="vis-à-vis" />
+      <Entry src="vis à vis" trg="vis-à-vis" />
+      <Entry src="voeu" trg="vœu" />
+      <Entry src="voeux" trg="vœux" />
+      <Entry src="volontier" trg="volontiers" />
+      <Entry src="vont elles" trg="vont-elles" />
+      <Entry src="vont ils" trg="vont-ils" />
+      <Entry src="vosu" trg="vous" />
+      <Entry src="voulior" trg="vouloir" />
+      <Entry src="vous meme" trg="vous-même" />
+      <Entry src="vous memes" trg="vous-mêmes" />
+      <Entry src="vous même" trg="vous-même" />
+      <Entry src="vous mêmes" trg="vous-mêmes" />
+      <Entry src="vérouiller" trg="verrouiller" />
+      <Entry src="àc e" trg="à ce" />
+      <Entry src="àc es" trg="à ces" />
+      <Entry src="àc et" trg="à cet" />
+      <Entry src="àc ette" trg="à cette" />
+      <Entry src="àcet" trg="à cet" />
+      <Entry src="àcette" trg="à cette" />
+      <Entry src="àd es" trg="à des" />
+      <Entry src="àdes" trg="à des" />
+      <Entry src="àl a" trg="à la" />
+      <Entry src="àl e" trg="à le" />
+      <Entry src="àl es" trg="à les" />
+      <Entry src="àla" trg="à la" />
+      <Entry src="àle" trg="à le" />
+      <Entry src="àles" trg="à les" />
+      <Entry src="àu n" trg="à un" />
+      <Entry src="àu ne" trg="à une" />
+      <Entry src="àun" trg="à un" />
+      <Entry src="àune" trg="à une" />
+      <Entry src="échaper" trg="échapper" />
+      <Entry src="égallement" trg="également" />
+      <Entry src="élémens" trg="éléments" />
+      <Entry src="États Unis" trg="États-Unis" />
+      <Entry src="éthnique" trg="ethnique" />
+    </AutoCorrectEntries>
+    <TwoInitialCapsExceptions />
+    <SentenceCapsExceptions>
+      <string>a.</string>
+      <string>ap.</string>
+      <string>append.</string>
+      <string>apr.</string>
+      <string>arg.</string>
+      <string>arr.</string>
+      <string>art.</string>
+      <string>auj.</string>
+      <string>av.</string>
+      <string>b.</string>
+      <string>bibl.</string>
+      <string>boul.</string>
+      <string>bull.</string>
+      <string>c.</string>
+      <string>caract.</string>
+      <string>cf.</string>
+      <string>chap.</string>
+      <string>chronol.</string>
+      <string>cit.</string>
+      <string>d.</string>
+      <string>dict.</string>
+      <string>dipl.</string>
+      <string>dép.</string>
+      <string>e.</string>
+      <string>ed.</string>
+      <string>edit.</string>
+      <string>env.</string>
+      <string>etc.</string>
+      <string>ex.</string>
+      <string>f.</string>
+      <string>ff.</string>
+      <string>fig.</string>
+      <string>fr.</string>
+      <string>fém.</string>
+      <string>g.</string>
+      <string>gramm.</string>
+      <string>h.</string>
+      <string>hab.</string>
+      <string>i.</string>
+      <string>ibid.</string>
+      <string>id.</string>
+      <string>ill.</string>
+      <string>inf.</string>
+      <string>introd.</string>
+      <string>j.</string>
+      <string>k.</string>
+      <string>l.</string>
+      <string>lat.</string>
+      <string>liv.</string>
+      <string>loc.</string>
+      <string>m.</string>
+      <string>max.</string>
+      <string>min.</string>
+      <string>n.</string>
+      <string>num.</string>
+      <string>o.</string>
+      <string>obs.</string>
+      <string>op.</string>
+      <string>p.</string>
+      <string>paragr.</string>
+      <string>part.</string>
+      <string>pl.</string>
+      <string>pp.</string>
+      <string>q.</string>
+      <string>r.</string>
+      <string>ref.</string>
+      <string>resp.</string>
+      <string>s.</string>
+      <string>sq.</string>
+      <string>sqq.</string>
+      <string>suiv.</string>
+      <string>sup.</string>
+      <string>suppl.</string>
+      <string>t.</string>
+      <string>tél.</string>
+      <string>u.</string>
+      <string>v.</string>
+      <string>var.</string>
+      <string>vol.</string>
+      <string>w.</string>
+      <string>x.</string>
+      <string>y.</string>
+      <string>z.</string>
+    </SentenceCapsExceptions>
+    <OtherExceptions />
+  </AutoCorrectSettings>
+  <AutoFormatSettings>
+    <ReplaceQuotes>true</ReplaceQuotes>
+  </AutoFormatSettings>
+</ProviderConfiguration>]]></State>
+</AutoCorrectProviderState>

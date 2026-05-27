@@ -14,6 +14,7 @@
     "computers",
     "software"
   ],
+  "color": "#003882",
   "words": [
     {
       "word": "algorithm",
@@ -78,7 +79,7 @@
       "id": "b12a0bf8-97bc-4548-8109-5a64a144cf8e"
     },
     {
-      "word": "browser",
+      "word": "browserom",
       "phonetic": "/ˈbraʊ.zə/",
       "translation": "prehliadač",
       "definition": "A program used to access websites and online content.",

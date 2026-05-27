@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AutoCorrectProviderState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>Sdl.TranslationStudio.AutoCorrect</Id>
+  <LanguageCode>1051</LanguageCode>
+  <LanguageName>sk-SK</LanguageName>
+  <State><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<ProviderConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TargetLanguageCode>1051</TargetLanguageCode>
+  <TargetLanguageName>sk-SK</TargetLanguageName>
+  <AutoCorrectSettings>
+    <CorrectTwoInitialCaps>true</CorrectTwoInitialCaps>
+    <CorrectSentenceCaps>true</CorrectSentenceCaps>
+    <CorrectCapsLock>true</CorrectCapsLock>
+    <ReplaceTextAsYouType>false</ReplaceTextAsYouType>
+    <AutoCorrectEntries>
+      <Entry src="(c)" trg="©" />
+      <Entry src="(e)" trg="€" />
+      <Entry src="(r)" trg="®" />
+      <Entry src="(tm)" trg="™" />
+      <Entry src="abz" trg="aby" />
+      <Entry src="besplatný" trg="bezplatný" />
+      <Entry src="bizardný" trg="bizarný" />
+      <Entry src="Bratilsava" trg="Bratislava" />
+      <Entry src="Bratisalva" trg="Bratislava" />
+      <Entry src="bze" trg="bez" />
+      <Entry src="ceký" trg="celý" />
+      <Entry src="cennina" trg="cenina" />
+      <Entry src="cený" trg="cenný" />
+      <Entry src="dejepois" trg="dejepis" />
+      <Entry src="dens" trg="dnes" />
+      <Entry src="devúť" trg="deväť" />
+      <Entry src="dnea" trg="dnes" />
+      <Entry src="dokoncva" trg="dokonca" />
+      <Entry src="dokonva" trg="dokonca" />
+      <Entry src="doktorant" trg="doktorand" />
+      <Entry src="doktorantský" trg="doktorandský" />
+      <Entry src="dokumetny" trg="dokumenty" />
+      <Entry src="dovrá" trg="dobrá" />
+      <Entry src="dovré" trg="dobré" />
+      <Entry src="dovrý" trg="dobrý" />
+      <Entry src="drevenný" trg="drevený" />
+      <Entry src="dsik" trg="disk" />
+      <Entry src="dsisk" trg="disk" />
+      <Entry src="duhrtý" trg="druhý" />
+      <Entry src="duhré" trg="druhé" />
+      <Entry src="durhé" trg="druhé" />
+      <Entry src="forámt" trg="formát" />
+      <Entry src="hce" trg="chce" />
+      <Entry src="hodína" trg="hodina" />
+      <Entry src="Htp" trg="http" />
+      <Entry src="Http" trg="http" />
+      <Entry src="http:\\" trg="http://" />
+      <Entry src="jden" trg="jeden" />
+      <Entry src="jedene" trg="jeden" />
+      <Entry src="jedne" trg="jeden" />
+      <Entry src="jedonduchý" trg="jednoduchý" />
+      <Entry src="jende" trg="jeden" />
+      <Entry src="jendoduchý" trg="jednoduchý" />
+      <Entry src="jwden" trg="jeden" />
+      <Entry src="jweden" trg="jeden" />
+      <Entry src="kodonca" trg="dokonca" />
+      <Entry src="koniuec" trg="koniec" />
+      <Entry src="konjuktúra" trg="konjunktúra" />
+      <Entry src="konoec" trg="koniec" />
+      <Entry src="korešpodencia" trg="korešpondencia" />
+      <Entry src="korešpodenčný" trg="korešpondenčný" />
+      <Entry src="kotrá" trg="ktorá" />
+      <Entry src="kotré" trg="ktoré" />
+      <Entry src="kotrý" trg="ktorý" />
+      <Entry src="krtorá" trg="ktorá" />
+      <Entry src="krtoré" trg="ktoré" />
+      <Entry src="krtorý" trg="ktorý" />
+      <Entry src="kríťovka" trg="krížovka" />
+      <Entry src="ktroá" trg="ktorá" />
+      <Entry src="ktroé" trg="ktoré" />
+      <Entry src="ktroý" trg="ktorý" />
+      <Entry src="mecvhanik" trg="mechanik" />
+      <Entry src="medti" trg="medzi" />
+      <Entry src="medui" trg="medzi" />
+      <Entry src="menpo" trg="meno" />
+      <Entry src="minuta" trg="minúta" />
+      <Entry src="molho" trg="mohol" />
+      <Entry src="môžme" trg="môžeme" />
+      <Entry src="môžte" trg="môžete" />
+      <Entry src="nei" trg="nie" />
+      <Entry src="nepaltné" trg="neplatné" />
+      <Entry src="neplytné" trg="neplatné" />
+      <Entry src="neplztné" trg="neplatné" />
+      <Entry src="nypríklad" trg="napríklad" />
+      <Entry src="nzpríklad" trg="napríklad" />
+      <Entry src="obasti" trg="oblasti" />
+      <Entry src="objkt" trg="objekt" />
+      <Entry src="obsahuej" trg="obsahuje" />
+      <Entry src="obsyhuje" trg="obsahuje" />
+      <Entry src="obwc" trg="obec" />
+      <Entry src="odaný" trg="oddaný" />
+      <Entry src="opúť" trg="opäť" />
+      <Entry src="pdopis" trg="podpis" />
+      <Entry src="podkníkový" trg="podnikový" />
+      <Entry src="podpois" trg="podpis" />
+      <Entry src="podspis" trg="podpis" />
+      <Entry src="podspois" trg="podpis" />
+      <Entry src="poidpis" trg="podpis" />
+      <Entry src="porava" trg="oprava" />
+      <Entry src="pošet" trg="počet" />
+      <Entry src="poťítač" trg="počítač" />
+      <Entry src="prebrtať" trg="prebrať" />
+      <Entry src="prebvrať" trg="prebrať" />
+      <Entry src="precdedens" trg="precedens" />
+      <Entry src="prew" trg="pre" />
+      <Entry src="prewto" trg="preto" />
+      <Entry src="priti" trg="proti" />
+      <Entry src="proiti" trg="proti" />
+      <Entry src="prti" trg="proti" />
+      <Entry src="Pryha" trg="Praha" />
+      <Entry src="psoločnosť" trg="spoločnosť" />
+      <Entry src="replubiky" trg="republiky" />
+      <Entry src="repto" trg="preto" />
+      <Entry src="repubika" trg="republika" />
+      <Entry src="rpacovný" trg="pracovný" />
+      <Entry src="rpáca" trg="práca" />
+      <Entry src="sklenný" trg="sklený" />
+      <Entry src="slobenský" trg="slovenský" />
+      <Entry src="slobvenská" trg="slovenská" />
+      <Entry src="slovdenský" trg="slovenský" />
+      <Entry src="spoisovateľ" trg="spisovateľ" />
+      <Entry src="stramy" trg="strany" />
+      <Entry src="talisto" trg="takisto" />
+      <Entry src="talčidlo" trg="tlačidlo" />
+      <Entry src="tetno" trg="tento" />
+      <Entry src="tetono" trg="tento" />
+      <Entry src="tisic" trg="tisíc" />
+      <Entry src="tohoto" trg="tohto" />
+      <Entry src="tosíc" trg="tisíc" />
+      <Entry src="totmo" trg="tomto" />
+      <Entry src="totom" trg="tomto" />
+      <Entry src="tuot" trg="tuto" />
+      <Entry src="Valdimír" trg="Vladimír" />
+      <Entry src="valstný" trg="vlastný" />
+      <Entry src="Vladiomír" trg="Vladimír" />
+      <Entry src="vlsastne" trg="vlastne" />
+      <Entry src="vytovrené" trg="vytvorené" />
+      <Entry src="včerya" trg="včera" />
+      <Entry src="včerz" trg="včera" />
+      <Entry src="všyk" trg="však" />
+      <Entry src="yby" trg="aby" />
+      <Entry src="yámeno" trg="zámeno" />
+      <Entry src="zaokrúhkený" trg="zaokrúhlený" />
+      <Entry src="zlavný" trg="hlavný" />
+      <Entry src="zíkon" trg="zákon" />
+      <Entry src="zýkon" trg="zákon" />
+      <Entry src="zýkona" trg="zákona" />
+      <Entry src="českýhc" trg="českých" />
+      <Entry src="ďaľšia" trg="ďalšia" />
+      <Entry src="ďaľší" trg="ďalší" />
+      <Entry src="ľoď" trg="loď" />
+      <Entry src="štandartný" trg="štandardný" />
+      <Entry src="ťiež" trg="tiež" />
+    </AutoCorrectEntries>
+    <TwoInitialCapsExceptions />
+    <SentenceCapsExceptions>
+      <string>a.</string>
+      <string>admin.</string>
+      <string>adr.</string>
+      <string>afr.</string>
+      <string>al.</string>
+      <string>amer.</string>
+      <string>angl.</string>
+      <string>arab.</string>
+      <string>atp.</string>
+      <string>atď.</string>
+      <string>b.</string>
+      <string>bibl.</string>
+      <string>biol.</string>
+      <string>brit.</string>
+      <string>býv.</string>
+      <string>c.</string>
+      <string>ch.</string>
+      <string>cirk.</string>
+      <string>d.</string>
+      <string>dipl.</string>
+      <string>dopr.</string>
+      <string>e.</string>
+      <string>el.</string>
+      <string>európ.</string>
+      <string>ev.</string>
+      <string>f.</string>
+      <string>fa.</string>
+      <string>fin.</string>
+      <string>franc.</string>
+      <string>fyz.</string>
+      <string>g.</string>
+      <string>gr.</string>
+      <string>graf.</string>
+      <string>gréc.</string>
+      <string>gréckokat.</string>
+      <string>h.</string>
+      <string>hl.</string>
+      <string>hod.</string>
+      <string>hosp.</string>
+      <string>hud.</string>
+      <string>i.</string>
+      <string>inšt.</string>
+      <string>j.</string>
+      <string>jed.</string>
+      <string>jedn.</string>
+      <string>jr.</string>
+      <string>juhových.</string>
+      <string>juhozáp.</string>
+      <string>juž.</string>
+      <string>k.</string>
+      <string>kat.</string>
+      <string>kol.</string>
+      <string>kr.</string>
+      <string>krit.</string>
+      <string>kt.</string>
+      <string>l.</string>
+      <string>lat.</string>
+      <string>m.</string>
+      <string>mat.</string>
+      <string>max.</string>
+      <string>maď.</string>
+      <string>medzinár.</string>
+      <string>mes.</string>
+      <string>mil.</string>
+      <string>min.</string>
+      <string>ml.</string>
+      <string>n.</string>
+      <string>napr.</string>
+      <string>nem.</string>
+      <string>norm.</string>
+      <string>náb.</string>
+      <string>nár.</string>
+      <string>o.</string>
+      <string>obch.</string>
+      <string>obj.</string>
+      <string>obyv.</string>
+      <string>obyč.</string>
+      <string>obč.</string>
+      <string>odb.</string>
+      <string>odd.</string>
+      <string>ods.</string>
+      <string>p.</string>
+      <string>pod.</string>
+      <string>polit.</string>
+      <string>popl.</string>
+      <string>pozn.</string>
+      <string>práv.</string>
+      <string>príp.</string>
+      <string>pís.</string>
+      <string>písm.</string>
+      <string>q.</string>
+      <string>r.</string>
+      <string>rep.</string>
+      <string>resp.</string>
+      <string>revol.</string>
+      <string>riad.</string>
+      <string>roč.</string>
+      <string>rus.</string>
+      <string>s.</string>
+      <string>sev.</string>
+      <string>severových.</string>
+      <string>severozáp.</string>
+      <string>skr.</string>
+      <string>slov.</string>
+      <string>sloven.</string>
+      <string>spol.</string>
+      <string>st.</string>
+      <string>stor.</string>
+      <string>str.</string>
+      <string>sv.</string>
+      <string>t.</string>
+      <string>tel.</string>
+      <string>telef.</string>
+      <string>tzv.</string>
+      <string>u.</string>
+      <string>v.</string>
+      <string>vzáj.</string>
+      <string>vých.</string>
+      <string>výr.</string>
+      <string>výsk.</string>
+      <string>výskum.</string>
+      <string>význ.</string>
+      <string>všeob.</string>
+      <string>w.</string>
+      <string>x.</string>
+      <string>y.</string>
+      <string>z.</string>
+      <string>zač.</string>
+      <string>zb.</string>
+      <string>zn.</string>
+      <string>zák.</string>
+      <string>zákl.</string>
+      <string>záp.</string>
+      <string>ázij.</string>
+      <string>č.</string>
+      <string>čb.</string>
+      <string>čes.</string>
+      <string>čl.</string>
+      <string>čs.</string>
+      <string>ď.</string>
+      <string>š.</string>
+      <string>šk.</string>
+      <string>št.</string>
+      <string>štát.</string>
+      <string>ž.</string>
+      <string>žid.</string>
+    </SentenceCapsExceptions>
+    <OtherExceptions />
+  </AutoCorrectSettings>
+  <AutoFormatSettings>
+    <ReplaceQuotes>true</ReplaceQuotes>
+  </AutoFormatSettings>
+</ProviderConfiguration>]]></State>
+</AutoCorrectProviderState>

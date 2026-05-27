@@ -59,6 +59,16 @@ async function initDb() {
      ALTER TABLE Users ADD created_at DATETIME2 DEFAULT GETDATE()`,
     `IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID('Users') AND name='last_login')
      ALTER TABLE Users ADD last_login DATETIME2`,
+    `IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID('Users') AND name='personal_name')
+     ALTER TABLE Users ADD personal_name NVARCHAR(200)`,
+    `IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID('Users') AND name='personal_surname')
+     ALTER TABLE Users ADD personal_surname NVARCHAR(200)`,
+    `IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID('Users') AND name='company')
+     ALTER TABLE Users ADD company NVARCHAR(255)`,
+    `IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID('Users') AND name='phone')
+     ALTER TABLE Users ADD phone NVARCHAR(50)`,
+    `IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID('Users') AND name='address')
+     ALTER TABLE Users ADD address NVARCHAR(500)`,
   ];
   for (const m of missingCols) {
     await pool.request().query(m);
@@ -147,6 +157,64 @@ async function initDb() {
     )
   `);
   console.log("✅ Table Tags ready");
+
+  await pool.request().query(`
+    IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Heartbeats' AND xtype='U')
+    CREATE TABLE Heartbeats (
+      id        INT IDENTITY(1,1) PRIMARY KEY,
+      user_id   INT NOT NULL REFERENCES Users(id),
+      pack_file NVARCHAR(500) NOT NULL,
+      ts        DATETIME2 NOT NULL DEFAULT GETDATE()
+    )
+  `);
+  console.log("✅ Table Heartbeats ready");
+
+  await pool.request().query(`
+    IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='AiTelemetry' AND xtype='U')
+    CREATE TABLE AiTelemetry (
+      id          INT IDENTITY(1,1) PRIMARY KEY,
+      user_id     INT NOT NULL REFERENCES Users(id),
+      username    NVARCHAR(100) NOT NULL,
+      pack_file   NVARCHAR(500),
+      action      NVARCHAR(50) NOT NULL,
+      request_at  DATETIME2 NOT NULL,
+      ts          DATETIME2 NOT NULL DEFAULT GETDATE()
+    )
+  `);
+  await pool.request().query(`
+    IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID('AiTelemetry') AND name='request_at')
+      ALTER TABLE AiTelemetry ADD request_at DATETIME2
+  `);
+  await pool.request().query(`
+    IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID('AiTelemetry') AND name='token_count')
+      ALTER TABLE AiTelemetry ADD token_count INT
+  `);
+  console.log("✅ Table AiTelemetry ready");
+
+  await pool.request().query(`
+    IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='GlobalSettings' AND xtype='U')
+    CREATE TABLE GlobalSettings (
+      [key]      NVARCHAR(100) NOT NULL PRIMARY KEY,
+      value      NVARCHAR(MAX),
+      updated_at DATETIME2 DEFAULT GETDATE()
+    )
+  `);
+  console.log("✅ Table GlobalSettings ready");
+
+  await pool.request().query(`
+    IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='AiAcceptance' AND xtype='U')
+    CREATE TABLE AiAcceptance (
+      id               INT IDENTITY(1,1) PRIMARY KEY,
+      user_id          INT NOT NULL REFERENCES Users(id),
+      username         NVARCHAR(100) NOT NULL,
+      pack_file        NVARCHAR(500),
+      action           NVARCHAR(50) NOT NULL,
+      accepted         BIT NOT NULL,
+      corrected_fields NVARCHAR(500),
+      ts               DATETIME2 NOT NULL DEFAULT GETDATE()
+    )
+  `);
+  console.log("✅ Table AiAcceptance ready");
 
   // Vytvor default admin účet ak neexistuje
   const existing = await pool.request()

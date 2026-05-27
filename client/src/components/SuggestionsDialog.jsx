@@ -1,80 +1,39 @@
-function SuggestionsDialog({
+import { useT } from "../i18n";
 
-  open,
+function SuggestionsDialog({ open, suggestions, setSuggestions, onCancel, onAdd }) {
+  const t = useT();
 
-  suggestions,
-
-  setSuggestions,
-
-  onCancel,
-
-  onAdd
-
-}) {
-
-  if (!open) {
-    return null;
-  }
+  if (!open) return null;
 
   function toggleWord(index) {
-
     const updated = [...suggestions];
-
-    updated[index].selected =
-      !updated[index].selected;
-
+    updated[index].selected = !updated[index].selected;
     setSuggestions(updated);
   }
 
   return (
-
     <div className="dialog-overlay">
-
       <div className="dialog">
-
-        <h2>
-          Suggested Words
-        </h2>
+        <div className="dialog-title">{t("editor.suggestions.title")}</div>
 
         <div className="suggestions-list">
-
-          {suggestions.map(
-            (item, index) => (
-
-            <label
-              key={index}
-              className="suggestion-item"
-            >
-
+          {suggestions.map((item, index) => (
+            <label key={index} className="suggestion-item">
               <input
                 type="checkbox"
                 checked={item.selected}
-                onChange={() =>
-                  toggleWord(index)
-                }
+                onChange={() => toggleWord(index)}
               />
-
               {item.word}
-
             </label>
           ))}
-
         </div>
 
         <div className="dialog-actions">
-
-          <button onClick={onCancel}>
-            Cancel
-          </button>
-
-          <button onClick={onAdd}>
-            Add Selected
-          </button>
-
+          <button onClick={onCancel}>{t("common.cancel")}</button>
+          <button onClick={onAdd}>{t("editor.suggestions.addSelected")}</button>
         </div>
-
       </div>
-
     </div>
   );
 }
