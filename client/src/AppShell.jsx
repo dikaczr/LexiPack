@@ -129,6 +129,35 @@ export default function AppShell() {
   const [showHelp, setShowHelp] = useState(false);
   const [showShortcuts, setShowShortcuts] = useState(false);
   const [notifications, setNotifications] = useState([]);
+  const serverDownRef = useRef(false);
+  const [serverToast, setServerToast] = useState(null); // "down" | "up" | null
+
+  useEffect(() => {
+    async function checkHealth() {
+      try {
+        const res = await fetch(`${API_BASE}/api/health`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (serverDownRef.current) {
+          serverDownRef.current = false;
+          const time = new Date().toLocaleTimeString("sk-SK", { hour: "2-digit", minute: "2-digit" });
+          setNotifications(prev => [{ title: "Server obnovený", icon: "✅", time }, ...prev].slice(0, 20));
+          setServerToast("up");
+          setTimeout(() => setServerToast(null), 3600);
+        }
+      } catch {
+        if (!serverDownRef.current) {
+          serverDownRef.current = true;
+          const time = new Date().toLocaleTimeString("sk-SK", { hour: "2-digit", minute: "2-digit" });
+          setNotifications(prev => [{ title: "Server nedostupný!", icon: "🔴", time }, ...prev].slice(0, 20));
+        }
+        setServerToast("down");
+      }
+    }
+
+    checkHealth();
+    const interval = setInterval(checkHealth, 2 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const addNotification = useCallback((title, icon = "📦") => {
     const time = new Date().toLocaleTimeString("sk-SK", { hour: "2-digit", minute: "2-digit" });
@@ -224,6 +253,17 @@ export default function AppShell() {
           {activeScreen === "users"    && <UsersScreen />}
         </main>
       </div>
+
+      {serverToast === "down" && (
+        <div className="server-toast server-toast--down">
+          🔴 Server nedostupný — zmeny sa neuložia
+        </div>
+      )}
+      {serverToast === "up" && (
+        <div className="server-toast server-toast--up">
+          ✅ Server obnovený
+        </div>
+      )}
 
       {acNotice && (
         <div className="ac-notice">

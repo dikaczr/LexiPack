@@ -16,10 +16,19 @@ import qualityRoutes from "./routes/qualityRoutes.js";
 import autoCorrectRoutes from "./routes/autoCorrectRoutes.js";
 import { fileURLToPath } from "url";
 import path from "path";
+import { serverLog } from "./utils/serverLogger.js";
+import { getPool } from "./db.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, ".env") });
+
+process.on("uncaughtException", (err) => {
+  serverLog("ERROR", "uncaughtException", { message: err.message, stack: err.stack });
+});
+process.on("unhandledRejection", (reason) => {
+  serverLog("ERROR", "unhandledRejection", { reason: String(reason) });
+});
 
 const app = express();
 
@@ -53,11 +62,15 @@ app.use("/api/quality", qualityRoutes);
 app.use("/api/autocorrect", autoCorrectRoutes);
 app.use("/api", aiRoutes);
 
-app.get("/api/health", (req, res) => {
-  res.json({
-    status: "OK",
-    app: "LexiPack",
-  });
+app.get("/api/health", async (req, res) => {
+  try {
+    const pool = await getPool();
+    await pool.request().query("SELECT 1 AS ok");
+    res.json({ status: "OK", app: "LexiPack", db: "OK" });
+  } catch (err) {
+    serverLog("ERROR", "Health check: SQL connection failed", { error: err.message });
+    res.status(503).json({ status: "ERROR", app: "LexiPack", db: "FAIL", error: err.message });
+  }
 });
 
 /*
@@ -83,14 +96,14 @@ app.use((err, req, res, next) => {
   if (err.type === "entity.too.large") {
     return res.status(413).json({ error: "Request body too large" });
   }
-  console.error(err);
+  serverLog("ERROR", `Unhandled express error: ${req.method} ${req.path}`, { message: err.message });
   res.status(500).json({ error: err.message });
 });
 
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, async () => {
-  console.log(`Server running on port ${PORT}`);
+  serverLog("INFO", `Server started on port ${PORT}`);
   await syncPacksOnStartup();
 });
 

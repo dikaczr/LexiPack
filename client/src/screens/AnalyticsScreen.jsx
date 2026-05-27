@@ -125,6 +125,12 @@ function packLabel(fileName) {
   return fileName.replace(/\.json$/, "").replace(/_/g, " ");
 }
 
+function packDisplay(fileName, packNames) {
+  if (packNames[fileName]) return packNames[fileName];
+  const base = fileName.split("/").pop();
+  return packNames[base] || packLabel(base || fileName);
+}
+
 function todayStr() {
   return new Date().toISOString().slice(0, 10);
 }
@@ -143,6 +149,7 @@ export default function AnalyticsScreen() {
   const [latencyRows, setLatency]   = useState(null);
   const [corrStats, setCorrStats]   = useState(null);
   const [error, setError]           = useState(null);
+  const [packNames, setPackNames]   = useState({});
 
   useEffect(() => {
     if (!token) return;
@@ -166,6 +173,15 @@ export default function AnalyticsScreen() {
     fetch(`${API_BASE}/api/telemetry/ai-correction?days=30`, { headers: h })
       .then((r) => r.json())
       .then(setCorrStats)
+      .catch(() => {});
+
+    fetch(`${API_BASE}/api/packs`, { headers: h })
+      .then((r) => r.json())
+      .then((packs) => {
+        const map = {};
+        for (const p of packs) if (p.fileName && p.name) map[p.fileName] = p.name;
+        setPackNames(map);
+      })
       .catch(() => {});
   }, [token]);
 
@@ -260,7 +276,7 @@ export default function AnalyticsScreen() {
                     <tbody>
                       {byPack.map(({ file, secs }) => (
                         <tr key={file}>
-                          <td>{packLabel(file)}</td>
+                          <td>{packDisplay(file, packNames)}</td>
                           <td className="analytics-bar-cell">
                             <div className="analytics-bar-wrap">
                               <div className="analytics-bar-fill" style={{ width: `${(secs / maxPackSecs) * 100}%` }} />
@@ -309,7 +325,7 @@ export default function AnalyticsScreen() {
             <div className="analytics-section">
               <h3>{t("analyticsScreen.aiToday")}</h3>
               <div className="analytics-today" style={{ marginBottom: "1rem" }}>
-                <div className="analytics-today-icon">🤖</div>
+                <div className="analytics-today-icon"><img src={`${import.meta.env.BASE_URL}artificial-intelligence.png`} alt="AI" style={{ width: 48, height: 48, objectFit: "contain" }} /></div>
                 <div>
                   <div className="analytics-today-label">{t("analyticsScreen.aiTotal")}</div>
                   <div className="analytics-today-time">{aiRows === null ? "…" : aiToday}</div>
@@ -335,7 +351,7 @@ export default function AnalyticsScreen() {
                     <tbody>
                       {aiByPack.map(({ file, cnt }) => (
                         <tr key={file}>
-                          <td>{packLabel(file)}</td>
+                          <td>{packDisplay(file, packNames)}</td>
                           <td className="analytics-bar-cell">
                             <div className="analytics-bar-wrap">
                               <div className="analytics-bar-fill" style={{ width: `${(cnt / maxAiPackCnt) * 100}%` }} />
