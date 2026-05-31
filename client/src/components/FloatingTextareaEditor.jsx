@@ -8,13 +8,14 @@ const FloatingTextareaEditor = forwardRef((params, ref) => {
 
   const [value, setValue] = useState(startValue);
   const valueRef = useRef(startValue);
+  const textareaRef = useRef(null);
 
   useImperativeHandle(ref, () => ({
     getValue: () => valueRef.current,
   }));
 
   useEffect(() => {
-    const ta = document.querySelector(".fte-textarea");
+    const ta = textareaRef.current;
     if (!ta) return;
     ta.focus();
     ta.setSelectionRange(ta.value.length, ta.value.length);
@@ -25,11 +26,17 @@ const FloatingTextareaEditor = forwardRef((params, ref) => {
     setValue(e.target.value);
   }
 
+  function commit() {
+    const colId = params.column?.getColId?.();
+    if (colId) params.node?.setDataValue(colId, valueRef.current);
+    params.stopEditing();
+  }
+
   function handleKeyDown(e) {
     e.stopPropagation();
-    if (e.key === "Escape") params.stopEditing(true);
-    else if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); params.stopEditing(); }
-    else if (e.key === "Tab") { e.preventDefault(); params.stopEditing(); }
+    if (e.key === "Escape") { params.stopEditing(true); }
+    else if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); commit(); }
+    else if (e.key === "Tab") { e.preventDefault(); commit(); }
   }
 
   return (
@@ -39,6 +46,7 @@ const FloatingTextareaEditor = forwardRef((params, ref) => {
         <span className="fte-hint">Enter — uložiť · Shift+Enter — nový riadok · Esc — zrušiť</span>
       </div>
       <textarea
+        ref={textareaRef}
         className="fte-textarea"
         value={value}
         rows={5}
