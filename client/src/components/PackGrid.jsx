@@ -14,6 +14,17 @@ const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 const LANGS_WITH_ARTICLES = new Set(["de", "fr", "es", "it"]);
 const LANGS_REQUIRE_ARTICLE = new Set(["de", "fr", "es", "it"]);
 
+const SelectAllHeader = ({ api }) => (
+  <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%" }}>
+    <input
+      type="checkbox"
+      className="grid-checkbox"
+      style={{ margin: 0, cursor: "pointer" }}
+      onChange={(e) => e.target.checked ? api.selectAll() : api.deselectAll()}
+    />
+  </div>
+);
+
 const LevelCellEditor = forwardRef(({ value, onValueChange, stopEditing }, ref) => {
   const currentValue = useRef(value);
 
@@ -118,6 +129,7 @@ function PackGrid({
         resizable: false,
         suppressMovable: true,
         cellStyle: { padding: 0 },
+        headerComponent: SelectAllHeader,
         cellRenderer: (params) => (
           <div
             style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%" }}
@@ -308,7 +320,7 @@ function PackGrid({
         onGridReady={(params) => {
           setGridApi(params.api);
         }}
-        rowSelection={{ mode: "multiRow", enableClickSelection: false, checkboxes: false, headerCheckbox: true }}
+        rowSelection={{ mode: "multiRow", enableClickSelection: false, checkboxes: false, headerCheckbox: false }}
         columnDefs={columnDefs}
         defaultColDef={defaultColDef}
         rowHeight={26}
