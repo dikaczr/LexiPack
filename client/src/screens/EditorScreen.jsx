@@ -96,16 +96,17 @@ const LANG_ARTICLES = {
 };
 
 function splitArticle(rawWord, targetLang) {
+  const normalized = rawWord.replace(/[‘’‚‛]/g, "'");
   const articles = LANG_ARTICLES[targetLang] || [];
   for (const art of articles) {
     if (art.endsWith("'")) {
-      if (rawWord.toLowerCase().startsWith(art.toLowerCase())) {
-        return { article: rawWord.slice(0, art.length), word: rawWord.slice(art.length) };
+      if (normalized.toLowerCase().startsWith(art.toLowerCase())) {
+        return { article: normalized.slice(0, art.length), word: normalized.slice(art.length) };
       }
     } else {
       const prefix = art + " ";
-      if (rawWord.toLowerCase().startsWith(prefix.toLowerCase())) {
-        return { article: rawWord.slice(0, art.length), word: rawWord.slice(prefix.length) };
+      if (normalized.toLowerCase().startsWith(prefix.toLowerCase())) {
+        return { article: normalized.slice(0, art.length), word: normalized.slice(prefix.length) };
       }
     }
   }

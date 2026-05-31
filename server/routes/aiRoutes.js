@@ -117,13 +117,18 @@ router.post("/suggest-words", requireAuth, async (req, res) => {
 
     const customConstraint = customPrompt ? `\n- additional requirement: ${customPrompt}` : "";
 
+    const ARTICLE_EXAMPLES = { de: "der Hund", fr: "le chat", es: "el perro", it: "il gatto" };
+    const articleConstraint = ARTICLE_EXAMPLES[targetLang]
+      ? `\n- for nouns, include the definite article (e.g. "${ARTICLE_EXAMPLES[targetLang]}")`
+      : "";
+
     const requestAt = new Date();
     const completion = await getOpenAI().chat.completions.create({
       model: process.env.OPENAI_MODEL,
       messages: [
         {
           role: "system",
-          content: `You are a vocabulary assistant.\n\nSuggest 10 new ${langName} vocabulary words.\n\nRules:\n- avoid duplicates\n- stay in the same topic\n- keep the same difficulty level${typeConstraint}${customConstraint}\n- return ONLY valid JSON array\n\nExample:\n["satellite","gravity","meteor"]`,
+          content: `You are a vocabulary assistant.\n\nSuggest 10 new ${langName} vocabulary words.\n\nRules:\n- avoid duplicates\n- stay in the same topic\n- keep the same difficulty level${typeConstraint}${articleConstraint}${customConstraint}\n- return ONLY valid JSON array\n\nExample:\n["satellite","gravity","meteor"]`,
         },
         { role: "user", content: `Category:\n${category}\n\nLevel:\n${level}\n\nExisting words:\n${existingWords.join(", ")}` },
       ],
