@@ -14,6 +14,8 @@ const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 const LANGS_WITH_ARTICLES = new Set(["de", "fr", "es", "it"]);
 const LANGS_REQUIRE_ARTICLE = new Set(["de", "fr", "es", "it"]);
 
+const WORD_TYPES = ["", "noun", "verb", "adjective", "adverb", "phrase", "idiom", "pronoun", "preposition", "conjunction", "interjection", "numeral"];
+
 const ARTICLES = {
   de: ["", "der", "die", "das", "ein", "eine", "—"],
   fr: ["", "le", "la", "les", "l'", "un", "une", "des", "—"],
@@ -107,6 +109,44 @@ const ArticleCellEditor = forwardRef(({ value, onValueChange, stopEditing, colDe
     >
       {options.map((a) => (
         <option key={a} value={a === "—" ? "" : a}>{a || "–"}</option>
+      ))}
+    </select>
+  );
+});
+
+const TypeCellEditor = forwardRef(({ value, onValueChange, stopEditing }, ref) => {
+  const currentValue = useRef(value ?? "");
+
+  useImperativeHandle(ref, () => ({
+    getValue: () => currentValue.current,
+  }));
+
+  const handleChange = (e) => {
+    currentValue.current = e.target.value;
+    if (onValueChange) onValueChange(e.target.value);
+    stopEditing();
+  };
+
+  return (
+    <select
+      autoFocus
+      defaultValue={value || ""}
+      onChange={handleChange}
+      onBlur={() => stopEditing()}
+      style={{
+        width: "100%",
+        height: "100%",
+        background: "var(--app-card-bg, #1e293b)",
+        color: "var(--app-text, #f1f5f9)",
+        border: "none",
+        outline: "none",
+        fontSize: 13,
+        padding: "0 4px",
+        cursor: "pointer",
+      }}
+    >
+      {WORD_TYPES.map((t) => (
+        <option key={t} value={t}>{t || "–"}</option>
       ))}
     </select>
   );
@@ -293,7 +333,8 @@ function PackGrid({
         headerName: t("cols.type"),
         field: "type",
         editable: !isReadOnly,
-        width: 90,
+        width: 100,
+        cellEditor: TypeCellEditor,
       },
       {
         headerName: t("cols.definition"),
