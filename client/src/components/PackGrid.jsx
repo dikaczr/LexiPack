@@ -317,7 +317,7 @@ function PackGrid({
         onGridReady={(params) => {
           setGridApi(params.api);
         }}
-        rowSelection={{ mode: "multiRow", enableClickSelection: false, checkboxes: false, headerCheckbox: false }}
+        rowSelection="multiple"
         columnDefs={columnDefs}
         defaultColDef={defaultColDef}
         rowHeight={26}
