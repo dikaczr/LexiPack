@@ -118,16 +118,6 @@ function PackGrid({
         resizable: false,
         suppressMovable: true,
         cellStyle: { padding: 0 },
-        headerComponent: ({ api }) => (
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%" }}>
-            <input
-              type="checkbox"
-              className="grid-checkbox"
-              style={{ margin: 0 }}
-              onChange={(e) => e.target.checked ? api.selectAll() : api.deselectAll()}
-            />
-          </div>
-        ),
         cellRenderer: (params) => (
           <div
             style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%" }}
@@ -318,7 +308,7 @@ function PackGrid({
         onGridReady={(params) => {
           setGridApi(params.api);
         }}
-        rowSelection={{ mode: "multiRow", enableClickSelection: false, checkboxes: false, headerCheckbox: false }}
+        rowSelection={{ mode: "multiRow", enableClickSelection: false, checkboxes: false, headerCheckbox: true }}
         columnDefs={columnDefs}
         defaultColDef={defaultColDef}
         rowHeight={26}
