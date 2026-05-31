@@ -15,6 +15,7 @@ const FloatingTextareaEditor = forwardRef((params, ref) => {
     : (params.value ?? "");
 
   const [value, setValue] = useState(startValue);
+  const valueRef = useRef(startValue);          // sync ref — getValue() reads this
   const textareaRef = useRef(null);
   const dragRef = useRef({ active: false, startX: 0, startY: 0, origLeft: 0, origTop: 0 });
 
@@ -28,7 +29,7 @@ const FloatingTextareaEditor = forwardRef((params, ref) => {
   const [pos, setPos] = useState({ top: initTop, left: initLeft, width: FLOAT_W });
 
   useImperativeHandle(ref, () => ({
-    getValue: () => value,
+    getValue: () => valueRef.current,   // reads ref — always latest, never stale
     isCancelBeforeStart: () => false,
   }));
 
@@ -66,8 +67,14 @@ const FloatingTextareaEditor = forwardRef((params, ref) => {
     e.preventDefault();
   }
 
+  function handleChange(e) {
+    valueRef.current = e.target.value;
+    setValue(e.target.value);
+  }
+
   function handleKeyDown(e) {
     e.stopPropagation();
+    e.nativeEvent?.stopPropagation();
     if (e.key === "Escape") params.stopEditing(true);
     else if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); params.stopEditing(); }
     else if (e.key === "Tab") { e.preventDefault(); params.stopEditing(); }
@@ -85,7 +92,7 @@ const FloatingTextareaEditor = forwardRef((params, ref) => {
         className="fte-textarea"
         value={value}
         rows={3}
-        onChange={e => setValue(e.target.value)}
+        onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
     </div>
