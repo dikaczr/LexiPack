@@ -1,12 +1,10 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import * as pdfjsLib from "pdfjs-dist";
+import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import { createWorker } from "tesseract.js";
 import "./PdfReaderDialog.css";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url,
-).toString();
+pdfjsLib.GlobalWorkerOptions.workerSrc = workerSrc;
 
 const OCR_THRESHOLD = 20;
 const RENDER_SCALE  = 1.5;
@@ -20,20 +18,28 @@ async function renderPageToCanvas(page, scale = RENDER_SCALE) {
   return canvas;
 }
 
-function escapeRegex(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-function highlightText(text, addedWords, existingSet) {
-  const allTracked = [...addedWords, ...existingSet];
-  if (allTracked.length === 0) return text;
-  const regex = new RegExp(`(${allTracked.map(escapeRegex).join("|")})`, "gi");
-  return text.split(regex).map((part, i) => {
-    const lower = part.toLowerCase();
-    if (addedWords.has(lower))  return <mark key={i} className="pdf-mark-added">{part}</mark>;
-    if (existingSet.has(lower)) return <mark key={i} className="pdf-mark-exists">{part}</mark>;
-    return part;
-  });
+function WordPicker({ text, addedWords, existingSet, onWordClick }) {
+  // Split text into tokens: words and non-word separators
+  const tokens = text.split(/(\s+|[,;:.!?„""\(\)\[\]{}<>\/\\|@#$%^&*+=~`]+)/);
+  return (
+    <>
+      {tokens.map((token, i) => {
+        const clean = token.replace(/^[^\p{L}0-9]+|[^\p{L}0-9]+$/gu, "").trim();
+        if (!clean || /^\s+$/.test(token)) return <span key={i}>{token}</span>;
+        const lower = clean.toLowerCase();
+        const isAdded    = addedWords.has(lower);
+        const isExisting = existingSet.has(lower);
+        return (
+          <mark
+            key={i}
+            className={isAdded ? "pdf-mark-added" : isExisting ? "pdf-mark-exists" : "pdf-word"}
+            onClick={() => !isAdded && onWordClick(clean)}
+            title={isAdded ? "pridané" : isExisting ? "už v packu" : "klikni pre pridanie"}
+          >{token}</mark>
+        );
+      })}
+    </>
+  );
 }
 
 // ── PageView: renders one page as image with drag-to-select overlay ──
@@ -234,20 +240,10 @@ export default function PdfReaderDialog({ open, onClose, onAddWord, existingWord
   }
 
   // text mode handlers (unchanged)
-  function handleMouseUp() {
-    const sel  = window.getSelection();
-    const text = sel?.toString().trim().replace(/\s+/g, " ");
-    if (text && text.length > 0 && text.length <= 60) setSelectedText(text);
-    else if (!text) setSelectedText("");
-  }
-
-  const handleAddSelected = useCallback(() => {
-    if (!selectedText) return;
-    onAddWord(selectedText);
-    setAddedWords((prev) => new Set([...prev, selectedText.toLowerCase()]));
-    setSelectedText("");
-    window.getSelection()?.removeAllRanges();
-  }, [selectedText, onAddWord]);
+  const handleWordClick = useCallback((word) => {
+    onAddWord(word);
+    setAddedWords(prev => new Set([...prev, word.toLowerCase()]));
+  }, [onAddWord]);
 
   function handleReset() {
     setPages([]); setPageImages([]);
@@ -284,20 +280,6 @@ export default function PdfReaderDialog({ open, onClose, onAddWord, existingWord
           </div>
         </div>
 
-        {/* TEXT MODE — selection bar */}
-        {mode === "text" && selectedText && (
-          <div className="pdf-selection-bar">
-            <span className="pdf-selection-text">„{selectedText}"</span>
-            {existingSet.has(selectedText.toLowerCase()) && (
-              <span className="pdf-selection-hint exists">už v packu</span>
-            )}
-            {addedWords.has(selectedText.toLowerCase()) && (
-              <span className="pdf-selection-hint added">pridané</span>
-            )}
-            <button className="pdf-btn-add" onClick={handleAddSelected}>+ Pridať do packu</button>
-            <button className="pdf-btn-cancel" onClick={() => { setSelectedText(""); window.getSelection()?.removeAllRanges(); }}>Zrušiť</button>
-          </div>
-        )}
 
         {/* IMAGE MODE — OCR result bar */}
         {mode === "image" && (isOcring || ocrResult) && (
@@ -325,6 +307,7 @@ export default function PdfReaderDialog({ open, onClose, onAddWord, existingWord
           <div className="pdf-legend">
             <span className="pdf-legend-item added">■ práve pridané</span>
             <span className="pdf-legend-item exists">■ už v packu</span>
+            <span className="pdf-legend-item" style={{ color: "var(--app-muted, #94a3b8)" }}>— klikni na slovo</span>
           </div>
         )}
 
@@ -350,11 +333,13 @@ export default function PdfReaderDialog({ open, onClose, onAddWord, existingWord
 
         {/* TEXT MODE — content */}
         {!loading && mode === "text" && pages.length > 0 && (
-          <div className="pdf-text-area" onMouseUp={handleMouseUp}>
+          <div className="pdf-text-area">
             {pages.map((text, i) => (
               <div key={i} className="pdf-page">
                 <div className="pdf-page-label">— Strana {i + 1} —</div>
-                <p className="pdf-page-text">{highlightText(text, addedWords, existingSet)}</p>
+                <p className="pdf-page-text">
+                  <WordPicker text={text} addedWords={addedWords} existingSet={existingSet} onWordClick={handleWordClick} />
+                </p>
               </div>
             ))}
           </div>
