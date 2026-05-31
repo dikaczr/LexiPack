@@ -1,5 +1,4 @@
 import { forwardRef, useImperativeHandle, useState, useRef, useEffect } from "react";
-import ReactDOM from "react-dom";
 import "./FloatingTextareaEditor.css";
 
 const FLOAT_H = 120;
@@ -80,28 +79,24 @@ const FloatingTextareaEditor = forwardRef((params, ref) => {
     else if (e.key === "Tab") { e.preventDefault(); params.stopEditing(); }
   }
 
-  const popup = (
-    <div className="fte-popup" style={{ position: "fixed", top: pos.top, left: pos.left, width: pos.width }}>
-      <div className="fte-handle" onMouseDown={onDragStart}>
-        <span className="fte-grip">⠿</span>
-        <span className="fte-col-name">{params.colDef?.headerName}</span>
-        <span className="fte-hint">Enter — uložiť · Shift+Enter — nový riadok · Esc — zrušiť</span>
-      </div>
-      <textarea
-        ref={textareaRef}
-        className="fte-textarea"
-        value={value}
-        rows={3}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-      />
-    </div>
-  );
-
   return (
     <div className="fte-anchor">
       <span className="fte-cell-preview">{params.value}</span>
-      {ReactDOM.createPortal(popup, document.body)}
+      <div className="fte-popup" style={{ position: "fixed", top: pos.top, left: pos.left, width: pos.width }}>
+        <div className="fte-handle" onMouseDown={onDragStart}>
+          <span className="fte-grip">⠿</span>
+          <span className="fte-col-name">{params.colDef?.headerName}</span>
+          <span className="fte-hint">Enter — uložiť · Shift+Enter — nový riadok · Esc — zrušiť</span>
+        </div>
+        <textarea
+          ref={textareaRef}
+          className="fte-textarea"
+          value={value}
+          rows={3}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+        />
+      </div>
     </div>
   );
 });
