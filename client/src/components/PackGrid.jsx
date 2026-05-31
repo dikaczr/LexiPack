@@ -253,7 +253,7 @@ function PackGrid({
         flex: 1,
         cellStyle: { textAlign: "left" },
         cellEditor: FloatingTextareaEditor,
-        suppressKeyboardEvent: (params) => params.editing,
+        cellEditorPopup: true,
       },
       {
         headerName: t("cols.level"),
@@ -268,7 +268,7 @@ function PackGrid({
         editable: !isReadOnly,
         minWidth: 240,
         cellEditor: FloatingTextareaEditor,
-        suppressKeyboardEvent: (params) => params.editing,
+        cellEditorPopup: true,
       },
       {
         headerName: (() => { const f = t("cols.exampleLang"); return typeof f === "function" ? f(nativeLang) : `Príklad ${nativeLang.toUpperCase()}`; })(),
@@ -276,7 +276,7 @@ function PackGrid({
         editable: !isReadOnly,
         minWidth: 240,
         cellEditor: FloatingTextareaEditor,
-        suppressKeyboardEvent: (params) => params.editing,
+        cellEditorPopup: true,
       },
       {
         headerName: t("cols.topic"),
