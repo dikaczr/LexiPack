@@ -817,9 +817,13 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
             <div className="meta-label">{t("projects.meta.author")}</div>
             <div className="meta-value meta-text">{selectedPack?.author || "-"}</div>
           </div>
-          <div className="meta-item">
+          <div className="meta-item" style={{ gridColumn: "6", gridRow: "2" }}>
             <div className="meta-label">{t("projects.meta.fileName")}</div>
             <div className="meta-value meta-text">{selectedPack?.fileName || "-"}</div>
+          </div>
+          <div className="meta-item" style={{ gridColumn: "7", gridRow: "1" }}>
+            <div className="meta-label">{t("projects.meta.comments")}</div>
+            <div className="meta-value meta-text">{selectedPack?.comments || "-"}</div>
           </div>
           <div className="meta-item" style={{ gridColumn: "7", gridRow: "2" }}>
             <div className="meta-label">{t("projects.meta.level")}</div>

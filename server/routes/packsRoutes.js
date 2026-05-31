@@ -158,8 +158,10 @@ function buildPackSummary(file, fullPath, dbRow) {
     words:        words.length,
     progress:     `${progress} %`,
     status:       dbRow?.status    ?? "Draft",
-    reviewSentBy: json.reviewSentBy || null,
-    reviewSentAt: json.reviewSentAt || null,
+    reviewSentBy:     json.reviewSentBy     || null,
+    reviewSentAt:     json.reviewSentAt     || null,
+    comments:         json.comments         || "",
+    reviewerComments: json.reviewerComments || "",
   };
 }
 
@@ -340,19 +342,21 @@ router.post("/", requireAuth, async (req, res) => {
 
     const finalPackId = packId || fileName.replace(".json", "");
     const pack = {
-      packId:      finalPackId,
+      packId:           finalPackId,
       name,
-      description: description || "",
-      targetLang:  targetLang  || "en",
-      nativeLang:  nativeLang  || "sk",
-      level:       level       || "B1",
-      category:    category    || "",
-      icon:        icon        || "",
-      author:      author      || "",
-      createdAt:   new Date().toISOString().slice(0, 10),
-      version:     version     || "1.0",
-      tags:        Array.isArray(tags) ? tags : (tags || "").split(",").map(t => t.trim()).filter(Boolean),
-      words:       [],
+      description:      description || "",
+      targetLang:       targetLang  || "en",
+      nativeLang:       nativeLang  || "sk",
+      level:            level       || "B1",
+      category:         category    || "",
+      icon:             icon        || "",
+      author:           author      || "",
+      createdAt:        new Date().toISOString().slice(0, 10),
+      version:          version     || "1.0",
+      tags:             Array.isArray(tags) ? tags : (tags || "").split(",").map(t => t.trim()).filter(Boolean),
+      comments:         "",
+      reviewerComments: "",
+      words:            [],
     };
 
     fs.writeFileSync(fullPath, JSON.stringify(pack, null, 2), "utf8");

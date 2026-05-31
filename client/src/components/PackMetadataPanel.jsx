@@ -151,6 +151,96 @@ function TagInput({ value, onChange, availableTags = [] }) {
   );
 }
 
+function CategorySelect({ value, onChange, apiBase, token }) {
+  const [categories, setCategories] = useState([]);
+  const [showOther, setShowOther] = useState(false);
+  const [otherVal, setOtherVal] = useState("");
+
+  useEffect(() => {
+    if (!apiBase) return;
+    fetch(`${apiBase}/api/packs/categories`)
+      .then(r => r.json())
+      .then(data => {
+        if (!Array.isArray(data)) return;
+        setCategories(data);
+        // ak aktuálna hodnota nie je v zozname ani "General", zobraz input
+        if (value && value !== "General" && !data.includes(value)) {
+          setShowOther(true);
+          setOtherVal(value);
+        }
+      })
+      .catch(console.warn);
+  }, [apiBase]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  async function saveCategory(name) {
+    if (!name?.trim() || !apiBase || !token) return;
+    await fetch(`${apiBase}/api/packs/categories`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+      body: JSON.stringify({ name: name.trim() }),
+    }).catch(console.warn);
+    setCategories(prev => prev.includes(name.trim()) ? prev : [...prev, name.trim()].sort());
+  }
+
+  function handleSelect(e) {
+    const val = e.target.value;
+    if (val === "__other__") {
+      setShowOther(true);
+      setOtherVal("");
+    } else {
+      setShowOther(false);
+      onChange(val);
+    }
+  }
+
+  async function handleOtherBlur() {
+    const trimmed = otherVal.trim();
+    if (trimmed) {
+      await saveCategory(trimmed);
+      onChange(trimmed);
+    } else {
+      setShowOther(false);
+      onChange("General");
+    }
+  }
+
+  const selectedVal = showOther ? "__other__" : (value || "General");
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+      <select value={selectedVal} onChange={handleSelect}>
+        <option value="General">General</option>
+        {categories.filter(c => c !== "General").map(c => (
+          <option key={c} value={c}>{c}</option>
+        ))}
+        <option value="__other__">Iné…</option>
+      </select>
+      {showOther && (
+        <input
+          autoFocus
+          placeholder="Nová kategória…"
+          value={otherVal}
+          onChange={e => setOtherVal(e.target.value)}
+          onBlur={handleOtherBlur}
+          onKeyDown={e => {
+            if (e.key === "Enter") e.target.blur();
+            if (e.key === "Escape") { setShowOther(false); setOtherVal(""); onChange(value || "General"); }
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
+const LANG_FLAG_MAP = { en: "gb" };
+
+function langFlag(code) {
+  const cc = (LANG_FLAG_MAP[code?.toLowerCase()] || code || "xx").toLowerCase();
+  return [...cc.toUpperCase()].map(c =>
+    String.fromCodePoint(0x1F1E6 + c.charCodeAt(0) - 65)
+  ).join("");
+}
+
 function PackMetadataPanel({ metadata, setMetadata, availableTags = [], apiBase, token, fileName }) {
   const t = useT();
   const iconInputRef       = useRef(null);
@@ -198,14 +288,15 @@ function PackMetadataPanel({ metadata, setMetadata, availableTags = [], apiBase,
         />
       </label>
 
-      <label className="metadata-field">
+      <div className="metadata-field">
         <span className="metadata-label">{t("meta.category")}</span>
-        <input
-          placeholder={t("meta.category")}
+        <CategorySelect
           value={metadata.category}
-          onChange={(e) => updateField("category", e.target.value)}
+          onChange={(v) => updateField("category", v)}
+          apiBase={apiBase}
+          token={token}
         />
-      </label>
+      </div>
 
       <label className="metadata-field">
         <span className="metadata-label">{t("meta.level")}</span>
@@ -225,6 +316,26 @@ function PackMetadataPanel({ metadata, setMetadata, availableTags = [], apiBase,
           placeholder={t("meta.version")}
           value={metadata.version}
           onChange={(e) => updateField("version", e.target.value)}
+        />
+      </label>
+
+      <label className="metadata-field">
+        <span className="metadata-label">{t("meta.comments")}</span>
+        <textarea
+          placeholder={t("meta.comments")}
+          value={metadata.comments || ""}
+          onChange={(e) => updateField("comments", e.target.value)}
+          rows={2}
+        />
+      </label>
+
+      <label className="metadata-field">
+        <span className="metadata-label">{t("meta.reviewerComments")}</span>
+        <textarea
+          placeholder={t("meta.reviewerComments")}
+          value={metadata.reviewerComments || ""}
+          onChange={(e) => updateField("reviewerComments", e.target.value)}
+          rows={2}
         />
       </label>
 
@@ -291,6 +402,12 @@ function PackMetadataPanel({ metadata, setMetadata, availableTags = [], apiBase,
               onClose={closeColorPicker}
             />
           )}
+        </div>
+        <div className="metadata-lang-wrap">
+           {/* <span className="metadata-label metadata-label--lang">{t("meta.langPair")}</span> */}
+          <div className="metadata-lang-pair">
+            {langFlag(metadata.targetLang || "xx")} <span style={{ fontSize: 12, color: "var(--app-muted)" }}>→</span> {langFlag(metadata.nativeLang || "xx")}
+          </div>
         </div>
       </div>
     </div>
