@@ -34,7 +34,9 @@ export default function AppShell() {
   const { user, token } = useAuth();
   const { settings, loading: settingsLoading } = useSettings();
   const [autoCorrectLookup, setAutoCorrectLookup] = useState(null);
+  const [autoCorrectNativeLookup, setAutoCorrectNativeLookup] = useState(null);
   const [packTargetLang, setPackTargetLang] = useState(null);
+  const [packNativeLang, setPackNativeLang] = useState(null);
   const [acNotice, setAcNotice] = useState("");
   const acNoticeTimer = useRef(null);
   const t = useT();
@@ -92,28 +94,36 @@ export default function AppShell() {
       acNoticeTimer.current = setTimeout(() => setAcNotice(""), 5000);
     }
 
-    async function load() {
-      const candidates = packTargetLang ? (LANG_TO_LOCALE[packTargetLang] ?? []) : [];
-
-      for (const locale of candidates) {
+    async function loadLookup(lang) {
+      if (!lang) return null;
+      const locales = LANG_TO_LOCALE[lang] ?? [];
+      for (const locale of locales) {
         const data = await fetchLocale(locale);
-        if (data?.entries?.length) {
-          setAutoCorrectLookup(buildLookup(data.entries));
-          return;
-        }
+        if (data?.entries?.length) return buildLookup(data.entries);
       }
+      return null;
+    }
 
-      if (candidates.length > 0) {
+    async function load() {
+      // Target language autocorrect
+      let targetLookup = await loadLookup(packTargetLang);
+      if (!targetLookup && packTargetLang) {
         showNotice(t("editor.autoCorrectLangNotFound")(packTargetLang));
       }
+      if (!targetLookup) {
+        const fallback = settings.autoCorrectLocale ?? "sk-SK";
+        const data = await fetchLocale(fallback);
+        targetLookup = data?.entries?.length ? buildLookup(data.entries) : null;
+      }
+      setAutoCorrectLookup(targetLookup);
 
-      const fallback = settings.autoCorrectLocale ?? "sk-SK";
-      const data = await fetchLocale(fallback);
-      setAutoCorrectLookup(data?.entries ? buildLookup(data.entries) : null);
+      // Native language autocorrect (zvyčajne SK)
+      const nativeLookup = await loadLookup(packNativeLang);
+      setAutoCorrectNativeLookup(nativeLookup);
     }
 
     load();
-  }, [token, settingsLoading, settings.autoCorrectEnabled, settings.autoCorrectLocale, packTargetLang]);
+  }, [token, settingsLoading, settings.autoCorrectEnabled, settings.autoCorrectLocale, packTargetLang, packNativeLang]);
 
   const [packFilter, setPackFilter]       = useState("");
   const [statusFilter, setStatusFilter]   = useState("");
@@ -246,7 +256,7 @@ export default function AppShell() {
             </>
           )}
           {activeScreen === "editor" && (
-            <EditorScreen activePack={activePack} quickFilter={quickFilter} setQuickFilter={setQuickFilter} quickFilterRef={quickFilterRef} committedFilter={committedFilter} setCommittedFilter={setCommittedFilter} autoCorrectLookup={autoCorrectLookup} onTargetLangDetected={setPackTargetLang} />
+            <EditorScreen activePack={activePack} quickFilter={quickFilter} setQuickFilter={setQuickFilter} quickFilterRef={quickFilterRef} committedFilter={committedFilter} setCommittedFilter={setCommittedFilter} autoCorrectLookup={autoCorrectLookup} autoCorrectNativeLookup={autoCorrectNativeLookup} onTargetLangDetected={setPackTargetLang} onNativeLangDetected={setPackNativeLang} />
           )}
           {activeScreen === "analytics" && <AnalyticsScreen />}
           {activeScreen === "settings" && <SettingsScreen />}
@@ -271,7 +281,7 @@ export default function AppShell() {
         </div>
       )}
 
-      <HelpDialog open={showHelp} onClose={() => setShowHelp(false)} />
+      <HelpDialog open={showHelp} onClose={() => setShowHelp(false)} targetLang={packTargetLang || "en"} nativeLang={packNativeLang || "sk"} />
 
       {showShortcuts && (
         <div className="shortcuts-overlay">

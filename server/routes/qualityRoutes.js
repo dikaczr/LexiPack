@@ -1,6 +1,32 @@
 import express from "express";
 import OpenAI from "openai";
 import { requireAuth } from "../middleware/auth.js";
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import pathMod from "path";
+const __dirname = pathMod.dirname(fileURLToPath(import.meta.url));
+
+// ── Hunspell (nspell) — načítanie slovníkov cez fs ────────
+const DICT_FILES = {
+  sk:    ["dictionary-sk",     "index.aff", "index.dic"],
+  en:    ["dictionary-en-us",  "index.aff", "index.dic"],
+  "en-gb": ["dictionary-en-gb","index.aff", "index.dic"],
+  de:    ["dictionary-de",     "index.aff", "index.dic"],
+  fr:    ["dictionary-fr",     "index.aff", "index.dic"],
+};
+
+const nspellCache = {};
+async function getSpeller(lang) {
+  if (nspellCache[lang]) return nspellCache[lang];
+  const nspell = (await import("nspell")).default;
+  const [pkg, affFile, dicFile] = DICT_FILES[lang] ?? DICT_FILES.en;
+  const base = pathMod.join(__dirname, "../node_modules", pkg);
+  const aff = readFileSync(pathMod.join(base, affFile));
+  const dic = readFileSync(pathMod.join(base, dicFile));
+  const speller = nspell({ aff, dic });
+  nspellCache[lang] = speller;
+  return speller;
+}
 
 const getOpenAI = (() => {
   let client = null;
@@ -42,55 +68,59 @@ async function checkText(text, lang) {
   }));
 }
 
-// POST /api/quality/spellcheck
+// POST /api/quality/spellcheck — Hunspell offline kontrola pravopisu
 // Body: { rows: [...], targetLang: "en", nativeLang: "sk" }
-// Returns: [{ rowId, word, field, issues }]
+// Returns: [{ rowId, word, field, misspelled: [{word, suggestions}] }]
 router.post("/spellcheck", requireAuth, async (req, res) => {
   const { rows, targetLang = "en", nativeLang = "sk" } = req.body;
-  if (!Array.isArray(rows) || rows.length === 0) {
+  if (!Array.isArray(rows) || rows.length === 0)
     return res.status(400).json({ error: "rows required" });
-  }
 
   const FIELDS = [
-    { field: "word",        lang: targetLang },
-    { field: "translation", lang: nativeLang },
-    { field: "definition",  lang: targetLang },
-    { field: "example_en",  lang: targetLang },
-    { field: "example_sk",  lang: nativeLang },
+    { field: "word",                        lang: targetLang },
+    { field: "translation",                 lang: nativeLang },
+    { field: "definition",                  lang: targetLang },
+    { field: `example_${targetLang}`,       lang: targetLang },
+    { field: `example_${nativeLang}`,       lang: nativeLang },
   ];
 
-  // Check LanguageTool availability first
   try {
-    await fetch(LT_URL.replace("/check", "/languages"), {
-      signal: AbortSignal.timeout(5000),
-    });
-  } catch {
-    return res.status(503).json({ error: "LanguageTool API nie je dostupné. Skontroluj internetové pripojenie servera." });
-  }
+    // Nacachuj spellerov pre oba jazyky
+    const [targetSpeller, nativeSpeller] = await Promise.all([
+      getSpeller(targetLang),
+      getSpeller(nativeLang),
+    ]);
+    const spellerMap = { [targetLang]: targetSpeller, [nativeLang]: nativeSpeller };
 
-  const results = [];
-
-  // Run checks in parallel per field, sequential per row to avoid LT overload
-  for (const row of rows) {
-    const fieldChecks = await Promise.all(
-      FIELDS.map(async ({ field, lang }) => {
-        const text = row[field];
-        if (!text?.trim()) return null;
-        try {
-          const issues = await checkText(text, lang);
-          if (issues.length === 0) return null;
-          return { rowId: row.id, word: row.word, field, issues };
-        } catch {
-          return null;
+    function checkWords(text, lang) {
+      const speller = spellerMap[lang] ?? targetSpeller;
+      // Rozdeľ text na slová (ignoruj čísla a interpunkciu)
+      const words = text.match(/\p{L}+/gu) ?? [];
+      const issues = [];
+      for (const w of words) {
+        if (!speller.correct(w)) {
+          issues.push({ word: w, suggestions: speller.suggest(w).slice(0, 5) });
         }
-      })
-    );
-    for (const r of fieldChecks) {
-      if (r) results.push(r);
+      }
+      return issues;
     }
-  }
 
-  res.json(results);
+    const results = [];
+    for (const row of rows) {
+      for (const { field, lang } of FIELDS) {
+        const text = row[field];
+        if (!text?.trim()) continue;
+        const misspelled = checkWords(text, lang);
+        if (misspelled.length > 0)
+          results.push({ rowId: row.id, word: row.word, field, misspelled });
+      }
+    }
+
+    res.json(results);
+  } catch (err) {
+    console.error("Hunspell error:", err.message);
+    res.status(500).json({ error: "Kontrola pravopisu zlyhala: " + err.message });
+  }
 });
 
 // POST /api/quality/cefr-check
@@ -150,7 +180,7 @@ ${JSON.stringify(batch)}`;
 });
 
 // POST /api/quality/example-check
-// Body: { rows: [{id, word, example_en}], targetLang }
+// Body: { rows: [{id, word, example_<targetLang>}], targetLang }
 // Returns: { results: [{id, word, example, quality, note, suggestion}], total }
 router.post("/example-check", requireAuth, async (req, res) => {
   const { rows, targetLang = "en" } = req.body;
@@ -158,13 +188,14 @@ router.post("/example-check", requireAuth, async (req, res) => {
     return res.status(400).json({ error: "rows required" });
   }
 
-  const langName = LANG_NAMES[targetLang] ?? targetLang;
-  const openai   = getOpenAI();
-  const model    = process.env.OPENAI_MODEL ?? "gpt-4o-mini";
+  const langName       = LANG_NAMES[targetLang] ?? targetLang;
+  const exTargetField  = `example_${targetLang}`;
+  const openai         = getOpenAI();
+  const model          = process.env.OPENAI_MODEL ?? "gpt-4o-mini";
 
   const toCheck = rows
-    .filter((r) => r.example_en?.trim())
-    .map((r) => ({ id: r.id, word: r.word?.trim() ?? "", example: r.example_en.trim() }));
+    .filter((r) => r[exTargetField]?.trim())
+    .map((r) => ({ id: r.id, word: r.word?.trim() ?? "", example: r[exTargetField].trim() }));
 
   if (toCheck.length === 0) return res.json({ results: [], total: 0 });
 

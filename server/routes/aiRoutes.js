@@ -88,7 +88,7 @@ router.post("/generate-translation", requireAuth, async (req, res) => {
       messages: [
         {
           role: "system",
-          content: `You are a professional dictionary assistant.\n\nReturn ONLY valid JSON.\n\nFields:\n- phonetic (IPA for ${tName})\n- translation (in ${nName})\n- definition (in ${tName})\n- type (part of speech in English, e.g. noun, verb)\n- level (CEFR: A1–C2)\n- example_en (example sentence in ${tName})\n- example_sk (example sentence in ${nName})\n\nExample:\n{\n  "phonetic": "/ˈplænɪt/",\n  "translation": "planéta",\n  "definition": "A large object orbiting a star.",\n  "type": "noun",\n  "level": "B1",\n  "example_en": "Earth is a planet.",\n  "example_sk": "Zem je planéta."\n}`,
+          content: `You are a professional dictionary assistant.\n\nReturn ONLY valid JSON.\n\nFields:\n- phonetic (IPA for ${tName})\n- translation (in ${nName})\n- definition (in ${tName})\n- type (part of speech in English, e.g. noun, verb)\n- level (CEFR: A1–C2)\n- example_${targetLang} (example sentence in ${tName})\n- example_${nativeLang} (example sentence in ${nName})\n\nExample:\n{\n  "phonetic": "/ˈplænɪt/",\n  "translation": "planéta",\n  "definition": "A large object orbiting a star.",\n  "type": "noun",\n  "level": "B1",\n  "example_${targetLang}": "Earth is a planet.",\n  "example_${nativeLang}": "Zem je planéta."\n}`,
         },
         { role: "user", content: row.word },
       ],
@@ -147,15 +147,17 @@ router.post("/generate-column", requireAuth, async (req, res) => {
     const tName = LANG_NAMES[targetLang] || targetLang || "English";
     const nName = LANG_NAMES[nativeLang] || nativeLang || "Slovak";
 
+    const exTargetField = `example_${targetLang}`;
+    const exNativeField = `example_${nativeLang}`;
     const fieldHints = {
-      phonetic:    `IPA phonetic transcription for ${tName}`,
-      translation: `translation of the word in ${nName}`,
-      definition:  `definition of the word in ${tName}`,
-      type:        "part of speech in English (e.g. noun, verb, adjective)",
-      level:       "CEFR difficulty level (A1–C2)",
-      example_en:  `example sentence using the word in ${tName}`,
-      example_sk:  `example sentence using the translated word in ${nName}`,
-      topic:       "topic/category in one English word (e.g. astronomy, finance)",
+      phonetic:      `IPA phonetic transcription for ${tName}`,
+      translation:   `translation of the word in ${nName}`,
+      definition:    `definition of the word in ${tName}`,
+      type:          "part of speech in English (e.g. noun, verb, adjective)",
+      level:         "CEFR difficulty level (A1–C2)",
+      [exTargetField]: `example sentence using the word in ${tName}`,
+      [exNativeField]: `example sentence using the translated word in ${nName}`,
+      topic:         "topic/category in one English word (e.g. astronomy, finance)",
     };
 
     const requestAt = new Date();
@@ -166,7 +168,7 @@ router.post("/generate-column", requireAuth, async (req, res) => {
           role: "system",
           content: `You are a professional dictionary assistant.\nThe vocabulary pack language is ${tName} (translations in ${nName}).\nGenerate ONLY ONE field: ${fieldHints[field] || `value for field "${field}"`}.\nReturn ONLY valid JSON.\n\nExample:\n{\n  "value": "A large object orbiting a star."\n}`,
         },
-        { role: "user", content: `Field:\n${field}\n\nWord:\n${row.word}\n\nTranslation:\n${row.translation}\n\nDefinition:\n${row.definition}\n\nExample EN:\n${row.example_en}\n\nExample SK:\n${row.example_sk}` },
+        { role: "user", content: `Field:\n${field}\n\nWord:\n${row.word}\n\nTranslation:\n${row.translation}\n\nDefinition:\n${row.definition}\n\nExample ${targetLang.toUpperCase()}:\n${row[exTargetField] || ""}\n\nExample ${nativeLang.toUpperCase()}:\n${row[exNativeField] || ""}` },
       ],
     });
 

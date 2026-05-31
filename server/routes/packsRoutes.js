@@ -54,12 +54,18 @@ function packDbKey(workspaceDir, fileName) {
 
 function normalizePack(json) {
   const pack = Array.isArray(json) ? { words: json } : { ...json };
+  const tl = pack.targetLang || "en";
+  const nl = pack.nativeLang || "sk";
+  const exTarget = `example_${tl}`;
+  const exNative = `example_${nl}`;
   pack.words = (pack.words || []).map((w) => {
     const word = { ...w };
-    if (!word.example_en && Array.isArray(word.examples) && word.examples[0]?.en)
-      word.example_en = word.examples[0].en;
-    if (!word.example_sk && Array.isArray(word.examples) && word.examples[0]?.sk)
-      word.example_sk = word.examples[0].sk;
+    if (Array.isArray(word.examples) && word.examples[0]) {
+      const ex = word.examples[0];
+      if (!word[exTarget]) word[exTarget] = ex[tl] || ex.en || "";
+      if (!word[exNative]) word[exNative] = ex[nl] || ex.sk || "";
+      delete word.examples;
+    }
     return word;
   });
   return pack;
@@ -77,6 +83,37 @@ async function syncTags(tags) {
   }
 }
 
+// ── KATEGÓRIE ─────────────────────────────────────────
+router.get("/categories", async (req, res) => {
+  try {
+    const pool = await getPool();
+    await pool.request().query(`
+      IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Categories' AND xtype='U')
+      CREATE TABLE Categories (id INT IDENTITY(1,1) PRIMARY KEY, name NVARCHAR(100) NOT NULL UNIQUE)
+    `);
+    const result = await pool.request().query("SELECT name FROM Categories ORDER BY name");
+    res.json(result.recordset.map(r => r.name));
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to load categories" });
+  }
+});
+
+router.post("/categories", requireAuth, async (req, res) => {
+  try {
+    const { name } = req.body;
+    if (!name?.trim()) return res.status(400).json({ error: "Name required" });
+    const pool = await getPool();
+    await pool.request()
+      .input("name", sql.NVarChar, name.trim())
+      .query(`IF NOT EXISTS (SELECT 1 FROM Categories WHERE name = @name) INSERT INTO Categories (name) VALUES (@name)`);
+    res.json({ ok: true });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to save category" });
+  }
+});
+
 // ── ZOZNAM TAGOV ──────────────────────────────────────
 router.get("/tags", async (req, res) => {
   try {
@@ -89,12 +126,15 @@ router.get("/tags", async (req, res) => {
   }
 });
 
-const PACK_FIELDS = ["word", "translation", "phonetic", "definition", "type", "level", "example_en", "example_sk"];
+const PACK_FIELDS_BASE = ["word", "translation", "phonetic", "definition", "type", "level"];
 
 function buildPackSummary(file, fullPath, dbRow) {
   const content = fs.readFileSync(fullPath, "utf8").replace(/^﻿/, "");
   const json = normalizePack(JSON.parse(content));
   const words = json.words || [];
+  const tl = json.targetLang || "en";
+  const nl = json.nativeLang || "sk";
+  const PACK_FIELDS = [...PACK_FIELDS_BASE, `example_${tl}`, `example_${nl}`];
   const totalSlots = words.length * PACK_FIELDS.length;
   const filledSlots = words.reduce((sum, w) =>
     sum + PACK_FIELDS.filter(f => w[f] && String(w[f]).trim() !== "").length, 0
@@ -241,9 +281,10 @@ router.put("/by-id/:packDbId", requireAuth, async (req, res) => {
       : (req.body.tags || "").split(",").map(t => t.trim()).filter(Boolean);
     await syncTags(tags);
 
-    const COMPLETE_FIELDS = ["word", "translation", "phonetic", "definition", "type", "level", "example_en", "example_sk", "topic"];
+    const targetLang = (req.body.targetLang || "en").toLowerCase();
+    const nativeLang = (req.body.nativeLang || "sk").toLowerCase();
+    const COMPLETE_FIELDS = ["word", "translation", "phonetic", "definition", "type", "level", `example_${targetLang}`, `example_${nativeLang}`, "topic"];
     const LANGS_WITH_ARTICLES = new Set(["de", "fr", "es", "it"]);
-    const targetLang = (req.body.targetLang || "").toLowerCase();
     const hasArticleLang = LANGS_WITH_ARTICLES.has(targetLang);
     const words = req.body.words || [];
     const incompleteWords = words.filter((w) => {
@@ -356,9 +397,10 @@ router.put("/:fileName", requireAuth, async (req, res) => {
       : (req.body.tags || "").split(",").map(t => t.trim()).filter(Boolean);
     await syncTags(tags);
 
-    const COMPLETE_FIELDS = ["word", "translation", "phonetic", "definition", "type", "level", "example_en", "example_sk", "topic"];
+    const targetLang = (req.body.targetLang || "en").toLowerCase();
+    const nativeLang = (req.body.nativeLang || "sk").toLowerCase();
+    const COMPLETE_FIELDS = ["word", "translation", "phonetic", "definition", "type", "level", `example_${targetLang}`, `example_${nativeLang}`, "topic"];
     const LANGS_WITH_ARTICLES = new Set(["de", "fr", "es", "it"]);
-    const targetLang = (req.body.targetLang || "").toLowerCase();
     const hasArticleLang = LANGS_WITH_ARTICLES.has(targetLang);
     const words = req.body.words || [];
     const incompleteWords = words.filter((w) => {

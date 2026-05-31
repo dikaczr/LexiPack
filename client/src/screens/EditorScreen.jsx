@@ -112,7 +112,7 @@ function splitArticle(rawWord, targetLang) {
   return { article: "", word: rawWord };
 }
 
-export default function EditorScreen({ activePack, quickFilter = "", setQuickFilter, quickFilterRef, committedFilter = "", setCommittedFilter, autoCorrectLookup, onTargetLangDetected }) {
+export default function EditorScreen({ activePack, quickFilter = "", setQuickFilter, quickFilterRef, committedFilter = "", setCommittedFilter, autoCorrectLookup, autoCorrectNativeLookup, onTargetLangDetected, onNativeLangDetected }) {
   const { token, user, handleUnauthorized } = useAuth();
   const { settings } = useSettings();
   const t = useT();
@@ -126,6 +126,11 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   useEffect(() => {
     autoCorrectLookupRef.current = autoCorrectLookup ?? null;
   }, [autoCorrectLookup]);
+
+  const autoCorrectNativeLookupRef = useRef(null);
+  useEffect(() => {
+    autoCorrectNativeLookupRef.current = autoCorrectNativeLookup ?? null;
+  }, [autoCorrectNativeLookup]);
 
   const [recoveryDraft, setRecoveryDraft] = useState(null);
   const [showRecoveryDialog, setShowRecoveryDialog] = useState(false);
@@ -157,6 +162,7 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   const aiSnapshotRef = useRef({});
   const contextMenuRef = useRef(null);
   const autoCorrectLookupRef = useRef(null);
+  const nativeLangRef = useRef("sk");
   const selectedRowIndexRef = useRef(selectedRowIndex);
   useEffect(() => { selectedRowIndexRef.current = selectedRowIndex; }, [selectedRowIndex]);
   const handleAddReviewRef = useRef(null);
@@ -184,8 +190,13 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
 
       if (settings.autoCorrectEnabled ?? true) {
         const original = e.newValue;
+        // Pre natívne polia (preklad, príklad v nat. jazyku) použi natívny lookup
+        const nativeFields = new Set(["translation", `example_${nativeLangRef.current}`]);
+        const lookup = nativeFields.has(colId)
+          ? (autoCorrectNativeLookupRef.current ?? autoCorrectLookupRef.current)
+          : autoCorrectLookupRef.current;
         const corrected = applyAutoCorrect(original, colId, {
-          lookup:               autoCorrectLookupRef.current,
+          lookup,
           correctTwoInitialCaps: settings.correctTwoInitialCaps ?? true,
           correctCapsLock:       settings.correctCapsLock ?? true,
         });
@@ -312,24 +323,6 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
       extWindows.current[key] = window.open(url, "_blank");
     }
   };
-  const invalidRows = rows.filter(
-    (row) =>
-      !row.word ||
-      !row.translation ||
-      !row.definition ||
-      !row.type ||
-      !row.level ||
-      !row.example_en ||
-      !row.example_sk ||
-      !row.topic,
-  );
-  const duplicateWords = rows.filter((row, index) => {
-    const normalized = row.word?.trim().toLowerCase();
-    return (
-      rows.findIndex((r) => r.word?.trim().toLowerCase() === normalized) !==
-      index
-    );
-  });
   const [showExportDialog, setShowExportDialog] = useState(false);
   const [exportFormat, setExportFormat] = useState("xlsx");
   const [showImportMenu, setShowImportMenu] = useState(false);
@@ -338,7 +331,6 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   const [importStrategy, setImportStrategy] = useState("replace");
   const [pendingImportFile, setPendingImportFile] = useState(null);
   const xlsxInputRef = useRef(null);
-  const jsonInputRef = useRef(null);
 
   const [packMetadata, setPackMetadata] = useState({
     packId: crypto.randomUUID(),
@@ -353,8 +345,34 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
     version: "1.0",
     tags: "",
     color: "",
+    encoding: "utf-8",
+    production: 0,
   });
   const lastSavedMetadataRef = useRef(null);
+
+  const exTargetField = `example_${packMetadata.targetLang || "en"}`;
+  const exNativeField = `example_${packMetadata.nativeLang || "sk"}`;
+
+  useEffect(() => { nativeLangRef.current = packMetadata.nativeLang || "sk"; }, [packMetadata.nativeLang]);
+
+  const invalidRows = rows.filter(
+    (row) =>
+      !row.word ||
+      !row.translation ||
+      !row.definition ||
+      !row.type ||
+      !row.level ||
+      !row[exTargetField] ||
+      !row[exNativeField] ||
+      !row.topic,
+  );
+  const duplicateWords = rows.filter((row, index) => {
+    const normalized = row.word?.trim().toLowerCase();
+    return (
+      rows.findIndex((r) => r.word?.trim().toLowerCase() === normalized) !==
+      index
+    );
+  });
 
   const [availableTags, setAvailableTags] = useState([]);
   const [wordReviews, setWordReviews] = useState([]);
@@ -395,14 +413,13 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
     definition: "Definition",
     type: "Type",
     level: "Level",
-    example_en: "Example EN",
-    example_sk: "Example SK",
+    [exTargetField]: `Example ${(packMetadata.targetLang || "en").toUpperCase()}`,
+    [exNativeField]: `Example ${(packMetadata.nativeLang || "sk").toUpperCase()}`,
     topic: "Topic",
   };
   const [suggestedWords, setSuggestedWords] = useState([]);
   const [showFillMenu, setShowFillMenu] = useState(false);
   const [showQualityMenu, setShowQualityMenu] = useState(false);
-  const qualityMenuRef = useRef(null);
   const [spellCheckResults, setSpellCheckResults] = useState(null);
   const [isSpellChecking, setIsSpellChecking] = useState(false);
   const [showDomainCheck, setShowDomainCheck] = useState(false);
@@ -422,16 +439,6 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   const [hasActiveInput, setHasActiveInput] = useState(false);
 const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
 
-  useEffect(() => {
-    if (!showQualityMenu) return;
-    const handler = (e) => {
-      if (qualityMenuRef.current && !qualityMenuRef.current.contains(e.target)) {
-        setShowQualityMenu(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, [showQualityMenu]);
 
   const { bookmarks, orderedIds, toggle, setNote, remove, isBookmarked } =
     useBookmarks(activePack?.fileName);
@@ -447,13 +454,13 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     },
 
     {
-      field: "example_en",
-      label: "Example EN",
+      field: exTargetField,
+      label: `Example ${(packMetadata.targetLang || "en").toUpperCase()}`,
     },
 
     {
-      field: "example_sk",
-      label: "Example SK",
+      field: exNativeField,
+      label: `Example ${(packMetadata.nativeLang || "sk").toUpperCase()}`,
     },
 
     {
@@ -473,9 +480,6 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
   ];
 
   const selectedIds = new Set(selectedRows.map((r) => r.id));
-  const availableColumns = fillableColumns.filter((column) =>
-    rows.some((row) => selectedIds.has(row.id) && !row[column.field]),
-  );
 
   const [history, setHistory] = useState([]);
   const [future, setFuture] = useState([]);
@@ -542,7 +546,16 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     const tags = typeof packMetadata.tags === "string"
       ? packMetadata.tags.split(",").map((t) => t.trim()).filter(Boolean)
       : packMetadata.tags || [];
-    const payload = { ...packMetadata, tags, words: rows };
+    let production = packMetadata.production ?? 0;
+    if (activePack?.fileName) {
+      try {
+        const hbRes = await fetch(`${API_BASE}/api/heartbeat/production?pack=${encodeURIComponent(activePack.fileName)}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (hbRes.ok) { const hbData = await hbRes.json(); production = hbData.seconds ?? production; }
+      } catch {}
+    }
+    const payload = { ...packMetadata, tags, encoding: "utf-8", production, words: rows.map(r => ({ ...r, source: packMetadata.name || "" })) };
     try {
       setSaveStatus(t("editor.status.saving"));
       const saveUrl = activePack.packDbId
@@ -904,8 +917,8 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
       definition: "",
       type: "",
       level: "",
-      example_en: "",
-      example_sk: "",
+      [exTargetField]: "",
+      [exNativeField]: "",
       topic: "",
     };
 
@@ -932,22 +945,33 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
   }, [saveHistory]);
 
   const handleDeleteSelected = useCallback(() => {
-    if (!selectedRows.length) {
-      return;
+    // Checkboxom označené riadky majú prednosť; inak vymažeme aktívny riadok
+    if (selectedRows.length > 0) {
+      saveHistory();
+      setRows((prev) =>
+        prev.filter((row) => !selectedRows.some((sel) => sel.id === row.id)),
+      );
+      setSelectedRows([]);
+      setSelectedRowIndex(null);
+      logAudit(token, "DELETE_ROWS", {
+        pack: activePack,
+        count: selectedRows.length,
+        words: selectedRows.map((r) => r.word),
+      });
+    } else if (selectedRowIndex !== null) {
+      saveHistory();
+      setRows((prev) => {
+        const deleted = prev[selectedRowIndex];
+        logAudit(token, "DELETE_ROWS", {
+          pack: activePack,
+          count: 1,
+          words: [deleted?.word],
+        });
+        return prev.filter((_, i) => i !== selectedRowIndex);
+      });
+      setSelectedRowIndex(null);
     }
-
-    saveHistory();
-
-    setRows((prev) =>
-      prev.filter((row) => !selectedRows.some((sel) => sel.id === row.id)),
-    );
-
-    logAudit(token, "DELETE_ROWS", {
-      pack: activePack,
-      count: selectedRows.length,
-      words: selectedRows.map((r) => r.word),
-    });
-  }, [selectedRows, saveHistory, token, activePack]);
+  }, [selectedRows, selectedRowIndex, saveHistory, token, activePack]);
 
   const handleDuplicateSelected = useCallback(() => {
     if (!selectedRows || selectedRows.length === 0) {
@@ -1002,7 +1026,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
 
       const aiData = await generateTranslation(row, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName);
 
-      const SNAPSHOT_FIELDS = ["phonetic","translation","definition","type","level","example_en","example_sk","topic"];
+      const SNAPSHOT_FIELDS = ["phonetic","translation","definition","type","level",exTargetField,exNativeField,"topic"];
       aiSnapshotRef.current[row.id] = {
         action: "AI_GENERATE",
         packFile: activePack?.fileName ?? null,
@@ -1049,8 +1073,8 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         phonetic: "",
         type: "",
         level: "",
-        example_en: "",
-        example_sk: "",
+        [exTargetField]: "",
+        [exNativeField]: "",
       };
     });
 
@@ -1176,8 +1200,8 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     if (rows.length === 0) return;
 
     const BATCH = 15;
-    const toCheck = rows.filter((r) => r.example_en?.trim());
-    if (toCheck.length === 0) { alert("Žiadne slová nemajú vyplnený stĺpec Example EN."); return; }
+    const toCheck = rows.filter((r) => r[exTargetField]?.trim());
+    if (toCheck.length === 0) { alert("Žiadne slová nemajú vyplnený stĺpec príkladov."); return; }
 
     const totalBatches = Math.ceil(toCheck.length / BATCH);
     setIsExampleChecking(true);
@@ -1243,17 +1267,15 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
         body: JSON.stringify({ rows: checkRows, targetLang: packMetadata.targetLang, nativeLang: packMetadata.nativeLang }),
       });
-      if (res.status === 503) {
-        const err = await res.json();
-        alert(err.error);
-        return;
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || `HTTP ${res.status}`);
       }
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const results = await res.json();
       setSpellCheckResults(results);
     } catch (err) {
       console.error(err);
-      alert("Kontrola pravopisu zlyhala. Skontroluj či beží LanguageTool.");
+      alert(`Kontrola pravopisu zlyhala: ${err.message}`);
     } finally {
       setIsSpellChecking(false);
     }
@@ -1316,7 +1338,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         const rowIndex = updatedRows.findIndex((r) => r.id === selectedRow.id);
 
         if (rowIndex !== -1) {
-          const SNAPSHOT_FIELDS = ["phonetic","translation","definition","type","level","example_en","example_sk","topic"];
+          const SNAPSHOT_FIELDS = ["phonetic","translation","definition","type","level",exTargetField,exNativeField,"topic"];
           aiSnapshotRef.current[selectedRow.id] = {
             action: "AI_GENERATE",
             packFile: activePack?.fileName ?? null,
@@ -1349,18 +1371,6 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     }
   }, [selectedRows, rows, saveHistory]);
 
-  async function handleJsonImport(event) {
-    const file = event.target.files[0];
-    if (!file) {
-      return;
-    }
-
-    setPendingImportFile(file);
-    setImportFormat("json");
-    setShowImportDialog(true);
-    event.target.value = "";
-  }
-
   async function executeImport() {
     if (!pendingImportFile) {
       return;
@@ -1370,17 +1380,38 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
       let importedRows = [];
 
       if (importFormat === "xlsx") {
-        importedRows = await importXlsxFile(pendingImportFile);
+        importedRows = await importXlsxFile(pendingImportFile, packMetadata.targetLang || "en", packMetadata.nativeLang || "sk");
       }
 
+      let importedMetadata = null;
+      let importedTargetLang = packMetadata.targetLang || "en";
       if (importFormat === "json") {
-        const importedData = await importJsonFile(pendingImportFile);
+        const importedData = await importJsonFile(pendingImportFile, packMetadata.targetLang, packMetadata.nativeLang);
         importedRows = importedData.rows;
+        importedMetadata = importedData.metadata;
+        importedTargetLang = importedData.targetLang || packMetadata.targetLang || "en";
       }
 
       const processedRows = processImportedRows(importedRows);
+
+      // Migrate existing rows: example_en → example_${targetLang} for non-English packs
+      const tl = importedTargetLang;
+      const migratedRows = tl !== "en"
+        ? processedRows.map((r) => {
+            if (!r[`example_${tl}`] && r.example_en) {
+              const { example_en, ...rest } = r;
+              return { ...rest, [`example_${tl}`]: example_en };
+            }
+            return r;
+          })
+        : processedRows;
+
       saveHistory();
-      setRows(processedRows);
+      setRows(migratedRows);
+      // Only update metadata if the file had real metadata (name/packId/targetLang in file)
+      if (importFormat === "json" && importStrategy === "replace" && importedMetadata) {
+        setPackMetadata(importedMetadata);
+      }
       setSelectedRows([]);
       setSelectedRowIndex(null);
       setShowImportDialog(false);
@@ -1462,8 +1493,8 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
       definition: "",
       type: "",
       level: packMetadata.level || "",
-      example_en: "",
-      example_sk: "",
+      [exTargetField]: "",
+      [exNativeField]: "",
       topic: packMetadata.category || "",
     };
     saveHistory();
@@ -1471,7 +1502,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
   }, [packMetadata, saveHistory]);
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/tags`)
+    fetch(`${API_BASE}/api/packs/tags`)
       .then(r => r.json())
       .then(setAvailableTags)
       .catch(() => {});
@@ -1480,6 +1511,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
   useEffect(() => {
     if (!activePack) {
       onTargetLangDetected?.(null);
+      onNativeLangDetected?.(null);
       return;
     }
 
@@ -1510,10 +1542,13 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
           version: data.version || "1.0",
           tags: data.tags || "",
           color: data.color || "",
+          encoding: data.encoding || "utf-8",
+          production: typeof data.production === "number" ? data.production : 0,
         };
         setPackMetadata(loadedMeta);
         lastSavedMetadataRef.current = loadedMeta;
         onTargetLangDetected?.(loadedMeta.targetLang ?? null);
+        onNativeLangDetected?.(loadedMeta.nativeLang ?? null);
 
         if (activePack.fileName && !activePack.packDbId) {
           const [localDraft, serverDraftRes] = await Promise.all([
@@ -1768,7 +1803,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         setShowImportDialog(false);
       }
 
-      if (event.key === "Delete" && selectedRows.length > 0) {
+      if (event.key === "Delete" && (selectedRows.length > 0 || selectedRowIndex !== null)) {
         const activeElement = document.activeElement;
 
         const isEditing =
@@ -2084,11 +2119,12 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         <ExampleCheckDialog
           results={exampleCheckData.results}
           total={exampleCheckData.total}
+          targetLang={packMetadata.targetLang || "en"}
           onClose={() => setExampleCheckData(null)}
           onApply={(rowId, suggestion) => {
             saveHistory();
             setRows((prev) =>
-              prev.map((r) => r.id === rowId ? { ...r, example_en: suggestion } : r)
+              prev.map((r) => r.id === rowId ? { ...r, [exTargetField]: suggestion } : r)
             );
             setExampleCheckData((prev) => ({
               ...prev,
@@ -2113,6 +2149,14 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         <SpellCheckDialog
           results={spellCheckResults}
           onClose={() => setSpellCheckResults(null)}
+          onApply={(rowId, field, wrongWord, correction) => {
+            saveHistory();
+            setRows(prev => prev.map(r => {
+              if (r.id !== rowId) return r;
+              const updated = String(r[field] ?? "").replaceAll(wrongWord, correction);
+              return { ...r, [field]: updated };
+            }));
+          }}
           onNavigate={(rowId, field) => {
             const api = gridRef.current?.api;
             if (!api) return;
@@ -2289,8 +2333,8 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
             definition: "",
             type: "",
             level: packMetadata.level,
-            example_en: "",
-            example_sk: "",
+            [exTargetField]: "",
+            [exNativeField]: "",
             topic: packMetadata.category,
           };
           });
@@ -2361,62 +2405,64 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
           <div className="toolbar-group">
             <div className="toolbar-links">
               <button className="btn-link" onClick={() => openOrFocus("dwds", "https://www.dwds.de")}>
-                <img src="https://www.dwds.de/favicon.ico" alt="" width={18} height={18} />
+                <img src="/lexipack/favicons/dwds.ico" alt="" width={18} height={18} />
                 <span>DWDS</span>
               </button>
               <button className="btn-link" onClick={() => openOrFocus("duden", "https://www.duden.de/")}>
-                <img src="https://www.google.com/s2/favicons?domain=duden.de&sz=32" alt="" width={18} height={18} />
+                <img src="/lexipack/favicons/duden.png" alt="" width={18} height={18} />
                 <span>Duden</span>
               </button>
               <button className="btn-link" onClick={() => openOrFocus("larousse", "https://www.larousse.fr/dictionnaires/francais-monolingue")}>
-                <img src="https://www.google.com/s2/favicons?domain=larousse.fr&sz=32" alt="" width={18} height={18} />
+                <img src="/lexipack/favicons/larousse.png" alt="" width={18} height={18} />
                 <span>Larousse</span>
               </button>
               <button className="btn-link" onClick={() => openOrFocus("lerobert", "https://dictionnaire.lerobert.com/en/definition/dire")}>
-                <img src="https://www.google.com/s2/favicons?domain=dictionnaire.lerobert.com&sz=32" alt="" width={18} height={18} />
+                <img src="/lexipack/favicons/lerobert.png" alt="" width={18} height={18} />
                 <span>leRobert</span>
               </button>
               <button className="btn-link" onClick={() => openOrFocus("deepl", "https://www.deepl.com/en/translator")}>
-                <img src="https://www.deepl.com/favicon.ico" alt="" width={18} height={18} />
+                <img src="/lexipack/favicons/deepl.ico" alt="" width={18} height={18} />
                 <span>DeepL</span>
               </button>
               <button className="btn-link" onClick={() => openOrFocus("verbformen", "https://www.verbformen.com/")}>
-                <img src="https://www.verbformen.com/favicon.ico" alt="" width={18} height={18} />
+                <img src="/lexipack/favicons/verbformen.ico" alt="" width={18} height={18} />
                 <span>VerbF.</span>
               </button>
               <button className="btn-link" onClick={() => openOrFocus("oxford", "https://www.oxfordlearnersdictionaries.com/")}>
-                <img src="https://www.oxfordlearnersdictionaries.com/favicon.ico" alt="" width={18} height={18} />
+                <img src="/lexipack/favicons/oxford.ico" alt="" width={18} height={18} />
                 <span>Oxford</span>
               </button>
               <button className="btn-link" onClick={() => openOrFocus("cambridge", "https://dictionary.cambridge.org/")}>
-                <img src="https://dictionary.cambridge.org/favicon.ico" alt="" width={18} height={18} />
+                <img src="/lexipack/favicons/cambridge.ico" alt="" width={18} height={18} />
                 <span>Cambr.</span>
               </button>
               <button className="btn-link" onClick={() => openOrFocus("wikipedia", "https://en.wikipedia.org/wiki/Main_Page")}>
-                <img src="https://en.wikipedia.org/static/favicon/wikipedia.ico" alt="" width={18} height={18} />
+                <img src="/lexipack/favicons/wikipedia.ico" alt="" width={18} height={18} />
                 <span>Wiki</span>
               </button>
             </div>
             <div className="toolbar-links toolbar-links-ai">
               <button className="btn-link" onClick={() => openOrFocus("gemini", "https://gemini.google.com/")}>
-                <img src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=32" alt="" width={18} height={18} />
+                <img src="/lexipack/favicons/gemini.png" alt="" width={18} height={18} />
                 <span>Gemini</span>
               </button>
               <button className="btn-link" onClick={() => openOrFocus("claude", "https://claude.ai/")}>
-                <img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=32" alt="" width={18} height={18} />
+                <img src="/lexipack/favicons/claude.png" alt="" width={18} height={18} />
                 <span>Claude</span>
               </button>
               <button className="btn-link" onClick={() => openOrFocus("chatgpt", "https://chatgpt.com/")}>
-                <img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=32" alt="" width={18} height={18} />
+                <img src="/lexipack/favicons/chatgpt.png" alt="" width={18} height={18} />
                 <span>ChatGPT</span>
               </button>
             </div>
-            <div ref={qualityMenuRef} style={{ position: "relative", marginLeft: 20 }}>
+            <div style={{ position: "relative", marginLeft: 20 }}>
               <button onClick={() => setShowQualityMenu((v) => !v)}>
                 {t("editor.toolbar.quality")} ▼
               </button>
               {showQualityMenu && (
-                <div className="dropdown-menu" style={{ right: 0, left: "auto", minWidth: 240 }}>
+                <>
+                <div style={{ position: "fixed", inset: 0, zIndex: 99 }} onClick={() => setShowQualityMenu(false)} />
+                <div className="dropdown-menu" style={{ right: 0, left: "auto", minWidth: 240, zIndex: 100 }}>
                   <button
                     className="dropdown-item"
                     onClick={handleSpellCheck}
@@ -2466,6 +2512,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
                     {t("editor.quality.trustedSource")}
                   </button>
                 </div>
+                </>
               )}
             </div>
             <button onClick={() => xlsxInputRef.current.click()}>Import</button>
@@ -2537,7 +2584,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
                 <span className="btn-icon-glyph">✚</span>
                 <span className="btn-icon-label">{t("editor.toolbar.addRow")}</span>
               </button>
-              <button className="btn-icon" onClick={handleDeleteSelected} disabled={isReadOnly} style={{ background: "#7f1d1d", color: "#fca5a5" }}>
+              <button className="btn-icon" onClick={handleDeleteSelected} disabled={isReadOnly || (selectedRows.length === 0 && selectedRowIndex === null)} style={{ background: "#7f1d1d", color: "#fca5a5" }}>
                 <span className="btn-icon-glyph">✕</span>
                 <span className="btn-icon-label">{t("editor.toolbar.deleteRow")}</span>
               </button>
@@ -2631,7 +2678,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
                 </button>
                 {showFillMenu && (
                   <div className="dropdown-menu">
-                    {availableColumns.map((column) => (
+                    {fillableColumns.map((column) => (
                       <button
                         key={column.field}
                         type="button"
@@ -2733,6 +2780,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
               bookmarks={bookmarks}
               isReadOnly={isReadOnly}
               targetLang={packMetadata.targetLang || "en"}
+              nativeLang={packMetadata.nativeLang || "sk"}
             />
           </div>
         </section>
@@ -2747,6 +2795,8 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
             onAddReview={handleAddReview}
             onDeleteReview={handleDeleteReview}
             userRole={user?.role}
+            targetLang={packMetadata.targetLang || "en"}
+            nativeLang={packMetadata.nativeLang || "sk"}
           />
 
           {orderedIds.length > 0 && (
@@ -2805,8 +2855,8 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
             const _tLang = (packMetadata.targetLang || "").toLowerCase();
             const incomplete = rows.filter((r) =>
               !r.word || !r.translation || !r.phonetic || !r.definition ||
-              !r.type || !r.level || !r.example_en ||
-              !r.example_sk || !r.topic ||
+              !r.type || !r.level || !r[exTargetField] ||
+              !r[exNativeField] || !r.topic ||
               (_articleLangs.has(_tLang) && r.type?.toLowerCase() === "noun" && !r.article)
             ).length;
             return (

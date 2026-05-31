@@ -42,7 +42,7 @@ function Kbd({ children }) {
   return <kbd className="help-kbd">{children}</kbd>;
 }
 
-const CONTENT = {
+function getContent(tl, nl) { return {
   basics: (
     <Section title="Základy">
       <p>LexiPack je editor dvojjazyčných slovníkových balíkov primárne určené pre Lexico a pre študentov cudzích jazykov. Každý balík obsahuje zoznam slov s prekladmi a doplňujúcimi informáciami.</p>
@@ -56,8 +56,8 @@ const CONTENT = {
         ["Definition",  "Definícia slova v cieľovom jazyku"],
         ["Type",        "Slovný druh (noun, verb, adjective…)"],
         ["Level",       "Jazyková úroveň (A1 – C2)"],
-        ["Example EN",  "Príkladová veta v cieľovom jazyku"],
-        ["Example SK",  "Príkladová veta v rodnom jazyku"],
+        [`Example ${tl.toUpperCase()}`,  "Príkladová veta v cieľovom jazyku"],
+        [`Example ${nl.toUpperCase()}`,  "Príkladová veta v rodnom jazyku"],
         ["Topic",       "Tematická kategória"],
       ]} />
       <h3>Ukladanie</h3>
@@ -249,8 +249,8 @@ const CONTENT = {
       ]} />
       <p>Dialóg neupravuje dáta automaticky — rozhodnutie, ktoré slovo odstrániť alebo prepracovať, zostáva na editorovi.</p>
 
-      <h3>Kontrola kvality príkladov (Example EN)</h3>
-      <p>Hodnotí kvalitu viet v stĺpci <strong>Example EN</strong> — či veta naozaj ilustruje význam slova, alebo je príliš generická či triviálna. Využíva AI, posiela dávky po 15 vetách.</p>
+      <h3>Kontrola kvality príkladov (Example {tl.toUpperCase()})</h3>
+      <p>Hodnotí kvalitu viet v stĺpci <strong>Example {tl.toUpperCase()}</strong> — či veta naozaj ilustruje význam slova, alebo je príliš generická či triviálna. Využíva AI, posiela dávky po 15 vetách.</p>
       <h3>Ako kontrola funguje</h3>
       <ul>
         <li>AI ohodnotí každú vetu jednou zo troch známok: <strong>OK</strong>, <strong>Generické</strong> alebo <strong>Slabé</strong>.</li>
@@ -353,10 +353,11 @@ const CONTENT = {
       <p>Kliknite na požadovaný znak — vloží sa priamo na pozíciu kurzora v aktívnom textovom poli bez straty fokusu.</p>
     </Section>
   ),
-};
+}; }
 
-export default function HelpDialog({ open, onClose }) {
+export default function HelpDialog({ open, onClose, targetLang = "en", nativeLang = "sk" }) {
   const [activeId, setActiveId] = useState("basics");
+  const CONTENT = getContent(targetLang, nativeLang);
 
   if (!open) return null;
 

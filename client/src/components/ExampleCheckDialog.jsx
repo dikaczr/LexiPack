@@ -3,7 +3,7 @@ import "./ExampleCheckDialog.css";
 const QUALITY_LABEL = { ok: "OK", generic: "Generické", weak: "Slabé" };
 const QUALITY_CLASS  = { ok: "eq-badge--ok", generic: "eq-badge--generic", weak: "eq-badge--weak" };
 
-export default function ExampleCheckDialog({ results, total, onClose, onApply }) {
+export default function ExampleCheckDialog({ results, total, onClose, onApply, targetLang = "en" }) {
   if (!results) return null;
 
   const weak    = results.filter((r) => r.quality === "weak");
@@ -15,7 +15,7 @@ export default function ExampleCheckDialog({ results, total, onClose, onApply })
       <div className="eq-dialog" onClick={(e) => e.stopPropagation()}>
 
         <div className="eq-header">
-          <span className="eq-title">Kontrola kvality príkladov (Example EN)</span>
+          <span className="eq-title">Kontrola kvality príkladov (Example {targetLang.toUpperCase()})</span>
           <button className="eq-close" onClick={onClose}>✕</button>
         </div>
 

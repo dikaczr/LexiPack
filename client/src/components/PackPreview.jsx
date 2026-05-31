@@ -27,7 +27,7 @@ function ReviewBadge({ action, label }) {
   );
 }
 
-export default function PackPreview({ row, reviews = [], onAddReview, onDeleteReview, userRole }) {
+export default function PackPreview({ row, reviews = [], onAddReview, onDeleteReview, userRole, targetLang = "en", nativeLang = "sk" }) {
   const t = useT();
   const [action, setAction]   = useState("OK");
   const [comment, setComment] = useState("");
@@ -71,8 +71,8 @@ export default function PackPreview({ row, reviews = [], onAddReview, onDeleteRe
         <div className="card-definition">{row.definition || ""}</div>
 
         <div className="card-example-block">
-          <div className="card-example-en">{row.example_en || ""}</div>
-          <div className="card-example-sk">{row.example_sk || ""}</div>
+          <div className="card-example-en">{row[`example_${targetLang}`] || ""}</div>
+          <div className="card-example-sk">{row[`example_${nativeLang}`] || ""}</div>
         </div>
 
         <div className="card-tags">
