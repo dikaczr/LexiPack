@@ -253,7 +253,7 @@ function PackGrid({
         flex: 1,
         cellStyle: { textAlign: "left" },
         cellEditor: "agLargeTextCellEditor",
-        cellEditorPopup: true,
+        cellEditorPopup: false,
         cellEditorParams: { maxLength: 5000, rows: 5, cols: 60 },
       },
       {
@@ -269,7 +269,7 @@ function PackGrid({
         editable: !isReadOnly,
         minWidth: 240,
         cellEditor: "agLargeTextCellEditor",
-        cellEditorPopup: true,
+        cellEditorPopup: false,
         cellEditorParams: { maxLength: 5000, rows: 5, cols: 60 },
       },
       {
@@ -278,7 +278,7 @@ function PackGrid({
         editable: !isReadOnly,
         minWidth: 240,
         cellEditor: "agLargeTextCellEditor",
-        cellEditorPopup: true,
+        cellEditorPopup: false,
         cellEditorParams: { maxLength: 5000, rows: 5, cols: 60 },
       },
       {
