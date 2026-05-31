@@ -848,7 +848,7 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
           columnDefs={columnDefs}
           defaultColDef={{ sortable: true, resizable: true, cellStyle: { textAlign: "left" } }}
           quickFilterText={filter}
-          rowSelection={{ mode: "singleRow", checkboxes: false }}
+          rowSelection={{ mode: "singleRow", checkboxes: false, enableClickSelection: true }}
           animateRows={true}
           onSelectionChanged={(event) => {
             const rows = event.api.getSelectedRows();
