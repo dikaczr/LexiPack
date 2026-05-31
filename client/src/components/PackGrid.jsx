@@ -14,6 +14,13 @@ const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 const LANGS_WITH_ARTICLES = new Set(["de", "fr", "es", "it"]);
 const LANGS_REQUIRE_ARTICLE = new Set(["de", "fr", "es", "it"]);
 
+const ARTICLES = {
+  de: ["", "der", "die", "das", "ein", "eine", "—"],
+  fr: ["", "le", "la", "les", "l'", "un", "une", "des", "—"],
+  es: ["", "el", "la", "los", "las", "un", "una", "unos", "unas", "—"],
+  it: ["", "il", "lo", "la", "i", "gli", "le", "un", "uno", "una", "—"],
+};
+
 const SelectAllHeader = ({ api }) => (
   <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%" }}>
     <input
@@ -59,6 +66,47 @@ const LevelCellEditor = forwardRef(({ value, onValueChange, stopEditing }, ref) 
     >
       {CEFR_LEVELS.map((l) => (
         <option key={l} value={l}>{l}</option>
+      ))}
+    </select>
+  );
+});
+
+const ArticleCellEditor = forwardRef(({ value, onValueChange, stopEditing, colDef }, ref) => {
+  const lang = colDef?.cellEditorParams?.lang ?? "de";
+  const options = ARTICLES[lang] ?? ARTICLES.de;
+  const currentValue = useRef(value ?? "");
+
+  useImperativeHandle(ref, () => ({
+    getValue: () => currentValue.current,
+  }));
+
+  const handleChange = (e) => {
+    const newVal = e.target.value === "—" ? "" : e.target.value;
+    currentValue.current = newVal;
+    if (onValueChange) onValueChange(newVal);
+    stopEditing();
+  };
+
+  return (
+    <select
+      autoFocus
+      defaultValue={value || ""}
+      onChange={handleChange}
+      onBlur={() => stopEditing()}
+      style={{
+        width: "100%",
+        height: "100%",
+        background: "var(--app-card-bg, #1e293b)",
+        color: "var(--app-text, #f1f5f9)",
+        border: "none",
+        outline: "none",
+        fontSize: 13,
+        padding: "0 4px",
+        cursor: "pointer",
+      }}
+    >
+      {options.map((a) => (
+        <option key={a} value={a === "—" ? "" : a}>{a || "–"}</option>
       ))}
     </select>
   );
@@ -214,9 +262,11 @@ function PackGrid({
         headerName: t("cols.article"),
         field: "article",
         editable: !isReadOnly,
-        width: 63,
+        width: 70,
         filter: false,
         sortable: false,
+        cellEditor: ArticleCellEditor,
+        cellEditorParams: { lang: targetLang },
       }] : []),
       {
         headerName: t("cols.word"),
