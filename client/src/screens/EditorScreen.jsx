@@ -2677,17 +2677,20 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
                   <span className="btn-icon-label">{t("editor.toolbar.fillColumn")} ▼</span>
                 </button>
                 {showFillMenu && (
-                  <div className="dropdown-menu">
-                    {fillableColumns.map((column) => (
-                      <button
-                        key={column.field}
-                        type="button"
-                        onClick={() => { handleGenerateColumn(column.field); setShowFillMenu(false); }}
-                      >
-                        {column.label}
-                      </button>
-                    ))}
-                  </div>
+                  <>
+                    <div style={{ position: "fixed", inset: 0, zIndex: 99 }} onClick={() => setShowFillMenu(false)} />
+                    <div className="dropdown-menu" style={{ zIndex: 100 }}>
+                      {fillableColumns.map((column) => (
+                        <button
+                          key={column.field}
+                          type="button"
+                          onClick={() => { handleGenerateColumn(column.field); setShowFillMenu(false); }}
+                        >
+                          {column.label}
+                        </button>
+                      ))}
+                    </div>
+                  </>
                 )}
               </div>
               <button
