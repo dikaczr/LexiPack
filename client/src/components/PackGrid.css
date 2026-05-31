@@ -27,7 +27,7 @@
 /* ── agLargeTextCellEditor štýl ─────────────────────── */
 
 .pack-grid .ag-popup-editor {
-  background: transparent !important;
+  background: rgba(0, 0, 0, 0.5) !important;
   border: none !important;
   box-shadow: none !important;
 }
