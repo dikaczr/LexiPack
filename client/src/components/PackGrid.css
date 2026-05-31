@@ -24,6 +24,28 @@
   justify-content: center;
 }
 
+/* ── agLargeTextCellEditor štýl ─────────────────────── */
+
+.pack-grid .ag-large-text {
+  background: var(--app-chrome, #1e293b) !important;
+  border: 2px solid var(--app-accent, #3b82f6) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5) !important;
+  padding: 0 !important;
+}
+
+.pack-grid .ag-large-text-input {
+  background: var(--app-input, #1e293b) !important;
+  color: var(--app-text, #e2e8f0) !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  border: none !important;
+  outline: none !important;
+  padding: 8px 10px !important;
+  resize: none !important;
+}
+
 /* ── Checkbox štýl ────────────────────────────────────── */
 
 .grid-checkbox {

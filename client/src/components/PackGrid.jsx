@@ -252,7 +252,9 @@ function PackGrid({
         minWidth: 240,
         flex: 1,
         cellStyle: { textAlign: "left" },
-        cellEditor: FloatingTextareaEditor,
+        cellEditor: "agLargeTextCellEditor",
+        cellEditorPopup: true,
+        cellEditorParams: { maxLength: 5000, rows: 5, cols: 60 },
       },
       {
         headerName: t("cols.level"),
@@ -266,14 +268,18 @@ function PackGrid({
         field: `example_${targetLang}`,
         editable: !isReadOnly,
         minWidth: 240,
-        cellEditor: FloatingTextareaEditor,
+        cellEditor: "agLargeTextCellEditor",
+        cellEditorPopup: true,
+        cellEditorParams: { maxLength: 5000, rows: 5, cols: 60 },
       },
       {
         headerName: (() => { const f = t("cols.exampleLang"); return typeof f === "function" ? f(nativeLang) : `Príklad ${nativeLang.toUpperCase()}`; })(),
         field: `example_${nativeLang}`,
         editable: !isReadOnly,
         minWidth: 240,
-        cellEditor: FloatingTextareaEditor,
+        cellEditor: "agLargeTextCellEditor",
+        cellEditorPopup: true,
+        cellEditorParams: { maxLength: 5000, rows: 5, cols: 60 },
       },
       {
         headerName: t("cols.topic"),
@@ -317,7 +323,7 @@ function PackGrid({
         onGridReady={(params) => {
           setGridApi(params.api);
         }}
-        rowSelection="multiple"
+        rowSelection={{ mode: "multiRow", enableClickSelection: false, checkboxes: false, headerCheckbox: false }}
         columnDefs={columnDefs}
         defaultColDef={defaultColDef}
         rowHeight={26}
