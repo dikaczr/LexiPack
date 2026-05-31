@@ -67,9 +67,10 @@ const FloatingTextareaEditor = forwardRef((params, ref) => {
   }
 
   function handleKeyDown(e) {
-    if (e.key === "Escape") { e.stopPropagation(); params.stopEditing(true); }
-    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); e.stopPropagation(); params.stopEditing(); }
-    if (e.key === "Tab") { e.preventDefault(); e.stopPropagation(); params.stopEditing(); }
+    e.stopPropagation();
+    if (e.key === "Escape") params.stopEditing(true);
+    else if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); params.stopEditing(); }
+    else if (e.key === "Tab") { e.preventDefault(); params.stopEditing(); }
   }
 
   const popup = (

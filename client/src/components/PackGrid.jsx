@@ -9,6 +9,7 @@ import "./PackGrid.css";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
+
 const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 const LANGS_WITH_ARTICLES = new Set(["de", "fr", "es", "it"]);
 const LANGS_REQUIRE_ARTICLE = new Set(["de", "fr", "es", "it"]);
@@ -68,6 +69,7 @@ function PackGrid({
   bookmarks = {},
   isReadOnly = false,
   targetLang = "en",
+  nativeLang = "sk",
 }) {
   const t = useT();
   const selectedIdsRef     = useRef(new Set());
@@ -115,13 +117,13 @@ function PackGrid({
         filter: false,
         resizable: false,
         suppressMovable: true,
-        headerCheckboxSelection: true,
         cellStyle: { padding: 0 },
         cellRenderer: (params) => (
           <div
             style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%" }}
             onClick={(e) => {
               e.stopPropagation();
+              e.nativeEvent?.stopImmediatePropagation();
               selectedRowIndexRef.current = params.node.rowIndex;
               setSelectedRowIndex(params.node.rowIndex);
               params.node.setSelected(!params.node.isSelected());
@@ -200,7 +202,7 @@ function PackGrid({
         headerName: t("cols.article"),
         field: "article",
         editable: !isReadOnly,
-        width: 70,
+        width: 63,
         filter: false,
         sortable: false,
       }] : []),
@@ -239,6 +241,7 @@ function PackGrid({
         flex: 1,
         cellStyle: { textAlign: "left" },
         cellEditor: FloatingTextareaEditor,
+        suppressKeyboardEvent: (params) => params.editing,
       },
       {
         headerName: t("cols.level"),
@@ -248,18 +251,20 @@ function PackGrid({
         cellEditor: LevelCellEditor,
       },
       {
-        headerName: t("cols.exampleEn"),
-        field: "example_en",
+        headerName: (() => { const f = t("cols.exampleLang"); return typeof f === "function" ? f(targetLang) : `Príklad ${targetLang.toUpperCase()}`; })(),
+        field: `example_${targetLang}`,
         editable: !isReadOnly,
         minWidth: 240,
         cellEditor: FloatingTextareaEditor,
+        suppressKeyboardEvent: (params) => params.editing,
       },
       {
-        headerName: t("cols.exampleSk"),
-        field: "example_sk",
+        headerName: (() => { const f = t("cols.exampleLang"); return typeof f === "function" ? f(nativeLang) : `Príklad ${nativeLang.toUpperCase()}`; })(),
+        field: `example_${nativeLang}`,
         editable: !isReadOnly,
         minWidth: 240,
         cellEditor: FloatingTextareaEditor,
+        suppressKeyboardEvent: (params) => params.editing,
       },
       {
         headerName: t("cols.topic"),
@@ -268,7 +273,7 @@ function PackGrid({
         width: 120,
       },
     ],
-    [isReadOnly, targetLang, t],
+    [isReadOnly, targetLang, nativeLang, t],
   );
 
   const duplicateWordsSet = useMemo(() => {
@@ -303,8 +308,7 @@ function PackGrid({
         onGridReady={(params) => {
           setGridApi(params.api);
         }}
-        rowSelection="multiple"
-        suppressRowClickSelection={true}
+        rowSelection={{ mode: "multiRow", enableClickSelection: false, checkboxes: false, headerCheckbox: false }}
         columnDefs={columnDefs}
         defaultColDef={defaultColDef}
         rowHeight={26}
@@ -373,8 +377,8 @@ function PackGrid({
           const isChecked = selectedIdsRef.current.has(row.id);
           const missingRequiredField =
             !row.word || !row.translation || !row.phonetic || !row.definition ||
-            !row.type || !row.level || !row.example_en ||
-            !row.example_sk || !row.topic ||
+            !row.type || !row.level || !row[`example_${targetLang}`] ||
+            !row[`example_${nativeLang}`] || !row.topic ||
             (LANGS_REQUIRE_ARTICLE.has(targetLang) && row.type?.toLowerCase() === "noun" && !row.article);
 
           if (isDuplicate)                                     return "row-duplicate";
