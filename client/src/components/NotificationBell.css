@@ -346,6 +346,12 @@
   padding: 4px 0;
 }
 
+.nbell-item-pack {
+  font-size: 11px;
+  color: var(--app-muted);
+  margin-top: 2px;
+}
+
 .nbell-retry-btn {
   background: none;
   border: none;

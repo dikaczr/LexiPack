@@ -31,6 +31,9 @@ export default function NotificationBell({
   const [composeUsersErr,     setComposeUsersErr]     = useState(false);
   const [composeToId,         setComposeToId]         = useState("");
   const [composeToInput,      setComposeToInput]      = useState("");
+  const [composePacks,        setComposePacks]        = useState([]);
+  const [composeRefPack,      setComposeRefPack]      = useState("");
+  const [composeRefPackInput, setComposeRefPackInput] = useState("");
   const [composeTitle,        setComposeTitle]        = useState("");
   const [composeBody,         setComposeBody]         = useState("");
   const [composeSending,      setComposeSending]      = useState(false);
@@ -85,13 +88,21 @@ export default function NotificationBell({
   async function handleOpenCompose() {
     setComposeToId("");
     setComposeToInput("");
+    setComposeRefPack("");
+    setComposeRefPackInput("");
     setComposeTitle("");
     setComposeBody("");
     setComposeDone(false);
     setView("compose");
-    if (composeUsers.length === 0) {
-      await fetchUsers();
-    }
+    const fetches = [];
+    if (composeUsers.length === 0) fetches.push(fetchUsers());
+    if (composePacks.length === 0 && token) fetches.push(
+      fetch(`${API_BASE}/api/packs`, { headers: { Authorization: `Bearer ${token}` } })
+        .then(r => r.ok ? r.json() : [])
+        .then(data => setComposePacks(Array.isArray(data) ? data : []))
+        .catch(() => {})
+    );
+    await Promise.all(fetches);
     setTimeout(() => titleRef.current?.focus(), 50);
   }
 
@@ -117,6 +128,7 @@ export default function NotificationBell({
           type: "message",
           title: composeTitle.trim(),
           body: composeBody.trim() || undefined,
+          ref_pack: composeRefPack || undefined,
         }),
       });
       if (res.ok) {
@@ -218,6 +230,7 @@ export default function NotificationBell({
                               {n.from_username && <span className="nbell-item-from">{n.from_name || n.from_username}</span>}
                               <span className="nbell-item-time">{fmtTime(n.created_at)}</span>
                             </div>
+                            {n.ref_pack && <div className="nbell-item-pack">📦 {n.ref_pack}</div>}
                           </div>
                           <button
                             className="nbell-item-del"
@@ -283,6 +296,29 @@ export default function NotificationBell({
                       </>
                     )}
                   </div>
+                  {composePacks.length > 0 && (
+                    <div className="nbell-compose-field">
+                      <label>Balík <span className="nbell-optional">(voliteľné)</span></label>
+                      <input
+                        type="text"
+                        list="nbell-packs-datalist"
+                        value={composeRefPackInput}
+                        onChange={e => {
+                          const val = e.target.value;
+                          setComposeRefPackInput(val);
+                          const match = composePacks.find(p => (p.name || p.fileName) === val);
+                          setComposeRefPack(match ? match.fileName : "");
+                        }}
+                        placeholder="Vyhľadať balík..."
+                        autoComplete="off"
+                      />
+                      <datalist id="nbell-packs-datalist">
+                        {composePacks.map(p => (
+                          <option key={p.fileName} value={p.name || p.fileName} />
+                        ))}
+                      </datalist>
+                    </div>
+                  )}
                   <div className="nbell-compose-field">
                     <label>Predmet</label>
                     <input
