@@ -1,7 +1,7 @@
 .users-screen {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.6rem;
   height: 100%;
 }
 
@@ -14,7 +14,7 @@
 
 .users-header h2 {
   margin: 0;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
   color: var(--app-text2);
 }
@@ -23,9 +23,9 @@
   background: var(--app-btn);
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 8px 16px;
-  font-size: 13px;
+  border-radius: 0.6rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.3rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
@@ -36,9 +36,9 @@
   background: transparent;
   color: var(--app-muted);
   border: 1px solid var(--app-border-sub);
-  border-radius: 6px;
-  padding: 6px 14px;
-  font-size: 13px;
+  border-radius: 0.6rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 1.3rem;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
@@ -48,9 +48,9 @@
   background: transparent;
   color: #ff6b6b;
   border: 1px solid #7a2020;
-  border-radius: 6px;
-  padding: 6px 14px;
-  font-size: 13px;
+  border-radius: 0.6rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 1.3rem;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -61,32 +61,32 @@
   overflow: auto;
   flex: 1;
   border: 1px solid var(--app-border-sub);
-  border-radius: 8px;
+  border-radius: 0.8rem;
 }
 
 .users-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 1.3rem;
 }
 
 .users-table thead tr {
   background: var(--app-panel);
   color: var(--app-muted);
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 1.1rem;
   letter-spacing: 0.5px;
 }
 
 .users-table th {
-  padding: 10px 14px;
+  padding: 1rem 1.4rem;
   text-align: left;
   border-bottom: 1px solid var(--app-border-sub);
   white-space: nowrap;
 }
 
 .users-table td {
-  padding: 10px 14px;
+  padding: 1rem 1.4rem;
   border-bottom: 1px solid var(--app-border-faint);
   color: var(--app-text2);
   vertical-align: middle;
@@ -98,9 +98,9 @@
 
 .badge-role {
   display: inline-block;
-  border-radius: 4px;
-  padding: 2px 8px;
-  font-size: 11px;
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.8rem;
+  font-size: 1.1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.4px;
@@ -112,15 +112,15 @@
 
 .badge-status {
   display: inline-block;
-  border-radius: 4px;
-  padding: 2px 8px;
-  font-size: 11px;
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.8rem;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 .badge-status.active   { background: #106EBE; color: #0FFCBE; }
 .badge-status.inactive { background: #6E6E6E; color: #FFFFFF; }
 
-.users-table .actions { display: flex; gap: 6px; }
+.users-table .actions { display: flex; gap: 0.6rem; }
 
 /* MODAL */
 .modal-backdrop {
@@ -136,20 +136,20 @@
 .modal-card {
   background: var(--app-panel);
   border: 1px solid var(--app-border-sub);
-  border-radius: 12px;
-  padding: 32px 36px;
-  width: 500px;
+  border-radius: 1.2rem;
+  padding: 3.2rem 3.6rem;
+  width: 50rem;
   max-height: 88vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 1.4rem;
 }
 
 .modal-two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .pw-wrap {
@@ -159,11 +159,11 @@
 }
 .pw-wrap input {
   flex: 1;
-  padding-right: 34px;
+  padding-right: 3.4rem;
 }
 .pw-toggle {
   position: absolute;
-  right: 8px;
+  right: 0.8rem;
   background: none;
   border: none;
   padding: 0;
@@ -178,23 +178,23 @@
 .modal-sep {
   height: 1px;
   background: var(--app-border-sub);
-  margin: 4px 0;
+  margin: 0.4rem 0;
 }
 
 .modal-card h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: var(--app-text2);
 }
 
 .modal-field {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.5rem;
 }
 
 .modal-field label {
-  font-size: 11px;
+  font-size: 1.1rem;
   color: var(--app-muted);
   text-transform: uppercase;
   letter-spacing: 0.4px;
@@ -205,10 +205,10 @@
 .modal-field select {
   background: var(--app-input);
   border: 1px solid var(--app-border-sub);
-  border-radius: 6px;
+  border-radius: 0.6rem;
   color: var(--app-text2);
-  font-size: 13px;
-  padding: 8px 11px;
+  font-size: 1.3rem;
+  padding: 0.8rem 1.1rem;
   outline: none;
   transition: border-color 0.2s;
 }
@@ -230,41 +230,41 @@
 .modal-error {
   background: var(--app-danger);
   border: 1px solid #7a2020;
-  border-radius: 6px;
+  border-radius: 0.6rem;
   color: #ff6b6b;
-  font-size: 12px;
-  padding: 8px 12px;
+  font-size: 1.2rem;
+  padding: 0.8rem 1.2rem;
 }
 
 .modal-actions {
   display: flex;
-  gap: 10px;
+  gap: 1rem;
   justify-content: flex-end;
-  margin-top: 4px;
+  margin-top: 0.4rem;
 }
 
 .modal-notice {
   background: #1a3a20;
   border: 1px solid #2a6a30;
-  border-radius: 6px;
+  border-radius: 0.6rem;
   color: #4adf8a;
-  font-size: 12px;
-  padding: 8px 12px;
+  font-size: 1.2rem;
+  padding: 0.8rem 1.2rem;
 }
 
 .modal-check-row {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 1rem;
   cursor: pointer;
-  padding: 4px 0;
+  padding: 0.4rem 0;
 }
 
 .modal-check-row input[type="checkbox"] {
-  margin-top: 2px;
+  margin-top: 0.2rem;
   accent-color: var(--app-accent);
-  width: 15px;
-  height: 15px;
+  width: 1.5rem;
+  height: 1.5rem;
   flex-shrink: 0;
   cursor: pointer;
 }
@@ -272,12 +272,12 @@
 .modal-check-label {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  font-size: 13px;
+  gap: 0.3rem;
+  font-size: 1.3rem;
   color: var(--app-text2);
 }
 
 .modal-check-note {
-  font-size: 11px;
+  font-size: 1.1rem;
   color: var(--app-muted);
 }

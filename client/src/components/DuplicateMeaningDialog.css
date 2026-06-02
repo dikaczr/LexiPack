@@ -11,13 +11,13 @@
 .dm-dialog {
   background: var(--app-chrome, #1e293b);
   border: 1px solid var(--app-border, #334155);
-  border-radius: 12px;
-  width: 620px;
+  border-radius: 1.2rem;
+  width: 62rem;
   max-width: 96vw;
   max-height: 82vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  box-shadow: 0 2rem 6rem rgba(0,0,0,0.5);
 }
 
 .dm-header {
@@ -41,8 +41,8 @@
   color: var(--app-text-muted, #64748b);
   font-size: 1rem;
   cursor: pointer;
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
 }
 .dm-close:hover { color: var(--app-text, #f1f5f9); background: var(--app-border, #334155); }
 
@@ -76,7 +76,7 @@
 
 .dm-group {
   border: 1px solid var(--app-border, #334155);
-  border-radius: 8px;
+  border-radius: 0.8rem;
   overflow: hidden;
 }
 
@@ -133,10 +133,10 @@
 .dm-goto {
   background: none;
   border: 1px solid var(--app-border, #334155);
-  border-radius: 4px;
+  border-radius: 0.4rem;
   color: var(--app-text-muted, #64748b);
   font-size: 0.78rem;
-  padding: 1px 8px;
+  padding: 0.1rem 0.8rem;
   cursor: pointer;
   white-space: nowrap;
 }

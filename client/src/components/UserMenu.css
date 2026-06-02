@@ -6,10 +6,10 @@
 .user-menu-trigger {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.8rem;
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.6rem;
   transition: background 0.15s;
   user-select: none;
 }
@@ -19,17 +19,17 @@
 }
 
 .user-menu-username {
-  font-size: 13px;
+  font-size: 1.3rem;
   color: var(--app-text2);
   font-weight: 600;
 }
 
 .user-menu-role {
-  font-size: 11px;
+  font-size: 1.1rem;
   background: var(--app-nav-act);
   color: var(--app-accent);
-  border-radius: 4px;
-  padding: 2px 7px;
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -37,56 +37,56 @@
 /* dropdown */
 .user-menu-dropdown {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 0.6rem);
   right: 0;
-  width: 220px;
+  width: 22rem;
   background: var(--app-panel);
   border: 1px solid var(--app-border-sub);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  border-radius: 0.8rem;
+  box-shadow: 0 0.8rem 2.4rem rgba(0,0,0,0.4);
   z-index: 500;
   overflow: hidden;
   animation: menuFadeIn 0.12s ease;
 }
 
 @keyframes menuFadeIn {
-  from { opacity: 0; transform: translateY(-4px); }
+  from { opacity: 0; transform: translateY(-0.4rem); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .user-menu-info {
-  padding: 14px 16px 12px;
+  padding: 1.4rem 1.6rem 1.2rem;
   border-bottom: 1px solid var(--app-border-sub);
 }
 
 .user-menu-info-name {
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--app-text2);
 }
 
 .user-menu-info-role {
-  font-size: 11px;
+  font-size: 1.1rem;
   color: var(--app-accent);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-top: 2px;
+  margin-top: 0.2rem;
 }
 
 .user-menu-items {
-  padding: 6px 0;
+  padding: 0.6rem 0;
 }
 
 .user-menu-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
   width: 100%;
   background: transparent;
   border: none;
   color: var(--app-muted);
-  font-size: 13px;
-  padding: 9px 16px;
+  font-size: 1.3rem;
+  padding: 0.9rem 1.6rem;
   cursor: pointer;
   text-align: left;
   transition: background 0.15s, color 0.15s;
@@ -102,7 +102,7 @@
 .user-menu-sep {
   height: 1px;
   background: var(--app-border-sub);
-  margin: 4px 0;
+  margin: 0.4rem 0;
 }
 
 /* Shortcuts modal */
@@ -119,51 +119,51 @@
 .shortcuts-panel {
   background: var(--app-panel);
   border: 1px solid var(--app-border-sub);
-  border-radius: 12px;
-  padding: 28px 32px;
-  width: 420px;
+  border-radius: 1.2rem;
+  padding: 2.8rem 3.2rem;
+  width: 42rem;
   max-height: 80vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 .shortcuts-panel h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: var(--app-text2);
 }
 
 .shortcuts-group-title {
-  font-size: 10px;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.6px;
   color: var(--app-muted);
-  margin-top: 6px;
+  margin-top: 0.6rem;
 }
 
 .shortcuts-grid {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 0.7rem;
 }
 
 .shortcut-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 13px;
+  font-size: 1.3rem;
   color: var(--app-text2);
 }
 
 .shortcut-key {
   background: var(--app-input);
   border: 1px solid var(--app-border-sub);
-  border-radius: 4px;
+  border-radius: 0.4rem;
   color: var(--app-text2);
-  font-size: 11px;
-  padding: 2px 7px;
+  font-size: 1.1rem;
+  padding: 0.2rem 0.7rem;
   font-family: monospace;
   white-space: nowrap;
 }
@@ -172,10 +172,10 @@
   align-self: flex-end;
   background: transparent;
   border: 1px solid var(--app-border-sub);
-  border-radius: 6px;
+  border-radius: 0.6rem;
   color: var(--app-muted);
-  font-size: 13px;
-  padding: 6px 16px;
+  font-size: 1.3rem;
+  padding: 0.6rem 1.6rem;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -188,9 +188,9 @@
 .contact-panel {
   background: var(--app-panel);
   border: 1px solid var(--app-border-sub);
-  border-radius: 12px;
-  padding: 28px 32px;
-  width: 460px;
+  border-radius: 1.2rem;
+  padding: 2.8rem 3.2rem;
+  width: 46rem;
   max-width: 95vw;
   display: flex;
   flex-direction: column;
@@ -198,25 +198,25 @@
 }
 
 .contact-panel h3 {
-  margin: 0 0 20px;
-  font-size: 16px;
+  margin: 0 0 2rem;
+  font-size: 1.6rem;
   color: var(--app-text2);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 1.4rem;
 }
 
 .contact-field {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.5rem;
 }
 
 .contact-label {
-  font-size: 11px;
+  font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--app-muted);
@@ -224,7 +224,7 @@
 }
 
 .contact-to {
-  font-size: 13px;
+  font-size: 1.3rem;
   color: var(--app-accent);
   font-weight: 500;
 }
@@ -233,10 +233,10 @@
 .contact-textarea {
   background: var(--app-input);
   border: 1px solid var(--app-border-sub);
-  border-radius: 6px;
+  border-radius: 0.6rem;
   color: var(--app-text2);
-  font-size: 13px;
-  padding: 8px 10px;
+  font-size: 1.3rem;
+  padding: 0.8rem 1rem;
   font-family: inherit;
   resize: vertical;
   transition: border-color 0.15s;
@@ -250,18 +250,18 @@
 .contact-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
-  margin-top: 6px;
+  gap: 1rem;
+  margin-top: 0.6rem;
 }
 
 .contact-send-btn {
   background: var(--app-accent);
   color: #fff;
   border: none;
-  border-radius: 6px;
-  font-size: 13px;
+  border-radius: 0.6rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  padding: 7px 20px;
+  padding: 0.7rem 2rem;
   cursor: pointer;
   transition: opacity 0.15s;
 }
@@ -269,24 +269,24 @@
 .contact-send-btn:hover:not(:disabled) { opacity: 0.85; }
 
 .contact-sent {
-  font-size: 14px;
+  font-size: 1.4rem;
   color: var(--app-accent);
   text-align: center;
-  padding: 16px 0;
+  padding: 1.6rem 0;
   margin: 0;
 }
 
 .contact-error {
-  font-size: 12px;
+  font-size: 1.2rem;
   color: #ff6b6b;
   margin: 0;
 }
 
 .contact-no-email {
-  font-size: 13px;
+  font-size: 1.3rem;
   color: var(--app-muted);
   text-align: center;
-  padding: 16px 0;
+  padding: 1.6rem 0;
   margin: 0;
 }
 
@@ -294,8 +294,8 @@
 .privacy-panel {
   background: var(--app-panel);
   border: 1px solid var(--app-border-sub);
-  border-radius: 12px;
-  width: 640px;
+  border-radius: 1.2rem;
+  width: 64rem;
   max-width: 96vw;
   max-height: 88vh;
   display: flex;
@@ -305,34 +305,34 @@
 }
 
 .privacy-header {
-  padding: 24px 28px 16px;
+  padding: 2.4rem 2.8rem 1.6rem;
   border-bottom: 1px solid var(--app-border-sub);
   flex-shrink: 0;
 }
 
 .privacy-header h3 {
-  margin: 0 0 4px;
-  font-size: 16px;
+  margin: 0 0 0.4rem;
+  font-size: 1.6rem;
   color: var(--app-text2);
 }
 
 .privacy-subtitle {
-  font-size: 11px;
+  font-size: 1.1rem;
   color: var(--app-muted);
 }
 
 .privacy-body {
   overflow-y: auto;
-  padding: 20px 28px;
+  padding: 2rem 2.8rem;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 1.8rem;
   flex: 1;
 }
 
 .privacy-body section h4 {
-  margin: 0 0 6px;
-  font-size: 12px;
+  margin: 0 0 0.6rem;
+  font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -340,32 +340,32 @@
 }
 
 .privacy-body section p {
-  margin: 0 0 6px;
-  font-size: 13px;
+  margin: 0 0 0.6rem;
+  font-size: 1.3rem;
   line-height: 1.65;
   color: var(--app-text2);
 }
 
 .privacy-body section ul {
-  margin: 4px 0 0;
+  margin: 0.4rem 0 0;
   padding-left: 1.4rem;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.4rem;
 }
 
 .privacy-body section ul li {
-  font-size: 13px;
+  font-size: 1.3rem;
   line-height: 1.6;
   color: var(--app-text2);
 }
 
 .privacy-last {
-  padding-bottom: 4px;
+  padding-bottom: 0.4rem;
 }
 
 .privacy-footer {
-  padding: 14px 28px;
+  padding: 1.4rem 2.8rem;
   border-top: 1px solid var(--app-border-sub);
   display: flex;
   justify-content: flex-end;
@@ -376,9 +376,9 @@
 .about-panel {
   background: var(--app-panel);
   border: 1px solid var(--app-border-sub);
-  border-radius: 14px;
-  padding: 36px 40px 28px;
-  width: 380px;
+  border-radius: 1.4rem;
+  padding: 3.6rem 4rem 2.8rem;
+  width: 38rem;
   max-width: 95vw;
   display: flex;
   flex-direction: column;
@@ -387,16 +387,16 @@
 }
 
 .about-logo {
-  font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 800;
   letter-spacing: 1.5px;
   color: var(--app-accent);
 }
 
 .about-tagline {
-  font-size: 12px;
+  font-size: 1.2rem;
   color: var(--app-muted);
-  margin-top: 6px;
+  margin-top: 0.6rem;
   line-height: 1.5;
 }
 
@@ -404,22 +404,22 @@
   width: 100%;
   height: 1px;
   background: var(--app-border-sub);
-  margin: 20px 0;
+  margin: 2rem 0;
 }
 
 .about-rows {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
 }
 
 .about-row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  font-size: 13px;
-  gap: 12px;
+  font-size: 1.3rem;
+  gap: 1.2rem;
 }
 
 .about-key {
@@ -434,7 +434,7 @@
 }
 
 .about-copy {
-  font-size: 11px;
+  font-size: 1.1rem;
   color: var(--app-muted);
 }
 
@@ -442,8 +442,8 @@
 .myaccount-panel {
   background: var(--app-panel);
   border: 1px solid var(--app-border-sub);
-  border-radius: 12px;
-  width: 520px;
+  border-radius: 1.2rem;
+  width: 52rem;
   max-width: 96vw;
   max-height: 90vh;
   display: flex;
@@ -452,20 +452,20 @@
 }
 
 .myaccount-header {
-  padding: 16px 24px 14px;
+  padding: 1.6rem 2.4rem 1.4rem;
   border-bottom: 1px solid var(--app-border-sub);
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 1.4rem;
 }
 
 .myaccount-avatar {
-  width: 44px;
-  height: 44px;
+  width: 4.4rem;
+  height: 4.4rem;
   border-radius: 50%;
   background: var(--app-accent);
   color: #fff;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -477,26 +477,26 @@
 .myaccount-header-meta {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0.2rem;
 }
 
 .myaccount-header h3 {
   margin: 0;
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--app-text2);
 }
 
 .myaccount-header-username {
-  font-size: 12px;
+  font-size: 1.2rem;
   color: var(--app-muted);
 }
 
 .myaccount-body {
-  padding: 20px 24px 24px;
+  padding: 2rem 2.4rem 2.4rem;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 1.4rem;
   overflow-y: auto;
   text-align: left;
 }
@@ -504,7 +504,7 @@
 .myaccount-two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 1rem;
 }
 
 .pw-wrap {
@@ -514,11 +514,11 @@
 }
 .pw-wrap input {
   flex: 1;
-  padding-right: 34px;
+  padding-right: 3.4rem;
 }
 .pw-toggle {
   position: absolute;
-  right: 8px;
+  right: 0.8rem;
   background: none;
   border: none;
   padding: 0;
@@ -531,36 +531,36 @@
 .pw-toggle:hover { color: var(--app-text2); }
 
 .myaccount-section-title {
-  font-size: 14px;
+  font-size: 1.4rem;
   text-transform: uppercase;
   letter-spacing: 0.6px;
   color: var(--app-muted);
-  margin-bottom: -6px;
-  padding: 5px 0 0 0;
+  margin-bottom: -0.6rem;
+  padding: 0.5rem 0 0 0;
 }
 
 .myaccount-info-grid {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 8px 16px;
+  gap: 0.8rem 1.6rem;
   align-items: baseline;
 }
 
 .myaccount-label {
-  font-size: 12px;
+  font-size: 1.2rem;
   color: var(--app-muted);
   text-align: left;
 }
 
 .myaccount-value {
-  font-size: 13px;
+  font-size: 1.3rem;
   color: var(--app-text2);
   font-weight: 500;
 }
 
 .myaccount-role {
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 1.1rem;
   color: var(--app-accent);
   letter-spacing: 0.4px;
 }
@@ -568,20 +568,20 @@
 .myaccount-divider {
   height: 1px;
   background: var(--app-border-sub);
-  margin: 2px 0;
+  margin: 0.2rem 0;
 }
 
 .myaccount-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .myaccount-success {
-  font-size: 13px;
+  font-size: 1.3rem;
   color: #4caf82;
-  padding: 8px 10px;
+  padding: 0.8rem 1rem;
   background: rgba(76, 175, 130, 0.1);
-  border-radius: 6px;
+  border-radius: 0.6rem;
   border: 1px solid rgba(76, 175, 130, 0.25);
 }

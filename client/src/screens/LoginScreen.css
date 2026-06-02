@@ -9,38 +9,38 @@
 .login-card {
   background: var(--app-panel);
   border: 1px solid var(--app-border-sub);
-  border-radius: 12px;
-  padding: 40px 48px;
-  width: 360px;
+  border-radius: 1.2rem;
+  padding: 4rem 4.8rem;
+  width: 36rem;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 2rem;
 }
 
 .login-logo {
   text-align: center;
-  font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 700;
   color: var(--app-accent);
   letter-spacing: 1px;
-  margin-bottom: 8px;
+  margin-bottom: 0.8rem;
 }
 
 .login-subtitle {
   text-align: center;
-  font-size: 13px;
+  font-size: 1.3rem;
   color: var(--app-muted);
-  margin-top: -12px;
+  margin-top: -1.2rem;
 }
 
 .login-field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.6rem;
 }
 
 .login-field label {
-  font-size: 12px;
+  font-size: 1.2rem;
   color: var(--app-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -49,10 +49,10 @@
 .login-field input {
   background: var(--app-input);
   border: 1px solid var(--app-border-sub);
-  border-radius: 6px;
+  border-radius: 0.6rem;
   color: var(--app-text2);
-  font-size: 14px;
-  padding: 9px 12px;
+  font-size: 1.4rem;
+  padding: 0.9rem 1.2rem;
   outline: none;
   transition: border-color 0.2s;
 }
@@ -69,17 +69,17 @@
 
 .login-password-wrap input {
   width: 100%;
-  padding-right: 38px;
+  padding-right: 3.8rem;
 }
 
 .login-eye {
   position: absolute;
-  right: 8px;
+  right: 0.8rem;
   background: transparent;
   border: none;
   cursor: pointer;
   color: var(--app-muted);
-  padding: 4px;
+  padding: 0.4rem;
   display: flex;
   align-items: center;
   transition: color 0.15s;
@@ -90,18 +90,18 @@
 }
 
 .login-eye svg {
-  width: 18px;
-  height: 18px;
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .login-btn {
-  margin-top: 8px;
+  margin-top: 0.8rem;
   background: var(--app-btn);
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 10px;
-  font-size: 14px;
+  border-radius: 0.6rem;
+  padding: 1rem;
+  font-size: 1.4rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
@@ -119,10 +119,10 @@
 .login-error {
   background: var(--app-danger);
   border: 1px solid #7a2020;
-  border-radius: 6px;
+  border-radius: 0.6rem;
   color: #ff6b6b;
-  font-size: 13px;
-  padding: 9px 12px;
+  font-size: 1.3rem;
+  padding: 0.9rem 1.2rem;
   text-align: center;
 }
 
@@ -130,7 +130,7 @@
   background: none;
   border: none;
   color: var(--app-muted);
-  font-size: 13px;
+  font-size: 1.3rem;
   font-weight: 700;
   cursor: pointer;
   text-decoration: none;
@@ -143,7 +143,7 @@
 
 .login-forgot-desc {
   margin: 0;
-  font-size: 13px;
+  font-size: 1.3rem;
   color: var(--app-muted);
   line-height: 1.6;
 }
@@ -151,10 +151,10 @@
 .login-done {
   background: #1a3a20;
   border: 1px solid #2a6a30;
-  border-radius: 6px;
+  border-radius: 0.6rem;
   color: #4adf8a;
-  font-size: 13px;
-  padding: 12px 14px;
+  font-size: 1.3rem;
+  padding: 1.2rem 1.4rem;
   line-height: 1.6;
   text-align: center;
 }
@@ -163,7 +163,7 @@
   background: none;
   border: none;
   color: var(--app-muted);
-  font-size: 13px;
+  font-size: 1.3rem;
   cursor: pointer;
   text-align: left;
   padding: 0;

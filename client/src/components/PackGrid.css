@@ -35,14 +35,14 @@
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
-  width: 400px !important;
-  min-height: 130px !important;
+  width: 40rem !important;
+  min-height: 13rem !important;
   height: auto !important;
   z-index: 200 !important;
   background: var(--app-chrome, #1e293b) !important;
   border: 2px solid var(--app-accent, #3b82f6) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.5) !important;
+  border-radius: 0.8rem !important;
+  box-shadow: 0 0.8rem 2.8rem rgba(0,0,0,0.5) !important;
   padding: 0 !important;
 }
 
@@ -50,14 +50,14 @@
   background: var(--app-input, #1e293b) !important;
   color: var(--app-text, #e2e8f0) !important;
   font-family: inherit !important;
-  font-size: 13px !important;
+  font-size: 1.3rem !important;
   line-height: 1.55 !important;
   border: none !important;
   outline: none !important;
-  padding: 8px 10px !important;
+  padding: 0.8rem 1rem !important;
   resize: vertical !important;
   width: 100% !important;
-  min-height: 120px !important;
+  min-height: 12rem !important;
   box-sizing: border-box !important;
 }
 
@@ -66,10 +66,10 @@
 .grid-checkbox {
   appearance: none;
   -webkit-appearance: none;
-  width: 13px;
-  height: 13px;
+  width: 1.3rem;
+  height: 1.3rem;
   border: 1.5px solid var(--app-border);
-  border-radius: 2px;
+  border-radius: 0.2rem;
   background: transparent;
   cursor: pointer;
   flex-shrink: 0;
