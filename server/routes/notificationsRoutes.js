@@ -4,6 +4,24 @@ import { requireAuth, requireRole } from "../middleware/auth.js";
 
 const router = express.Router();
 
+// GET /api/notifications/users — zoznam aktívnych userov pre compose (bez seba)
+router.get("/users", requireAuth, async (req, res) => {
+  try {
+    const pool = await getPool();
+    const result = await pool.request()
+      .input("me", sql.Int, req.user.id)
+      .query(`
+        SELECT id, username, personal_name, personal_surname
+        FROM Users
+        WHERE is_active = 1 AND id <> @me
+        ORDER BY COALESCE(personal_surname, username)
+      `);
+    res.json({ users: result.recordset });
+  } catch (err) {
+    res.status(500).json({ error: "Failed" });
+  }
+});
+
 // GET /api/notifications — moje notifikácie (max 50, najnovšie prvé)
 router.get("/", requireAuth, async (req, res) => {
   try {

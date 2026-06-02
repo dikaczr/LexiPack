@@ -228,6 +228,112 @@
   color: var(--app-accent);
 }
 
+/* Compose tlačidlo v headeri */
+.nbell-compose-btn {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: var(--app-muted);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  line-height: 1;
+}
+.nbell-compose-btn:hover { color: var(--app-accent); background: var(--app-nav-hov); }
+
+/* Compose header */
+.nbell-compose-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 6px;
+}
+.nbell-compose-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--app-text2);
+}
+
+/* Compose form */
+.nbell-compose {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nbell-compose-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nbell-compose-field label {
+  font-size: 11px;
+  color: var(--app-muted);
+  font-weight: 500;
+}
+.nbell-optional {
+  font-weight: 400;
+  color: var(--app-muted);
+  opacity: 0.7;
+}
+.nbell-compose-field select,
+.nbell-compose-field input,
+.nbell-compose-field textarea {
+  background: var(--app-input);
+  border: 1px solid var(--app-border);
+  border-radius: 5px;
+  color: var(--app-text2);
+  font-size: 12px;
+  padding: 5px 8px;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+}
+.nbell-compose-field select:focus,
+.nbell-compose-field input:focus,
+.nbell-compose-field textarea:focus {
+  border-color: var(--app-accent);
+}
+
+.nbell-compose-btns {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.nbell-send-btn {
+  background: var(--app-accent);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.nbell-send-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.nbell-send-btn:not(:disabled):hover { opacity: 0.85; }
+
+.nbell-cancel-btn {
+  background: transparent;
+  border: 1px solid var(--app-border);
+  border-radius: 5px;
+  color: var(--app-muted);
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.nbell-cancel-btn:hover { background: var(--app-nav-hov); color: var(--app-text2); }
+
+.nbell-compose-done {
+  text-align: center;
+  padding: 28px 0;
+  font-size: 14px;
+  color: var(--app-text2);
+}
+
 /* Delete tlačidlo */
 .nbell-item-del {
   flex-shrink: 0;

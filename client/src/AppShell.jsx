@@ -223,6 +223,7 @@ export default function AppShell() {
         <div className="app-title">LexiPack</div>
         <div className="app-header-right">
           <NotificationBell
+            token={token}
             sysNotifications={sysNotifications}
             internalNotifs={internalNotifs}
             onClearSys={() => setSysNotifications([])}
