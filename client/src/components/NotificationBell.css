@@ -352,6 +352,55 @@
   margin-top: 2px;
 }
 
+.nbell-dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  background: var(--app-input);
+  border: 1.5px dashed var(--app-border);
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: var(--app-muted);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  min-height: 34px;
+}
+.nbell-dropzone:hover,
+.nbell-dropzone.drag-over {
+  border-color: var(--app-accent);
+  background: color-mix(in srgb, var(--app-accent) 6%, var(--app-input));
+  color: var(--app-text2);
+}
+.nbell-dropzone.has-file {
+  border-style: solid;
+  border-color: var(--app-border);
+  color: var(--app-text2);
+}
+.nbell-dropzone-name {
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+.nbell-dropzone-hint {
+  flex: 1;
+  text-align: center;
+}
+.nbell-dropzone-clear {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--app-muted);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+}
+.nbell-dropzone-clear:hover { color: var(--app-danger); }
+
 .nbell-retry-btn {
   background: none;
   border: none;

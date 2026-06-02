@@ -31,17 +31,17 @@ export default function NotificationBell({
   const [composeUsersErr,     setComposeUsersErr]     = useState(false);
   const [composeToId,         setComposeToId]         = useState("");
   const [composeToInput,      setComposeToInput]      = useState("");
-  const [composePacks,        setComposePacks]        = useState([]);
   const [composeRefPack,      setComposeRefPack]      = useState("");
-  const [composeRefPackInput, setComposeRefPackInput] = useState("");
   const [composeTitle,        setComposeTitle]        = useState("");
   const [composeBody,         setComposeBody]         = useState("");
   const [composeSending,      setComposeSending]      = useState(false);
   const [composeDone,         setComposeDone]         = useState(false);
+  const [dropOver,            setDropOver]            = useState(false);
 
   const wrapRef       = useRef(null);
   const prevUnreadRef = useRef(0);
   const titleRef      = useRef(null);
+  const fileInputRef  = useRef(null);
 
   const unreadInternal = internalNotifs.filter(n => !n.is_read).length;
   const totalBadge     = unreadInternal + sysNotifications.length;
@@ -85,24 +85,19 @@ export default function NotificationBell({
     setComposeUsersLoading(false);
   }
 
+  function handleFileSelect(file) {
+    if (file) setComposeRefPack(file.name);
+  }
+
   async function handleOpenCompose() {
     setComposeToId("");
     setComposeToInput("");
     setComposeRefPack("");
-    setComposeRefPackInput("");
     setComposeTitle("");
     setComposeBody("");
     setComposeDone(false);
     setView("compose");
-    const fetches = [];
-    if (composeUsers.length === 0) fetches.push(fetchUsers());
-    if (composePacks.length === 0 && token) fetches.push(
-      fetch(`${API_BASE}/api/packs`, { headers: { Authorization: `Bearer ${token}` } })
-        .then(r => r.ok ? r.json() : [])
-        .then(data => setComposePacks(Array.isArray(data) ? data : []))
-        .catch(() => {})
-    );
-    await Promise.all(fetches);
+    if (composeUsers.length === 0) await fetchUsers();
     setTimeout(() => titleRef.current?.focus(), 50);
   }
 
@@ -296,29 +291,38 @@ export default function NotificationBell({
                       </>
                     )}
                   </div>
-                  {composePacks.length > 0 && (
-                    <div className="nbell-compose-field">
-                      <label>Balík <span className="nbell-optional">(voliteľné)</span></label>
-                      <input
-                        type="text"
-                        list="nbell-packs-datalist"
-                        value={composeRefPackInput}
-                        onChange={e => {
-                          const val = e.target.value;
-                          setComposeRefPackInput(val);
-                          const match = composePacks.find(p => (p.name || p.fileName) === val);
-                          setComposeRefPack(match ? match.fileName : "");
-                        }}
-                        placeholder="Vyhľadať balík..."
-                        autoComplete="off"
-                      />
-                      <datalist id="nbell-packs-datalist">
-                        {composePacks.map(p => (
-                          <option key={p.fileName} value={p.name || p.fileName} />
-                        ))}
-                      </datalist>
+                  <div className="nbell-compose-field">
+                    <label>Príloha <span className="nbell-optional">(voliteľné)</span></label>
+                    <div
+                      className={`nbell-dropzone${dropOver ? " drag-over" : ""}${composeRefPack ? " has-file" : ""}`}
+                      onClick={() => fileInputRef.current?.click()}
+                      onDragOver={e => { e.preventDefault(); setDropOver(true); }}
+                      onDragLeave={() => setDropOver(false)}
+                      onDrop={e => {
+                        e.preventDefault();
+                        setDropOver(false);
+                        handleFileSelect(e.dataTransfer.files[0]);
+                      }}
+                    >
+                      {composeRefPack ? (
+                        <>
+                          <span className="nbell-dropzone-name">📎 {composeRefPack}</span>
+                          <button
+                            className="nbell-dropzone-clear"
+                            onClick={e => { e.stopPropagation(); setComposeRefPack(""); if (fileInputRef.current) fileInputRef.current.value = ""; }}
+                          >×</button>
+                        </>
+                      ) : (
+                        <span className="nbell-dropzone-hint">Pretiahnite súbor alebo kliknite</span>
+                      )}
                     </div>
-                  )}
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      style={{ display: "none" }}
+                      onChange={e => handleFileSelect(e.target.files[0])}
+                    />
+                  </div>
                   <div className="nbell-compose-field">
                     <label>Predmet</label>
                     <input
