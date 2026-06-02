@@ -3,6 +3,9 @@ import OpenAI from "openai";
 import { requireAuth } from "../middleware/auth.js";
 import { auditLog } from "../middleware/audit.js";
 import { trackAI } from "../middleware/telemetry.js";
+import { promises as fs } from "fs";
+import path from "path";
+import os from "os";
 
 const router = express.Router();
 
@@ -207,6 +210,17 @@ router.post("/generate-image", requireAuth, async (req, res) => {
     const buffer = await imgRes.arrayBuffer();
     const b64 = Buffer.from(buffer).toString("base64");
     const mime = contentType.startsWith("image/") ? contentType : "image/jpeg";
+
+    // Uložiť do ~/Pictures/AI/
+    try {
+      const saveDir = path.join(os.homedir(), "Pictures", "AI");
+      await fs.mkdir(saveDir, { recursive: true });
+      const ext = mime === "image/png" ? "png" : "jpg";
+      const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
+      await fs.writeFile(path.join(saveDir, `ai_${timestamp}.${ext}`), Buffer.from(buffer));
+    } catch (saveErr) {
+      console.warn("[generate-image] save to disk failed:", saveErr.message);
+    }
 
     await trackAI(req.user, "GENERATE_IMAGE", null, requestAt, null);
     res.json({ image: `data:${mime};base64,${b64}` });

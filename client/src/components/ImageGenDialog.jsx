@@ -4,8 +4,9 @@ import { generateImage } from "../api/aiApi";
 import { resizeImageDataUrl } from "../utils/resizeImage";
 import "./ImageGenDialog.css";
 
-const STYLES      = ["flat", "illustration", "watercolor", "minimal", "realistic"];
+const STYLES      = ["vector", "3d", "realistic", "stylized"];
 const BACKGROUNDS = ["white", "transparent"];
+const ATMOSPHERE  = ["inspiring", "intelligent", "dark", "light"];
 
 const NEGATIVE_ITEMS = [
   { key: "nophotorealism",    neg: "photorealism, photorealistic" },
@@ -18,11 +19,10 @@ const NEGATIVE_ITEMS = [
 ];
 
 const STYLE_PROMPT = {
-  flat:         "flat vector icon",
-  illustration: "colorful illustration",
-  watercolor:   "soft watercolor illustration",
-  minimal:      "minimal clean icon",
-  realistic:    "photorealistic photo",
+  vector:   "vector art illustration",
+  "3d":     "3D rendered image",
+  realistic:"photorealistic photo",
+  stylized: "stylized digital art",
 };
 
 const BG_PROMPT = {
@@ -30,14 +30,16 @@ const BG_PROMPT = {
   transparent: "transparent background",
 };
 
-function buildPrompt(description, style, background, extra) {
+function buildPrompt(description, style, background, atmosphere, extra) {
+  const atmoText = atmosphere.join(", ");
   const parts = [
     `Create a ${STYLE_PROMPT[style] || style}.`,
     `Subject: "${description}".`,
-    `${BG_PROMPT[background] || "white background"}.`,
-    style !== "realistic" ? "Square composition, no text." : "",
+    atmoText ? `Mood and atmosphere: ${atmoText}.` : "",
+    BG_PROMPT[background] ? `${BG_PROMPT[background]}.` : "",
+    style !== "realistic" ? "No text in the image." : "",
+    extra?.trim() || "",
   ].filter(Boolean);
-  if (extra?.trim()) parts.push(extra.trim());
   return parts.join(" ");
 }
 
@@ -47,36 +49,30 @@ function buildNegative(checks, extraNeg) {
   return items.join(", ");
 }
 
-const DEFAULT_CHECKS = Object.fromEntries(NEGATIVE_ITEMS.map(i => [i.key, false]));
+const DEFAULT_NEG = Object.fromEntries(NEGATIVE_ITEMS.map(i => [i.key, false]));
 
 export default function ImageGenDialog({
-  open,
-  onClose,
-  packName = "",
-  packCategory = "",
-  onApply,
-  token,
+  open, onClose, packName = "", packCategory = "", onApply, token,
 }) {
   const t = useT();
 
-  const [description,   setDescription]   = useState("");
-  const [style,         setStyle]         = useState("flat");
-  const [background,    setBackground]    = useState("white");
-  const [extra,         setExtra]         = useState("");
-  const [negChecks,     setNegChecks]     = useState(DEFAULT_CHECKS);
-  const [negExtra,      setNegExtra]      = useState("");
-  const [generating,    setGenerating]    = useState(false);
-  const [progress,      setProgress]      = useState(0);
-  const [result,        setResult]        = useState(null);
-  const [error,         setError]         = useState(null);
+  const [description, setDescription] = useState("");
+  const [style,       setStyle]       = useState("vector");
+  const [background,  setBackground]  = useState("white");
+  const [atmosphere,  setAtmosphere]  = useState([]);
+  const [extra,       setExtra]       = useState("");
+  const [negChecks,   setNegChecks]   = useState(DEFAULT_NEG);
+  const [negExtra,    setNegExtra]    = useState("");
+  const [generating,  setGenerating]  = useState(false);
+  const [progress,    setProgress]    = useState(0);
+  const [result,      setResult]      = useState(null);
+  const [error,       setError]       = useState(null);
 
   useEffect(() => {
     if (open) {
       const parts = [packName, packCategory].filter(Boolean);
       setDescription(parts.join(" — ") || "");
-      setResult(null);
-      setError(null);
-      setProgress(0);
+      setResult(null); setError(null); setProgress(0);
     }
   }, [open, packName, packCategory]);
 
@@ -86,23 +82,22 @@ export default function ImageGenDialog({
     const start = Date.now();
     const ESTIMATE = 22000;
     const id = setInterval(() => {
-      const p = Math.min(90, Math.round((Date.now() - start) / ESTIMATE * 90));
-      setProgress(p);
+      setProgress(Math.min(90, Math.round((Date.now() - start) / ESTIMATE * 90)));
     }, 250);
     return () => clearInterval(id);
   }, [generating]);
 
-  function toggleCheck(key) {
-    setNegChecks(prev => ({ ...prev, [key]: !prev[key] }));
+  function toggleAtmo(val) {
+    setAtmosphere(prev =>
+      prev.includes(val) ? prev.filter(v => v !== val) : [...prev, val]
+    );
   }
 
   async function handleGenerate() {
     if (!description.trim() || generating) return;
-    setGenerating(true);
-    setResult(null);
-    setError(null);
+    setGenerating(true); setResult(null); setError(null);
     try {
-      const prompt   = buildPrompt(description, style, background, extra);
+      const prompt   = buildPrompt(description, style, background, atmosphere, extra);
       const negative = buildNegative(negChecks, negExtra);
       const dataUrl  = await generateImage(prompt, negative, token);
       setProgress(100);
@@ -133,12 +128,9 @@ export default function ImageGenDialog({
         </div>
 
         <div className="img-gen-body">
-          {/* Left: form */}
           <div className="img-gen-form">
 
-            {/* Positive */}
-            <div className="img-gen-section-title">{t("imgGen.sectionPositive")}</div>
-
+            {/* Description */}
             <div className="img-gen-field">
               <label>{t("imgGen.descLabel")}</label>
               <textarea
@@ -150,40 +142,64 @@ export default function ImageGenDialog({
               />
             </div>
 
-            <div className="img-gen-row">
-              <div className="img-gen-field">
-                <label>{t("imgGen.styleLabel")}</label>
-                <div className="img-gen-pills">
-                  {STYLES.map(s => (
-                    <button
-                      key={s}
-                      className={`img-gen-pill${style === s ? " active" : ""}`}
-                      onClick={() => setStyle(s)}
-                      disabled={generating}
-                    >
-                      {t(`imgGen.style${s.charAt(0).toUpperCase() + s.slice(1)}`)}
-                    </button>
-                  ))}
-                </div>
-              </div>
+            {/* Positive section */}
+            <div className="img-gen-section-title">{t("imgGen.sectionPositive")}</div>
 
-              <div className="img-gen-field">
-                <label>{t("imgGen.bgLabel")}</label>
-                <div className="img-gen-pills">
-                  {BACKGROUNDS.map(b => (
-                    <button
-                      key={b}
-                      className={`img-gen-pill${background === b ? " active" : ""}`}
-                      onClick={() => setBackground(b)}
+            {/* Style — radio checkboxes */}
+            <div className="img-gen-field">
+              <label>{t("imgGen.styleLabel")}</label>
+              <div className="img-gen-checkboxes">
+                {STYLES.map(s => (
+                  <label key={s} className="img-gen-check-item">
+                    <input
+                      type="radio"
+                      name="img-style"
+                      checked={style === s}
+                      onChange={() => setStyle(s)}
                       disabled={generating}
-                    >
-                      {t(`imgGen.bg${b.charAt(0).toUpperCase() + b.slice(1)}`)}
-                    </button>
-                  ))}
-                </div>
+                    />
+                    <span>{t(`imgGen.style_${s}`)}</span>
+                  </label>
+                ))}
               </div>
             </div>
 
+            {/* Atmosphere */}
+            <div className="img-gen-field">
+              <label>{t("imgGen.atmosphereLabel")}</label>
+              <div className="img-gen-checkboxes">
+                {ATMOSPHERE.map(a => (
+                  <label key={a} className="img-gen-check-item">
+                    <input
+                      type="checkbox"
+                      checked={atmosphere.includes(a)}
+                      onChange={() => toggleAtmo(a)}
+                      disabled={generating}
+                    />
+                    <span>{t(`imgGen.atmo_${a}`)}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Background */}
+            <div className="img-gen-field">
+              <label>{t("imgGen.bgLabel")}</label>
+              <div className="img-gen-pills">
+                {BACKGROUNDS.map(b => (
+                  <button
+                    key={b}
+                    className={`img-gen-pill${background === b ? " active" : ""}`}
+                    onClick={() => setBackground(b)}
+                    disabled={generating}
+                  >
+                    {t(`imgGen.bg${b.charAt(0).toUpperCase() + b.slice(1)}`)}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Extra positive */}
             <div className="img-gen-field">
               <label>{t("imgGen.extraLabel")}</label>
               <input
@@ -195,7 +211,7 @@ export default function ImageGenDialog({
               />
             </div>
 
-            {/* Negative */}
+            {/* Negative section */}
             <div className="img-gen-section-title img-gen-section-neg">{t("imgGen.sectionNegative")}</div>
 
             <div className="img-gen-checkboxes">
@@ -204,7 +220,7 @@ export default function ImageGenDialog({
                   <input
                     type="checkbox"
                     checked={negChecks[item.key]}
-                    onChange={() => toggleCheck(item.key)}
+                    onChange={() => setNegChecks(p => ({ ...p, [item.key]: !p[item.key] }))}
                     disabled={generating}
                   />
                   <span>{t(`imgGen.neg_${item.key}`)}</span>
@@ -232,7 +248,7 @@ export default function ImageGenDialog({
             </button>
           </div>
 
-          {/* Right: preview */}
+          {/* Preview */}
           <div className="img-gen-preview">
             {generating && (
               <div className="img-gen-progress-wrap">
