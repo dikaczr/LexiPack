@@ -334,11 +334,28 @@
   color: var(--app-text2);
 }
 
+.nbell-compose-loading {
+  font-size: 12px;
+  color: var(--app-muted);
+  padding: 4px 0;
+}
+
 .nbell-compose-err {
   font-size: 12px;
   color: var(--app-danger);
   padding: 4px 0;
 }
+
+.nbell-retry-btn {
+  background: none;
+  border: none;
+  color: var(--app-accent);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+.nbell-retry-btn:hover { opacity: 0.8; }
 
 /* Delete tlačidlo */
 .nbell-item-del {

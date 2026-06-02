@@ -26,17 +26,19 @@ export default function NotificationBell({
   const [view, setView]       = useState("list"); // "list" | "compose"
 
   // compose state
-  const [composeUsers,   setComposeUsers]   = useState([]);
-  const [composeTo,      setComposeTo]      = useState("");
-  const [composeTitle,   setComposeTitle]   = useState("");
-  const [composeBody,    setComposeBody]    = useState("");
-  const [composeSending, setComposeSending] = useState(false);
-  const [composeDone,    setComposeDone]    = useState(false);
-  const [composeUsersErr, setComposeUsersErr] = useState(false);
+  const [composeUsers,        setComposeUsers]        = useState([]);
+  const [composeUsersLoading, setComposeUsersLoading] = useState(false);
+  const [composeUsersErr,     setComposeUsersErr]     = useState(false);
+  const [composeToId,         setComposeToId]         = useState("");
+  const [composeToInput,      setComposeToInput]      = useState("");
+  const [composeTitle,        setComposeTitle]        = useState("");
+  const [composeBody,         setComposeBody]         = useState("");
+  const [composeSending,      setComposeSending]      = useState(false);
+  const [composeDone,         setComposeDone]         = useState(false);
 
-  const wrapRef      = useRef(null);
+  const wrapRef       = useRef(null);
   const prevUnreadRef = useRef(0);
-  const titleRef     = useRef(null);
+  const titleRef      = useRef(null);
 
   const unreadInternal = internalNotifs.filter(n => !n.is_read).length;
   const totalBadge     = unreadInternal + sysNotifications.length;
@@ -60,33 +62,48 @@ export default function NotificationBell({
     return () => document.removeEventListener("mousedown", handler);
   }, [open]);
 
+  async function fetchUsers() {
+    if (!token) return;
+    setComposeUsersLoading(true);
+    setComposeUsersErr(false);
+    try {
+      const res = await fetch(`${API_BASE}/api/notifications/users`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.ok) {
+        const { users } = await res.json();
+        setComposeUsers(users);
+      } else {
+        setComposeUsersErr(true);
+      }
+    } catch {
+      setComposeUsersErr(true);
+    }
+    setComposeUsersLoading(false);
+  }
+
   async function handleOpenCompose() {
-    setComposeTo("");
+    setComposeToId("");
+    setComposeToInput("");
     setComposeTitle("");
     setComposeBody("");
     setComposeDone(false);
-    setComposeUsersErr(false);
     setView("compose");
-    if (composeUsers.length === 0 && token) {
-      try {
-        const res = await fetch(`${API_BASE}/api/notifications/users`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        if (res.ok) {
-          const { users } = await res.json();
-          setComposeUsers(users);
-        } else {
-          setComposeUsersErr(true);
-        }
-      } catch {
-        setComposeUsersErr(true);
-      }
+    if (composeUsers.length === 0) {
+      await fetchUsers();
     }
     setTimeout(() => titleRef.current?.focus(), 50);
   }
 
+  function handleRecipientChange(e) {
+    const val = e.target.value;
+    setComposeToInput(val);
+    const match = composeUsers.find(u => recipientLabel(u) === val);
+    setComposeToId(match ? String(match.id) : "");
+  }
+
   async function handleSend() {
-    if (!composeTo || !composeTitle.trim() || composeSending) return;
+    if (!composeToId || !composeTitle.trim() || composeSending) return;
     setComposeSending(true);
     try {
       const res = await fetch(`${API_BASE}/api/notifications`, {
@@ -96,7 +113,7 @@ export default function NotificationBell({
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          to_user_id: parseInt(composeTo),
+          to_user_id: parseInt(composeToId),
           type: "message",
           title: composeTitle.trim(),
           body: composeBody.trim() || undefined,
@@ -240,15 +257,30 @@ export default function NotificationBell({
                 <>
                   <div className="nbell-compose-field">
                     <label>Príjemca</label>
-                    {composeUsersErr ? (
-                      <div className="nbell-compose-err">Nepodarilo sa načítať používateľov</div>
+                    {composeUsersLoading ? (
+                      <div className="nbell-compose-loading">Načítavam...</div>
+                    ) : composeUsersErr ? (
+                      <div className="nbell-compose-err">
+                        Nepodarilo sa načítať používateľov —{" "}
+                        <button className="nbell-retry-btn" onClick={fetchUsers}>Skúsiť znova</button>
+                      </div>
                     ) : (
-                      <select value={composeTo} onChange={e => setComposeTo(e.target.value)}>
-                        <option value="">— vybrať —</option>
-                        {composeUsers.map(u => (
-                          <option key={u.id} value={u.id}>{recipientLabel(u)}</option>
-                        ))}
-                      </select>
+                      <>
+                        <input
+                          type="text"
+                          list="nbell-users-datalist"
+                          value={composeToInput}
+                          onChange={handleRecipientChange}
+                          placeholder={composeUsers.length === 0 ? "Žiadni dostupní používatelia" : "Vyhľadať používateľa..."}
+                          disabled={composeUsers.length === 0}
+                          autoComplete="off"
+                        />
+                        <datalist id="nbell-users-datalist">
+                          {composeUsers.map(u => (
+                            <option key={u.id} value={recipientLabel(u)} />
+                          ))}
+                        </datalist>
+                      </>
                     )}
                   </div>
                   <div className="nbell-compose-field">
@@ -275,7 +307,7 @@ export default function NotificationBell({
                     <button
                       className="nbell-send-btn"
                       onClick={handleSend}
-                      disabled={!composeTo || !composeTitle.trim() || composeSending}
+                      disabled={!composeToId || !composeTitle.trim() || composeSending}
                     >
                       {composeSending ? "Odosielam..." : "Odoslať"}
                     </button>
