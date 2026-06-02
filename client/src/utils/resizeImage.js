@@ -3,6 +3,40 @@
  * Each step uses imageSmoothingQuality = "high" to avoid aliasing.
  * SVG files are returned as-is (no resize needed for vectors).
  */
+export function resizeImageDataUrl(dataUrl, maxSize = 256) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const scale   = Math.min(maxSize / img.width, maxSize / img.height, 1);
+      const targetW = Math.round(img.width  * scale);
+      const targetH = Math.round(img.height * scale);
+      let src = document.createElement("canvas");
+      src.width = img.width; src.height = img.height;
+      src.getContext("2d").drawImage(img, 0, 0);
+      let w = img.width, h = img.height;
+      while (w > targetW * 1.5 || h > targetH * 1.5) {
+        w = Math.max(Math.ceil(w / 2), targetW);
+        h = Math.max(Math.ceil(h / 2), targetH);
+        const step = document.createElement("canvas");
+        step.width = w; step.height = h;
+        const ctx = step.getContext("2d");
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = "high";
+        ctx.drawImage(src, 0, 0, w, h);
+        src = step;
+      }
+      const out = document.createElement("canvas");
+      out.width = targetW; out.height = targetH;
+      const ctx = out.getContext("2d");
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(src, 0, 0, targetW, targetH);
+      resolve(out.toDataURL("image/png"));
+    };
+    img.src = dataUrl;
+  });
+}
+
 export async function resizeImageFile(file, maxSize = 256) {
   if (file.type === "image/svg+xml") {
     return new Promise((resolve) => {

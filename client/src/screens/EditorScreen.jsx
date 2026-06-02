@@ -18,6 +18,7 @@ import {
   suggestWords,
   generateColumn,
 } from "../api/aiApi";
+import ImageGenDialog from "../components/ImageGenDialog";
 import SuggestionsDialog from "../components/SuggestionsDialog";
 import PdfReaderDialog from "../components/PdfReaderDialog";
 import SymbolsDialog from "../components/SymbolsDialog";
@@ -437,6 +438,7 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   const [showTrustedSource, setShowTrustedSource] = useState(false);
   const [showPdfReader, setShowPdfReader] = useState(false);
   const [showSymbols, setShowSymbols] = useState(false);
+  const [showImgGen, setShowImgGen] = useState(false);
   const [hasActiveInput, setHasActiveInput] = useState(false);
 const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
 
@@ -2014,6 +2016,24 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
 
       <SymbolsDialog open={showSymbols} onClose={() => setShowSymbols(false)} onInsert={handleInsertSymbol} />
 
+      <ImageGenDialog
+        open={showImgGen}
+        onClose={() => setShowImgGen(false)}
+        packName={packMetadata.name}
+        packCategory={packMetadata.category}
+        token={token}
+        onApply={(resizedDataUrl) => {
+          setPackMetadata(prev => ({ ...prev, icon: resizedDataUrl }));
+          if (token && activePack?.fileName) {
+            fetch(`${API_BASE}/api/packs/${activePack.fileName}/icon`, {
+              method: "PATCH",
+              headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+              body: JSON.stringify({ icon: resizedDataUrl }),
+            }).catch(console.warn);
+          }
+        }}
+      />
+
       {cefrCheckData && (
         <CefrCheckDialog
           results={cefrCheckData.results}
@@ -2738,6 +2758,16 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
                   <button onClick={() => handleGoToSearch()} style={{ padding: "3px 8px", fontSize: 12 }}>→</button>
                 </div>
               )}
+
+              <div className="toolbar-divider" />
+              <button
+                className="btn-icon"
+                onClick={() => setShowImgGen(true)}
+                title="Generovať obrázok ikony balíka"
+              >
+                <span className="btn-icon-glyph">🖼</span>
+                <span className="btn-icon-label">{t("editor.toolbar.genImage")}</span>
+              </button>
             </div>
 
             <div className="validation-right">

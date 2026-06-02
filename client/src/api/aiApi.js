@@ -55,3 +55,12 @@ export async function generateColumn(row, field, targetLang, nativeLang, token, 
   );
   return response.data.value;
 }
+
+export async function generateImage(prompt, token) {
+  const response = await axios.post(
+    `${API_URL}/generate-image`,
+    { prompt },
+    { headers: authHeaders(token), timeout: 120000 },
+  );
+  return response.data.image;
+}

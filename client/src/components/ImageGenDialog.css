@@ -1,0 +1,253 @@
+.img-gen-dialog {
+  background: var(--app-panel);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 1.4rem;
+  width: 72rem;
+  max-width: 96vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem rgba(0,0,0,0.5);
+}
+
+.img-gen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 2rem;
+  border-bottom: 1px solid var(--app-border-sub);
+  flex-shrink: 0;
+}
+
+.img-gen-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--app-text2);
+}
+
+.img-gen-close {
+  background: transparent;
+  border: none;
+  color: var(--app-muted);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 0.4rem;
+}
+.img-gen-close:hover:not(:disabled) { color: var(--app-text2); }
+.img-gen-close:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.img-gen-body {
+  display: flex;
+  gap: 2rem;
+  padding: 1.8rem 2rem;
+  overflow-y: auto;
+}
+
+/* ── Form ─────────────────────────────────────────── */
+.img-gen-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  flex: 0 0 30rem;
+}
+
+.img-gen-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.img-gen-field label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--app-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.img-gen-field textarea,
+.img-gen-field input {
+  background: var(--app-input);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 0.6rem;
+  color: var(--app-text2);
+  font-size: 1.3rem;
+  padding: 0.7rem 1rem;
+  outline: none;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.15s;
+}
+.img-gen-field textarea:focus,
+.img-gen-field input:focus { border-color: var(--app-accent); }
+.img-gen-field textarea:disabled,
+.img-gen-field input:disabled { opacity: 0.5; }
+
+.img-gen-row {
+  display: flex;
+  gap: 1.2rem;
+}
+.img-gen-row .img-gen-field { flex: 1; }
+
+.img-gen-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.img-gen-pill {
+  background: var(--app-input);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 2rem;
+  color: var(--app-muted);
+  font-size: 1.2rem;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.img-gen-pill:hover:not(:disabled) {
+  border-color: var(--app-accent);
+  color: var(--app-text2);
+}
+.img-gen-pill.active {
+  background: var(--app-accent);
+  border-color: var(--app-accent);
+  color: #fff;
+}
+.img-gen-pill:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.img-gen-btn-generate {
+  background: var(--app-btn);
+  border: none;
+  border-radius: 0.8rem;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 0.9rem 1.6rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: 0.4rem;
+}
+.img-gen-btn-generate:hover:not(:disabled) { background: var(--app-btn-hov); }
+.img-gen-btn-generate:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Preview ──────────────────────────────────────── */
+.img-gen-preview {
+  flex: 1;
+  background: var(--app-input);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 28rem;
+  padding: 2rem;
+  gap: 1.2rem;
+}
+
+.img-gen-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--app-muted);
+  font-size: 1.3rem;
+}
+.img-gen-placeholder span:first-child { font-size: 4rem; opacity: 0.3; }
+
+/* ── Progress / Thermometer ───────────────────────── */
+.img-gen-progress-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.img-gen-progress-label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--app-text2);
+}
+
+.img-gen-thermometer {
+  width: 100%;
+  height: 1.2rem;
+  background: var(--app-border-sub);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.img-gen-thermometer-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--app-accent), #a855f7);
+  border-radius: 1rem;
+  transition: width 0.3s ease;
+}
+
+.img-gen-progress-hint {
+  font-size: 1.1rem;
+  color: var(--app-muted);
+}
+
+/* ── Result ───────────────────────────────────────── */
+.img-gen-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  width: 100%;
+}
+
+.img-gen-img {
+  width: 24rem;
+  height: 24rem;
+  object-fit: contain;
+  border-radius: 1.2rem;
+  border: 1px solid var(--app-border);
+  background: #fff;
+}
+
+.img-gen-result-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.img-gen-btn-use {
+  background: var(--app-btn-new);
+  border: none;
+  border-radius: 0.8rem;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 0.7rem 1.6rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.img-gen-btn-use:hover { background: var(--app-btn-new-hov); }
+
+.img-gen-btn-regen {
+  background: var(--app-input);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 0.8rem;
+  color: var(--app-text2);
+  font-size: 1.3rem;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.img-gen-btn-regen:hover { background: var(--app-nav-hov); }
+
+/* ── Error ────────────────────────────────────────── */
+.img-gen-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 1.3rem;
+  color: var(--app-danger-text);
+  gap: 0.4rem;
+}

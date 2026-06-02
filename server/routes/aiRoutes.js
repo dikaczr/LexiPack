@@ -188,4 +188,29 @@ router.post("/generate-column", requireAuth, async (req, res) => {
   }
 });
 
+// ── Generovanie obrázku (DALL-E 3) ───────────────────
+router.post("/generate-image", requireAuth, async (req, res) => {
+  const { prompt } = req.body;
+  if (!prompt?.trim()) return res.status(400).json({ error: "prompt required" });
+
+  const requestAt = new Date();
+  try {
+    const openai = getOpenAI();
+    const response = await openai.images.generate({
+      model: "dall-e-3",
+      prompt: prompt.trim(),
+      n: 1,
+      size: "1024x1024",
+      response_format: "b64_json",
+    });
+
+    const b64 = response.data[0].b64_json;
+    await trackAI(req.user, "GENERATE_IMAGE", null, requestAt, null);
+    res.json({ image: `data:image/png;base64,${b64}` });
+  } catch (err) {
+    console.error("generate-image failed:", err.message);
+    res.status(500).json({ error: err.message || "Image generation failed" });
+  }
+});
+
 export default router;
