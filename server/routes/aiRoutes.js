@@ -193,10 +193,12 @@ router.post("/generate-image", requireAuth, async (req, res) => {
   const { prompt } = req.body;
   if (!prompt?.trim()) return res.status(400).json({ error: "prompt required" });
 
+  const { negative } = req.body;
   const requestAt = new Date();
   try {
     const encodedPrompt = encodeURIComponent(prompt.trim());
-    const url = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=512&height=512&nologo=true&seed=${Date.now()}`;
+    let url = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=512&height=512&nologo=true&seed=${Date.now()}`;
+    if (negative?.trim()) url += `&negative=${encodeURIComponent(negative.trim())}`;
 
     const imgRes = await fetch(url, { signal: AbortSignal.timeout(60000) });
     if (!imgRes.ok) return res.status(500).json({ error: `Pollinations error: ${imgRes.status}` });

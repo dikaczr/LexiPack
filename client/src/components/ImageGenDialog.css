@@ -2,9 +2,9 @@
   background: var(--app-panel);
   border: 1px solid var(--app-border-sub);
   border-radius: 1.4rem;
-  width: 72rem;
-  max-width: 96vw;
-  max-height: 90vh;
+  width: 92rem;
+  max-width: 98vw;
+  max-height: 92vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -49,8 +49,9 @@
 .img-gen-form {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
-  flex: 0 0 30rem;
+  gap: 1.2rem;
+  flex: 0 0 38rem;
+  overflow-y: auto;
 }
 
 .img-gen-field {
@@ -250,4 +251,50 @@
   font-size: 1.3rem;
   color: var(--app-danger-text);
   gap: 0.4rem;
+}
+
+/* ── Section titles ───────────────────────────────── */
+.img-gen-section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--app-accent);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--app-border-sub);
+  margin-top: 0.4rem;
+}
+.img-gen-section-neg {
+  color: var(--app-danger-text);
+  border-color: color-mix(in srgb, var(--app-danger-text) 30%, transparent);
+}
+
+/* ── Negative checkboxes ──────────────────────────── */
+.img-gen-checkboxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.2rem;
+}
+
+.img-gen-check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.2rem;
+  color: var(--app-text2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.img-gen-check-item input[type="checkbox"] {
+  width: 1.4rem;
+  height: 1.4rem;
+  accent-color: var(--app-danger-text);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.img-gen-check-item:has(input:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

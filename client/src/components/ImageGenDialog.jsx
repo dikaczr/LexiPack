@@ -4,29 +4,50 @@ import { generateImage } from "../api/aiApi";
 import { resizeImageDataUrl } from "../utils/resizeImage";
 import "./ImageGenDialog.css";
 
-const STYLES = ["flat", "illustration", "watercolor", "minimal"];
+const STYLES      = ["flat", "illustration", "watercolor", "minimal", "realistic"];
 const BACKGROUNDS = ["white", "transparent"];
 
-function buildPrompt(description, style, background, extra, t) {
-  const styleMap = {
-    flat:         "flat vector icon",
-    illustration: "colorful illustration",
-    watercolor:   "soft watercolor illustration",
-    minimal:      "minimal clean icon",
-  };
-  const bgMap = {
-    white:       "white background",
-    transparent: "transparent background",
-  };
+const NEGATIVE_ITEMS = [
+  { key: "nophotorealism",    neg: "photorealism, photorealistic" },
+  { key: "noanime",           neg: "anime, manga" },
+  { key: "nocartoonkids",     neg: "cartoon kids, children cartoon" },
+  { key: "notoystyle",        neg: "toy style, plastic toy" },
+  { key: "nomascotstyle",     neg: "mascot style, mascot character" },
+  { key: "nocutechar",        neg: "cute characters, kawaii" },
+  { key: "noposterchildren",  neg: "children poster, kids poster, educational poster for children" },
+];
+
+const STYLE_PROMPT = {
+  flat:         "flat vector icon",
+  illustration: "colorful illustration",
+  watercolor:   "soft watercolor illustration",
+  minimal:      "minimal clean icon",
+  realistic:    "photorealistic photo",
+};
+
+const BG_PROMPT = {
+  white:       "white background",
+  transparent: "transparent background",
+};
+
+function buildPrompt(description, style, background, extra) {
   const parts = [
-    `Create a ${styleMap[style] || style} as a square app icon for a vocabulary learning pack.`,
-    `The icon represents: "${description}".`,
-    `${bgMap[background] || "white background"}.`,
-    "Clean, simple, educational look. Square composition, no text.",
-  ];
+    `Create a ${STYLE_PROMPT[style] || style}.`,
+    `Subject: "${description}".`,
+    `${BG_PROMPT[background] || "white background"}.`,
+    style !== "realistic" ? "Square composition, no text." : "",
+  ].filter(Boolean);
   if (extra?.trim()) parts.push(extra.trim());
   return parts.join(" ");
 }
+
+function buildNegative(checks, extraNeg) {
+  const items = NEGATIVE_ITEMS.filter(i => checks[i.key]).map(i => i.neg);
+  if (extraNeg?.trim()) items.push(extraNeg.trim());
+  return items.join(", ");
+}
+
+const DEFAULT_CHECKS = Object.fromEntries(NEGATIVE_ITEMS.map(i => [i.key, false]));
 
 export default function ImageGenDialog({
   open,
@@ -38,16 +59,17 @@ export default function ImageGenDialog({
 }) {
   const t = useT();
 
-  const [description, setDescription] = useState("");
-  const [style,       setStyle]       = useState("flat");
-  const [background,  setBackground]  = useState("white");
-  const [extra,       setExtra]       = useState("");
-  const [generating,  setGenerating]  = useState(false);
-  const [progress,    setProgress]    = useState(0);
-  const [result,      setResult]      = useState(null);
-  const [error,       setError]       = useState(null);
+  const [description,   setDescription]   = useState("");
+  const [style,         setStyle]         = useState("flat");
+  const [background,    setBackground]    = useState("white");
+  const [extra,         setExtra]         = useState("");
+  const [negChecks,     setNegChecks]     = useState(DEFAULT_CHECKS);
+  const [negExtra,      setNegExtra]      = useState("");
+  const [generating,    setGenerating]    = useState(false);
+  const [progress,      setProgress]      = useState(0);
+  const [result,        setResult]        = useState(null);
+  const [error,         setError]         = useState(null);
 
-  // Pre-fill description when dialog opens
   useEffect(() => {
     if (open) {
       const parts = [packName, packCategory].filter(Boolean);
@@ -58,7 +80,6 @@ export default function ImageGenDialog({
     }
   }, [open, packName, packCategory]);
 
-  // Fake progress animation while generating
   useEffect(() => {
     if (!generating) return;
     setProgress(0);
@@ -71,14 +92,19 @@ export default function ImageGenDialog({
     return () => clearInterval(id);
   }, [generating]);
 
+  function toggleCheck(key) {
+    setNegChecks(prev => ({ ...prev, [key]: !prev[key] }));
+  }
+
   async function handleGenerate() {
     if (!description.trim() || generating) return;
     setGenerating(true);
     setResult(null);
     setError(null);
     try {
-      const prompt = buildPrompt(description, style, background, extra, t);
-      const dataUrl = await generateImage(prompt, token);
+      const prompt   = buildPrompt(description, style, background, extra);
+      const negative = buildNegative(negChecks, negExtra);
+      const dataUrl  = await generateImage(prompt, negative, token);
       setProgress(100);
       setResult(dataUrl);
     } catch (err) {
@@ -109,6 +135,10 @@ export default function ImageGenDialog({
         <div className="img-gen-body">
           {/* Left: form */}
           <div className="img-gen-form">
+
+            {/* Positive */}
+            <div className="img-gen-section-title">{t("imgGen.sectionPositive")}</div>
+
             <div className="img-gen-field">
               <label>{t("imgGen.descLabel")}</label>
               <textarea
@@ -165,6 +195,34 @@ export default function ImageGenDialog({
               />
             </div>
 
+            {/* Negative */}
+            <div className="img-gen-section-title img-gen-section-neg">{t("imgGen.sectionNegative")}</div>
+
+            <div className="img-gen-checkboxes">
+              {NEGATIVE_ITEMS.map(item => (
+                <label key={item.key} className="img-gen-check-item">
+                  <input
+                    type="checkbox"
+                    checked={negChecks[item.key]}
+                    onChange={() => toggleCheck(item.key)}
+                    disabled={generating}
+                  />
+                  <span>{t(`imgGen.neg_${item.key}`)}</span>
+                </label>
+              ))}
+            </div>
+
+            <div className="img-gen-field">
+              <label>{t("imgGen.negExtraLabel")}</label>
+              <input
+                type="text"
+                value={negExtra}
+                onChange={(e) => setNegExtra(e.target.value)}
+                placeholder={t("imgGen.negExtraHint")}
+                disabled={generating}
+              />
+            </div>
+
             <button
               className="img-gen-btn-generate"
               onClick={handleGenerate}
@@ -174,7 +232,7 @@ export default function ImageGenDialog({
             </button>
           </div>
 
-          {/* Right: preview / progress */}
+          {/* Right: preview */}
           <div className="img-gen-preview">
             {generating && (
               <div className="img-gen-progress-wrap">
@@ -203,7 +261,7 @@ export default function ImageGenDialog({
             {!generating && !result && !error && (
               <div className="img-gen-placeholder">
                 <span>🖼</span>
-                <span>Tu sa zobrazí vygenerovaný obrázok</span>
+                <span>{t("imgGen.placeholder")}</span>
               </div>
             )}
 
