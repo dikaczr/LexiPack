@@ -1,4 +1,5 @@
 import "./EditorScreen.css";
+import pureIcon from "../assets/purepng.png";
 import PackGrid from "../components/PackGrid";
 import { importXlsxFile } from "../utils/xlsxImport";
 import { exportToJson } from "../utils/jsonExport";
@@ -2763,10 +2764,9 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
               <button
                 className="btn-icon"
                 onClick={() => setShowImgGen(true)}
-                title="Generovať obrázok ikony balíka"
+                title="Generovať obrázok"
               >
-                <span className="btn-icon-glyph">🖼</span>
-                <span className="btn-icon-label">{t("editor.toolbar.genImage")}</span>
+                <img src={pureIcon} style={{ width: "2rem", height: "2rem", objectFit: "contain" }} alt="" />
               </button>
             </div>
 
