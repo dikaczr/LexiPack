@@ -13,7 +13,6 @@ body,
   height: 100%;
   background: var(--app-bg);
   color: var(--app-text);
-  font-family: Inter, Calibri, sans-serif;
 }
 
 .app {
@@ -148,7 +147,6 @@ button.btn-icon:disabled .btn-icon-label {
 /* PANEL TITLES */
 
 .panel-title {
-  font-family: Inter, Calibri, sans-serif;
   font-size: 3rem;
   letter-spacing: -0.03em;
   align-items: center;
@@ -1176,7 +1174,7 @@ button.btn-icon:disabled .btn-icon-label {
   padding: 0.6rem 1rem;
   color: var(--app-text2);
   font-size: 1.2rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: inherit;
   outline: none;
   transition: border-color 0.2s;
 }
