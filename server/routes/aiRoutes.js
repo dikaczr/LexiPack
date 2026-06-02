@@ -188,34 +188,26 @@ router.post("/generate-column", requireAuth, async (req, res) => {
   }
 });
 
-// ── Generovanie obrázku (DALL-E 3) ───────────────────
+// ── Generovanie obrázku (Pollinations.ai — free, bez API kľúča) ──
 router.post("/generate-image", requireAuth, async (req, res) => {
   const { prompt } = req.body;
   if (!prompt?.trim()) return res.status(400).json({ error: "prompt required" });
 
   const requestAt = new Date();
   try {
-    const openai = getOpenAI();
-    const imageModel = process.env.OPENAI_IMAGE_MODEL || "dall-e-2";
-    const size = imageModel === "dall-e-3" ? "1024x1024" : "512x512";
-    const response = await openai.images.generate({
-      model: imageModel,
-      prompt: prompt.trim(),
-      n: 1,
-      size,
-    });
+    const encodedPrompt = encodeURIComponent(prompt.trim());
+    const url = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=512&height=512&nologo=true&seed=${Date.now()}`;
 
-    const imageUrl = response.data[0].url;
-    if (!imageUrl) return res.status(500).json({ error: "No image URL returned" });
+    const imgRes = await fetch(url, { signal: AbortSignal.timeout(60000) });
+    if (!imgRes.ok) return res.status(500).json({ error: `Pollinations error: ${imgRes.status}` });
 
-    // Stiahneme obrázok a vrátime ako base64 (CORS bypass)
-    const imgRes = await fetch(imageUrl);
-    if (!imgRes.ok) return res.status(500).json({ error: "Failed to fetch generated image" });
+    const contentType = imgRes.headers.get("content-type") || "image/jpeg";
     const buffer = await imgRes.arrayBuffer();
     const b64 = Buffer.from(buffer).toString("base64");
+    const mime = contentType.startsWith("image/") ? contentType : "image/jpeg";
 
     await trackAI(req.user, "GENERATE_IMAGE", null, requestAt, null);
-    res.json({ image: `data:image/png;base64,${b64}` });
+    res.json({ image: `data:${mime};base64,${b64}` });
   } catch (err) {
     console.error("generate-image failed:", err.message);
     res.status(500).json({ error: err.message || "Image generation failed" });
