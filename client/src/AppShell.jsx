@@ -138,9 +138,13 @@ export default function AppShell() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [showShortcuts, setShowShortcuts] = useState(false);
-  const [notifications, setNotifications] = useState([]);
+  // Systémové notifikácie (server down/up, lokálne udalosti)
+  const [sysNotifications, setSysNotifications] = useState([]);
+  // Interné notifikácie zo servera (medzi usermi)
+  const [internalNotifs, setInternalNotifs] = useState([]);
   const serverDownRef = useRef(false);
   const [serverToast, setServerToast] = useState(null); // "down" | "up" | null
+  const lastNotifIdRef = useRef(0);
 
   useEffect(() => {
     async function checkHealth() {
@@ -150,7 +154,7 @@ export default function AppShell() {
         if (serverDownRef.current) {
           serverDownRef.current = false;
           const time = new Date().toLocaleTimeString("sk-SK", { hour: "2-digit", minute: "2-digit" });
-          setNotifications(prev => [{ title: "Server obnovený", icon: "✅", time }, ...prev].slice(0, 20));
+          setSysNotifications(prev => [{ title: "Server obnovený", icon: "✅", time }, ...prev].slice(0, 20));
           setServerToast("up");
           setTimeout(() => setServerToast(null), 3600);
         }
@@ -158,7 +162,7 @@ export default function AppShell() {
         if (!serverDownRef.current) {
           serverDownRef.current = true;
           const time = new Date().toLocaleTimeString("sk-SK", { hour: "2-digit", minute: "2-digit" });
-          setNotifications(prev => [{ title: "Server nedostupný!", icon: "🔴", time }, ...prev].slice(0, 20));
+          setSysNotifications(prev => [{ title: "Server nedostupný!", icon: "🔴", time }, ...prev].slice(0, 20));
         }
         setServerToast("down");
       }
@@ -169,9 +173,35 @@ export default function AppShell() {
     return () => clearInterval(interval);
   }, []);
 
+  // Polling interných notifikácií zo servera
+  useEffect(() => {
+    if (!token) return;
+
+    async function fetchNotifs() {
+      try {
+        const res = await fetch(`${API_BASE}/api/notifications`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!res.ok) return;
+        const { notifications } = await res.json();
+        setInternalNotifs(notifications);
+        // Animácia zvončeka ak prišla nová (vyššie ID ako naposledy)
+        const maxId = notifications.reduce((m, n) => Math.max(m, n.id), 0);
+        if (lastNotifIdRef.current > 0 && maxId > lastNotifIdRef.current) {
+          // nová notifikácia — bell sa rozkýva cez unread count zmenu
+        }
+        lastNotifIdRef.current = maxId;
+      } catch {}
+    }
+
+    fetchNotifs();
+    const interval = setInterval(fetchNotifs, 60_000);
+    return () => clearInterval(interval);
+  }, [token]);
+
   const addNotification = useCallback((title, icon = "📦") => {
     const time = new Date().toLocaleTimeString("sk-SK", { hour: "2-digit", minute: "2-digit" });
-    setNotifications(prev => [{ title, icon, time }, ...prev].slice(0, 20));
+    setSysNotifications(prev => [{ title, icon, time }, ...prev].slice(0, 20));
   }, []);
 
   useEffect(() => {
@@ -192,7 +222,32 @@ export default function AppShell() {
       <header className="app-header">
         <div className="app-title">LexiPack</div>
         <div className="app-header-right">
-          <NotificationBell notifications={notifications} onClear={() => setNotifications([])} />
+          <NotificationBell
+            sysNotifications={sysNotifications}
+            internalNotifs={internalNotifs}
+            onClearSys={() => setSysNotifications([])}
+            onMarkRead={(id) => {
+              fetch(`${API_BASE}/api/notifications/${id}/read`, {
+                method: "PATCH",
+                headers: { Authorization: `Bearer ${token}` },
+              });
+              setInternalNotifs(prev => prev.map(n => n.id === id ? { ...n, is_read: true } : n));
+            }}
+            onMarkAllRead={() => {
+              fetch(`${API_BASE}/api/notifications/read-all`, {
+                method: "PATCH",
+                headers: { Authorization: `Bearer ${token}` },
+              });
+              setInternalNotifs(prev => prev.map(n => ({ ...n, is_read: true })));
+            }}
+            onDeleteInternal={(id) => {
+              fetch(`${API_BASE}/api/notifications/${id}`, {
+                method: "DELETE",
+                headers: { Authorization: `Bearer ${token}` },
+              });
+              setInternalNotifs(prev => prev.filter(n => n.id !== id));
+            }}
+          />
           <UserMenu onNavigate={setActiveScreen} />
         </div>
       </header>

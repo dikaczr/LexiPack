@@ -91,16 +91,12 @@
 }
 
 .nbell-header {
-  padding: 10px 14px 8px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--app-muted);
+  padding: 8px 10px 0;
   border-bottom: 1px solid var(--app-border-sub);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
+  gap: 6px;
 }
 
 .nbell-clear {
@@ -140,3 +136,112 @@
 .nbell-item-title { color: var(--app-text2); line-height: 1.4; }
 
 .nbell-item-time { font-size: 11px; color: var(--app-muted); }
+
+/* Tabs */
+.nbell-tabs {
+  display: flex;
+  gap: 2px;
+}
+.nbell-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 4px 10px 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--app-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.12s, border-color 0.12s;
+}
+.nbell-tab:hover { color: var(--app-text2); }
+.nbell-tab.active {
+  color: var(--app-accent);
+  border-bottom-color: var(--app-accent);
+}
+.nbell-tab-badge {
+  background: #ff4d4d;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 0 5px;
+  min-width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nbell-actions {
+  display: flex;
+  align-items: center;
+  padding-bottom: 6px;
+}
+
+.nbell-list {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+/* Unread interná notifikácia */
+.nbell-item.unread {
+  background: color-mix(in srgb, var(--app-accent) 8%, transparent);
+  cursor: pointer;
+}
+.nbell-item.unread .nbell-item-title {
+  font-weight: 600;
+}
+.nbell-item.unread::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--app-accent);
+  border-radius: 3px 0 0 3px;
+}
+.nbell-item {
+  position: relative;
+}
+
+/* Telo správy */
+.nbell-item-body-text {
+  font-size: 12px;
+  color: var(--app-muted);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* Metadata riadok: od koho + čas */
+.nbell-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+}
+.nbell-item-from {
+  font-size: 11px;
+  color: var(--app-accent);
+}
+
+/* Delete tlačidlo */
+.nbell-item-del {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: var(--app-muted);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0 2px;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s;
+  align-self: flex-start;
+  margin-top: -2px;
+}
+.nbell-item:hover .nbell-item-del { opacity: 1; }
+.nbell-item-del:hover { color: var(--app-danger); }

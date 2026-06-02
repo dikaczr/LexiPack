@@ -1,4 +1,5 @@
-const TEXT_FIELDS = new Set(["word", "translation", "definition", "example_en", "example_sk", "topic"]);
+const TEXT_FIELDS = new Set(["word", "translation", "definition", "topic"]);
+const isTextField = (field) => TEXT_FIELDS.has(field) || field.startsWith("example_");
 
 export function buildLookup(entries) {
   const wordMap    = new Map(); // pure word entries → O(1) lookup by token
@@ -60,7 +61,7 @@ export function applyCapsLock(text) {
 
 export function applyAutoCorrect(text, field, { lookup, correctTwoInitialCaps, correctCapsLock }) {
   if (!text || typeof text !== "string") return text;
-  if (!TEXT_FIELDS.has(field)) return text;
+  if (!isTextField(field)) return text;
 
   let result = text;
   if (lookup) {

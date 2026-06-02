@@ -319,25 +319,26 @@ function PackMetadataPanel({ metadata, setMetadata, availableTags = [], apiBase,
         />
       </label>
 
-      <label className="metadata-field">
-        <span className="metadata-label">{t("meta.comments")}</span>
-        <textarea
-          placeholder={t("meta.comments")}
-          value={metadata.comments || ""}
-          onChange={(e) => updateField("comments", e.target.value)}
-          rows={2}
-        />
-      </label>
-
-      <label className="metadata-field">
-        <span className="metadata-label">{t("meta.reviewerComments")}</span>
-        <textarea
-          placeholder={t("meta.reviewerComments")}
-          value={metadata.reviewerComments || ""}
-          onChange={(e) => updateField("reviewerComments", e.target.value)}
-          rows={2}
-        />
-      </label>
+      <div className="metadata-field" style={{ gridColumn: "6", gridRow: "1 / 3", display: "flex", flexDirection: "column", gap: 6 }}>
+        <label className="metadata-field" style={{ flex: 1 }}>
+          <span className="metadata-label">{t("meta.comments")}</span>
+          <textarea
+            placeholder={t("meta.comments")}
+            value={metadata.comments || ""}
+            onChange={(e) => updateField("comments", e.target.value)}
+            style={{ flex: 1, minHeight: 40 }}
+          />
+        </label>
+        <label className="metadata-field" style={{ flex: 1 }}>
+          <span className="metadata-label">{t("meta.reviewerComments")}</span>
+          <textarea
+            placeholder={t("meta.reviewerComments")}
+            value={metadata.reviewerComments || ""}
+            onChange={(e) => updateField("reviewerComments", e.target.value)}
+            style={{ flex: 1, minHeight: 40 }}
+          />
+        </label>
+      </div>
 
       <div className="metadata-desc-icon-wrap">
         <label className="metadata-field" style={{ flex: 1 }}>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap");
+@import url("https://fonts.bunny.net/css2?family=Playfair+Display:wght@400&display=swap");
 
 * {
   box-sizing: border-box;
@@ -397,7 +397,7 @@ button.btn-icon:disabled .btn-icon-label {
 }
 
 .card-word {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-size: 20px;
   font-weight: 700;
   color: white;
@@ -1144,9 +1144,9 @@ button.btn-icon:disabled .btn-icon-label {
 
 .metadata-panel {
   display: grid;
-  grid-template-columns: 1fr 180px 160px 100px 100px;
+  grid-template-columns: 1fr 180px 160px 100px 100px 1fr;
   gap: 9px;
-  padding: 4px 15px 10px;
+  padding: 4px 15px 2px;
   background: var(--app-meta-bg);
   border: 1px solid var(--app-border-sub);
   border-bottom: 1px solid var(--app-border);
@@ -1190,6 +1190,24 @@ button.btn-icon:disabled .btn-icon-label {
 .metadata-panel textarea {
   resize: vertical;
   min-height: 70px;
+}
+
+.metadata-label--lang {
+  padding: 10px;
+}
+
+.metadata-lang-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.metadata-lang-pair {
+  padding: 12px;
+  font-size: 22px;
+  line-height: 1;
+  user-select: none;
+  text-align: left;
 }
 
 .metadata-desc-icon-wrap {

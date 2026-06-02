@@ -16,12 +16,18 @@
     "adm-zip": "^0.5.17",
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
+    "dictionary-de": "^3.0.0",
+    "dictionary-en-gb": "^3.0.0",
+    "dictionary-en-us": "^2.2.1",
+    "dictionary-fr": "^3.0.0",
+    "dictionary-sk": "^2.0.0",
     "dotenv": "^16.4.5",
     "express": "^5.2.1",
     "express-session": "^1.19.0",
     "jsonwebtoken": "^9.0.3",
     "mssql": "^12.5.2",
     "nodemailer": "^8.0.7",
+    "nspell": "^2.1.5",
     "openai": "^6.37.0"
   },
   "devDependencies": {

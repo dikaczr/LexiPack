@@ -11,6 +11,8 @@
   "version": "1.0",
   "tags": [],
   "color": "#db2777",
+  "encoding": "utf-8",
+  "production": 18810,
   "words": [
     {
       "word": "asteroid",
@@ -21,16 +23,6 @@
       "level": "B1",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "This experiment shows how asteroid works.",
-          "sk": "Tento experiment ukazuje, ako funguje asteroid."
-        },
-        {
-          "en": "Astronomers observed the asteroid through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali asteroid veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "The asteroid 2004 BL86 flew past Earth at a distance of about 1.2 million kilometres."
@@ -41,7 +33,8 @@
       ],
       "example_en": "This experiment shows how asteroid works.",
       "example_sk": "Tento experiment ukazuje, ako funguje asteroid.",
-      "id": "1ebae96f-c2ea-42c8-a9c8-e665cf7f79c5"
+      "id": "1ebae96f-c2ea-42c8-a9c8-e665cf7f79c5",
+      "source": "Astronómia - základy"
     },
     {
       "word": "atmosphere",
@@ -52,16 +45,6 @@
       "level": "B1",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "Understanding atmosphere is essential.",
-          "sk": "Pochopenie pojmu atmosféra je nevyhnutné."
-        },
-        {
-          "en": "Astronomers observed the atmosphere through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali atmosféra veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "The Earth's atmosphere is divided into several layers, including the troposphere and stratosphere."
@@ -72,7 +55,8 @@
       ],
       "example_en": "Understanding atmosphere is essential.",
       "example_sk": "Pochopenie pojmu atmosféra je nevyhnutné.",
-      "id": "a2de85ff-e3ec-4265-a696-f2886b6ed686"
+      "id": "a2de85ff-e3ec-4265-a696-f2886b6ed686",
+      "source": "Astronómia - základy"
     },
     {
       "word": "black hole",
@@ -83,16 +67,6 @@
       "level": "B2",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "Understanding black hole is essential.",
-          "sk": "Pochopenie pojmu čierna diera je nevyhnutné."
-        },
-        {
-          "en": "Astronomers observed the black hole through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali čierna diera veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "The first ever image of a black hole was captured and released in 2019."
@@ -103,7 +77,8 @@
       ],
       "example_en": "Understanding black hole is essential.",
       "example_sk": "Pochopenie pojmu čierna diera je nevyhnutné.",
-      "id": "f49f76d9-390c-4c78-8c9f-84dffcf6761f"
+      "id": "f49f76d9-390c-4c78-8c9f-84dffcf6761f",
+      "source": "Astronómia - základy"
     },
     {
       "word": "comet",
@@ -114,16 +89,6 @@
       "level": "B1",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "This experiment shows how comet works.",
-          "sk": "Tento experiment ukazuje, ako funguje kométa."
-        },
-        {
-          "en": "Astronomers observed the comet through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali kométa veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "Halley's comet is visible from Earth roughly every 75 years."
@@ -134,7 +99,8 @@
       ],
       "example_en": "This experiment shows how comet works.",
       "example_sk": "Tento experiment ukazuje, ako funguje kométa.",
-      "id": "1ba2a9d8-8617-4e2a-80d3-fa6a4e886039"
+      "id": "1ba2a9d8-8617-4e2a-80d3-fa6a4e886039",
+      "source": "Astronómia - základy"
     },
     {
       "word": "constellation",
@@ -145,16 +111,6 @@
       "level": "B2",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "The teacher explained the term constellation.",
-          "sk": "Učiteľ vysvetlil pojem súhvezdie."
-        },
-        {
-          "en": "Astronomers observed the constellation through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali súhvezdie veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "The constellation Orion is one of the easiest to spot in the winter night sky."
@@ -165,7 +121,8 @@
       ],
       "example_en": "The teacher explained the term constellation.",
       "example_sk": "Učiteľ vysvetlil pojem súhvezdie.",
-      "id": "5f34e6d2-b8f6-45dc-a8bb-62d0159685ff"
+      "id": "5f34e6d2-b8f6-45dc-a8bb-62d0159685ff",
+      "source": "Astronómia - základy"
     },
     {
       "word": "eclipse",
@@ -176,16 +133,6 @@
       "level": "B1",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "The teacher explained the term eclipse.",
-          "sk": "Učiteľ vysvetlil pojem zatmenie."
-        },
-        {
-          "en": "Astronomers observed the eclipse through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali zatmenie veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "During a total solar eclipse, the Moon completely blocks the Sun's light."
@@ -196,7 +143,8 @@
       ],
       "example_en": "The teacher explained the term eclipse.",
       "example_sk": "Učiteľ vysvetlil pojem zatmenie.",
-      "id": "adcf10d2-4410-4b64-937c-938b3f94db05"
+      "id": "adcf10d2-4410-4b64-937c-938b3f94db05",
+      "source": "Astronómia - základy"
     },
     {
       "word": "galaxy",
@@ -207,16 +155,6 @@
       "level": "B1",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "Understanding galaxy is essential.",
-          "sk": "Pochopenie pojmu galaxia je nevyhnutné."
-        },
-        {
-          "en": "Astronomers observed the galaxy through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali galaxia veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "Our galaxy, the Milky Way, contains an estimated 200 to 400 billion stars."
@@ -227,7 +165,8 @@
       ],
       "example_en": "Understanding galaxy is essential.",
       "example_sk": "Pochopenie pojmu galaxia je nevyhnutné.",
-      "id": "384ce1bd-7373-414a-a15a-b97a0c534dc3"
+      "id": "384ce1bd-7373-414a-a15a-b97a0c534dc3",
+      "source": "Astronómia - základy"
     },
     {
       "word": "gravity",
@@ -238,16 +177,6 @@
       "level": "B1",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "Understanding gravity is essential.",
-          "sk": "Pochopenie pojmu gravitácia je nevyhnutné."
-        },
-        {
-          "en": "Astronomers observed the gravity through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali gravitácia veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "Gravity keeps the planets in orbit around the Sun and the Moon around the Earth."
@@ -258,7 +187,8 @@
       ],
       "example_en": "Understanding gravity is essential.",
       "example_sk": "Pochopenie pojmu gravitácia je nevyhnutné.",
-      "id": "3b6f48a3-92d2-4d23-9e37-ec519fc40088"
+      "id": "3b6f48a3-92d2-4d23-9e37-ec519fc40088",
+      "source": "Astronómia - základy"
     },
     {
       "word": "lunar",
@@ -269,16 +199,6 @@
       "level": "B2",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "We studied the concept of lunar yesterday.",
-          "sk": "Včera sme študovali pojem lunárny."
-        },
-        {
-          "en": "Astronomers observed the lunar through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali lunárny veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "The lunar surface is covered with craters formed by meteorite impacts."
@@ -289,7 +209,8 @@
       ],
       "example_en": "We studied the concept of lunar yesterday.",
       "example_sk": "Včera sme študovali pojem lunárny.",
-      "id": "b73d735f-5330-42ee-b1fb-9fea2338fca2"
+      "id": "b73d735f-5330-42ee-b1fb-9fea2338fca2",
+      "source": "Astronómia - základy"
     },
     {
       "word": "meteor",
@@ -300,16 +221,6 @@
       "level": "B1",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "The meteor is important in this field.",
-          "sk": "Meteor je v tejto oblasti dôležitý."
-        },
-        {
-          "en": "Astronomers observed the meteor through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali meteor veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "During the Perseid meteor shower, hundreds of meteors can be seen in a single night."
@@ -320,7 +231,8 @@
       ],
       "example_en": "The meteor is important in this field.",
       "example_sk": "Meteor je v tejto oblasti dôležitý.",
-      "id": "4d8d608b-ce23-4b12-b9c7-46b4f79ed8b0"
+      "id": "4d8d608b-ce23-4b12-b9c7-46b4f79ed8b0",
+      "source": "Astronómia - základy"
     },
     {
       "word": "nebula",
@@ -331,16 +243,6 @@
       "level": "C1",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "The teacher explained the term nebula.",
-          "sk": "Učiteľ vysvetlil pojem hmlovina."
-        },
-        {
-          "en": "Astronomers observed the nebula through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali hmlovina veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "The Orion Nebula is a region of active star formation visible to the naked eye."
@@ -351,7 +253,8 @@
       ],
       "example_en": "The teacher explained the term nebula.",
       "example_sk": "Učiteľ vysvetlil pojem hmlovina.",
-      "id": "d0a0b042-059a-4916-b4e2-dca6151a0570"
+      "id": "d0a0b042-059a-4916-b4e2-dca6151a0570",
+      "source": "Astronómia - základy"
     },
     {
       "word": "orbit",
@@ -362,16 +265,6 @@
       "level": "B1",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "Understanding orbit is essential.",
-          "sk": "Pochopenie pojmu obežná dráha je nevyhnutné."
-        },
-        {
-          "en": "Astronomers observed the orbit through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali obežná dráha veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "The International Space Station completes one orbit of the Earth every 90 minutes."
@@ -382,7 +275,8 @@
       ],
       "example_en": "Understanding orbit is essential.",
       "example_sk": "Pochopenie pojmu obežná dráha je nevyhnutné.",
-      "id": "31a12e4b-bf1d-4392-be93-fe391de401ea"
+      "id": "31a12e4b-bf1d-4392-be93-fe391de401ea",
+      "source": "Astronómia - základy"
     },
     {
       "word": "planet",
@@ -393,16 +287,6 @@
       "level": "A2",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "The planet is important in this field.",
-          "sk": "Planéta je v tejto oblasti dôležitý."
-        },
-        {
-          "en": "Astronomers observed the planet through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali planéta veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "Jupiter is the largest planet in our solar system, with a mass greater than all others combined."
@@ -413,7 +297,8 @@
       ],
       "example_en": "The planet is important in this field.",
       "example_sk": "Planéta je v tejto oblasti dôležitý.",
-      "id": "0c5b6987-89ed-4fdf-b98c-ed443faceca9"
+      "id": "0c5b6987-89ed-4fdf-b98c-ed443faceca9",
+      "source": "Astronómia - základy"
     },
     {
       "word": "solar system",
@@ -424,16 +309,6 @@
       "level": "B1",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "The solar system is important in this field.",
-          "sk": "Slnečná sústava je v tejto oblasti dôležitý."
-        },
-        {
-          "en": "Astronomers observed the solar system through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali slnečná sústava veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "Our solar system formed roughly 4.6 billion years ago from a collapsing cloud of gas and dust."
@@ -444,7 +319,8 @@
       ],
       "example_en": "The solar system is important in this field.",
       "example_sk": "Slnečná sústava je v tejto oblasti dôležitý.",
-      "id": "50d0360d-53fd-44ce-b501-c29188bdb41d"
+      "id": "50d0360d-53fd-44ce-b501-c29188bdb41d",
+      "source": "Astronómia - základy"
     },
     {
       "word": "telescope",
@@ -455,16 +331,6 @@
       "level": "A2",
       "topic": "astronomy",
       "article": "",
-      "examples": [
-        {
-          "en": "The telescope is important in this field.",
-          "sk": "Ďalekohľad je v tejto oblasti dôležitý."
-        },
-        {
-          "en": "Astronomers observed the telescope through a large telescope during the night.",
-          "sk": "Astronómovia pozorovali ďalekohľad veľkým ďalekohľadom počas noci."
-        }
-      ],
       "contextSentences": [
         {
           "en": "Galileo Galilei was among the first to use a telescope for astronomical observations."
@@ -475,7 +341,8 @@
       ],
       "example_en": "The telescope is important in this field.",
       "example_sk": "Ďalekohľad je v tejto oblasti dôležitý.",
-      "id": "8d9501df-e21a-457e-bb1c-40aadbf62d77"
+      "id": "8d9501df-e21a-457e-bb1c-40aadbf62d77",
+      "source": "Astronómia - základy"
     },
     {
       "id": "267ef675-04c0-43a0-97cd-3160b9a3c5fa",
@@ -488,7 +355,8 @@
       "level": "C1",
       "example_en": "The telescope revealed several celestial bodies in the distant galaxy.",
       "example_sk": "Teleskop odhalil niekoľko nebeských telies vo vzdialenej galaxii.",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "14504909-c66d-4998-bc4c-7358547481f7",
@@ -501,7 +369,8 @@
       "level": "B2",
       "example_en": "The meteor left a huge crater in the desert.",
       "example_sk": "Meteorit zanechal v púšti obrovský kráter.",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "ecb14871-5451-4ea3-a568-64ab1c02d42f",
@@ -514,7 +383,8 @@
       "level": "B1",
       "example_en": "The airplane crossed the equator during the flight.",
       "example_sk": "Lietadlo preletelo cez rovník počas letu.",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "49491572-e062-494c-9c91-b1d2d41b6c4c",
@@ -527,7 +397,8 @@
       "level": "B2",
       "example_en": "Interstellar travel remains science fiction.",
       "example_sk": "Medzihviezdne cestovanie zostáva vedeckou fantastikou.",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "4ca953b9-052f-477a-9440-b2db1394ac55",
@@ -540,7 +411,8 @@
       "level": "B1",
       "example_en": "Scientists launched a new satellite to study Earth's atmosphere.",
       "example_sk": "Vedci vypustili nový satelit, aby skúmal atmosféru Zeme.",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "51e71f03-797c-4802-b99a-1e19f2fc9f2c",
@@ -553,7 +425,8 @@
       "level": "B2",
       "example_en": "A prism splits white light into a spectrum of colors.",
       "example_sk": "Hranol rozloží biele svetlo na spektrum farieb.",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "d69984a3-53cd-4199-9ce4-ac587989a8d4",
@@ -566,7 +439,8 @@
       "level": "B2",
       "example_en": "The crew boarded the starship for their journey to the distant system.",
       "example_sk": "Posádka nastúpila na hviezdnu loď na cestu do vzdialeného systému.",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "fb38e87a-fcb7-4d15-a4ef-841865c9feb2",
@@ -579,7 +453,8 @@
       "level": "B2",
       "example_en": "Scientists study the origins of the universe.",
       "example_sk": "Vedci študujú pôvod vesmíru.",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "fe18f566-e39f-464c-a725-f871166c7b80",
@@ -592,7 +467,8 @@
       "level": "C1",
       "example_en": "At noon the sun reached its zenith.",
       "example_sk": "O poludní slnko dosiahlo svoj zenit.",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "cc2b5138-c883-4549-abb7-a7d0d094f2b6",
@@ -605,7 +481,8 @@
       "level": "B2",
       "example_en": "The spring equinox marks the beginning of astronomical spring.",
       "example_sk": "Jarná rovnodennosť označuje začiatok astronomického jara.",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "0f8ed6d9-9f69-4ed9-a0fd-ec71afe8ba6d",
@@ -618,7 +495,8 @@
       "level": "B2",
       "example_en": "We celebrated the summer solstice with a bonfire on the beach.",
       "example_sk": "Letný slnovrat sme oslávili ohňom na pláži.",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "76b66163-95d6-4a5f-b7a7-c143b9a30f61",
@@ -631,7 +509,8 @@
       "level": "B2",
       "example_en": "",
       "example_sk": "",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "12ea087c-9eac-448d-8aa9-f0f578e2a170",
@@ -644,7 +523,8 @@
       "level": "B2",
       "example_en": "",
       "example_sk": "",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "a08ee6b3-c0b4-4911-bd63-9c9d5acd08c0",
@@ -657,7 +537,8 @@
       "level": "B2",
       "example_en": "",
       "example_sk": "",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     },
     {
       "id": "35488c1f-6cb5-4f0f-be31-7c269c124a24",
@@ -670,7 +551,8 @@
       "level": "B2",
       "example_en": "",
       "example_sk": "",
-      "topic": "astronomy"
+      "topic": "astronomy",
+      "source": "Astronómia - základy"
     }
   ]
 }

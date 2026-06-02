@@ -17,6 +17,8 @@
     "sociology"
   ],
   "color": "",
+  "encoding": "utf-8",
+  "production": 5130,
   "words": [
     {
       "word": "belief",
@@ -27,16 +29,6 @@
       "level": "B2",
       "topic": "philosophy",
       "article": "",
-      "examples": [
-        {
-          "en": "The teacher explained the term belief.",
-          "sk": "Učiteľ vysvetlil pojem presvedčenie."
-        },
-        {
-          "en": "The debate focused on the concept of belief and its role in human decision-making.",
-          "sk": "Diskusia sa zamerala na pojem presvedčenie a jeho úlohu v rozhodovaní človeka."
-        }
-      ],
       "contextSentences": [
         {
           "en": "A justified true belief was long considered the standard definition of knowledge until Gettier challenged it."
@@ -47,7 +39,8 @@
       ],
       "example_en": "The teacher explained the term belief.",
       "example_sk": "Učiteľ vysvetlil pojem presvedčenie.",
-      "id": "838bb942-053c-441a-83a7-7146a21bbb7c"
+      "id": "838bb942-053c-441a-83a7-7146a21bbb7c",
+      "source": "Filozofia - základy B2"
     },
     {
       "word": "meaning",
@@ -58,16 +51,6 @@
       "level": "B1",
       "topic": "philosophy",
       "article": "",
-      "examples": [
-        {
-          "en": "This experiment shows how meaning works.",
-          "sk": "Tento experiment ukazuje, ako funguje zmysel."
-        },
-        {
-          "en": "The debate focused on the concept of meaning and its role in human decision-making.",
-          "sk": "Diskusia sa zamerala na pojem zmysel a jeho úlohu v rozhodovaní človeka."
-        }
-      ],
       "contextSentences": [
         {
           "en": "According to Viktor Frankl, the search for meaning is the deepest driving force in human life."
@@ -78,7 +61,36 @@
       ],
       "example_en": "This experiment shows how meaning works.",
       "example_sk": "Tento experiment ukazuje, ako funguje zmysel.",
-      "id": "3df039cd-3380-4ddb-b6d9-eabc983f71c3"
+      "id": "3df039cd-3380-4ddb-b6d9-eabc983f71c3",
+      "source": "Filozofia - základy B2"
+    },
+    {
+      "id": "96131aae-74b5-4d16-95ad-b139383de2f4",
+      "word": "towing",
+      "article": "",
+      "phonetic": "/ˈtəʊɪŋ/",
+      "translation": "ťahanie; odťahovanie",
+      "definition": "The act of pulling a vehicle or another object with a rope, chain, or tow bar, usually by another vehicle.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "The car was removed by a towing company after it broke down.",
+      "example_sk": "Auto po poruche odviezla odťahová služba.",
+      "topic": "Philosophy",
+      "source": "Filozofia - základy B2"
+    },
+    {
+      "id": "adb38fd1-4bd8-4579-b5a1-5f9d19205d8b",
+      "word": "cover",
+      "article": "",
+      "phonetic": "/ˈkʌvər/",
+      "translation": "pokryť; kryt; obal",
+      "definition": "44To place something over or on top of something else; also a thing that lies on, over, or around something to protect or hide it.",
+      "type": "verb, noun",
+      "level": "A2",
+      "example_en": "Please cover the food before you leave.",
+      "example_sk": "Prosím, prikry jedlo predtým, ako odídeš.",
+      "topic": "Philosophy",
+      "source": "Filozofia - základy B2"
     }
   ]
 }

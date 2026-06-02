@@ -1,18 +1,22 @@
 import * as XLSX from "xlsx";
 import { jsPDF } from "jspdf";
 
-const COLUMNS = [
-  { key: "word",        label: "Word" },
-  { key: "article",     label: "Article" },
-  { key: "phonetic",    label: "Phonetic" },
-  { key: "translation", label: "Translation" },
-  { key: "definition",  label: "Definition" },
-  { key: "type",        label: "Type" },
-  { key: "level",       label: "Level" },
-  { key: "example_en",  label: "Example EN" },
-  { key: "example_sk",  label: "Example SK" },
-  { key: "topic",       label: "Topic" },
-];
+function getColumns(metadata) {
+  const tl = (metadata?.targetLang || "en").toLowerCase();
+  const nl = (metadata?.nativeLang || "sk").toLowerCase();
+  return [
+    { key: "word",              label: "Word" },
+    { key: "article",           label: "Article" },
+    { key: "phonetic",          label: "Phonetic" },
+    { key: "translation",       label: "Translation" },
+    { key: "definition",        label: "Definition" },
+    { key: "type",              label: "Type" },
+    { key: "level",             label: "Level" },
+    { key: `example_${tl}`,    label: `Example ${tl.toUpperCase()}` },
+    { key: `example_${nl}`,    label: `Example ${nl.toUpperCase()}` },
+    { key: "topic",             label: "Topic" },
+  ];
+}
 
 function buildSuggestedName(metadata, ext) {
   const safe = (metadata.name || "pack")
@@ -52,16 +56,13 @@ async function saveBlob(blob, suggestedName, mimeType, extensions) {
 }
 
 export async function exportToXlsx(rows, metadata) {
+  const COLUMNS = getColumns(metadata);
   const header = COLUMNS.map((c) => c.label);
   const data = rows.map((row) => COLUMNS.map((c) => row[c.key] ?? ""));
   const ws = XLSX.utils.aoa_to_sheet([header, ...data]);
-
-  // column widths
   ws["!cols"] = COLUMNS.map((c) => ({ wch: Math.max(c.label.length, 18) }));
-
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, metadata.name || "Pack");
-
   const buf = XLSX.write(wb, { type: "array", bookType: "xlsx" });
   const blob = new Blob([buf], {
     type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -71,10 +72,15 @@ export async function exportToXlsx(rows, metadata) {
 }
 
 export async function exportToTxt(rows, metadata) {
+  const tl = (metadata?.targetLang || "en").toLowerCase();
+  const nl = (metadata?.nativeLang || "sk").toLowerCase();
+  const exTarget = `example_${tl}`;
+  const exNative = `example_${nl}`;
+
   const lines = [];
   lines.push(`Pack: ${metadata.name || ""}`);
   lines.push(`Level: ${metadata.level || ""}  Version: ${metadata.version || ""}`);
-  lines.push(`${metadata.targetLang || "EN"} → ${metadata.nativeLang || "SK"}`);
+  lines.push(`${tl.toUpperCase()} → ${nl.toUpperCase()}`);
   lines.push("=".repeat(60));
   lines.push("");
 
@@ -85,10 +91,10 @@ export async function exportToTxt(rows, metadata) {
     if (row.translation) lines.push(`   ${row.translation}`);
     if (row.type || row.level)
       lines.push(`   ${[row.type, row.level].filter(Boolean).join(", ")}`);
-    if (row.definition) lines.push(`   ${row.definition}`);
-    if (row.example_en) lines.push(`   EN: ${row.example_en}`);
-    if (row.example_sk) lines.push(`   SK: ${row.example_sk}`);
-    if (row.topic)      lines.push(`   Topic: ${row.topic}`);
+    if (row.definition)    lines.push(`   ${row.definition}`);
+    if (row[exTarget])     lines.push(`   ${tl.toUpperCase()}: ${row[exTarget]}`);
+    if (row[exNative])     lines.push(`   ${nl.toUpperCase()}: ${row[exNative]}`);
+    if (row.topic)         lines.push(`   Topic: ${row.topic}`);
     lines.push("");
   });
 
@@ -99,6 +105,8 @@ export async function exportToTxt(rows, metadata) {
 export async function exportToTbx(rows, metadata) {
   const srcLang = (metadata.targetLang || "en").toLowerCase();
   const trgLang = (metadata.nativeLang || "sk").toLowerCase();
+  const exTarget = `example_${srcLang}`;
+  const exNative = `example_${trgLang}`;
   const esc = (s) => String(s ?? "")
     .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
@@ -113,14 +121,14 @@ export async function exportToTbx(rows, metadata) {
           ${row.article ? `<termNote type="grammaticalGender">${esc(row.article)}</termNote>` : ""}
           ${row.phonetic ? `<termNote type="pronunciation">${esc(row.phonetic)}</termNote>` : ""}
         </tig>
-        ${row.definition  ? `<descrip type="definition">${esc(row.definition)}</descrip>` : ""}
-        ${row.example_en  ? `<descrip type="context">${esc(row.example_en)}</descrip>` : ""}
+        ${row.definition    ? `<descrip type="definition">${esc(row.definition)}</descrip>` : ""}
+        ${row[exTarget]     ? `<descrip type="context">${esc(row[exTarget])}</descrip>` : ""}
       </langSet>
       <langSet xml:lang="${trgLang}">
         <tig>
           <term>${esc(row.translation)}</term>
         </tig>
-        ${row.example_sk ? `<descrip type="context">${esc(row.example_sk)}</descrip>` : ""}
+        ${row[exNative] ? `<descrip type="context">${esc(row[exNative])}</descrip>` : ""}
       </langSet>
     </termEntry>`).join("\n");
 
@@ -145,6 +153,7 @@ ${entries}
 }
 
 export async function exportToCsv(rows, metadata, delimiter = ",") {
+  const COLUMNS = getColumns(metadata);
   const escape = (val) => {
     const s = String(val ?? "");
     return s.includes(delimiter) || s.includes('"') || s.includes("\n")
@@ -159,40 +168,39 @@ export async function exportToCsv(rows, metadata, delimiter = ",") {
 }
 
 export async function exportToPdf(rows, metadata) {
+  const tl = (metadata?.targetLang || "en").toLowerCase();
+  const exTarget = `example_${tl}`;
+
   const doc = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
   const pageW = doc.internal.pageSize.getWidth();
   const margin = 14;
 
-  // Title
   doc.setFontSize(14);
   doc.setFont("helvetica", "bold");
   doc.text(metadata.name || "Vocabulary Pack", margin, 16);
 
   doc.setFontSize(9);
   doc.setFont("helvetica", "normal");
-  const subtitle = `Level: ${metadata.level || ""}   Version: ${metadata.version || ""}   ${metadata.targetLang || "EN"} → ${metadata.nativeLang || "SK"}`;
+  const subtitle = `Level: ${metadata.level || ""}   Version: ${metadata.version || ""}   ${tl.toUpperCase()} → ${(metadata.nativeLang || "SK").toUpperCase()}`;
   doc.text(subtitle, margin, 22);
 
-  // Table columns (subset that fits on landscape A4)
   const cols = [
-    { key: "word",        label: "Word",        w: 30 },
-    { key: "article",     label: "Art.",         w: 12 },
-    { key: "translation", label: "Translation",  w: 38 },
-    { key: "type",        label: "Type",         w: 18 },
-    { key: "level",       label: "Lvl",          w: 12 },
-    { key: "definition",  label: "Definition",   w: 60 },
-    { key: "example_en",  label: "Example EN",   w: 55 },
-    { key: "topic",       label: "Topic",        w: 22 },
+    { key: "word",        label: "Word",                   w: 30 },
+    { key: "article",     label: "Art.",                   w: 12 },
+    { key: "translation", label: "Translation",            w: 38 },
+    { key: "type",        label: "Type",                   w: 18 },
+    { key: "level",       label: "Lvl",                    w: 12 },
+    { key: "definition",  label: "Definition",             w: 60 },
+    { key: exTarget,      label: `Example ${tl.toUpperCase()}`, w: 55 },
+    { key: "topic",       label: "Topic",                  w: 22 },
   ];
 
   const cellH = 7;
-  const startY = 28;
-  let y = startY;
+  let y = 28;
 
   const drawRow = (cells, isHeader) => {
     doc.setFontSize(isHeader ? 8 : 7.5);
     doc.setFont("helvetica", isHeader ? "bold" : "normal");
-
     let x = margin;
     cells.forEach((text, ci) => {
       const w = cols[ci].w;

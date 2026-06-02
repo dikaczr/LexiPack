@@ -46,4 +46,21 @@ router.get("/stats", requireAuth, async (req, res) => {
   }
 });
 
+// Celkový čas výroby balíka v sekundách (počet beatov × 30)
+router.get("/production", requireAuth, async (req, res) => {
+  const { pack } = req.query;
+  if (!pack) return res.status(400).json({ error: "pack required" });
+  try {
+    const pool = await getPool();
+    const result = await pool.request()
+      .input("pack_file", sql.NVarChar, pack)
+      .query("SELECT COUNT(*) AS beats FROM Heartbeats WHERE pack_file = @pack_file");
+    const beats = result.recordset[0]?.beats ?? 0;
+    res.json({ seconds: beats * 30 });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed" });
+  }
+});
+
 export default router;

@@ -14,6 +14,7 @@ import fsRoutes from "./routes/fsRoutes.js";
 import mailRoutes from "./routes/mailRoutes.js";
 import qualityRoutes from "./routes/qualityRoutes.js";
 import autoCorrectRoutes from "./routes/autoCorrectRoutes.js";
+import notificationsRoutes from "./routes/notificationsRoutes.js";
 import { fileURLToPath } from "url";
 import path from "path";
 import { serverLog } from "./utils/serverLogger.js";
@@ -60,6 +61,7 @@ app.use("/api/telemetry", telemetryRoutes);
 app.use("/api/mail", mailRoutes);
 app.use("/api/quality", qualityRoutes);
 app.use("/api/autocorrect", autoCorrectRoutes);
+app.use("/api/notifications", notificationsRoutes);
 app.use("/api", aiRoutes);
 
 app.get("/api/health", async (req, res) => {

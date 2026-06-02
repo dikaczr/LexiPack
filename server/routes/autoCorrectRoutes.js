@@ -109,10 +109,39 @@ router.get("/list", requireAuth, (req, res) => {
 // ── NAČÍTAJ ZÁZNAMY PRE LOKALITU ───────────────────────
 router.get("/:locale", requireAuth, (req, res) => {
   try {
-    const file = path.join(getDir(), `${safeLocale(req.params.locale)}.json`);
-    if (!fs.existsSync(file))
-      return res.status(404).json({ error: "Lokalita nenájdená" });
-    res.json(JSON.parse(fs.readFileSync(file, "utf8")));
+    const locale = safeLocale(req.params.locale);
+    const dir = getDir();
+    const base = locale.split("-")[0]; // "sk-SK" → "sk"
+
+    // 1. Skús importovaný JSON
+    const jsonFile = path.join(dir, `${locale}.json`);
+    if (fs.existsSync(jsonFile))
+      return res.json(JSON.parse(fs.readFileSync(jsonFile, "utf8")));
+
+    // 2. Skús .autoCorrect s plným locale (sk-SK.autoCorrect)
+    const acFull = path.join(dir, `${locale}.autoCorrect`);
+    if (fs.existsSync(acFull))
+      return res.json(parseXml(fs.readFileSync(acFull, "utf8")));
+
+    // 3. Skús .autoCorrect so skráteným kódom (sk.autoCorrect)
+    const acBase = path.join(dir, `${base}.autoCorrect`);
+    if (fs.existsSync(acBase))
+      return res.json(parseXml(fs.readFileSync(acBase, "utf8")));
+
+    // 4. Skenuj všetky .autoCorrect súbory podľa LanguageName v obsahu
+    if (fs.existsSync(dir)) {
+      const files = fs.readdirSync(dir).filter(f => f.endsWith(".autoCorrect"));
+      for (const f of files) {
+        const xml = fs.readFileSync(path.join(dir, f), "utf8");
+        const nameMatch = xml.match(/<LanguageName>([\w-]+)<\/LanguageName>/);
+        if (nameMatch && nameMatch[1].toLowerCase() === locale.toLowerCase()) {
+          return res.json(parseXml(xml));
+        }
+      }
+    }
+
+    // 5. Nič nenájdené — vráť prázdne dáta
+    return res.json({ languageName: locale, languageCode: null, settings: {}, entries: [] });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Chyba pri načítaní" });

@@ -216,6 +216,22 @@ async function initDb() {
   `);
   console.log("✅ Table AiAcceptance ready");
 
+  await pool.request().query(`
+    IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Notifications' AND xtype='U')
+    CREATE TABLE Notifications (
+      id           INT IDENTITY(1,1) PRIMARY KEY,
+      from_user_id INT REFERENCES Users(id) ON DELETE SET NULL,
+      to_user_id   INT NOT NULL REFERENCES Users(id),
+      type         NVARCHAR(50) NOT NULL DEFAULT 'message',
+      title        NVARCHAR(255) NOT NULL,
+      body         NVARCHAR(MAX),
+      ref_pack     NVARCHAR(255),
+      is_read      BIT NOT NULL DEFAULT 0,
+      created_at   DATETIME2 NOT NULL DEFAULT GETDATE()
+    )
+  `);
+  console.log("✅ Table Notifications ready");
+
   // Vytvor default admin účet ak neexistuje
   const existing = await pool.request()
     .input("username", sql.NVarChar, "admin")
