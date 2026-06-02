@@ -201,10 +201,17 @@ router.post("/generate-image", requireAuth, async (req, res) => {
       prompt: prompt.trim(),
       n: 1,
       size: "1024x1024",
-      response_format: "b64_json",
     });
 
-    const b64 = response.data[0].b64_json;
+    const imageUrl = response.data[0].url;
+    if (!imageUrl) return res.status(500).json({ error: "No image URL returned" });
+
+    // Stiahneme obrázok a vrátime ako base64 (CORS bypass)
+    const imgRes = await fetch(imageUrl);
+    if (!imgRes.ok) return res.status(500).json({ error: "Failed to fetch generated image" });
+    const buffer = await imgRes.arrayBuffer();
+    const b64 = Buffer.from(buffer).toString("base64");
+
     await trackAI(req.user, "GENERATE_IMAGE", null, requestAt, null);
     res.json({ image: `data:image/png;base64,${b64}` });
   } catch (err) {
