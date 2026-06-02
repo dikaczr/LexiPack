@@ -10,6 +10,7 @@ function fmtTime(isoStr) {
 
 export default function NotificationBell({
   token,
+  userRole,
   sysNotifications = [],
   internalNotifs = [],
   onClearSys,
@@ -18,6 +19,7 @@ export default function NotificationBell({
   onDeleteInternal,
   onNewNotifSent,
 }) {
+  const canCompose = userRole === "editor" || userRole === "reviewer" || userRole === "admin";
   const [open, setOpen]       = useState(false);
   const [tab, setTab]         = useState("internal");
   const [ringing, setRinging] = useState(false);
@@ -30,6 +32,7 @@ export default function NotificationBell({
   const [composeBody,    setComposeBody]    = useState("");
   const [composeSending, setComposeSending] = useState(false);
   const [composeDone,    setComposeDone]    = useState(false);
+  const [composeUsersErr, setComposeUsersErr] = useState(false);
 
   const wrapRef      = useRef(null);
   const prevUnreadRef = useRef(0);
@@ -62,8 +65,8 @@ export default function NotificationBell({
     setComposeTitle("");
     setComposeBody("");
     setComposeDone(false);
+    setComposeUsersErr(false);
     setView("compose");
-    // načítaj userov
     if (composeUsers.length === 0 && token) {
       try {
         const res = await fetch(`${API_BASE}/api/notifications/users`, {
@@ -72,8 +75,12 @@ export default function NotificationBell({
         if (res.ok) {
           const { users } = await res.json();
           setComposeUsers(users);
+        } else {
+          setComposeUsersErr(true);
         }
-      } catch {}
+      } catch {
+        setComposeUsersErr(true);
+      }
     }
     setTimeout(() => titleRef.current?.focus(), 50);
   }
@@ -153,7 +160,7 @@ export default function NotificationBell({
                   </button>
                 </div>
                 <div className="nbell-actions">
-                  {tab === "internal" && (
+                  {tab === "internal" && canCompose && (
                     <button className="nbell-compose-btn" onClick={handleOpenCompose} title="Napísať správu">
                       ✏
                     </button>
@@ -233,12 +240,16 @@ export default function NotificationBell({
                 <>
                   <div className="nbell-compose-field">
                     <label>Príjemca</label>
-                    <select value={composeTo} onChange={e => setComposeTo(e.target.value)}>
-                      <option value="">— vybrať —</option>
-                      {composeUsers.map(u => (
-                        <option key={u.id} value={u.id}>{recipientLabel(u)}</option>
-                      ))}
-                    </select>
+                    {composeUsersErr ? (
+                      <div className="nbell-compose-err">Nepodarilo sa načítať používateľov</div>
+                    ) : (
+                      <select value={composeTo} onChange={e => setComposeTo(e.target.value)}>
+                        <option value="">— vybrať —</option>
+                        {composeUsers.map(u => (
+                          <option key={u.id} value={u.id}>{recipientLabel(u)}</option>
+                        ))}
+                      </select>
+                    )}
                   </div>
                   <div className="nbell-compose-field">
                     <label>Predmet</label>

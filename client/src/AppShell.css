@@ -154,6 +154,12 @@ body,
   color: #86efac;
   animation: server-toast-in 0.25s ease, server-toast-out 0.4s 3s forwards;
 }
+.server-toast--notif {
+  background: var(--app-panel);
+  border: 1px solid var(--app-accent);
+  color: var(--app-text2);
+  animation: server-toast-in 0.25s ease, server-toast-out 0.4s 3.5s forwards;
+}
 
 /* AUTOCORRECT NOTICE TOAST */
 @keyframes ac-notice-in {

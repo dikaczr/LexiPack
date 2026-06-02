@@ -144,6 +144,7 @@ export default function AppShell() {
   const [internalNotifs, setInternalNotifs] = useState([]);
   const serverDownRef = useRef(false);
   const [serverToast, setServerToast] = useState(null); // "down" | "up" | null
+  const [notifToast, setNotifToast] = useState(null);
   const lastNotifIdRef = useRef(0);
 
   useEffect(() => {
@@ -174,30 +175,31 @@ export default function AppShell() {
   }, []);
 
   // Polling interných notifikácií zo servera
-  useEffect(() => {
+  const fetchNotifs = useCallback(async () => {
     if (!token) return;
+    try {
+      const res = await fetch(`${API_BASE}/api/notifications`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok) return;
+      const { notifications } = await res.json();
+      const maxId = notifications.reduce((m, n) => Math.max(m, n.id), 0);
+      if (lastNotifIdRef.current > 0 && maxId > lastNotifIdRef.current) {
+        const newest = notifications.find(n => n.id === maxId);
+        const from = newest?.from_name || newest?.from_username || "Niekto";
+        setNotifToast(`📩 Nová správa od ${from}`);
+        setTimeout(() => setNotifToast(null), 4000);
+      }
+      lastNotifIdRef.current = maxId;
+      setInternalNotifs(notifications);
+    } catch {}
+  }, [token]);
 
-    async function fetchNotifs() {
-      try {
-        const res = await fetch(`${API_BASE}/api/notifications`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        if (!res.ok) return;
-        const { notifications } = await res.json();
-        setInternalNotifs(notifications);
-        // Animácia zvončeka ak prišla nová (vyššie ID ako naposledy)
-        const maxId = notifications.reduce((m, n) => Math.max(m, n.id), 0);
-        if (lastNotifIdRef.current > 0 && maxId > lastNotifIdRef.current) {
-          // nová notifikácia — bell sa rozkýva cez unread count zmenu
-        }
-        lastNotifIdRef.current = maxId;
-      } catch {}
-    }
-
+  useEffect(() => {
     fetchNotifs();
     const interval = setInterval(fetchNotifs, 60_000);
     return () => clearInterval(interval);
-  }, [token]);
+  }, [fetchNotifs]);
 
   const addNotification = useCallback((title, icon = "📦") => {
     const time = new Date().toLocaleTimeString("sk-SK", { hour: "2-digit", minute: "2-digit" });
@@ -224,6 +226,7 @@ export default function AppShell() {
         <div className="app-header-right">
           <NotificationBell
             token={token}
+            userRole={user?.role}
             sysNotifications={sysNotifications}
             internalNotifs={internalNotifs}
             onClearSys={() => setSysNotifications([])}
@@ -248,6 +251,7 @@ export default function AppShell() {
               });
               setInternalNotifs(prev => prev.filter(n => n.id !== id));
             }}
+            onNewNotifSent={fetchNotifs}
           />
           <UserMenu onNavigate={setActiveScreen} />
         </div>
@@ -328,6 +332,11 @@ export default function AppShell() {
       {serverToast === "up" && (
         <div className="server-toast server-toast--up">
           ✅ Server obnovený
+        </div>
+      )}
+      {notifToast && (
+        <div className="server-toast server-toast--notif">
+          {notifToast}
         </div>
       )}
 

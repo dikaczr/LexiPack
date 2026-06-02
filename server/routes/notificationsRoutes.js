@@ -49,7 +49,7 @@ router.get("/", requireAuth, async (req, res) => {
 });
 
 // POST /api/notifications — odoslať notifikáciu (editor/reviewer/admin)
-router.post("/", requireAuth, async (req, res) => {
+router.post("/", requireAuth, requireRole("editor", "reviewer", "admin"), async (req, res) => {
   const { to_user_id, type = "message", title, body, ref_pack } = req.body;
   if (!to_user_id || !title)
     return res.status(400).json({ error: "to_user_id and title are required" });
