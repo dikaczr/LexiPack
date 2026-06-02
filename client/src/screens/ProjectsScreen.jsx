@@ -399,6 +399,18 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
   useEffect(() => { onNotificationRef.current = onNotification; }, [onNotification]);
   const [rowData, setRowData]       = useState([]);
   const [selectedPack, setSelectedPack] = useState(null);
+
+  const filteredRows = useMemo(() => rowData.filter(p => {
+    const lvl = p.level && p.level !== "-" ? p.level : null;
+    const levelMatch = !levelFilter ||
+      (levelFilter === "__none__" ? !lvl : lvl === levelFilter);
+    return (
+      (!statusFilter || p.status === statusFilter) &&
+      (!langFilter   || p.targetLang === langFilter) &&
+      (!themeFilter  || p.category === themeFilter) &&
+      levelMatch
+    );
+  }), [rowData, statusFilter, langFilter, themeFilter, levelFilter]);
   const [showNewPack, setShowNewPack]       = useState(false);
   const [showSaveAs, setShowSaveAs]         = useState(false);
   const iconInputRef      = useRef(null);
@@ -841,17 +853,8 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
           theme="legacy"
           headerHeight={r(30)}
           rowHeight={r(25)}
-          rowData={rowData.filter(p => {
-            const lvl = p.level && p.level !== "-" ? p.level : null;
-            const levelMatch = !levelFilter ||
-              (levelFilter === "__none__" ? !lvl : lvl === levelFilter);
-            return (
-              (!statusFilter || p.status === statusFilter) &&
-              (!langFilter   || p.targetLang === langFilter) &&
-              (!themeFilter  || p.category === themeFilter) &&
-              levelMatch
-            );
-          })}
+          rowData={filteredRows}
+          getRowId={(params) => params.data.fileName}
           columnDefs={columnDefs}
           defaultColDef={{ sortable: true, resizable: true, cellStyle: { textAlign: "left" } }}
           quickFilterText={filter}
