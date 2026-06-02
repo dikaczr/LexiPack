@@ -56,10 +56,10 @@ export async function generateColumn(row, field, targetLang, nativeLang, token, 
   return response.data.value;
 }
 
-export async function generateImage(prompt, negative, token) {
+export async function generateImage(prompt, negative, token, transparent = false) {
   const response = await axios.post(
     `${API_URL}/generate-image`,
-    { prompt, negative },
+    { prompt, negative, transparent },
     { headers: authHeaders(token), timeout: 120000 },
   );
   return response.data.image;

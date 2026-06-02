@@ -97,9 +97,10 @@ export default function ImageGenDialog({
     if (!description.trim() || generating) return;
     setGenerating(true); setResult(null); setError(null);
     try {
-      const prompt   = buildPrompt(description, style, background, atmosphere, extra);
-      const negative = buildNegative(negChecks, negExtra);
-      const dataUrl  = await generateImage(prompt, negative, token);
+      const prompt       = buildPrompt(description, style, background, atmosphere, extra);
+      const negative     = buildNegative(negChecks, negExtra);
+      const transparent  = background === "transparent";
+      const dataUrl      = await generateImage(prompt, negative, token, transparent);
       setProgress(100);
       setResult(dataUrl);
     } catch (err) {

@@ -196,12 +196,17 @@ router.post("/generate-image", requireAuth, async (req, res) => {
   const { prompt } = req.body;
   if (!prompt?.trim()) return res.status(400).json({ error: "prompt required" });
 
-  const { negative } = req.body;
+  const { negative, transparent } = req.body;
   const requestAt = new Date();
   try {
     const encodedPrompt = encodeURIComponent(prompt.trim());
-    let url = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=512&height=512&nologo=true&seed=${Date.now()}`;
-    if (negative?.trim()) url += `&negative=${encodeURIComponent(negative.trim())}`;
+    const format = transparent ? "png" : "jpeg";
+    let url = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=512&height=512&nologo=true&format=${format}&seed=${Date.now()}`;
+    // Pri transparentnom pozadí pridaj negáciu bielej/sivej farby pozadia
+    const effectiveNeg = transparent
+      ? [negative?.trim(), "white background, grey background, gray background, solid background"].filter(Boolean).join(", ")
+      : negative?.trim();
+    if (effectiveNeg) url += `&negative=${encodeURIComponent(effectiveNeg)}`;
 
     const imgRes = await fetch(url, { signal: AbortSignal.timeout(60000) });
     if (!imgRes.ok) return res.status(500).json({ error: `Pollinations error: ${imgRes.status}` });
