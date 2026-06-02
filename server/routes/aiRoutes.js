@@ -196,11 +196,13 @@ router.post("/generate-image", requireAuth, async (req, res) => {
   const requestAt = new Date();
   try {
     const openai = getOpenAI();
+    const imageModel = process.env.OPENAI_IMAGE_MODEL || "dall-e-2";
+    const size = imageModel === "dall-e-3" ? "1024x1024" : "512x512";
     const response = await openai.images.generate({
-      model: "dall-e-3",
+      model: imageModel,
       prompt: prompt.trim(),
       n: 1,
-      size: "1024x1024",
+      size,
     });
 
     const imageUrl = response.data[0].url;
