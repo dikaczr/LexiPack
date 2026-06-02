@@ -192,7 +192,6 @@ button.btn-icon:disabled .btn-icon-label {
 .pack-grid {
   height: 100%;
   width: 100%;
-  --ag-font-size: 12px;
 }
 
 .pack-grid .ag-root-wrapper,
@@ -1142,7 +1141,7 @@ button.btn-icon:disabled .btn-icon-label {
 
 .metadata-panel {
   display: grid;
-  grid-template-columns: 1fr 18rem 16rem 10rem 10rem 1fr;
+  grid-template-columns: 2fr 26rem 16rem 10rem 10rem 0.5fr;
   gap: 0.9rem;
   padding: 0.4rem 1.5rem 0.2rem;
   background: var(--app-meta-bg);
@@ -1442,6 +1441,8 @@ button:disabled {
 .validation-right {
   display: flex;
   gap: 0.8rem;
+  align-items: flex-end;
+  align-self: flex-end;
 }
 
 .save-status {

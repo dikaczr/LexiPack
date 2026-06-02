@@ -408,6 +408,7 @@ function PackGrid({
   return (
     <div
       className="ag-theme-alpine-dark pack-grid"
+      style={{ "--ag-font-size": `${r(12)}px` }}
       onContextMenu={(e) => e.preventDefault()}
     >
       <AgGridReact
