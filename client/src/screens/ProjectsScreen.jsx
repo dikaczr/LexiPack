@@ -4,6 +4,7 @@ import "ag-grid-community/styles/ag-theme-alpine.css";
 import "./ProjectsScreen.css";
 import { useMemo, useState, useEffect, useCallback, useRef } from "react";
 import { useT } from "../i18n";
+import { useRem } from "../hooks/useRem";
 import { useAuth } from "../context/AuthContext";
 import { API_BASE } from "../config";
 import { logAudit } from "../api/auditApi";
@@ -389,7 +390,9 @@ function DeletePackModal({ pack, onClose, onDeleted }) {
 
 // ── Hlavná obrazovka ──────────────────────────────────
 export default function ProjectsScreen({ setActiveScreen, setActivePack, filter = "", statusFilter = "", langFilter = "", themeFilter = "", levelFilter = "", onCategoriesLoaded, onNotification }) {
-  const t = useT();
+  const t   = useT();
+  const rem = useRem();
+  const r   = (px) => Math.round(px / 10 * rem);
   const { token, user } = useAuth();
   const prevPacksRef = useRef(null);
   const onNotificationRef = useRef(onNotification);
@@ -836,8 +839,8 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
       <div className="ag-theme-alpine-dark projects-grid">
         <AgGridReact
           theme="legacy"
-          headerHeight={34}
-          rowHeight={26}
+          headerHeight={r(30)}
+          rowHeight={r(25)}
           rowData={rowData.filter(p => {
             const lvl = p.level && p.level !== "-" ? p.level : null;
             const levelMatch = !levelFilter ||

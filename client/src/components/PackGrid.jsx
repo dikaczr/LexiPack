@@ -1,5 +1,6 @@
 import { useMemo, useRef, useEffect, useCallback, forwardRef, useImperativeHandle } from "react";
 import { useT } from "../i18n";
+import { useRem } from "../hooks/useRem";
 import { AgGridReact } from "ag-grid-react";
 import FloatingTextareaEditor from "./FloatingTextareaEditor";
 import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
@@ -170,7 +171,8 @@ function PackGrid({
   targetLang = "en",
   nativeLang = "sk",
 }) {
-  const t = useT();
+  const t   = useT();
+  const rem = useRem();
   const selectedIdsRef     = useRef(new Set());
   const prevSelectedIdsRef = useRef(new Set());
   const prevRowIndexRef    = useRef(null);
@@ -203,14 +205,16 @@ function PackGrid({
     if (nodes.length) api.redrawRows({ rowNodes: nodes });
   }, [selectedRowIndex]);
 
+  const r = (px) => Math.round(px / 10 * rem);
+
   const columnDefs = useMemo(
     () => [
       {
         headerName: "",
         field: "_checkbox",
-        width: 34,
-        minWidth: 34,
-        maxWidth: 34,
+        width: r(34),
+        minWidth: r(34),
+        maxWidth: r(34),
         editable: false,
         sortable: false,
         filter: false,
@@ -242,9 +246,9 @@ function PackGrid({
       {
         headerName: "",
         field: "_bm_flag",
-        width: 20,
-        minWidth: 20,
-        maxWidth: 20,
+        width: r(20),
+        minWidth: r(20),
+        maxWidth: r(20),
         editable: false,
         sortable: false,
         filter: false,
@@ -254,16 +258,16 @@ function PackGrid({
         cellRenderer: (params) => {
           const isBookmarked = !!bookmarksRef.current[String(params.data?.id)];
           return isBookmarked
-            ? <span title="Bookmark" style={{ color: "#22c55e", fontSize: 14, lineHeight: "26px" }}>⚑</span>
+            ? <span title="Bookmark" style={{ color: "#22c55e", fontSize: "1.4rem", lineHeight: `${r(26)}px` }}>⚑</span>
             : null;
         },
       },
       {
         headerName: "",
         field: "_approved",
-        width: 34,
-        minWidth: 34,
-        maxWidth: 34,
+        width: r(34),
+        minWidth: r(34),
+        maxWidth: r(34),
         editable: false,
         sortable: false,
         filter: false,
@@ -276,15 +280,15 @@ function PackGrid({
           const latest  = reviews.reduce((a, b) => !a || new Date(b.created_at) > new Date(a.created_at) ? b : a, null);
           if (latest?.action === "OK")   return <span title="Schválené">✅</span>;
           if (latest?.action === "FLAG") return <span title="Problém">🚩</span>;
-          return <span title="Neoverené" style={{ opacity: 0.3, fontSize: 13 }}>⬜</span>;
+          return <span title="Neoverené" style={{ opacity: 0.3, fontSize: "1.3rem" }}>⬜</span>;
         },
       },
       {
         headerName: "",
         field: "_comment_star",
-        width: 20,
-        minWidth: 20,
-        maxWidth: 20,
+        width: r(20),
+        minWidth: r(20),
+        maxWidth: r(20),
         editable: false,
         sortable: false,
         filter: false,
@@ -295,14 +299,14 @@ function PackGrid({
           const hasComment = wordReviewsRef.current.some(
             (r) => r.word_id === params.data?.id && r.action === "COMMENT"
           );
-          return hasComment ? <span title="Poznámka" style={{ color: "#60a5fa", fontSize: 12 }}>★</span> : null;
+          return hasComment ? <span title="Poznámka" style={{ color: "#60a5fa", fontSize: "1.2rem" }}>★</span> : null;
         },
       },
       ...(LANGS_WITH_ARTICLES.has(targetLang) ? [{
         headerName: t("cols.article"),
         field: "article",
         editable: !isReadOnly,
-        width: 70,
+        width: r(70),
         filter: false,
         sortable: false,
         cellEditor: ArticleCellEditor,
@@ -312,35 +316,35 @@ function PackGrid({
         headerName: t("cols.word"),
         field: "word",
         editable: !isReadOnly,
-        minWidth: 90,
+        minWidth: r(90),
         cellStyle: { textAlign: "left" },
       },
       {
         headerName: t("cols.translation"),
         field: "translation",
         editable: !isReadOnly,
-        minWidth: 90,
+        minWidth: r(90),
         cellStyle: { textAlign: "left" },
       },
       {
         headerName: t("cols.phonetic"),
         field: "phonetic",
         editable: !isReadOnly,
-        minWidth: 102,
+        minWidth: r(102),
         cellStyle: { textAlign: "left" },
       },
       {
         headerName: t("cols.type"),
         field: "type",
         editable: !isReadOnly,
-        width: 100,
+        width: r(100),
         cellEditor: TypeCellEditor,
       },
       {
         headerName: t("cols.definition"),
         field: "definition",
         editable: !isReadOnly,
-        minWidth: 240,
+        minWidth: r(240),
         flex: 1,
         cellStyle: { textAlign: "left" },
         cellEditor: "agLargeTextCellEditor",
@@ -351,14 +355,14 @@ function PackGrid({
         headerName: t("cols.level"),
         field: "level",
         editable: !isReadOnly,
-        width: 90,
+        width: r(90),
         cellEditor: LevelCellEditor,
       },
       {
         headerName: (() => { const f = t("cols.exampleLang"); return typeof f === "function" ? f(targetLang) : `Príklad ${targetLang.toUpperCase()}`; })(),
         field: `example_${targetLang}`,
         editable: !isReadOnly,
-        minWidth: 240,
+        minWidth: r(240),
         cellEditor: "agLargeTextCellEditor",
         cellEditorPopup: false,
         cellEditorParams: { maxLength: 5000, rows: 5, cols: 60 },
@@ -367,7 +371,7 @@ function PackGrid({
         headerName: (() => { const f = t("cols.exampleLang"); return typeof f === "function" ? f(nativeLang) : `Príklad ${nativeLang.toUpperCase()}`; })(),
         field: `example_${nativeLang}`,
         editable: !isReadOnly,
-        minWidth: 240,
+        minWidth: r(240),
         cellEditor: "agLargeTextCellEditor",
         cellEditorPopup: false,
         cellEditorParams: { maxLength: 5000, rows: 5, cols: 60 },
@@ -376,10 +380,10 @@ function PackGrid({
         headerName: t("cols.topic"),
         field: "topic",
         editable: !isReadOnly,
-        width: 120,
+        width: r(120),
       },
     ],
-    [isReadOnly, targetLang, nativeLang, t],
+    [rem, isReadOnly, targetLang, nativeLang, t],
   );
 
   const duplicateWordsSet = useMemo(() => {
@@ -417,8 +421,8 @@ function PackGrid({
         rowSelection={{ mode: "multiRow", enableClickSelection: false, checkboxes: false, headerCheckbox: false }}
         columnDefs={columnDefs}
         defaultColDef={defaultColDef}
-        rowHeight={26}
-        headerHeight={34}
+        rowHeight={r(26)}
+        headerHeight={r(34)}
         singleClickEdit={true}
         stopEditingWhenCellsLoseFocus={false}
         onCellKeyDown={(event) => {
