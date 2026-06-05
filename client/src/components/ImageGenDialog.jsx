@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useT } from "../i18n";
 import { generateImage } from "../api/aiApi";
 import { resizeImageDataUrl } from "../utils/resizeImage";
@@ -68,6 +68,20 @@ export default function ImageGenDialog({
   const [result,      setResult]      = useState(null);
   const [error,       setError]       = useState(null);
 
+  const dragOffset = useRef(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => { if (open) setPos({ x: 0, y: 0 }); }, [open]);
+
+  const onDragStart = useCallback((e) => {
+    if (e.button !== 0) return;
+    dragOffset.current = { x: e.clientX - pos.x, y: e.clientY - pos.y };
+    const onMove = (e) => setPos({ x: e.clientX - dragOffset.current.x, y: e.clientY - dragOffset.current.y });
+    const onUp   = () => { window.removeEventListener("mousemove", onMove); window.removeEventListener("mouseup", onUp); dragOffset.current = null; };
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+  }, [pos]);
+
   useEffect(() => {
     if (open) {
       const parts = [packName, packCategory].filter(Boolean);
@@ -121,10 +135,10 @@ export default function ImageGenDialog({
 
   return (
     <div className="dialog-overlay" onClick={(e) => e.target === e.currentTarget && !generating && onClose()}>
-      <div className="img-gen-dialog">
+      <div className="img-gen-dialog" style={{ transform: `translate(${pos.x}px, ${pos.y}px)` }}>
 
-        <div className="img-gen-header">
-          <span className="img-gen-title">🖼 {t("imgGen.title")}</span>
+        <div className="img-gen-header" onMouseDown={onDragStart} style={{ cursor: "move", userSelect: "none" }}>
+          <span className="img-gen-title">{t("imgGen.title")}</span>
           <button className="img-gen-close" onClick={onClose} disabled={generating}>×</button>
         </div>
 
@@ -240,13 +254,6 @@ export default function ImageGenDialog({
               />
             </div>
 
-            <button
-              className="img-gen-btn-generate"
-              onClick={handleGenerate}
-              disabled={!description.trim() || generating}
-            >
-              {generating ? t("imgGen.generating") : t("imgGen.generate")}
-            </button>
           </div>
 
           {/* Preview */}
@@ -265,9 +272,6 @@ export default function ImageGenDialog({
               <div className="img-gen-result">
                 <img src={result} alt="generated" className="img-gen-img" />
                 <div className="img-gen-result-btns">
-                  <button className="img-gen-btn-use" onClick={handleApply}>
-                    ✓ {t("imgGen.useImage")}
-                  </button>
                   <button className="img-gen-btn-regen" onClick={handleGenerate}>
                     ↺ {t("imgGen.regenerate")}
                   </button>
@@ -291,6 +295,30 @@ export default function ImageGenDialog({
               </div>
             )}
           </div>
+        </div>
+
+        <div className="img-gen-footer">
+          <button
+            className="img-gen-btn-generate"
+            onClick={handleGenerate}
+            disabled={!description.trim() || generating}
+          >
+            {generating ? t("imgGen.generating") : t("imgGen.generate")}
+          </button>
+          <button
+            className="img-gen-btn-ok"
+            onClick={handleApply}
+            disabled={!result || generating}
+          >
+            OK
+          </button>
+          <button
+            className="img-gen-btn-cancel"
+            onClick={onClose}
+            disabled={generating}
+          >
+            {t("common.cancel")}
+          </button>
         </div>
 
       </div>

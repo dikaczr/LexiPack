@@ -61,6 +61,11 @@
   box-sizing: border-box !important;
 }
 
+/* ── Centered header ─────────────────────────────────── */
+.ag-header-cell-center .ag-header-cell-label {
+  justify-content: center;
+}
+
 /* ── Checkbox štýl ────────────────────────────────────── */
 
 .grid-checkbox {

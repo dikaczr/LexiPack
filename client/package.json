@@ -13,6 +13,7 @@
     "ag-grid-community": "^35.2.1",
     "ag-grid-react": "^35.2.1",
     "axios": "^1.16.0",
+    "flag-icons": "^7.5.0",
     "jspdf": "^4.2.1",
     "pdfjs-dist": "^5.7.284",
     "react": "^18.3.1",

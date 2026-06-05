@@ -22,9 +22,9 @@
   border: none;
   color: var(--app-muted);
   cursor: pointer;
-  font-size: 1.6rem;
+  font-size: 1rem;
   line-height: 1;
-  padding: 0.4rem 0.6rem;
+  padding: 0.2rem 0.4rem;
   border-radius: 0.4rem;
   align-self: flex-end;
   flex-shrink: 0;

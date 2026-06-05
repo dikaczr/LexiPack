@@ -4,9 +4,13 @@ import os from "os";
 import path from "path";
 import { fileURLToPath } from "url";
 import { requireAuth, requireRole } from "../middleware/auth.js";
+import { getPool, sql } from "../db.js";
+import { registerPack } from "../packs-sync.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const router = express.Router();
+
+router.get("/ping", (req, res) => res.json({ ok: true }));
 
 function getWorkspaceBase() {
   return process.env.WORKSPACE_BASE
@@ -168,6 +172,77 @@ router.post("/mkdir-workspace", requireAuth, (req, res) => {
       return res.status(403).json({ error: "Path outside workspace" });
     fs.mkdirSync(resolved, { recursive: true });
     res.json({ message: "Created", path: resolved });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ── ZOZNAM JSON SÚBOROV Z PUBLISH ADRESÁRA (admin) ───────
+router.get("/list-published", requireAuth, requireRole("admin"), async (req, res) => {
+  try {
+    const pool = await getPool();
+    const settingRow = await pool.request()
+      .input("key", sql.NVarChar, "publishPath")
+      .query(`SELECT TOP 1 us.value FROM UserSettings us
+              JOIN Users u ON u.id = us.user_id
+              WHERE us.[key] = @key AND u.role = 'admin' ORDER BY u.id ASC`);
+    const basePath = settingRow.recordset[0]?.value?.trim() || process.env.PUBLISH_PATH;
+    if (!basePath) return res.status(400).json({ error: "publishPath nie je nastavený" });
+
+    const allDir = path.join(basePath, "all");
+    if (!fs.existsSync(allDir)) return res.status(404).json({ error: `Adresár neexistuje: ${allDir}` });
+
+    // Zoznam jazykových podadresárov
+    const langDirs = fs.readdirSync(allDir, { withFileTypes: true })
+      .filter(e => e.isDirectory())
+      .map(e => e.name)
+      .sort();
+
+    const { lang } = req.query;
+    if (!lang) return res.json({ langs: langDirs, files: [] });
+
+    const langDir = path.join(allDir, lang);
+    if (!fs.existsSync(langDir)) return res.json({ langs: langDirs, files: [] });
+
+    const files = fs.readdirSync(langDir)
+      .filter(f => f.endsWith(".json"))
+      .sort()
+      .map(f => {
+        const stat = fs.statSync(path.join(langDir, f));
+        return { name: f, size: stat.size, mtime: stat.mtime };
+      });
+
+    res.json({ langs: langDirs, files, dir: langDir });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ── NAČÍTAJ JSON SÚBOR Z PUBLISH ADRESÁRA (admin) ────────
+// Vráti obsah súboru — klient ho importuje cez POST /api/packs (rovnaká cesta ako "Import Pack")
+router.get("/read-published", requireAuth, requireRole("admin"), async (req, res) => {
+  try {
+    const { lang, fileName } = req.query;
+    if (!lang || !fileName) return res.status(400).json({ error: "lang a fileName sú povinné" });
+
+    const pool = await getPool();
+    const settingRow = await pool.request()
+      .input("key", sql.NVarChar, "publishPath")
+      .query(`SELECT TOP 1 us.value FROM UserSettings us
+              JOIN Users u ON u.id = us.user_id
+              WHERE us.[key] = @key AND u.role = 'admin' ORDER BY u.id ASC`);
+    const basePath = settingRow.recordset[0]?.value?.trim() || process.env.PUBLISH_PATH;
+    if (!basePath) return res.status(400).json({ error: "publishPath nie je nastavený" });
+
+    const srcPath = path.join(basePath, "all", lang, fileName);
+    if (!fs.existsSync(srcPath)) return res.status(404).json({ error: "Súbor neexistuje" });
+
+    const content = fs.readFileSync(srcPath, "utf8").replace(/^﻿/, "");
+    const packJson = JSON.parse(content);
+
+    res.json({ fileName, data: packJson });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: err.message });

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { resizeImageFile } from "../utils/resizeImage";
 import { useT } from "../i18n";
+import "flag-icons/css/flag-icons.min.css";
 
 const COLOR_PRESETS = [
   // Reds / Magentas  — HKS 14 Z, 18 Z, 22 Z, 25 Z, 27 Z
@@ -236,9 +237,7 @@ const LANG_FLAG_MAP = { en: "gb" };
 
 function langFlag(code) {
   const cc = (LANG_FLAG_MAP[code?.toLowerCase()] || code || "xx").toLowerCase();
-  return [...cc.toUpperCase()].map(c =>
-    String.fromCodePoint(0x1F1E6 + c.charCodeAt(0) - 65)
-  ).join("");
+  return <span className={`fi fi-${cc}`} style={{ fontSize: "1.6rem" }} />;
 }
 
 function PackMetadataPanel({ metadata, setMetadata, availableTags = [], apiBase, token, fileName }) {
@@ -407,7 +406,9 @@ function PackMetadataPanel({ metadata, setMetadata, availableTags = [], apiBase,
         <div className="metadata-lang-wrap">
            {/* <span className="metadata-label metadata-label--lang">{t("meta.langPair")}</span> */}
           <div className="metadata-lang-pair">
-            {langFlag(metadata.targetLang || "xx")} <span style={{ fontSize: 12, color: "var(--app-muted)" }}>→</span> {langFlag(metadata.nativeLang || "xx")}
+            {langFlag(metadata.targetLang || "xx")}
+            <span className="lang-arrow">→</span>
+            {langFlag(metadata.nativeLang || "xx")}
           </div>
         </div>
       </div>
