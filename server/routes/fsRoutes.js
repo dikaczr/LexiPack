@@ -2,6 +2,8 @@ import express from "express";
 import fs from "fs";
 import os from "os";
 import path from "path";
+import http from "http";
+import https from "https";
 import { fileURLToPath } from "url";
 import { requireAuth, requireRole } from "../middleware/auth.js";
 
@@ -175,6 +177,35 @@ router.post("/mkdir-workspace", requireAuth, (req, res) => {
 });
 
 // ── FETCH URL — extrakcia textu z webovej stránky ─────
+function fetchUrl(urlStr, redirectsLeft = 5) {
+  return new Promise((resolve, reject) => {
+    if (redirectsLeft === 0) return reject(new Error("Too many redirects"));
+    let parsed;
+    try { parsed = new URL(urlStr); } catch { return reject(new Error("Invalid URL")); }
+    const client = parsed.protocol === "https:" ? https : http;
+    const req = client.get(urlStr, {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; LexiPack/1.0)" },
+    }, (res) => {
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        const loc = res.headers.location;
+        res.resume();
+        return fetchUrl(/^https?:\/\//i.test(loc) ? loc : new URL(loc, urlStr).href, redirectsLeft - 1)
+          .then(resolve).catch(reject);
+      }
+      const chunks = [];
+      res.on("data", (c) => chunks.push(c));
+      res.on("end", () => resolve({
+        status:      res.statusCode,
+        statusText:  res.statusMessage,
+        contentType: res.headers["content-type"] || "",
+        body:        Buffer.concat(chunks).toString("utf8"),
+      }));
+    });
+    req.setTimeout(15000, () => { req.destroy(); reject(new Error("Request timeout")); });
+    req.on("error", reject);
+  });
+}
+
 function extractPageText(html) {
   // Odstráň bloky ktoré neobsahujú čitateľný text
   let text = html
@@ -213,21 +244,14 @@ router.post("/fetch-url", requireAuth, async (req, res) => {
   if (!url?.trim()) return res.status(400).json({ error: "URL required" });
 
   try {
-    const response = await fetch(url.trim(), {
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; LexiPack/1.0)" },
-      signal: AbortSignal.timeout(15000),
-      redirect: "follow",
-    });
-    if (!response.ok) return res.status(502).json({ error: `HTTP ${response.status}: ${response.statusText}` });
-
-    const contentType = response.headers.get("content-type") || "";
-    if (!contentType.includes("text/html")) {
+    const response = await fetchUrl(url.trim());
+    if (response.status < 200 || response.status >= 300)
+      return res.status(502).json({ error: `HTTP ${response.status}: ${response.statusText}` });
+    if (!response.contentType.includes("text/html"))
       return res.status(415).json({ error: "URL nevracia HTML stránku" });
-    }
 
-    const html  = await response.text();
-    const text  = extractPageText(html);
-    const title = extractPageTitle(html);
+    const text  = extractPageText(response.body);
+    const title = extractPageTitle(response.body);
     res.json({ text, title });
   } catch (err) {
     console.error("[fetch-url]", err.message);

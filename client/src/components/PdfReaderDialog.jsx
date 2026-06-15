@@ -18,28 +18,65 @@ async function renderPageToCanvas(page, scale = RENDER_SCALE) {
   return canvas;
 }
 
+function matchPhrase(tokens, startIdx, phraseWords) {
+  let wordIdx = 0, j = startIdx;
+  while (j < tokens.length && wordIdx < phraseWords.length) {
+    const clean = tokens[j].replace(/^[^\p{L}0-9]+|[^\p{L}0-9]+$/gu, "").trim();
+    if (clean) {
+      if (clean.toLowerCase() !== phraseWords[wordIdx]) return null;
+      wordIdx++;
+    }
+    j++;
+  }
+  return wordIdx === phraseWords.length ? j - 1 : null;
+}
+
 function WordPicker({ text, addedWords, existingSet, onWordClick }) {
-  // Split text into tokens: words and non-word separators
   const tokens = text.split(/(\s+|[,;:.!?„""\(\)\[\]{}<>\/\\|@#$%^&*+=~`]+)/);
-  return (
-    <>
-      {tokens.map((token, i) => {
-        const clean = token.replace(/^[^\p{L}0-9]+|[^\p{L}0-9]+$/gu, "").trim();
-        if (!clean || /^\s+$/.test(token)) return <span key={i}>{token}</span>;
-        const lower = clean.toLowerCase();
-        const isAdded    = addedWords.has(lower);
-        const isExisting = existingSet.has(lower);
-        return (
-          <mark
-            key={i}
-            className={isAdded ? "pdf-mark-added" : isExisting ? "pdf-mark-exists" : "pdf-word"}
-            onClick={() => !isAdded && onWordClick(clean)}
-            title={isAdded ? "pridané" : isExisting ? "už v packu" : "klikni pre pridanie"}
-          >{token}</mark>
-        );
-      })}
-    </>
+
+  const addedPhrases = useMemo(
+    () => [...addedWords].filter((w) => w.includes(" ")).map((w) => ({ raw: w, words: w.split(/\s+/) })),
+    [addedWords],
   );
+
+  const result = [];
+  let i = 0;
+  while (i < tokens.length) {
+    const token = tokens[i];
+    const clean = token.replace(/^[^\p{L}0-9]+|[^\p{L}0-9]+$/gu, "").trim();
+
+    if (clean && addedPhrases.length > 0) {
+      let matched = false;
+      for (const { words } of addedPhrases) {
+        const endIdx = matchPhrase(tokens, i, words);
+        if (endIdx !== null) {
+          result.push(<mark key={i} className="pdf-mark-added" title="pridané">{tokens.slice(i, endIdx + 1).join("")}</mark>);
+          i = endIdx + 1;
+          matched = true;
+          break;
+        }
+      }
+      if (matched) continue;
+    }
+
+    if (!clean || /^\s+$/.test(token)) {
+      result.push(<span key={i}>{token}</span>);
+    } else {
+      const lower = clean.toLowerCase();
+      const isAdded    = addedWords.has(lower);
+      const isExisting = existingSet.has(lower);
+      result.push(
+        <mark
+          key={i}
+          className={isAdded ? "pdf-mark-added" : isExisting ? "pdf-mark-exists" : "pdf-word"}
+          onClick={() => !isAdded && onWordClick(clean)}
+          title={isAdded ? "pridané" : isExisting ? "už v packu" : "klikni pre pridanie"}
+        >{token}</mark>,
+      );
+    }
+    i++;
+  }
+  return <>{result}</>;
 }
 
 // ── PageView: renders one page as image with drag-to-select overlay ──
@@ -145,8 +182,11 @@ export default function PdfReaderDialog({ open, onClose, onAddWord, existingWord
   const [ocrResult,    setOcrResult]    = useState(null);
   const [ocrEditText,  setOcrEditText]  = useState("");
 
-  const fileInputRef = useRef(null);
-  const workerRef    = useRef(null);
+  const [selPopup,    setSelPopup]    = useState(null); // { phrase, x, y }
+
+  const fileInputRef  = useRef(null);
+  const workerRef     = useRef(null);
+  const textAreaRef   = useRef(null);
 
   useEffect(() => {
     if (!open && workerRef.current) {
@@ -245,11 +285,40 @@ export default function PdfReaderDialog({ open, onClose, onAddWord, existingWord
     setAddedWords(prev => new Set([...prev, word.toLowerCase()]));
   }, [onAddWord]);
 
+  useEffect(() => {
+    if (!selPopup) return;
+    function onDown(e) { if (!e.target.closest(".pdf-sel-popup")) setSelPopup(null); }
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [selPopup]);
+
+  function handleTextMouseUp(e) {
+    if (e.target.closest(".pdf-sel-popup")) return;
+    const sel = window.getSelection();
+    const phrase = sel?.toString().trim();
+    if (!phrase || phrase.length < 2) { setSelPopup(null); return; }
+    const range = sel.getRangeAt(0);
+    const rect  = range.getBoundingClientRect();
+    const dialogRect = textAreaRef.current?.closest(".pdf-dialog")?.getBoundingClientRect();
+    if (!dialogRect) return;
+    setSelPopup({ phrase, x: rect.left + rect.width / 2 - dialogRect.left, y: rect.top - dialogRect.top - 8 });
+  }
+
+  function handleAddPhrase() {
+    if (!selPopup?.phrase) return;
+    const phrase = selPopup.phrase.replace(/\s+/g, " ").trim();
+    onAddWord(phrase);
+    setAddedWords((prev) => new Set([...prev, phrase.toLowerCase()]));
+    window.getSelection()?.removeAllRanges();
+    setSelPopup(null);
+  }
+
   function handleReset() {
     setPages([]); setPageImages([]);
     setFileName(""); setSelectedText("");
     setAddedWords(new Set());
     setOcrResult(null); setOcrEditText("");
+    setSelPopup(null);
     setMode("text");
     window.getSelection()?.removeAllRanges();
   }
@@ -259,6 +328,14 @@ export default function PdfReaderDialog({ open, onClose, onAddWord, existingWord
   return (
     <div className="pdf-overlay">
       <div className="pdf-dialog">
+
+        {selPopup && (
+          <div className="pdf-sel-popup" style={{ left: selPopup.x, top: selPopup.y }}>
+            <span className="pdf-sel-phrase">„{selPopup.phrase}"</span>
+            <button className="pdf-sel-btn" onClick={handleAddPhrase}>+ Pridať frázu</button>
+            <button className="pdf-sel-dismiss" onClick={() => setSelPopup(null)}>✕</button>
+          </div>
+        )}
 
         {/* HEADER */}
         <div className="pdf-header">
@@ -308,6 +385,7 @@ export default function PdfReaderDialog({ open, onClose, onAddWord, existingWord
             <span className="pdf-legend-item added">■ práve pridané</span>
             <span className="pdf-legend-item exists">■ už v packu</span>
             <span className="pdf-legend-item" style={{ color: "var(--app-muted, #94a3b8)" }}>— klikni na slovo</span>
+            <span className="pdf-legend-item" style={{ marginLeft: "auto", color: "var(--app-muted, #94a3b8)" }}>— označ text myšou pre frázu</span>
           </div>
         )}
 
@@ -333,7 +411,7 @@ export default function PdfReaderDialog({ open, onClose, onAddWord, existingWord
 
         {/* TEXT MODE — content */}
         {!loading && mode === "text" && pages.length > 0 && (
-          <div className="pdf-text-area">
+          <div className="pdf-text-area" ref={textAreaRef} onMouseUp={handleTextMouseUp}>
             {pages.map((text, i) => (
               <div key={i} className="pdf-page">
                 <div className="pdf-page-label">— Strana {i + 1} —</div>

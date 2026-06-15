@@ -415,3 +415,47 @@
   background: var(--app-border);
   border-radius: 0.3rem;
 }
+
+/* PHRASE SELECTION POPUP */
+.pdf-sel-popup {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--app-panel);
+  border: 1px solid var(--app-accent);
+  border-radius: 0.8rem;
+  padding: 0.5rem 0.8rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  z-index: 100;
+  transform: translate(-50%, -100%);
+  white-space: nowrap;
+  pointer-events: all;
+}
+.pdf-sel-phrase {
+  font-size: 1.3rem;
+  color: var(--app-text);
+  max-width: 28rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pdf-sel-btn {
+  background: var(--app-accent);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.pdf-sel-btn:hover { opacity: 0.85; }
+.pdf-sel-dismiss {
+  background: transparent;
+  border: none;
+  color: var(--app-muted);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0 0.2rem;
+}
+.pdf-sel-dismiss:hover { color: var(--app-text); }
