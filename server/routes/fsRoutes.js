@@ -174,4 +174,65 @@ router.post("/mkdir-workspace", requireAuth, (req, res) => {
   }
 });
 
+// ── FETCH URL — extrakcia textu z webovej stránky ─────
+function extractPageText(html) {
+  // Odstráň bloky ktoré neobsahujú čitateľný text
+  let text = html
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<nav[\s\S]*?<\/nav>/gi, "")
+    .replace(/<header[\s\S]*?<\/header>/gi, "")
+    .replace(/<footer[\s\S]*?<\/footer>/gi, "")
+    .replace(/<aside[\s\S]*?<\/aside>/gi, "")
+    .replace(/<noscript[\s\S]*?<\/noscript>/gi, "");
+
+  // Blokové elementy → nové riadky
+  text = text.replace(/<\/(p|div|h[1-6]|li|br|tr|article|section)>/gi, "\n");
+
+  // Odstráň zostatok tagov
+  text = text.replace(/<[^>]+>/g, "");
+
+  // HTML entity
+  text = text
+    .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&nbsp;/g, " ")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)));
+
+  // Uprac whitespace
+  return text.replace(/[ \t]+/g, " ").replace(/\n{3,}/g, "\n\n").trim();
+}
+
+function extractPageTitle(html) {
+  const m = html.match(/<title[^>]*>([^<]*)<\/title>/i);
+  return m ? m[1].trim() : "";
+}
+
+router.post("/fetch-url", requireAuth, async (req, res) => {
+  const { url } = req.body;
+  if (!url?.trim()) return res.status(400).json({ error: "URL required" });
+
+  try {
+    const response = await fetch(url.trim(), {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; LexiPack/1.0)" },
+      signal: AbortSignal.timeout(15000),
+      redirect: "follow",
+    });
+    if (!response.ok) return res.status(502).json({ error: `HTTP ${response.status}: ${response.statusText}` });
+
+    const contentType = response.headers.get("content-type") || "";
+    if (!contentType.includes("text/html")) {
+      return res.status(415).json({ error: "URL nevracia HTML stránku" });
+    }
+
+    const html  = await response.text();
+    const text  = extractPageText(html);
+    const title = extractPageTitle(html);
+    res.json({ text, title });
+  } catch (err) {
+    console.error("[fetch-url]", err.message);
+    res.status(500).json({ error: err.message || "Nepodarilo sa načítať stránku" });
+  }
+});
+
 export default router;

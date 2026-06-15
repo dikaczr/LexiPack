@@ -348,7 +348,8 @@ function PackGrid({
         flex: 1,
         cellStyle: { textAlign: "left" },
         cellEditor: "agLargeTextCellEditor",
-        cellEditorPopup: false,
+        cellEditorPopup: true,
+        cellEditorPopupPosition: "over",
         cellEditorParams: { maxLength: 5000, rows: 5, cols: 60 },
       },
       {
@@ -364,7 +365,8 @@ function PackGrid({
         editable: !isReadOnly,
         minWidth: r(240),
         cellEditor: "agLargeTextCellEditor",
-        cellEditorPopup: false,
+        cellEditorPopup: true,
+        cellEditorPopupPosition: "over",
         cellEditorParams: { maxLength: 5000, rows: 5, cols: 60 },
       },
       {
@@ -373,7 +375,8 @@ function PackGrid({
         editable: !isReadOnly,
         minWidth: r(240),
         cellEditor: "agLargeTextCellEditor",
-        cellEditorPopup: false,
+        cellEditorPopup: true,
+        cellEditorPopupPosition: "over",
         cellEditorParams: { maxLength: 5000, rows: 5, cols: 60 },
       },
       {
@@ -408,7 +411,7 @@ function PackGrid({
   return (
     <div
       className="ag-theme-alpine-dark pack-grid"
-      style={{ "--ag-font-size": `${r(12)}px` }}
+      style={{ "--ag-font-size": `${r(11)}px` }}
       onContextMenu={(e) => e.preventDefault()}
     >
       <AgGridReact

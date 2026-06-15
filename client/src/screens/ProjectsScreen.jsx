@@ -848,7 +848,7 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
       </div>
 
       {/* GRID */}
-      <div className="ag-theme-alpine-dark projects-grid" style={{ "--ag-font-size": `${r(12)}px` }}>
+      <div className="ag-theme-alpine-dark projects-grid" style={{ "--ag-font-size": `${r(11)}px` }}>
         <AgGridReact
           theme="legacy"
           headerHeight={r(30)}

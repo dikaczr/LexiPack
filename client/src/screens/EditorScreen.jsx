@@ -18,10 +18,12 @@ import {
   generateTopic,
   suggestWords,
   generateColumn,
+  generateColumnFull,
 } from "../api/aiApi";
 import ImageGenDialog from "../components/ImageGenDialog";
 import SuggestionsDialog from "../components/SuggestionsDialog";
 import PdfReaderDialog from "../components/PdfReaderDialog";
+import WebReaderDialog from "../components/WebReaderDialog";
 import SymbolsDialog from "../components/SymbolsDialog";
 import SpellCheckDialog from "../components/SpellCheckDialog";
 import DomainCheckDialog from "../components/DomainCheckDialog";
@@ -409,16 +411,18 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   });
 
   const columnLabels = {
-    word: "Word",
-    article: "Article",
-    phonetic: "Phonetic",
-    translation: "Translation",
-    definition: "Definition",
-    type: "Type",
-    level: "Level",
-    [exTargetField]: `Example ${(packMetadata.targetLang || "en").toUpperCase()}`,
-    [exNativeField]: `Example ${(packMetadata.nativeLang || "sk").toUpperCase()}`,
-    topic: "Topic",
+    word:        t("cols.word"),
+    article:     t("cols.article"),
+    phonetic:    t("cols.phonetic"),
+    translation: t("cols.translation"),
+    definition:  t("cols.definition"),
+    type:        t("cols.type"),
+    level:       t("cols.level"),
+    topic:       t("cols.topic"),
+    _bm_flag:    t("cols._bm_flag"),
+    _checkbox:   t("cols._checkbox"),
+    [exTargetField]: t("cols.exampleLang")(packMetadata.targetLang || "en"),
+    [exNativeField]: t("cols.exampleLang")(packMetadata.nativeLang || "sk"),
   };
   const [suggestedWords, setSuggestedWords] = useState([]);
   const [showFillMenu, setShowFillMenu] = useState(false);
@@ -437,7 +441,9 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   const [packCoverageData, setPackCoverageData] = useState(null);
   const [isPackCoverageChecking, setIsPackCoverageChecking] = useState(false);
   const [showTrustedSource, setShowTrustedSource] = useState(false);
-  const [showPdfReader, setShowPdfReader] = useState(false);
+  const [showPdfReader,  setShowPdfReader]  = useState(false);
+  const [showWebReader,  setShowWebReader]  = useState(false);
+  const [showRightPanel, setShowRightPanel] = useState(true);
   const [showSymbols, setShowSymbols] = useState(false);
   const [showImgGen, setShowImgGen] = useState(false);
   const [hasActiveInput, setHasActiveInput] = useState(false);
@@ -822,6 +828,31 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     setContextMenu((prev) => ({ ...prev, visible: false }));
   }
 
+  const handleCopyRowsKbd = useCallback(() => {
+    const api = gridRef.current?.api;
+    const selected = api
+      ? api.getSelectedNodes().map(n => n.data).filter(Boolean).map(({ _sel, ...r }) => r)
+      : [];
+    const toCopy = selected.length > 0
+      ? selected
+      : selectedRowIndex != null ? [{ ...rows[selectedRowIndex] }] : [];
+    if (!toCopy.length) return;
+    setClipboardRows(toCopy);
+    localStorage.setItem("lexipack_row_clipboard", JSON.stringify(toCopy));
+  }, [selectedRowIndex, rows]);
+
+  const handlePasteRowKbd = useCallback(() => {
+    if (!clipboardRows.length) return;
+    const newRows = clipboardRows.map((r) => ({ ...r, id: crypto.randomUUID() }));
+    saveHistory();
+    setRows((prev) => {
+      const idx = selectedRowIndex != null && selectedRowIndex >= 0 ? selectedRowIndex : prev.length - 1;
+      const next = [...prev];
+      next.splice(idx + 1, 0, ...newRows);
+      return next;
+    });
+  }, [clipboardRows, selectedRowIndex, saveHistory]);
+
   function handleTranslateWord(service) {
     const isWord = contextMenu.field === "word";
     const word   = contextMenu.rowData?.[contextMenu.field];
@@ -863,18 +894,24 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
 
     try {
       setIsGenerating(true);
-      const value = await generateColumn(rowData, field, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName);
+      const result = await generateColumnFull(rowData, field, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category);
+      const { value, paired } = result;
+      const snapFields = { [field]: value };
+      if (paired) snapFields[paired.field] = paired.value;
       const snapKey = `${rowData.id}__${field}`;
       aiSnapshotRef.current[snapKey] = {
         action: "AI_FILL_COLUMN",
         packFile: activePack?.fileName ?? null,
-        fields: { [field]: value },
+        fields: snapFields,
       };
       saveHistory();
       setRows((prev) =>
-        prev.map((row) =>
-          row.id === rowData.id ? { ...row, [field]: value } : row,
-        ),
+        prev.map((row) => {
+          if (row.id !== rowData.id) return row;
+          const updates = { [field]: value };
+          if (paired) updates[paired.field] = paired.value;
+          return { ...row, ...updates };
+        }),
       );
     } catch (err) {
       console.error(err);
@@ -1028,7 +1065,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     try {
       setIsGenerating(true);
 
-      const aiData = await generateTranslation(row, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName);
+      const aiData = await generateTranslation(row, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category);
 
       const SNAPSHOT_FIELDS = ["phonetic","translation","definition","type","level",exTargetField,exNativeField,"topic"];
       aiSnapshotRef.current[row.id] = {
@@ -1338,7 +1375,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
           continue;
         }
 
-        const aiData = await generateTranslation(selectedRow, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName);
+        const aiData = await generateTranslation(selectedRow, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category);
         const rowIndex = updatedRows.findIndex((r) => r.id === selectedRow.id);
 
         if (rowIndex !== -1) {
@@ -1787,6 +1824,22 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         handleRedo();
       }
 
+      if (isCtrl && event.key.toLowerCase() === "c") {
+        const isEditing = document.activeElement?.tagName === "INPUT" || document.activeElement?.tagName === "TEXTAREA";
+        if (!isEditing) {
+          event.preventDefault();
+          handleCopyRowsKbd();
+        }
+      }
+
+      if (isCtrl && event.key.toLowerCase() === "v") {
+        const isEditing = document.activeElement?.tagName === "INPUT" || document.activeElement?.tagName === "TEXTAREA";
+        if (!isEditing) {
+          event.preventDefault();
+          handlePasteRowKbd();
+        }
+      }
+
       if (event.ctrlKey && event.key === "Delete") {
         event.preventDefault();
         handleClearSelectedRows();
@@ -1886,6 +1939,8 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     handleDuplicateAndEdit,
     moveSelectedRowUp,
     moveSelectedRowDown,
+    handleCopyRowsKbd,
+    handlePasteRowKbd,
     selectedRowIndex,
     selectedRows,
   ]);
@@ -2013,6 +2068,14 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         onClose={() => setShowPdfReader(false)}
         onAddWord={handleAddWordFromPdf}
         existingWords={rows.map((r) => r.word).filter(Boolean)}
+      />
+
+      <WebReaderDialog
+        open={showWebReader}
+        onClose={() => setShowWebReader(false)}
+        onAddWord={handleAddWordFromPdf}
+        existingWords={rows.map((r) => r.word).filter(Boolean)}
+        token={token}
       />
 
       <SymbolsDialog open={showSymbols} onClose={() => setShowSymbols(false)} onInsert={handleInsertSymbol} />
@@ -2253,9 +2316,9 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
               {contextMenu.fieldLabel}
             </div>
 
-            <ContextMenuItem label="Copy" shortcut="Ctrl+C" onClick={handleCopyCell} />
-            <ContextMenuItem label="Cut" shortcut="Ctrl+X" onClick={handleCutCell} />
-            <ContextMenuItem label="Paste" shortcut="Ctrl+V" onClick={handlePasteCell} />
+            <ContextMenuItem label={t("editor.contextMenu.copy")} shortcut="Ctrl+C" onClick={handleCopyCell} />
+            <ContextMenuItem label={t("editor.contextMenu.cut")} shortcut="Ctrl+X" onClick={handleCutCell} />
+            <ContextMenuItem label={t("editor.contextMenu.paste")} shortcut="Ctrl+V" onClick={handlePasteCell} />
 
             <div style={{ borderTop: "1px solid #334155", margin: "4px 0" }} />
             <ContextMenuItem label={t("editor.contextMenu.copyRow")} icon="⎘" onClick={handleCopyRow} />
@@ -2274,7 +2337,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
             {contextMenu.isFillable && (
               <>
                 <div style={{ borderTop: "1px solid #334155", margin: "4px 0" }} />
-                <ContextMenuItem label="Fill with AI" icon="✨" onClick={handleFillCellWithAI} />
+                <ContextMenuItem label={t("editor.contextMenu.fillWithAI")} icon="✨" onClick={handleFillCellWithAI} />
               </>
             )}
 
@@ -2301,7 +2364,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
 
             <div style={{ borderTop: "1px solid #334155", margin: "4px 0" }} />
             <ContextMenuItem
-              label={bookmarks[String(contextMenu.rowData?.id)] ? "Upraviť bookmark" : "Pridať bookmark"}
+              label={bookmarks[String(contextMenu.rowData?.id)] ? t("editor.contextMenu.bookmarkEdit") : t("editor.contextMenu.bookmarkAdd")}
               icon="⚑"
               shortcut="Ctrl+B"
               onClick={() => {
@@ -2620,6 +2683,10 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
                 </span>
                 <span className="btn-icon-label">{t("editor.toolbar.readPdf")}</span>
               </button>
+              <button className="btn-icon" onClick={() => setShowWebReader(true)} style={{ background: "#065f46", color: "#6ee7b7" }}>
+                <span className="btn-icon-glyph">🌐</span>
+                <span className="btn-icon-label">{t("webReader.title")}</span>
+              </button>
               <button
                 className="btn-icon"
                 onMouseDown={(e) => e.preventDefault()}
@@ -2766,7 +2833,8 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
                 onClick={() => setShowImgGen(true)}
                 title="Generovať obrázok"
               >
-                <img src={pureIcon} style={{ width: "2rem", height: "2rem", objectFit: "contain" }} alt="" />
+                <img src={pureIcon} className="btn-icon-glyph" style={{ width: "1.8rem", height: "1.8rem", objectFit: "contain" }} alt="" />
+                <span className="btn-icon-label">OBR</span>
               </button>
             </div>
 
@@ -2819,9 +2887,19 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
           </div>
         </section>
 
+        {/* RIGHT PANEL TOGGLE — zobrazí sa keď je panel skrytý */}
+        {!showRightPanel && (
+          <button className="preview-panel-toggle" onClick={() => setShowRightPanel(true)} title={t("review.previewPanel")}>
+            ‹
+          </button>
+        )}
+
         {/* RIGHT PANEL */}
-        <aside className="preview-panel">
-          <div className="panel-title">{t("review.previewPanel")}</div>
+        {showRightPanel && <aside className="preview-panel">
+          <div className="panel-title">
+            {t("review.previewPanel")}
+            <button className="panel-title-close" onClick={() => setShowRightPanel(false)} title="Zavrieť panel">✕</button>
+          </div>
 
           <PackPreview
             row={selectedRow}
@@ -2864,7 +2942,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
               </div>
             </div>
           )}
-        </aside>
+        </aside>}
       </main>
 
       <footer className="footer">

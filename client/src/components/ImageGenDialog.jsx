@@ -80,7 +80,7 @@ export default function ImageGenDialog({
     if (!generating) return;
     setProgress(0);
     const start = Date.now();
-    const ESTIMATE = 22000;
+    const ESTIMATE = 15000;
     const id = setInterval(() => {
       setProgress(Math.min(90, Math.round((Date.now() - start) / ESTIMATE * 90)));
     }, 250);

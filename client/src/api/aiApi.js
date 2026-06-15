@@ -28,9 +28,9 @@ export async function translateWord(word, fromLang, toLang, token) {
   return response.data.translation;
 }
 
-export async function generateTranslation(row, targetLang, nativeLang, token, packFile) {
+export async function generateTranslation(row, targetLang, nativeLang, token, packFile, packCategory) {
   const response = await requestWithRetry(() =>
-    axios.post(`${API_URL}/generate-translation`, { row, targetLang, nativeLang, packFile }, { headers: authHeaders(token) }),
+    axios.post(`${API_URL}/generate-translation`, { row, targetLang, nativeLang, packFile, packCategory }, { headers: authHeaders(token) }),
   );
   return response.data;
 }
@@ -54,6 +54,14 @@ export async function generateColumn(row, field, targetLang, nativeLang, token, 
     axios.post(`${API_URL}/generate-column`, { row, field, targetLang, nativeLang, packFile }, { headers: authHeaders(token) }),
   );
   return response.data.value;
+}
+
+// Vracia plný objekt { value, paired? } — pre example polia kde server vracia aj paired preklad
+export async function generateColumnFull(row, field, targetLang, nativeLang, token, packFile, packCategory) {
+  const response = await requestWithRetry(() =>
+    axios.post(`${API_URL}/generate-column`, { row, field, targetLang, nativeLang, packFile, packCategory }, { headers: authHeaders(token) }),
+  );
+  return response.data;
 }
 
 export async function generateImage(prompt, negative, token, transparent = false) {

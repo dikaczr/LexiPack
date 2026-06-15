@@ -304,7 +304,7 @@ function PackMetadataPanel({ metadata, setMetadata, availableTags = [], apiBase,
           value={metadata.level}
           onChange={(e) => updateField("level", e.target.value)}
         >
-          {["A1","A2","B1","B2","C1","C2"].map(l => (
+          {["A1","A2","B1","B2","C1","C2","Expert"].map(l => (
             <option key={l} value={l}>{l}</option>
           ))}
         </select>

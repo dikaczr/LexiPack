@@ -93,6 +93,8 @@ const sk = {
     exampleSk:  "Príklad SK",
     exampleLang: (lang) => `Príklad ${lang.toUpperCase()}`,
     topic:      "Téma",
+    _bm_flag:   "Záložka",
+    _checkbox:  "Výber",
   },
 
   // ── User menu ─────────────────────────────────────
@@ -329,10 +331,16 @@ const sk = {
       translating:     "Prekladám...",
       deepl:           "Otvoriť v DeepL",
       google:          "Otvoriť v Google Prekladači",
+      copy:            "Kopírovať",
+      cut:             "Vystrihnúť",
+      paste:           "Vložiť",
+      fillWithAI:      "Doplniť AI",
       copyRow:         "Kopírovať riadok",
       cutRow:          "Vystrihnúť riadok",
       pasteRow:        "Vložiť riadok",
       pasteRowNoData:  "Nič na vloženie",
+      bookmarkAdd:     "Pridať záložku",
+      bookmarkEdit:    "Upraviť záložku",
     },
     suggestConfirm: {
       title:    "Návrhy",
@@ -419,7 +427,7 @@ const sk = {
     neg_noposterchildren: "Bez plakátu pre deti",
     generate:           "Generovať",
     generating:         "Generujem obrázok…",
-    generatingHint:     "Pollinations AI — zvyčajne 10–30 sekúnd",
+    generatingHint:     "GPT Image — zvyčajne 10–30 sekúnd",
     useImage:           "Použiť ako ikonu",
     regenerate:         "Generovať znova",
     error:              "Generovanie zlyhalo",
@@ -727,7 +735,42 @@ const sk = {
   // ── Footer ────────────────────────────────────────
   footer: {
     copy:    "LexiLab ©2026 Techdoc",
-    version: "LexiPack v1.45",
+    version: "LexiPack v1.51",
+  },
+
+  // ── Web Reader Dialog ─────────────────────────────
+  webReader: {
+    title:        "Web Reader",
+    urlPlaceholder: "Zadajte URL adresu stránky…",
+    load:         "Načítať",
+    loading:      "Načítavam stránku…",
+    reset:        "Iná stránka",
+    added:        (n) => `${n} pridaných`,
+    legendAdded:  "■ práve pridané",
+    legendExists: "■ už v packu",
+    legendHint:   "— klikni na slovo",
+    errorEmpty:   "Zadajte URL adresu",
+    errorFetch:   "Nepodarilo sa načítať stránku",
+    emptyText:    "Stránka neobsahuje čitateľný text",
+    hint:         "Klikni na ľubovoľné slovo pre pridanie do balíka",
+    titleAdded:   "pridané",
+    titleExists:  "už v packu",
+    titleClick:   "klikni pre pridanie",
+    addPhrase:    "+ Pridať",
+    legendMulti:  "— alebo označ viac slov myšou",
+  },
+
+  // ── Export Dialog ─────────────────────────────────
+  exportDialog: {
+    title:        "Export",
+    formatLabel:  "Výstupný formát",
+    cancel:       "Zrušiť",
+    ok:           "Exportovať",
+    fmt_xlsx:     "Excel tabuľka",
+    fmt_csv:      "Oddeľovaný textový súbor",
+    fmt_tbx:      "TermBase eXchange (ISO 30042)",
+    fmt_txt:      "Čitateľný textový súbor",
+    fmt_pdf:      "Formátovaný dokument",
   },
 };
 

@@ -10,8 +10,9 @@
   --app-chrome:       #1b1c1d;   /* header / footer / sidebar */
   --app-panel:        #1a2535;   /* modals, dropdowns, cards  */
   --app-input:        #0f1923;   /* inputs, selects           */
-  --app-border:       #333333;   /* primary borders           */
+  --app-border:       #444444;   /* primary borders           */
   --app-border-sub:   #2a3a50;   /* subtle borders            */
+  --app-btn-border:   #4a6080;   /* ghost button outline      */
   --app-border-faint: rgba(255,255,255,0.06); /* sidebar btn divider */
   --app-text:         #ffffff;   /* primary text              */
   --app-text2:        #c8d8f0;   /* secondary text            */
@@ -54,8 +55,9 @@
   --app-chrome:       #161b22;
   --app-panel:        #1c2333;
   --app-input:        #0d1117;
-  --app-border:       #30363d;
-  --app-border-sub:   #21262d;
+  --app-border:       #40464d;
+  --app-border-sub:   #31363e;
+  --app-btn-border:   #58647a;
   --app-border-faint: rgba(255,255,255,0.05);
   --app-text:         #e6edf3;
   --app-text2:        #cdd9e5;
@@ -89,8 +91,9 @@
   --app-chrome:       #073642;
   --app-panel:        #073642;
   --app-input:        #00212b;
-  --app-border:       #175866;
+  --app-border:       #276876;
   --app-border-sub:   #0d4455;
+  --app-btn-border:   #2a7a8a;
   --app-border-faint: rgba(255,255,255,0.05);
   --app-text:         #fdf6e3;
   --app-text2:        #93a1a1;
@@ -124,8 +127,9 @@
   --app-chrome:       #1e1f1c;
   --app-panel:        #2d2e2a;
   --app-input:        #2e2f2c;
-  --app-border:       #4f4e44;
+  --app-border:       #5f5e54;
   --app-border-sub:   #3e3d32;
+  --app-btn-border:   #6a695e;
   --app-border-faint: rgba(255,255,255,0.06);
   --app-text:         #f8f8f2;
   --app-text2:        #cfcfc2;
@@ -161,6 +165,7 @@
   --app-input:        #ffffff;
   --app-border:       #dadce0;
   --app-border-sub:   #c8ccd4;
+  --app-btn-border:   #b0b5bc;
   --app-border-faint: rgba(0,0,0,0.08);
   --app-text:         #202124;
   --app-text2:        #3c4043;

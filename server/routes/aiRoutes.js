@@ -79,11 +79,14 @@ router.post("/generate-topic", async (req, res) => {
 // ── AI Generate row (requireAuth) ────────────────────
 router.post("/generate-translation", requireAuth, async (req, res) => {
   try {
-    const { row, targetLang, nativeLang, packFile } = req.body;
+    const { row, targetLang, nativeLang, packFile, packCategory } = req.body;
     if (!row?.word) return res.status(400).json({ error: "Missing word.word" });
 
     const tName = LANG_NAMES[targetLang] || targetLang || "English";
     const nName = LANG_NAMES[nativeLang] || nativeLang || "Slovak";
+    const categoryHint = packCategory?.trim()
+      ? `\n\nThis word belongs to a vocabulary pack about: "${packCategory}". Example sentences MUST reflect this domain — avoid unrelated contexts.`
+      : "";
 
     const requestAt = new Date();
     const completion = await getOpenAI().chat.completions.create({
@@ -91,7 +94,7 @@ router.post("/generate-translation", requireAuth, async (req, res) => {
       messages: [
         {
           role: "system",
-          content: `You are a professional dictionary assistant.\n\nReturn ONLY valid JSON.\n\nFields:\n- phonetic (IPA for ${tName})\n- translation (in ${nName})\n- definition (in ${tName})\n- type (part of speech in English, e.g. noun, verb)\n- level (CEFR: A1–C2)\n- example_${targetLang} (example sentence in ${tName})\n- example_${nativeLang} (example sentence in ${nName})\n\nExample:\n{\n  "phonetic": "/ˈplænɪt/",\n  "translation": "planéta",\n  "definition": "A large object orbiting a star.",\n  "type": "noun",\n  "level": "B1",\n  "example_${targetLang}": "Earth is a planet.",\n  "example_${nativeLang}": "Zem je planéta."\n}`,
+          content: `You are a professional lexicographer writing entries for an advanced vocabulary reference.\n\nReturn ONLY valid JSON.\n\nFields:\n- phonetic (IPA for ${tName})\n- translation (in ${nName})\n- definition (in ${tName})\n- type (part of speech in English, e.g. noun, verb)\n- level (CEFR: A1–C2)\n- example_${targetLang} (example sentence in ${tName})\n- example_${nativeLang} (example sentence in ${nName})${categoryHint}\n\nExample sentence rules:\n- Write natural sentences a native speaker would actually say or write\n- Show the word meaningfully in context — do NOT just state its definition\n- Avoid trivial patterns like "X is a Y" or "A X is used for Y"\n- Use realistic scenarios, actions, or situations\n- Both sentences must be translations of each other\n\nExample:\n{\n  "phonetic": "/ˈplænɪt/",\n  "translation": "planéta",\n  "definition": "A celestial body orbiting a star, massive enough to be rounded by its own gravity.",\n  "type": "noun",\n  "level": "B1",\n  "example_${targetLang}": "Scientists detected signs of water on the newly discovered planet, raising hopes for extraterrestrial life.",\n  "example_${nativeLang}": "Vedci objavili stopy vody na novo objavenej planéte, čo vzbudilo nádeje na mimozemský život."\n}`,
         },
         { role: "user", content: row.word },
       ],
@@ -151,24 +154,46 @@ router.post("/suggest-words", requireAuth, async (req, res) => {
 // ── AI Fill column (requireAuth) ──────────────────────
 router.post("/generate-column", requireAuth, async (req, res) => {
   try {
-    const { row, field, targetLang, nativeLang, packFile } = req.body;
+    const { row, field, targetLang, nativeLang, packFile, packCategory } = req.body;
     const tName = LANG_NAMES[targetLang] || targetLang || "English";
     const nName = LANG_NAMES[nativeLang] || nativeLang || "Slovak";
 
     const exTargetField = `example_${targetLang}`;
     const exNativeField = `example_${nativeLang}`;
-    const fieldHints = {
-      phonetic:      `IPA phonetic transcription for ${tName}`,
-      translation:   `translation of the word in ${nName}`,
-      definition:    `definition of the word in ${tName}`,
-      type:          "part of speech in English (e.g. noun, verb, adjective)",
-      level:         "CEFR difficulty level (A1–C2)",
-      [exTargetField]: `example sentence using the word in ${tName}`,
-      [exNativeField]: `example sentence using the translated word in ${nName}`,
-      topic:         "topic/category in one English word (e.g. astronomy, finance)",
-    };
 
     const requestAt = new Date();
+
+    // Pre example polia: vygeneruj obe vety naraz ako prekladový pár
+    if (field === exTargetField || field === exNativeField) {
+      const pairedField = field === exTargetField ? exNativeField : exTargetField;
+      const categoryHint = packCategory?.trim()
+        ? ` The vocabulary pack is about: "${packCategory}". Both sentences must reflect this topic.`
+        : "";
+      const completion = await getOpenAI().chat.completions.create({
+        model: process.env.OPENAI_MODEL,
+        messages: [
+          {
+            role: "system",
+            content: `You are a professional lexicographer.\nGenerate one natural, realistic example sentence for the ${tName} word and its exact ${nName} translation as a matching pair.${categoryHint}\nRules: show the word in a meaningful context — avoid trivial "X is a Y" patterns. Use realistic scenarios.\nReturn ONLY valid JSON:\n{\n  "${exTargetField}": "example sentence in ${tName}",\n  "${exNativeField}": "translation of that sentence in ${nName}"\n}`,
+          },
+          { role: "user", content: `Word (${tName}): ${row.word}\nTranslation (${nName}): ${row.translation || ""}` },
+        ],
+      });
+      const aiData = JSON.parse(completion.choices[0].message.content.replace(/```json|```/g, "").trim());
+      await auditLog(req.user, "AI_FILL_COLUMN", { word: row.word, field }, req.ip);
+      await trackAI(req.user, "AI_FILL_COLUMN", packFile ?? null, requestAt, completion.usage?.total_tokens ?? null);
+      return res.json({ value: aiData[field], paired: { field: pairedField, value: aiData[pairedField] } });
+    }
+
+    const fieldHints = {
+      phonetic:    `IPA phonetic transcription for ${tName}`,
+      translation: `translation of the word in ${nName}`,
+      definition:  `definition of the word in ${tName}`,
+      type:        "part of speech in English (e.g. noun, verb, adjective)",
+      level:       "CEFR difficulty level (A1–C2)",
+      topic:       "topic/category in one English word (e.g. astronomy, finance)",
+    };
+
     const completion = await getOpenAI().chat.completions.create({
       model: process.env.OPENAI_MODEL,
       messages: [
@@ -181,7 +206,6 @@ router.post("/generate-column", requireAuth, async (req, res) => {
     });
 
     const aiData = JSON.parse(completion.choices[0].message.content.replace(/```json|```/g, "").trim());
-
     await auditLog(req.user, "AI_FILL_COLUMN", { word: row.word, field }, req.ip);
     await trackAI(req.user, "AI_FILL_COLUMN", packFile ?? null, requestAt, completion.usage?.total_tokens ?? null);
     res.json(aiData);
@@ -191,7 +215,7 @@ router.post("/generate-column", requireAuth, async (req, res) => {
   }
 });
 
-// ── Generovanie obrázku (Pollinations.ai — free, bez API kľúča) ──
+// ── Generovanie obrázku (DALL-E 3) ──
 router.post("/generate-image", requireAuth, async (req, res) => {
   const { prompt } = req.body;
   if (!prompt?.trim()) return res.status(400).json({ error: "prompt required" });
@@ -199,30 +223,34 @@ router.post("/generate-image", requireAuth, async (req, res) => {
   const { negative, transparent } = req.body;
   const requestAt = new Date();
   try {
-    const encodedPrompt = encodeURIComponent(prompt.trim());
-    const format = transparent ? "png" : "jpeg";
-    let url = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=512&height=512&nologo=true&format=${format}&seed=${Date.now()}`;
-    // Pri transparentnom pozadí pridaj negáciu bielej/sivej farby pozadia
-    const effectiveNeg = transparent
-      ? [negative?.trim(), "white background, grey background, gray background, solid background"].filter(Boolean).join(", ")
-      : negative?.trim();
-    if (effectiveNeg) url += `&negative=${encodeURIComponent(effectiveNeg)}`;
+    const openai = getOpenAI();
+    const model = process.env.OPENAI_IMAGE_MODEL || "gpt-image-1";
 
-    const imgRes = await fetch(url, { signal: AbortSignal.timeout(60000) });
-    if (!imgRes.ok) return res.status(500).json({ error: `Pollinations error: ${imgRes.status}` });
+    // gpt-image-1 nepodporuje negative prompt — zakomponujeme ho do promptu
+    const avoidParts = [];
+    if (negative?.trim()) avoidParts.push(negative.trim());
+    const fullPrompt = avoidParts.length
+      ? `${prompt.trim()} Avoid: ${avoidParts.join(", ")}.`
+      : prompt.trim();
 
-    const contentType = imgRes.headers.get("content-type") || "image/jpeg";
-    const buffer = await imgRes.arrayBuffer();
-    const b64 = Buffer.from(buffer).toString("base64");
-    const mime = contentType.startsWith("image/") ? contentType : "image/jpeg";
+    const response = await openai.images.generate({
+      model,
+      prompt: fullPrompt,
+      size: "1024x1024",
+      output_format: "png",
+      ...(transparent ? { background: "transparent" } : {}),
+    });
+
+    const b64 = response.data[0].b64_json;
+    const mime = "image/png";
+    const buffer = Buffer.from(b64, "base64");
 
     // Uložiť do ~/Pictures/AI/
     try {
       const saveDir = path.join(os.homedir(), "Pictures", "AI");
       await fs.mkdir(saveDir, { recursive: true });
-      const ext = mime === "image/png" ? "png" : "jpg";
       const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-      await fs.writeFile(path.join(saveDir, `ai_${timestamp}.${ext}`), Buffer.from(buffer));
+      await fs.writeFile(path.join(saveDir, `ai_${timestamp}.png`), buffer);
     } catch (saveErr) {
       console.warn("[generate-image] save to disk failed:", saveErr.message);
     }

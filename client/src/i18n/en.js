@@ -93,6 +93,8 @@ const en = {
     exampleSk:  "Example SK",
     exampleLang: (lang) => `Example ${lang.toUpperCase()}`,
     topic:      "Topic",
+    _bm_flag:   "Bookmark",
+    _checkbox:  "Select",
   },
 
   // ── User menu ─────────────────────────────────────
@@ -329,10 +331,16 @@ const en = {
       translating:     "Translating...",
       deepl:           "Open in DeepL",
       google:          "Open in Google Translate",
+      copy:            "Copy",
+      cut:             "Cut",
+      paste:           "Paste",
+      fillWithAI:      "Fill with AI",
       copyRow:         "Copy row",
       cutRow:          "Cut row",
       pasteRow:        "Paste row",
       pasteRowNoData:  "Nothing to paste",
+      bookmarkAdd:     "Add bookmark",
+      bookmarkEdit:    "Edit bookmark",
     },
     suggestConfirm: {
       title:    "Suggest Words",
@@ -419,7 +427,7 @@ const en = {
     neg_noposterchildren: "No poster for children",
     generate:           "Generate",
     generating:         "Generating image…",
-    generatingHint:     "Pollinations AI — usually 10–30 seconds",
+    generatingHint:     "GPT Image — usually 10–30 seconds",
     useImage:           "Use as icon",
     regenerate:         "Generate again",
     error:              "Generation failed",
@@ -727,7 +735,42 @@ const en = {
   // ── Footer ────────────────────────────────────────
   footer: {
     copy:    "LexiLab ©2026 Techdoc",
-    version: "LexiPack v1.32",
+    version: "LexiPack v1.51",
+  },
+
+  // ── Web Reader Dialog ─────────────────────────────
+  webReader: {
+    title:        "Web Reader",
+    urlPlaceholder: "Enter page URL…",
+    load:         "Load",
+    loading:      "Loading page…",
+    reset:        "Other page",
+    added:        (n) => `${n} added`,
+    legendAdded:  "■ just added",
+    legendExists: "■ already in pack",
+    legendHint:   "— click a word",
+    errorEmpty:   "Enter a URL",
+    errorFetch:   "Failed to load page",
+    emptyText:    "Page contains no readable text",
+    hint:         "Click any word to add it to the pack",
+    titleAdded:   "added",
+    titleExists:  "already in pack",
+    titleClick:   "click to add",
+    addPhrase:    "+ Add",
+    legendMulti:  "— or select multiple words with mouse",
+  },
+
+  // ── Export Dialog ─────────────────────────────────
+  exportDialog: {
+    title:        "Export",
+    formatLabel:  "Output format",
+    cancel:       "Cancel",
+    ok:           "Export",
+    fmt_xlsx:     "Excel spreadsheet",
+    fmt_csv:      "Delimited text file",
+    fmt_tbx:      "TermBase eXchange (ISO 30042)",
+    fmt_txt:      "Readable text file",
+    fmt_pdf:      "Formatted document",
   },
 };
 
