@@ -1,5 +1,5 @@
 import express from "express";
-import OpenAI from "openai";
+import OpenAI, { toFile } from "openai";
 import { requireAuth } from "../middleware/auth.js";
 import { auditLog } from "../middleware/audit.js";
 import { trackAI } from "../middleware/telemetry.js";
@@ -220,7 +220,7 @@ router.post("/generate-image", requireAuth, async (req, res) => {
   const { prompt } = req.body;
   if (!prompt?.trim()) return res.status(400).json({ error: "prompt required" });
 
-  const { negative, transparent } = req.body;
+  const { negative, transparent, referenceImage } = req.body;
   const requestAt = new Date();
   try {
     const openai = getOpenAI();
@@ -233,13 +233,30 @@ router.post("/generate-image", requireAuth, async (req, res) => {
       ? `${prompt.trim()} Avoid: ${avoidParts.join(", ")}.`
       : prompt.trim();
 
-    const response = await openai.images.generate({
-      model,
-      prompt: fullPrompt,
-      size: "1024x1024",
-      output_format: "png",
-      ...(transparent ? { background: "transparent" } : {}),
-    });
+    let response;
+    if (referenceImage?.trim()) {
+      const matches = referenceImage.match(/^data:([^;]+);base64,(.+)$/);
+      if (!matches) throw new Error("Invalid reference image format");
+      const [, imgMime, imgB64] = matches;
+      const imgBuffer = Buffer.from(imgB64, "base64");
+      const imgFile = await toFile(imgBuffer, "reference.png", { type: imgMime });
+      response = await openai.images.edit({
+        model,
+        image: imgFile,
+        prompt: fullPrompt,
+        size: "1024x1024",
+        output_format: "png",
+        ...(transparent ? { background: "transparent" } : {}),
+      });
+    } else {
+      response = await openai.images.generate({
+        model,
+        prompt: fullPrompt,
+        size: "1024x1024",
+        output_format: "png",
+        ...(transparent ? { background: "transparent" } : {}),
+      });
+    }
 
     const b64 = response.data[0].b64_json;
     const mime = "image/png";

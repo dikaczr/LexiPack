@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useT } from "../i18n";
 import { generateImage } from "../api/aiApi";
 import { resizeImageDataUrl } from "../utils/resizeImage";
 import "./ImageGenDialog.css";
 
-const STYLES      = ["vector", "3d", "realistic", "stylized"];
-const BACKGROUNDS = ["white", "transparent"];
+const STYLES      = ["vector", "3d", "realistic", "stylized", "illustrated", "retrovintage", "flatdesign", "minimalistic", "brutalstyle"];
+const BACKGROUNDS = ["white", "transparent", "dark"];
 const ATMOSPHERE  = ["inspiring", "intelligent", "dark", "light"];
 
 const NEGATIVE_ITEMS = [
@@ -19,15 +19,21 @@ const NEGATIVE_ITEMS = [
 ];
 
 const STYLE_PROMPT = {
-  vector:   "vector art illustration",
-  "3d":     "3D rendered image",
-  realistic:"photorealistic photo",
-  stylized: "stylized digital art",
+  vector:       "vector art illustration",
+  "3d":         "3D rendered image",
+  realistic:    "photorealistic photo",
+  stylized:     "stylized digital art",
+  illustrated:  "hand-drawn editorial illustration",
+  retrovintage: "retro and vintage style artwork",
+  flatdesign:   "flat design illustration",
+  minimalistic: "minimalistic clean design",
+  brutalstyle:  "brutalist graphic design style",
 };
 
 const BG_PROMPT = {
   white:       "white background",
   transparent: "transparent background",
+  dark:        "dark background",
 };
 
 function buildPrompt(description, style, background, atmosphere, extra) {
@@ -67,12 +73,14 @@ export default function ImageGenDialog({
   const [progress,    setProgress]    = useState(0);
   const [result,      setResult]      = useState(null);
   const [error,       setError]       = useState(null);
+  const [refImage,    setRefImage]    = useState(null);
+  const refInputRef = useRef(null);
 
   useEffect(() => {
     if (open) {
       const parts = [packName, packCategory].filter(Boolean);
       setDescription(parts.join(" — ") || "");
-      setResult(null); setError(null); setProgress(0);
+      setResult(null); setError(null); setProgress(0); setRefImage(null);
     }
   }, [open, packName, packCategory]);
 
@@ -87,6 +95,13 @@ export default function ImageGenDialog({
     return () => clearInterval(id);
   }, [generating]);
 
+  function handleRefFile(file) {
+    if (!file?.type.startsWith("image/")) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => setRefImage(ev.target.result);
+    reader.readAsDataURL(file);
+  }
+
   function toggleAtmo(val) {
     setAtmosphere(prev =>
       prev.includes(val) ? prev.filter(v => v !== val) : [...prev, val]
@@ -100,7 +115,7 @@ export default function ImageGenDialog({
       const prompt       = buildPrompt(description, style, background, atmosphere, extra);
       const negative     = buildNegative(negChecks, negExtra);
       const transparent  = background === "transparent";
-      const dataUrl      = await generateImage(prompt, negative, token, transparent);
+      const dataUrl      = await generateImage(prompt, negative, token, transparent, refImage);
       setProgress(100);
       setResult(dataUrl);
     } catch (err) {
@@ -139,6 +154,39 @@ export default function ImageGenDialog({
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder={t("imgGen.descHint")}
                 rows={3}
+                disabled={generating}
+              />
+            </div>
+
+            {/* Reference image */}
+            <div className="img-gen-field">
+              <label>{t("imgGen.refLabel")}</label>
+              <div
+                className={`img-gen-ref-zone${refImage ? " has-image" : ""}`}
+                onClick={() => !refImage && refInputRef.current?.click()}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => { e.preventDefault(); handleRefFile(e.dataTransfer.files[0]); }}
+              >
+                {refImage ? (
+                  <>
+                    <img src={refImage} className="img-gen-ref-thumb" alt="ref" />
+                    <button
+                      className="img-gen-ref-remove"
+                      onClick={(e) => { e.stopPropagation(); setRefImage(null); if (refInputRef.current) refInputRef.current.value = ""; }}
+                      disabled={generating}
+                    >×</button>
+                  </>
+                ) : (
+                  <span className="img-gen-ref-hint">{t("imgGen.refHint")}</span>
+                )}
+              </div>
+              {refImage && <span className="img-gen-ref-note">{t("imgGen.refNote")}</span>}
+              <input
+                ref={refInputRef}
+                type="file"
+                accept="image/*"
+                style={{ display: "none" }}
+                onChange={(e) => handleRefFile(e.target.files[0])}
                 disabled={generating}
               />
             </div>

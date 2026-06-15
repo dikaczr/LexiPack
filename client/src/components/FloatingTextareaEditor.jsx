@@ -2,12 +2,8 @@ import { forwardRef, useImperativeHandle, useState, useRef, useEffect } from "re
 import ReactDOM from "react-dom";
 import "./FloatingTextareaEditor.css";
 
-const FLOAT_H = 120;
-const FLOAT_W = 360;
-
-// Track last mousedown position — fires before ag-grid creates the editor
-let _mx = 0, _my = 0;
-window.addEventListener("mousedown", e => { _mx = e.clientX; _my = e.clientY; }, { capture: true, passive: true });
+const FLOAT_H = 140;
+const FLOAT_W = 400;
 
 const FloatingTextareaEditor = forwardRef((params, ref) => {
   const startValue = params.eventKey?.length === 1
@@ -16,13 +12,20 @@ const FloatingTextareaEditor = forwardRef((params, ref) => {
 
   const [value, setValue] = useState(startValue);
   const textareaRef = useRef(null);
+  const popupRef    = useRef(null);
   const dragRef = useRef({ active: false, startX: 0, startY: 0, origLeft: 0, origTop: 0 });
 
-  // Y from cursor, X from cell left edge
-  const cellLeft = params.eGridCell?.getBoundingClientRect().left ?? _mx;
-  const spaceBelow = window.innerHeight - _my;
-  const above = spaceBelow < FLOAT_H + 14 && _my >= FLOAT_H + 14;
-  const initTop  = Math.max(4, Math.min(above ? _my - FLOAT_H - 14 : _my + 14, window.innerHeight - FLOAT_H - 4));
+  // Position relative to the actual cell bounding box (correct even after ag-Grid scroll)
+  const cellRect = params.eGridCell?.getBoundingClientRect();
+  const cellBottom = cellRect?.bottom ?? (window.innerHeight / 2);
+  const cellTop    = cellRect?.top    ?? (window.innerHeight / 2 - 26);
+  const cellLeft   = cellRect?.left   ?? 0;
+
+  const spaceBelow = window.innerHeight - cellBottom;
+  const above      = spaceBelow < FLOAT_H + 8;
+  const initTop  = above
+    ? Math.max(4, cellTop - FLOAT_H - 4)
+    : Math.min(cellBottom + 4, window.innerHeight - FLOAT_H - 4);
   const initLeft = Math.max(4, Math.min(cellLeft, window.innerWidth - FLOAT_W - 4));
 
   const [pos, setPos] = useState({ top: initTop, left: initLeft, width: FLOAT_W });
@@ -32,12 +35,19 @@ const FloatingTextareaEditor = forwardRef((params, ref) => {
     isCancelBeforeStart: () => false,
   }));
 
-  // Focus textarea on mount
+  // Focus textarea on mount + correct position if actual height overflows viewport
   useEffect(() => {
     const ta = textareaRef.current;
-    if (!ta) return;
-    ta.focus();
-    ta.setSelectionRange(ta.value.length, ta.value.length);
+    if (ta) { ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }
+
+    const el = popupRef.current;
+    if (el) {
+      const { top, bottom } = el.getBoundingClientRect();
+      const overflowBelow = bottom - (window.innerHeight - 4);
+      const overflowAbove = 4 - top;
+      if (overflowBelow > 0) setPos(prev => ({ ...prev, top: prev.top - overflowBelow }));
+      else if (overflowAbove > 0) setPos(prev => ({ ...prev, top: prev.top + overflowAbove }));
+    }
   }, []);
 
   // Global drag handlers
@@ -73,7 +83,7 @@ const FloatingTextareaEditor = forwardRef((params, ref) => {
   }
 
   const popup = (
-    <div className="fte-popup" style={{ position: "fixed", top: pos.top, left: pos.left, width: pos.width }}>
+    <div ref={popupRef} className="fte-popup" style={{ position: "fixed", top: pos.top, left: pos.left, width: pos.width }}>
       <div className="fte-handle" onMouseDown={onDragStart}>
         <span className="fte-grip">⠿</span>
         <span className="fte-col-name">{params.colDef?.headerName}</span>

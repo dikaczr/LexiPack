@@ -64,10 +64,12 @@ export async function generateColumnFull(row, field, targetLang, nativeLang, tok
   return response.data;
 }
 
-export async function generateImage(prompt, negative, token, transparent = false) {
+export async function generateImage(prompt, negative, token, transparent = false, referenceImage = null) {
+  const body = { prompt, negative, transparent };
+  if (referenceImage) body.referenceImage = referenceImage;
   const response = await axios.post(
     `${API_URL}/generate-image`,
-    { prompt, negative, transparent },
+    body,
     { headers: authHeaders(token), timeout: 120000 },
   );
   return response.data.image;
