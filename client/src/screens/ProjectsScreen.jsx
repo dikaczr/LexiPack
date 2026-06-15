@@ -11,7 +11,7 @@ import { logAudit } from "../api/auditApi";
 import { resizeImageFile } from "../utils/resizeImage";
 
 const API = `${API_BASE}/api/packs`;
-const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
+const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2", "Expert"];
 const STATUS_ORDER = ["Draft", "Complete", "In Review", "Approved", "Published", "Archived"];
 
 
@@ -67,6 +67,33 @@ function buildFileName(form) {
   return `${base}_${form.level}_v${form.version}_${form.targetLang.toUpperCase()}-${form.nativeLang.toUpperCase()}.json`;
 }
 
+function useDraggable() {
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const dragging   = useRef(false);
+  const startPos   = useRef({ x: 0, y: 0 });
+  const startOff   = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    function onMove(e) {
+      if (!dragging.current) return;
+      setOffset({ x: startOff.current.x + e.clientX - startPos.current.x, y: startOff.current.y + e.clientY - startPos.current.y });
+    }
+    function onUp() { dragging.current = false; }
+    document.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseup", onUp);
+    return () => { document.removeEventListener("mousemove", onMove); document.removeEventListener("mouseup", onUp); };
+  }, []);
+
+  function onHeaderMouseDown(e) {
+    dragging.current = true;
+    startPos.current = { x: e.clientX, y: e.clientY };
+    startOff.current = { ...offset };
+    e.preventDefault();
+  }
+
+  return { offset, onHeaderMouseDown };
+}
+
 // ── Modál nového balíka ───────────────────────────────
 function NewPackModal({ onClose, onCreated }) {
   const t = useT();
@@ -81,6 +108,7 @@ function NewPackModal({ onClose, onCreated }) {
   const [fileNameEdited,   setFileNameEdited]   = useState(false);
   const [error, setError]   = useState(null);
   const [saving, setSaving] = useState(false);
+  const { offset, onHeaderMouseDown } = useDraggable();
 
   const autoFileName = buildFileName(form);
   const displayFileName = fileNameEdited ? fileNameOverride : autoFileName;
@@ -124,8 +152,8 @@ function NewPackModal({ onClose, onCreated }) {
 
   return (
     <div className="np-backdrop" onClick={(e) => e.target === e.currentTarget && onClose()}>
-      <form className="np-modal" onSubmit={handleSubmit}>
-        <div className="np-header">
+      <form className="np-modal" onSubmit={handleSubmit} style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}>
+        <div className="np-header" onMouseDown={onHeaderMouseDown} style={{ cursor: "move" }}>
           <h3>{t("newPack.title")}</h3>
           <button type="button" className="np-close" onClick={onClose}>✕</button>
         </div>

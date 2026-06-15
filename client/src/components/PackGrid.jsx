@@ -170,6 +170,7 @@ function PackGrid({
   isReadOnly = false,
   targetLang = "en",
   nativeLang = "sk",
+  isMovingRowRef,
 }) {
   const t   = useT();
   const rem = useRem();
@@ -189,20 +190,18 @@ function PackGrid({
   useEffect(() => { bookmarksRef.current = bookmarks; gridRef.current?.api?.refreshCells({ columns: ["_bm_flag"], force: true }); }, [bookmarks]);
 
   useEffect(() => {
-    const api = gridRef.current?.api;
-    if (!api) return;
-    const nodes = [];
-    if (prevRowIndexRef.current !== null) {
-      const n = api.getDisplayedRowAtIndex(prevRowIndexRef.current);
-      if (n) nodes.push(n);
-    }
-    if (selectedRowIndex !== null) {
-      const n = api.getDisplayedRowAtIndex(selectedRowIndex);
-      if (n) nodes.push(n);
-    }
+    const prev = prevRowIndexRef.current;
     selectedRowIndexRef.current = selectedRowIndex;
     prevRowIndexRef.current = selectedRowIndex;
-    if (nodes.length) api.redrawRows({ rowNodes: nodes });
+    const raf = requestAnimationFrame(() => {
+      const api = gridRef.current?.api;
+      if (!api) return;
+      const nodes = [];
+      if (prev !== null) { const n = api.getDisplayedRowAtIndex(prev); if (n) nodes.push(n); }
+      if (selectedRowIndex !== null) { const n = api.getDisplayedRowAtIndex(selectedRowIndex); if (n) nodes.push(n); }
+      if (nodes.length) api.redrawRows({ rowNodes: nodes });
+    });
+    return () => cancelAnimationFrame(raf);
   }, [selectedRowIndex]);
 
   const r = (px) => Math.round(px / 10 * rem);
@@ -471,6 +470,7 @@ function PackGrid({
           setSelectedRowIndex(event.rowIndex);
         }}
         onCellFocused={(event) => {
+          if (isMovingRowRef?.current) return;
           if (event.rowIndex === null || event.rowIndex === undefined) return;
           setSelectedRowIndex(event.rowIndex);
         }}

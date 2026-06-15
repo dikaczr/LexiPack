@@ -170,6 +170,7 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   const nativeLangRef = useRef("sk");
   const selectedRowIndexRef = useRef(selectedRowIndex);
   useEffect(() => { selectedRowIndexRef.current = selectedRowIndex; }, [selectedRowIndex]);
+  const isMovingRowRef = useRef(false);
   const handleAddReviewRef = useRef(null);
 
   useEffect(() => {
@@ -1123,37 +1124,30 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
   }, [selectedRows, rows, saveHistory]);
 
   const moveSelectedRowUp = useCallback(() => {
-    if (selectedRowIndex === null) {
-      return;
-    }
-
-    if (selectedRowIndex === 0) {
-      return;
-    }
+    if (selectedRowIndex === null || selectedRowIndex === 0) return;
 
     saveHistory();
     const updatedRows = [...rows];
-
     [updatedRows[selectedRowIndex - 1], updatedRows[selectedRowIndex]] = [
       updatedRows[selectedRowIndex],
       updatedRows[selectedRowIndex - 1],
     ];
 
+    const newIdx = selectedRowIndex - 1;
+    isMovingRowRef.current = true;
     setRows(updatedRows);
-    setSelectedRowIndex(selectedRowIndex - 1);
+    setSelectedRowIndex(newIdx);
     setTimeout(() => {
-      gridRef.current?.api.ensureIndexVisible(selectedRowIndex - 1, "middle");
-    }, 50);
+      const api = gridRef.current?.api;
+      isMovingRowRef.current = false;
+      if (!api) return;
+      api.ensureIndexVisible(newIdx, "middle");
+      api.setFocusedCell(newIdx, "word");
+    }, 80);
   }, [selectedRowIndex, rows, saveHistory]);
 
   const moveSelectedRowDown = useCallback(() => {
-    if (selectedRowIndex === null) {
-      return;
-    }
-
-    if (selectedRowIndex >= rows.length - 1) {
-      return;
-    }
+    if (selectedRowIndex === null || selectedRowIndex >= rows.length - 1) return;
 
     saveHistory();
     const updatedRows = [...rows];
@@ -1162,11 +1156,17 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
       updatedRows[selectedRowIndex + 1],
     ];
 
+    const newIdx = selectedRowIndex + 1;
+    isMovingRowRef.current = true;
     setRows(updatedRows);
-    setSelectedRowIndex(selectedRowIndex + 1);
+    setSelectedRowIndex(newIdx);
     setTimeout(() => {
-      gridRef.current?.api.ensureIndexVisible(selectedRowIndex + 1, "middle");
-    }, 50);
+      const api = gridRef.current?.api;
+      isMovingRowRef.current = false;
+      if (!api) return;
+      api.ensureIndexVisible(newIdx, "middle");
+      api.setFocusedCell(newIdx, "word");
+    }, 80);
   }, [selectedRowIndex, rows, saveHistory]);
 
   async function handleCefrCheck() {
@@ -2883,6 +2883,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
               isReadOnly={isReadOnly}
               targetLang={packMetadata.targetLang || "en"}
               nativeLang={packMetadata.nativeLang || "sk"}
+              isMovingRowRef={isMovingRowRef}
             />
           </div>
         </section>
