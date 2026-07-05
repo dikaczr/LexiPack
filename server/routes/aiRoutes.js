@@ -273,6 +273,7 @@ router.post("/generate-image", requireAuth, async (req, res) => {
     }
 
     await trackAI(req.user, "GENERATE_IMAGE", null, requestAt, null);
+    await auditLog(req.user, "AI_GENERATE_IMAGE", { model, hasReference: !!referenceImage, transparent: !!transparent }, req.ip);
     res.json({ image: `data:${mime};base64,${b64}` });
   } catch (err) {
     console.error("generate-image failed:", err.message);

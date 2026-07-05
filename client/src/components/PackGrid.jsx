@@ -468,9 +468,11 @@ function PackGrid({
         onCellEditingStarted={() => {
           saveHistory();
         }}
-        onCellEditingStopped={onCellEditingStopped}
-        onCellValueChanged={(event) => {
-          const { _sel, ...data } = event.data;
+        onCellEditingStopped={(event) => {
+          onCellEditingStopped?.(event);
+          // Sync React state after editor fully closes (popup overlay already removed)
+          // event.node.data reflects final value incl. any autoCorrect applied above
+          const { _sel, ...data } = event.node.data;
           setRows((prev) =>
             prev.map((row) => (row.id === data.id ? { ...data } : row)),
           );

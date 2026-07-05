@@ -17,8 +17,11 @@ import autoCorrectRoutes from "./routes/autoCorrectRoutes.js";
 import notificationsRoutes from "./routes/notificationsRoutes.js";
 import { fileURLToPath } from "url";
 import path from "path";
-import { serverLog } from "./utils/serverLogger.js";
+import { serverLog, patchConsole } from "./utils/serverLogger.js";
 import { getPool } from "./db.js";
+import { auditLog } from "./middleware/audit.js";
+
+patchConsole();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,6 +35,7 @@ process.on("unhandledRejection", (reason) => {
 });
 
 const app = express();
+app.set("trust proxy", 1);
 
 const ALLOWED_ORIGINS = [
   "https://lexico.techdoc.sk",
@@ -105,7 +109,6 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, async () => {
-  serverLog("INFO", `Server started on port ${PORT}`);
   await syncPacksOnStartup();
 });
 

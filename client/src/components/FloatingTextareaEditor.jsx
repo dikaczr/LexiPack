@@ -1,110 +1,51 @@
-import { forwardRef, useImperativeHandle, useState, useRef, useEffect } from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 import ReactDOM from "react-dom";
 import "./FloatingTextareaEditor.css";
 
-const FLOAT_H = 140;
-const FLOAT_W = 400;
+const POPUP_W = 400;
+const POPUP_H = 140;
 
-const FloatingTextareaEditor = forwardRef((params, ref) => {
-  const startValue = params.eventKey?.length === 1
-    ? params.eventKey
-    : (params.value ?? "");
+const FloatingTextareaEditor = forwardRef(({ value, eventKey, stopEditing, onValueChange, colDef, eGridCell }, ref) => {
+  const startValue = eventKey?.length === 1 ? eventKey : (value ?? "");
+  const currentValueRef = useRef(startValue);
 
-  const [value, setValue] = useState(startValue);
-  const textareaRef = useRef(null);
-  const popupRef    = useRef(null);
-  const dragRef = useRef({ active: false, startX: 0, startY: 0, origLeft: 0, origTop: 0 });
-
-  // Position relative to the actual cell bounding box (correct even after ag-Grid scroll)
-  const cellRect = params.eGridCell?.getBoundingClientRect();
-  const cellBottom = cellRect?.bottom ?? (window.innerHeight / 2);
-  const cellTop    = cellRect?.top    ?? (window.innerHeight / 2 - 26);
-  const cellLeft   = cellRect?.left   ?? 0;
-
-  const spaceBelow = window.innerHeight - cellBottom;
-  const above      = spaceBelow < FLOAT_H + 8;
-  const initTop  = above
-    ? Math.max(4, cellTop - FLOAT_H - 4)
-    : Math.min(cellBottom + 4, window.innerHeight - FLOAT_H - 4);
-  const initLeft = Math.max(4, Math.min(cellLeft, window.innerWidth - FLOAT_W - 4));
-
-  const [pos, setPos] = useState({ top: initTop, left: initLeft, width: FLOAT_W });
+  // Position fixed relative to the cell, flip up if near bottom
+  const rect = eGridCell?.getBoundingClientRect();
+  let top = rect ? rect.bottom + 2 : 200;
+  let left = rect ? rect.left : 200;
+  if (rect && top + POPUP_H > window.innerHeight - 8) top = rect.top - POPUP_H - 2;
+  const maxLeft = window.innerWidth - POPUP_W - 8;
+  if (left > maxLeft) left = maxLeft;
+  if (left < 8) left = 8;
 
   useImperativeHandle(ref, () => ({
-    getValue: () => value,
+    getValue: () => currentValueRef.current,
     isCancelBeforeStart: () => false,
   }));
 
-  // Focus textarea on mount + correct position if actual height overflows viewport
-  useEffect(() => {
-    const ta = textareaRef.current;
-    if (ta) { ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }
-
-    const el = popupRef.current;
-    if (el) {
-      const { top, bottom } = el.getBoundingClientRect();
-      const overflowBelow = bottom - (window.innerHeight - 4);
-      const overflowAbove = 4 - top;
-      if (overflowBelow > 0) setPos(prev => ({ ...prev, top: prev.top - overflowBelow }));
-      else if (overflowAbove > 0) setPos(prev => ({ ...prev, top: prev.top + overflowAbove }));
-    }
-  }, []);
-
-  // Global drag handlers
-  useEffect(() => {
-    function onMove(e) {
-      if (!dragRef.current.active) return;
-      const dx = e.clientX - dragRef.current.startX;
-      const dy = e.clientY - dragRef.current.startY;
-      setPos(prev => ({
-        ...prev,
-        top:  Math.max(0, Math.min(dragRef.current.origTop  + dy, window.innerHeight - FLOAT_H)),
-        left: Math.max(0, Math.min(dragRef.current.origLeft + dx, window.innerWidth  - prev.width)),
-      }));
-    }
-    function onUp() { dragRef.current.active = false; }
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseup", onUp);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseup", onUp);
-    };
-  }, []);
-
-  function onDragStart(e) {
-    dragRef.current = { active: true, startX: e.clientX, startY: e.clientY, origLeft: pos.left, origTop: pos.top };
-    e.preventDefault();
-  }
-
-  function handleKeyDown(e) {
-    if (e.key === "Escape") { e.stopPropagation(); params.stopEditing(true); }
-    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); e.stopPropagation(); params.stopEditing(); }
-    if (e.key === "Tab") { e.preventDefault(); e.stopPropagation(); params.stopEditing(); }
-  }
-
-  const popup = (
-    <div ref={popupRef} className="fte-popup" style={{ position: "fixed", top: pos.top, left: pos.left, width: pos.width }}>
-      <div className="fte-handle" onMouseDown={onDragStart}>
-        <span className="fte-grip">⠿</span>
-        <span className="fte-col-name">{params.colDef?.headerName}</span>
+  return ReactDOM.createPortal(
+    <div className="fte-popup" style={{ position: "fixed", top, left, width: POPUP_W, zIndex: 9999 }}>
+      <div className="fte-handle">
+        <span className="fte-col-name">{colDef?.headerName}</span>
         <span className="fte-hint">Enter — uložiť · Shift+Enter — nový riadok · Esc — zrušiť</span>
       </div>
       <textarea
-        ref={textareaRef}
         className="fte-textarea"
-        value={value}
-        rows={3}
-        onChange={e => setValue(e.target.value)}
-        onKeyDown={handleKeyDown}
+        defaultValue={startValue}
+        rows={4}
+        autoFocus
+        onChange={(e) => {
+          currentValueRef.current = e.target.value;
+          onValueChange?.(e.target.value);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") { e.stopPropagation(); stopEditing(true); }
+          if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); e.stopPropagation(); stopEditing(); }
+          if (e.key === "Tab") { e.preventDefault(); e.stopPropagation(); stopEditing(); }
+        }}
       />
-    </div>
-  );
-
-  return (
-    <div className="fte-anchor">
-      <span className="fte-cell-preview">{params.value}</span>
-      {ReactDOM.createPortal(popup, document.body)}
-    </div>
+    </div>,
+    document.body
   );
 });
 

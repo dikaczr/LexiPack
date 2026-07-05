@@ -160,6 +160,8 @@ function buildPackSummary(file, fullPath, dbRow) {
     status:       dbRow?.status    ?? "Draft",
     reviewSentBy:     json.reviewSentBy     || null,
     reviewSentAt:     json.reviewSentAt     || null,
+    sentBackBy:       json.sentBackBy       || null,
+    sentBackAt:       json.sentBackAt       || null,
     comments:         json.comments         || "",
     reviewerComments: json.reviewerComments || "",
   };
@@ -498,6 +500,22 @@ router.patch("/by-id/:packDbId/status", requireAuth, async (req, res) => {
     const pack = packRow.recordset[0];
     if (!pack) return res.status(404).json({ error: "Pack not found" });
 
+    if (status === "Complete" && pack.status === "In Review") {
+      const parts = pack.file_name.replace(/\\/g, "/").split("/");
+      const fullPath = path.join(getWorkspaceBase(), ...parts);
+      if (fs.existsSync(fullPath)) {
+        try {
+          const content = fs.readFileSync(fullPath, "utf8").replace(/^﻿/, "");
+          const packJson = JSON.parse(content);
+          packJson.sentBackBy = username;
+          packJson.sentBackAt = new Date().toISOString();
+          fs.writeFileSync(fullPath, JSON.stringify(packJson, null, 2), "utf8");
+        } catch (e) {
+          console.error("Could not write sentBackBy to pack:", e);
+        }
+      }
+    }
+
     await setPackStatus(pack.file_name, status);
     await auditLog(req.user, "STATUS_CHANGED", { pack: pack.file_name, from: pack.status, to: status }, req.ip);
     res.json({ message: "Status updated", status });
@@ -536,17 +554,22 @@ router.patch("/:fileName/status", requireAuth, async (req, res) => {
 
     await setPackStatus(dbKey, status);
 
-    if (status === "In Review") {
+    if (status === "In Review" || (status === "Complete" && prevStatus === "In Review")) {
       const fullPath = path.join(workspaceDir, req.params.fileName);
       if (fs.existsSync(fullPath)) {
         try {
           const content = fs.readFileSync(fullPath, "utf8").replace(/^﻿/, "");
           const packJson = JSON.parse(content);
-          packJson.reviewSentBy = username;
-          packJson.reviewSentAt = new Date().toISOString();
+          if (status === "In Review") {
+            packJson.reviewSentBy = username;
+            packJson.reviewSentAt = new Date().toISOString();
+          } else {
+            packJson.sentBackBy = username;
+            packJson.sentBackAt = new Date().toISOString();
+          }
           fs.writeFileSync(fullPath, JSON.stringify(packJson, null, 2), "utf8");
         } catch (e) {
-          console.error("Could not write reviewSentBy to pack:", e);
+          console.error("Could not write review metadata to pack:", e);
         }
       }
     }

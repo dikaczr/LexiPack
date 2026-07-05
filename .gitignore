@@ -3,5 +3,5 @@ dist
 .vscode
 .env
 .env.local
-server/ServerAudit.log
+server/logs/
 *.tmp.*

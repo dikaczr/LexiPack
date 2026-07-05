@@ -1,6 +1,7 @@
 import express from "express";
 import OpenAI from "openai";
 import { requireAuth } from "../middleware/auth.js";
+import { auditLog } from "../middleware/audit.js";
 import { readFileSync } from "fs";
 import { fileURLToPath } from "url";
 import pathMod from "path";
@@ -176,6 +177,7 @@ ${JSON.stringify(batch)}`;
     }
   }
 
+  await auditLog(req.user, "QUALITY_CEFR_CHECK", { wordCount: toCheck.length, targetLang, packLevel }, req.ip);
   res.json({ results, total: toCheck.length });
 });
 
@@ -230,6 +232,7 @@ ${JSON.stringify(toCheck)}`;
       example: byId[String(r.id)]?.example ?? "",
     }));
 
+    await auditLog(req.user, "QUALITY_EXAMPLE_CHECK", { wordCount: toCheck.length, targetLang }, req.ip);
     res.json({ results, total: toCheck.length });
   } catch (err) {
     console.error("Example check error:", err.message);
@@ -282,6 +285,7 @@ ${JSON.stringify(compact)}`;
 
     const raw    = completion.choices[0]?.message?.content ?? "[]";
     const groups = JSON.parse(raw.replace(/```json|```/g, "").trim());
+    await auditLog(req.user, "QUALITY_DUPLICATE_MEANING", { wordCount: compact.length, targetLang, nativeLang }, req.ip);
     res.json({ groups: Array.isArray(groups) ? groups : [] });
   } catch (err) {
     console.error("Duplicate meaning error:", err.message);
@@ -342,6 +346,7 @@ ${JSON.stringify(compact)}`;
 
     const raw  = completion.choices[0]?.message?.content ?? "{}";
     const data = JSON.parse(raw.replace(/```json|```/g, "").trim());
+    await auditLog(req.user, "QUALITY_PACK_COVERAGE", { packName, packCategory, wordCount: compact.length, targetLang }, req.ip);
     res.json({
       groups:  Array.isArray(data.groups)  ? data.groups  : [],
       missing: Array.isArray(data.missing) ? data.missing : [],
@@ -416,6 +421,7 @@ Return ONLY a valid JSON object — no markdown:
 
     const raw  = completion.choices[0]?.message?.content ?? "{}";
     const data = JSON.parse(raw.replace(/```json|```/g, "").trim());
+    await auditLog(req.user, "QUALITY_TRUSTED_SOURCES", { word: targetWord, packCategory, targetLang }, req.ip);
     res.json({
       meaning: data.meaning ?? "",
       context: data.context ?? "",

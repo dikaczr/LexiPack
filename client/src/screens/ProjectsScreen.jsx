@@ -15,6 +15,33 @@ const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2", "Expert"];
 const STATUS_ORDER = ["Draft", "Complete", "In Review", "Approved", "Published", "Archived"];
 
 
+function SendBackConfirmModal({ pack, onConfirm, onClose }) {
+  const t = useT();
+  return (
+    <div className="np-backdrop" onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div className="np-modal" style={{ width: 420 }}>
+        <div className="np-header">
+          <h3>{t("projects.sendBackConfirm.title")}</h3>
+          <button type="button" className="np-close" onClick={onClose}>✕</button>
+        </div>
+        <div className="np-body">
+          <div className="sa-confirm-text">
+            {t("projects.sendBackConfirm.desc")}<br /><br />
+            <strong>{pack.name}</strong><br /><br />
+            <span style={{ color: "#f0c040", fontSize: 12 }}>
+              {t("projects.sendBackConfirm.warning")}
+            </span>
+          </div>
+        </div>
+        <div className="np-footer">
+          <button className="projects-btn" onClick={onClose}>{t("projects.sendBackConfirm.cancel")}</button>
+          <button className="projects-btn primary" onClick={onConfirm}>{t("projects.sendBackConfirm.confirm")}</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function PublishConfirmModal({ pack, onConfirm, onClose }) {
   const t = useT();
   return (
@@ -448,6 +475,7 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
   const [publishing, setPublishing]         = useState(false);
   const [publishMsg, setPublishMsg]         = useState(null);
   const [showPublishConfirm, setShowPublishConfirm] = useState(false);
+  const [showSendBackConfirm, setShowSendBackConfirm] = useState(false);
   const [contextMenu, setContextMenu]       = useState(null); // { x, y, pack }
 
   useEffect(() => {
@@ -512,6 +540,11 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
           const dt = p.data.reviewSentAt ? new Date(p.data.reviewSentAt) : null;
           const ds = dt ? `${dt.getDate()}.${dt.getMonth() + 1}.${dt.getFullYear()}` : "";
           return <span>{p.value}&nbsp;&nbsp;<em style={{ color: "var(--app-muted)", fontWeight: 400 }}>{t("projects.inReviewBy")(p.data.reviewSentBy, ds)}</em></span>;
+        }
+        if (p.data?.sentBackBy) {
+          const dt = p.data.sentBackAt ? new Date(p.data.sentBackAt) : null;
+          const ds = dt ? `${dt.getDate()}.${dt.getMonth() + 1}.${dt.getFullYear()}` : "";
+          return <span>{p.value}&nbsp;&nbsp;<em style={{ color: "var(--app-warning)", fontWeight: 400 }}>{t("projects.sentBackBy")(p.data.sentBackBy, ds)}</em></span>;
         }
         return p.value || "";
       },
@@ -633,6 +666,24 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
     } finally {
       setPublishing(false);
       setTimeout(() => setPublishMsg(null), 7000);
+    }
+  }
+
+  async function handleSendBack() {
+    if (!selectedPack || selectedPack.status !== "In Review") return;
+    setShowSendBackConfirm(false);
+    try {
+      const res = await fetch(`${API}/by-id/${selectedPack.packDbId}/status`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ status: "Complete" }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      await logAudit(token, "PACK_SENT_BACK", { pack: selectedPack.fileName, from: "In Review", to: "Complete" });
+      loadPacks();
+    } catch (err) {
+      alert(err.message);
     }
   }
 
@@ -772,12 +823,21 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
         >
           {t("projects.saveAs")}
         </button>
-        <button
-          className="projects-btn publish-pack"
-          disabled={selectedPack?.status !== "Approved" || publishing || user?.role === "reviewer"}
-          title={user?.role === "reviewer" ? t("projects.publishNoPermission") : selectedPack?.status !== "Approved" ? t("projects.publishNeedApproved") : ""}
-          onClick={() => setShowPublishConfirm(true)}
-        >{publishing ? t("projects.publishing") : t("projects.publish")}</button>
+        {user?.role === "reviewer" ? (
+          <button
+            className="projects-btn send-back-pack"
+            disabled={selectedPack?.status !== "In Review"}
+            title={selectedPack?.status !== "In Review" ? t("projects.sendBackNeedInReview") : t("projects.sendBackTitle")}
+            onClick={() => setShowSendBackConfirm(true)}
+          >{t("projects.sendBack")}</button>
+        ) : (
+          <button
+            className="projects-btn publish-pack"
+            disabled={selectedPack?.status !== "Approved" || publishing}
+            title={selectedPack?.status !== "Approved" ? t("projects.publishNeedApproved") : ""}
+            onClick={() => setShowPublishConfirm(true)}
+          >{publishing ? t("projects.publishing") : t("projects.publish")}</button>
+        )}
         <button
           className="projects-btn danger"
           onClick={() => setShowDeletePack(true)}
@@ -942,6 +1002,14 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
           pack={selectedPack}
           onConfirm={handlePublish}
           onClose={() => setShowPublishConfirm(false)}
+        />
+      )}
+
+      {showSendBackConfirm && selectedPack && (
+        <SendBackConfirmModal
+          pack={selectedPack}
+          onConfirm={handleSendBack}
+          onClose={() => setShowSendBackConfirm(false)}
         />
       )}
 
