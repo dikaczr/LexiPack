@@ -396,7 +396,7 @@ const en = {
 
   // ── Image generation dialog ───────────────────────
   imgGen: {
-    title:              "Generate image",
+    title:              "IMAGE ATTACHMENT GENERATOR",
     sectionPositive:    "What to include",
     sectionNegative:    "What to exclude",
     descLabel:          "Description",

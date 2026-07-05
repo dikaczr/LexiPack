@@ -396,7 +396,7 @@ const sk = {
 
   // ── Image generation dialog ───────────────────────
   imgGen: {
-    title:              "Generovať obrázok",
+    title:              "GENERÁTOR OBRAZOVEJ PRÍLOHY",
     sectionPositive:    "Čo má obsahovať",
     sectionNegative:    "Čo nemá obsahovať",
     descLabel:          "Popis",

@@ -354,6 +354,8 @@ function PackGrid({
         editable: !isReadOnly,
         width: r(90),
         cellEditor: LevelCellEditor,
+        cellStyle: { textAlign: "center", justifyContent: "center" },
+        headerClass: "ag-header-cell-center",
       },
       {
         headerName: (() => { const f = t("cols.exampleLang"); return typeof f === "function" ? f(targetLang) : `Príklad ${targetLang.toUpperCase()}`; })(),

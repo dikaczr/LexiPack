@@ -444,9 +444,9 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   const [showTrustedSource, setShowTrustedSource] = useState(false);
   const [showPdfReader,  setShowPdfReader]  = useState(false);
   const [showWebReader,  setShowWebReader]  = useState(false);
-  const [showRightPanel, setShowRightPanel] = useState(true);
   const [showSymbols, setShowSymbols] = useState(false);
   const [showImgGen, setShowImgGen] = useState(false);
+  const [showPreview, setShowPreview] = useState(true);
   const [hasActiveInput, setHasActiveInput] = useState(false);
 const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
 
@@ -2644,7 +2644,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
           <div className="validation-summary">
             <div className="validation-left">
               <button
-                className="btn-icon"
+                className="btn-icon btn-undo-redo"
                 onClick={handleUndo}
                 disabled={isReadOnly || history.length === 0}
                 title={history.length === 0 ? t("editor.toolbar.nothingToUndo") : t("editor.toolbar.undo")}
@@ -2654,7 +2654,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
               </button>
 
               <button
-                className="btn-icon"
+                className="btn-icon btn-undo-redo"
                 onClick={handleRedo}
                 disabled={isReadOnly || future.length === 0}
                 title={future.length === 0 ? t("editor.toolbar.nothingToRedo") : t("editor.toolbar.redo")}
@@ -2665,7 +2665,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
 
               <div className="toolbar-divider" />
 
-              <button className="btn-icon" onClick={handleAddRow} disabled={isReadOnly} style={{ marginLeft: 10, background: "#2563eb", color: "#fff" }}>
+              <button className="btn-icon" onClick={handleAddRow} disabled={isReadOnly} style={{ background: "#2563eb", color: "#fff" }}>
                 <span className="btn-icon-glyph">✚</span>
                 <span className="btn-icon-label">{t("editor.toolbar.addRow")}</span>
               </button>
@@ -2740,7 +2740,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
 
               <div className="toolbar-divider" />
 
-              <button className="btn-icon" onClick={handleGenerateSelected} style={{ marginLeft: 10, background: "#5e419c", color: "#fff" }}>
+              <button className="btn-icon" onClick={handleGenerateSelected} style={{ background: "#5e419c", color: "#fff" }}>
                 <span className="btn-icon-glyph">✨</span>
                 <span className="btn-icon-label">{t("editor.toolbar.generateAI")}</span>
               </button>
@@ -2799,7 +2799,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
 
               <div className="toolbar-divider" />
 
-              <button className="btn-icon" onClick={handleGoTo} title="Go to last edited cell" style={{ marginLeft: 10 }}>
+              <button className="btn-icon" onClick={handleGoTo} title="Go to last edited cell">
                 <span className="btn-icon-glyph">⏮</span>
                 <span className="btn-icon-label">Goto Last</span>
               </button>
@@ -2888,18 +2888,17 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
           </div>
         </section>
 
-        {/* RIGHT PANEL TOGGLE — zobrazí sa keď je panel skrytý */}
-        {!showRightPanel && (
-          <button className="preview-panel-toggle" onClick={() => setShowRightPanel(true)} title={t("review.previewPanel")}>
-            ‹
-          </button>
-        )}
-
         {/* RIGHT PANEL */}
-        {showRightPanel && <aside className="preview-panel">
+        <aside className={`preview-panel${showPreview ? "" : " preview-panel--collapsed"}`}>
+          {!showPreview ? (
+            <button className="preview-panel-reopen" onClick={() => setShowPreview(true)} title={t("review.previewPanel")}>
+              <span>{"◀"}</span>
+              <span className="preview-panel-reopen-label">{t("review.previewPanel")}</span>
+            </button>
+          ) : (<>
           <div className="panel-title">
             {t("review.previewPanel")}
-            <button className="panel-title-close" onClick={() => setShowRightPanel(false)} title="Zavrieť panel">✕</button>
+            <button className="preview-panel-close" onClick={() => setShowPreview(false)} title="Zavrieť náhľad">❯</button>
           </div>
 
           <PackPreview
@@ -2943,7 +2942,8 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
               </div>
             </div>
           )}
-        </aside>}
+          </>)}
+        </aside>
       </main>
 
       <footer className="footer">

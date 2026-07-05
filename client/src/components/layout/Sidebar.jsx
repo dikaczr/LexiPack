@@ -37,7 +37,7 @@ export default function Sidebar({ collapsed, onToggle, activeScreen, setActiveSc
   return (
     <aside className={`sidebar${collapsed ? " sidebar--collapsed" : ""}`}>
       <button className="sidebar-toggle" onClick={onToggle} title={collapsed ? t("sidebar.expand") : t("sidebar.collapse")}>
-        {collapsed ? "›" : "‹"}
+        {collapsed ? "❯" : "❮"}
       </button>
 
       {!collapsed && activeScreen === "projects" && (

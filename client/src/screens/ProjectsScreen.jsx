@@ -9,6 +9,7 @@ import { useAuth } from "../context/AuthContext";
 import { API_BASE } from "../config";
 import { logAudit } from "../api/auditApi";
 import { resizeImageFile } from "../utils/resizeImage";
+import ImportFromServerDialog from "../components/ImportFromServerDialog";
 
 const API = `${API_BASE}/api/packs`;
 const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2", "Expert"];
@@ -467,6 +468,7 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
     );
   }), [rowData, statusFilter, langFilter, themeFilter, levelFilter]);
   const [showNewPack, setShowNewPack]       = useState(false);
+  const [showImportServer, setShowImportServer] = useState(false);
   const [showSaveAs, setShowSaveAs]         = useState(false);
   const iconInputRef      = useRef(null);
   const importPackRef     = useRef(null);
@@ -795,6 +797,11 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
         <button className="projects-btn new-pack" style={{ marginLeft: "auto" }} onClick={() => setShowNewPack(true)}>
           {t("projects.newPack")}
         </button>
+        {user?.role === "admin" && (
+          <button className="projects-btn" onClick={() => setShowImportServer(true)} title="Import z publikovaných balíkov">
+            ⬇ Import z All
+          </button>
+        )}
         <button className="projects-btn" onClick={() => importPackRef.current.click()}>
           Import Pack
         </button>
@@ -978,6 +985,18 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
         <NewPackModal
           onClose={() => setShowNewPack(false)}
           onCreated={handleCreated}
+        />
+      )}
+
+      {showImportServer && (
+        <ImportFromServerDialog
+          open={showImportServer}
+          onClose={() => setShowImportServer(false)}
+          token={token}
+          onImported={(fileName) => {
+            setShowImportServer(false);
+            loadPacks();
+          }}
         />
       )}
 

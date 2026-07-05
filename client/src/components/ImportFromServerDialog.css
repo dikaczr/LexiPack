@@ -1,0 +1,176 @@
+.import-server-dialog {
+  background: var(--app-panel);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 1.2rem;
+  width: 60rem;
+  max-width: 96vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2rem 5rem rgba(0,0,0,0.45);
+}
+
+.import-server-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.8rem;
+  border-bottom: 1px solid rgba(128,128,128,0.2);
+  flex-shrink: 0;
+}
+
+.import-server-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--app-text2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.import-server-close {
+  background: none;
+  border: none;
+  color: var(--app-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+.import-server-close:hover { color: var(--app-text); background: var(--app-border); }
+
+.import-server-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 1.2rem 1.8rem;
+  gap: 1rem;
+}
+
+/* Jazykové záložky */
+.import-server-langs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.import-server-lang-btn {
+  background: var(--app-input);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 0.6rem;
+  color: var(--app-text2);
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.4rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.import-server-lang-btn:hover { border-color: var(--app-accent); color: var(--app-accent); }
+.import-server-lang-btn.active {
+  background: color-mix(in srgb, var(--app-accent) 15%, transparent);
+  border-color: var(--app-accent);
+  color: var(--app-accent);
+}
+
+/* Zoznam súborov */
+.import-server-files {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid var(--app-border-sub);
+  border-radius: 0.6rem;
+  background: var(--app-bg);
+}
+
+.import-server-file-header {
+  display: grid;
+  grid-template-columns: 1fr 8rem 10rem;
+  padding: 0.5rem 1.2rem;
+  background: var(--app-grid-hdr, var(--app-chrome));
+  border-bottom: 1px solid var(--app-border);
+  font-size: 1.05rem;
+  color: var(--app-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.import-server-file {
+  display: grid;
+  grid-template-columns: 1fr 8rem 10rem;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--app-border-sub);
+  transition: background 0.1s;
+}
+.import-server-file:last-child { border-bottom: none; }
+.import-server-file:hover { background: var(--app-grid-hov, var(--app-border)); }
+.import-server-file.selected { background: color-mix(in srgb, var(--app-accent) 15%, transparent); }
+
+.import-server-file-name {
+  font-size: 1.2rem;
+  color: var(--app-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 1rem;
+}
+.import-server-file.selected .import-server-file-name { color: var(--app-accent); }
+
+.import-server-file-size,
+.import-server-file-date {
+  font-size: 1.05rem;
+  color: var(--app-muted);
+  white-space: nowrap;
+}
+
+.import-server-hint {
+  padding: 1.2rem;
+  color: var(--app-muted);
+  font-size: 1.2rem;
+}
+
+.import-server-error {
+  color: var(--app-danger-text);
+  font-size: 1.2rem;
+  padding: 0.4rem 0;
+}
+
+/* Footer */
+.import-server-footer {
+  display: flex;
+  gap: 0.8rem;
+  padding: 1rem 1.8rem;
+  border-top: 1px solid rgba(128,128,128,0.2);
+  flex-shrink: 0;
+}
+
+.import-server-btn-import {
+  background: var(--app-btn);
+  border: none;
+  border-radius: 0.8rem;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 0.7rem 1.8rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.import-server-btn-import:hover:not(:disabled) { background: var(--app-btn-hov); }
+.import-server-btn-import:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.import-server-btn-cancel {
+  background: transparent;
+  border: 1px solid var(--app-border-sub);
+  border-radius: 0.8rem;
+  color: var(--app-text2);
+  font-size: 1.3rem;
+  padding: 0.7rem 1.6rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.import-server-btn-cancel:hover:not(:disabled) { background: var(--app-border); }
+.import-server-btn-cancel:disabled { opacity: 0.5; }
