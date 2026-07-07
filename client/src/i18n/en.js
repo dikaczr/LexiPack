@@ -92,6 +92,7 @@ const en = {
     exampleEn:  "Example EN",
     exampleSk:  "Example SK",
     exampleLang: (lang) => `Example ${lang.toUpperCase()}`,
+    context:    "Context",
     topic:      "Topic",
     _bm_flag:   "Bookmark",
     _checkbox:  "Select",

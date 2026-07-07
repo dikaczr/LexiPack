@@ -1,0 +1,15 @@
+{
+  "packId": "core-pack-es-cs",
+  "name": "Core Pack ES-CS",
+  "description": "",
+  "targetLang": "es",
+  "nativeLang": "cs",
+  "level": "B1",
+  "category": "",
+  "icon": "",
+  "author": "Techdoc",
+  "createdAt": "2026-06-08",
+  "version": "1.0",
+  "tags": [],
+  "words": []
+}

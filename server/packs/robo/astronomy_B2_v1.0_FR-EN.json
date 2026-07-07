@@ -1,0 +1,305 @@
+{
+  "packId": "astronomy",
+  "name": "Astronomy - Basics",
+  "description": "Basic vocabulary for astronomy",
+  "targetLang": "fr",
+  "nativeLang": "en",
+  "level": "B2",
+  "category": "astronomy",
+  "icon": "data:image/png;base64,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",
+  "author": "Techdoc, 2026",
+  "version": "1.0",
+  "tags": [],
+  "color": "#003882",
+  "encoding": "utf-8",
+  "production": 1020,
+  "words": [
+    {
+      "id": "d1c39f49-9bde-4ecc-b085-d6974aadf679",
+      "word": "astéroïde",
+      "phonetic": "/as.te.ʁɔ.id/",
+      "translation": "asteroid",
+      "definition": "Petit corps rocheux du Système solaire qui orbite autour du Soleil, principalement situé dans la ceinture entre Mars et Jupiter.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "L'astéroïde 2004 BL86 est passé près de la Terre à une distance d'environ 1,2 million de kilomètres."
+        }
+      ],
+      "example_fr": "Les astronomes ont recalculé la trajectoire de l’astéroïde après avoir reçu de nouvelles images du télescope spatial.",
+      "example_en": "Astronomers recalculated the asteroid’s trajectory after receiving new images from the space telescope.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "4b303820-a44f-45e9-9278-3b96b9243cb9",
+      "word": "atmosphère",
+      "phonetic": "/at.mɔ.sfɛʁ/",
+      "translation": "atmosphere",
+      "definition": "Enveloppe de gaz qui entoure un astre, notamment une planète, et qui influence sa température, sa pression et les phénomènes observables depuis sa surface.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "L'atmosphère terrestre est divisée en plusieurs couches, dont la troposphère et la stratosphère."
+        }
+      ],
+      "example_fr": "Grâce au spectroscope, les astronomes ont détecté de la vapeur d’eau dans l’atmosphère de cette exoplanète lointaine.",
+      "example_en": "Using a spectroscope, astronomers detected water vapor in the atmosphere of that distant exoplanet.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "aaec81e7-a754-411d-b33e-45256acee724",
+      "word": "trou noir",
+      "phonetic": "/tʁu nwaʁ/",
+      "translation": "black hole",
+      "definition": "Région de l’espace où la gravité est si intense que rien, pas même la lumière, ne peut s’en échapper.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "le",
+      "contextSentences": [
+        {
+          "fr": "La toute première image d'un trou noir a été captée et publiée en 2019."
+        }
+      ],
+      "example_fr": "En analysant les mouvements des étoiles au centre de la galaxie, les astronomes ont confirmé la présence d’un trou noir supermassif.",
+      "example_en": "By analyzing the motions of stars at the center of the galaxy, astronomers confirmed the presence of a supermassive black hole.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "727094f3-0bb7-4dc1-91fa-e99609d205a8",
+      "word": "comète",
+      "phonetic": "/kɔ.mɛt/",
+      "translation": "comet",
+      "definition": "Petit corps céleste constitué de glace, de poussière et de roches, qui orbite autour du Soleil et peut former une queue lumineuse en s’approchant de lui.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La comète de Halley est visible depuis la Terre environ tous les 75 ans."
+        }
+      ],
+      "example_fr": "À l’aube, les astronomes ont pointé le télescope vers l’est pour suivre la comète qui devenait plus brillante à mesure qu’elle s’approchait du Soleil.",
+      "example_en": "At dawn, the astronomers pointed the telescope eastward to track the comet as it grew brighter while approaching the Sun.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "a93bfbd1-7f89-46e7-8a34-109138fcfbdb",
+      "word": "constellation",
+      "phonetic": "/kɔ̃s.tɛ.la.sjɔ̃/",
+      "translation": "constellation",
+      "definition": "Ensemble d’étoiles formant une figure apparente dans le ciel et servant à repérer des régions de la voûte céleste.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La constellation d'Orion est l'une des plus faciles à repérer dans le ciel nocturne hivernal."
+        }
+      ],
+      "example_fr": "Pendant la nuit d’observation, nous avons repéré la constellation d’Orion juste au-dessus de l’horizon sud.",
+      "example_en": "During the observation night, we spotted the constellation Orion just above the southern horizon.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "e6812e27-e3c2-43a5-9ef9-75c1f8eb5f1c",
+      "word": "éclipse",
+      "phonetic": "/e.klips/",
+      "translation": "eclipse",
+      "definition": "Phénomène astronomique au cours duquel un astre est partiellement ou totalement masqué par un autre ou entre dans son ombre.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "Lors d'une éclipse solaire totale, la Lune bloque entièrement la lumière du Soleil."
+        }
+      ],
+      "example_fr": "Lors de l’éclipse totale, les astronomes ont pu observer la couronne solaire pendant quelques minutes seulement.",
+      "example_en": "During the total eclipse, astronomers were able to observe the solar corona for only a few minutes.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "8fb805f8-369f-4471-b780-124e0e5e626e",
+      "word": "galaxie",
+      "phonetic": "/ɡalak.si/",
+      "translation": "galaxy",
+      "definition": "Vaste ensemble d’étoiles, de gaz, de poussières et de matière noire lié par la gravitation.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "Notre galaxie, la Voie lactée, contient entre 200 et 400 milliards d'étoiles."
+        }
+      ],
+      "example_fr": "Grâce aux nouvelles images du télescope, les astronomes ont distingué le centre brillant de cette galaxie lointaine.",
+      "example_en": "Thanks to the new telescope images, astronomers were able to make out the bright center of that distant galaxy.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "24fc87f8-e2f8-4623-82b0-c2f6e7b1eca7",
+      "word": "gravité",
+      "phonetic": "/ɡʁa.vi.te/",
+      "translation": "gravity",
+      "definition": "Force d’attraction exercée par les corps massifs, responsable notamment de la chute des objets et du mouvement des astres.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La gravité maintient les planètes en orbite autour du Soleil et la Lune autour de la Terre."
+        }
+      ],
+      "example_fr": "Sans la gravité du Soleil, les planètes ne suivraient pas leur orbite actuelle autour de lui.",
+      "example_en": "Without the Sun’s gravity, the planets would not follow their current orbit around it.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "4ee928f3-e9e0-4a84-a9d8-1ab63560b441",
+      "word": "lunaire",
+      "phonetic": "/ly.nɛʁ/",
+      "translation": "lunar",
+      "definition": "Qui concerne la Lune, sa surface, ses phases ou son influence dans l’observation astronomique.",
+      "type": "adjective",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "",
+      "contextSentences": [
+        {
+          "fr": "La surface lunaire est couverte de cratères formés par des impacts de météorites."
+        }
+      ],
+      "example_fr": "Grâce au ciel dégagé, l’observatoire a obtenu des images très nettes du relief lunaire pendant le premier quartier.",
+      "example_en": "Thanks to the clear sky, the observatory obtained very sharp images of the lunar terrain during the first quarter.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "ad0c21cf-ca7d-4b6b-a55b-7699f2084a19",
+      "word": "météore",
+      "phonetic": "/meteɔʁ/",
+      "translation": "meteor",
+      "definition": "Phénomène lumineux produit lorsqu’un corps céleste pénètre dans l’atmosphère et s’échauffe en laissant une trace brillante dans le ciel.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "Lors de la pluie de météores des Perséides, des centaines de météores peuvent être observés en une seule nuit."
+        }
+      ],
+      "example_fr": "Pendant la pluie d’étoiles filantes, un météore particulièrement brillant a traversé le ciel au-dessus de l’observatoire.",
+      "example_en": "During the meteor shower, a particularly bright meteor crossed the sky above the observatory.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "8170bd5f-ed50-4438-bc4e-23ea3d1f3373",
+      "word": "nébuleuse",
+      "phonetic": "/ne.by.løz/",
+      "translation": "nebula",
+      "definition": "Grand nuage de gaz et de poussières dans l’espace, souvent lieu de formation ou vestige d’étoiles.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La nébuleuse d'Orion est une région de formation active d'étoiles visible à l'œil nu."
+        }
+      ],
+      "example_fr": "Grâce aux images du télescope spatial, les astronomes ont observé de nouvelles étoiles en train de naître au cœur de la nébuleuse.",
+      "example_en": "Thanks to images from the space telescope, astronomers observed new stars being born at the heart of the nebula.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "8f7675d9-b845-4433-980a-4c77a30a94b3",
+      "word": "orbite",
+      "phonetic": "/ɔʁ.bit/",
+      "translation": "orbit",
+      "definition": "Trajectoire courbe qu’un astre, un satellite ou un engin spatial suit autour d’un autre corps sous l’effet de la gravitation.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La Station spatiale internationale effectue une orbite complète autour de la Terre toutes les 90 minutes."
+        }
+      ],
+      "example_fr": "Après plusieurs corrections de trajectoire, la sonde est enfin entrée en orbite autour de Mars.",
+      "example_en": "After several course corrections, the probe finally entered orbit around Mars.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "29ee6b6e-ae69-4756-bcec-8e60bde7555e",
+      "word": "planète",
+      "phonetic": "/pla.nɛt/",
+      "translation": "planet",
+      "definition": "Astre qui gravite autour d’une étoile et qui n’émet pas sa propre lumière.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "Jupiter est la plus grande planète de notre système solaire, avec une masse supérieure à celle de toutes les autres réunies."
+        }
+      ],
+      "example_fr": "Grâce au télescope, nous avons observé la planète Mars juste au-dessus de l’horizon avant l’aube.",
+      "example_en": "Thanks to the telescope, we observed the planet Mars just above the horizon before dawn.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "9122e983-6f61-49a8-9712-a634d60a1c71",
+      "word": "système solaire",
+      "phonetic": "/sis.tɛm sɔ.lɛʁ/",
+      "translation": "solar system",
+      "definition": "Ensemble formé par le Soleil et tous les corps célestes qui gravitent autour de lui, comme les planètes, les lunes, les astéroïdes et les comètes.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "Notre système solaire s'est formé il y a environ 4,6 milliards d'années à partir d'un nuage de gaz et de poussières en effondrement."
+        }
+      ],
+      "example_fr": "En comparant les orbites dans le système solaire, l’astronome a remarqué une anomalie qui pourrait révéler la présence d’un objet encore inconnu.",
+      "example_en": "By comparing the orbits in the solar system, the astronomer noticed an anomaly that could reveal the presence of a still unknown object.",
+      "source": "Astronomy - Basics"
+    },
+    {
+      "id": "db69c3ac-5238-4a21-9329-99c2132b7ebe",
+      "word": "télescope",
+      "phonetic": "/teleskɔp/",
+      "translation": "telescope",
+      "definition": "Instrument d'observation qui permet de voir des objets très éloignés, en particulier les astres, en collectant et en grossissant la lumière.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "astronomy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "Galilée fut l'un des premiers à utiliser un télescope pour des observations astronomiques."
+        }
+      ],
+      "example_fr": "Grâce au télescope installé sur la colline, nous avons distingué les anneaux de Saturne malgré la faible lumière du crépuscule.",
+      "example_en": "Thanks to the telescope set up on the hill, we were able to make out Saturn's rings despite the dim twilight.",
+      "source": "Astronomy - Basics"
+    }
+  ],
+  "reviewSentBy": "robo",
+  "reviewSentAt": "2026-07-04T22:48:51.990Z"
+}

@@ -1,0 +1,303 @@
+{
+  "packId": "philosophy-basics",
+  "name": "Philosophy - Basics",
+  "description": "",
+  "targetLang": "fr",
+  "nativeLang": "en",
+  "level": "B1",
+  "category": "philosophy",
+  "icon": "data:image/png;base64,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",
+  "author": "Techdoc, 2026",
+  "version": "1.0",
+  "tags": [],
+  "color": "#3B2A82",
+  "encoding": "utf-8",
+  "production": 180,
+  "words": [
+    {
+      "id": "9910e45f-34b1-4aec-94a0-bb93c09b23ee",
+      "word": "éthique",
+      "phonetic": "/etik/",
+      "translation": "ethics",
+      "definition": "L’étude des principes moraux et du comportement juste.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "philosophy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "L'éthique de Kant repose sur l'impératif catégorique : n'agis que selon des principes que tu voudrais voir érigés en lois universelles."
+        }
+      ],
+      "example_fr": "En médecine, l'éthique guide les décisions difficiles sur les soins.",
+      "example_en": "Etika je v tejto oblasti dôležitý.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "e38d1cd9-c316-4912-b34f-0abc0ddc70f6",
+      "word": "logique",
+      "phonetic": "/lɔʒik/",
+      "translation": "logic",
+      "definition": "Une méthode de raisonnement fondée sur des principes clairs.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "philosophy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La logique formelle, telle qu'elle a été développée par Aristote, reste à ce jour le fondement des mathématiques."
+        }
+      ],
+      "example_fr": "Son raisonnement est logique : sans preuves, il refuse de conclure.",
+      "example_en": "Učiteľ vysvetlil pojem logika.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "d2c4f90a-88ac-4e23-9832-4754cf4a21ed",
+      "word": "raison",
+      "phonetic": "/ʁɛzɔ̃/",
+      "translation": "reason",
+      "definition": "La capacité de penser et de porter des jugements.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "philosophy",
+      "article": "le",
+      "contextSentences": [
+        {
+          "fr": "Les Lumières ont fait de la raison le chemin vers la libération de l'ignorance et de la superstition."
+        }
+      ],
+      "example_fr": "La raison de son retard était une panne de train.",
+      "example_en": "Pochopenie pojmu rozum je nevyhnutné.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "95ec8902-ffab-4be4-ad90-8c24004111cd",
+      "word": "vertu",
+      "phonetic": "/vɛʁty/",
+      "translation": "virtue",
+      "definition": "Une qualité morale positive ou une habitude vertueuse.",
+      "type": "noun",
+      "level": "C1",
+      "topic": "philosophy",
+      "article": "le",
+      "contextSentences": [
+        {
+          "fr": "Dans la philosophie antique, la sagesse, la justice, le courage et la tempérance étaient considérés comme les quatre vertus cardinales."
+        }
+      ],
+      "example_fr": "La patience est une vertu précieuse dans ce métier.",
+      "example_en": "Pochopenie pojmu cnosť je nevyhnutné.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "64eeb552-134c-4828-9e42-83372befd1f9",
+      "word": "justice",
+      "phonetic": "/ʒystis/",
+      "translation": "justice",
+      "definition": "Un traitement équitable conforme à ce qui est juste.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "philosophy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "John Rawls a élaboré une théorie influente de la justice fondée sur le concept du voile d'ignorance."
+        }
+      ],
+      "example_fr": "Les victimes réclamaient justice après des années de silence.",
+      "example_en": "Včera sme študovali pojem spravodlivosť.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "94db5c92-85de-4046-b449-9791b0fa46eb",
+      "word": "vérité",
+      "phonetic": "/veʁite/",
+      "translation": "truth",
+      "definition": "La qualité d’être vrai ou conforme aux faits.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "philosophy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La théorie de la correspondance affirme qu'un énoncé est vrai s'il correspond à la réalité."
+        }
+      ],
+      "example_fr": "Il a fini par dire la vérité à ses parents.",
+      "example_en": "Pochopenie pojmu pravda je nevyhnutné.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "a6852b28-c810-41fb-897a-f54f62c46181",
+      "word": "connaissance",
+      "phonetic": "/kɔnɛsɑ̃s/",
+      "translation": "knowledge",
+      "definition": "Les connaissances acquises par l’étude ou l’expérience.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "philosophy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "Socrate pensait qu'admettre son ignorance était le premier pas vers une véritable connaissance."
+        }
+      ],
+      "example_fr": "La connaissance de plusieurs langues facilite les voyages.",
+      "example_en": "Pochopenie pojmu poznanie je nevyhnutné.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "1e3243b6-4937-45c1-aada-174a321c6ae1",
+      "word": "conscience",
+      "phonetic": "/kɔ̃sjɑ̃s/",
+      "translation": "consciousness",
+      "definition": "L’état d’être conscient de soi-même et du monde.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "philosophy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La question de savoir comment la conscience émerge des processus cérébraux physiques est appelée le « problème difficile »."
+        }
+      ],
+      "example_fr": "Cette expérience montre comment la conscience fonctionne.",
+      "example_en": "Tento experiment ukazuje, ako funguje vedomie.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "891c0f1e-77f5-4bac-ba26-0197ec9501bf",
+      "word": "existence",
+      "phonetic": "/ɛɡzistɑ̃s/",
+      "translation": "existence",
+      "definition": "L’état d’exister ou d’être vivant.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "philosophy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "Jean-Paul Sartre a forgé la formule « l'existence précède l'essence » comme idée centrale de l'existentialisme."
+        }
+      ],
+      "example_fr": "Il doutait du sens de son existence après cette épreuve.",
+      "example_en": "Tento experiment ukazuje, ako funguje existencia.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "a2e7d1cf-ed51-481a-9ea0-6f95018d26c6",
+      "word": "libre arbitre",
+      "phonetic": "/libʁ aʁbitʁ/",
+      "translation": "free will",
+      "definition": "La capacité de choisir ses actions de manière indépendante.",
+      "type": "noun",
+      "level": "C1",
+      "topic": "philosophy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "Les déterministes nient le libre arbitre au motif que tout événement est causé par des conditions antérieures."
+        }
+      ],
+      "example_fr": "Le débat porte sur le libre arbitre : choisissons-nous vraiment nos actes ?",
+      "example_en": "Pochopenie pojmu slobodná vôľa je nevyhnutné.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "b6f89bf6-c873-43b7-a422-4d9b7c5edb44",
+      "word": "métaphysique",
+      "phonetic": "/metafizik/",
+      "translation": "metaphysics",
+      "definition": "La branche de la philosophie qui traite de la réalité et de l'existence.",
+      "type": "noun",
+      "level": "C1",
+      "topic": "philosophy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La métaphysique pose des questions fondamentales telles que : Qu'est-ce que la réalité ? Qu'est-ce que le temps ? Qu'est-ce que l'identité ?"
+        }
+      ],
+      "example_fr": "Ce philosophe enseigne la métaphysique à l'université de Lyon.",
+      "example_en": "Tento experiment ukazuje, ako funguje metafyzika.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "a54819cf-934b-4bbd-a177-5f783510e899",
+      "word": "épistémologie",
+      "phonetic": "/epistemɔlɔʒi/",
+      "translation": "epistemology",
+      "definition": "La branche de la philosophie qui étudie la connaissance.",
+      "type": "noun",
+      "level": "C2",
+      "topic": "philosophy",
+      "article": "l'",
+      "contextSentences": [
+        {
+          "fr": "L'épistémologie pose la question : comment savons-nous ce que nous croyons savoir ?"
+        }
+      ],
+      "example_fr": "En épistémologie, on étudie comment se forme la connaissance.",
+      "example_en": "Včera sme študovali pojem epistemológia.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "1610590c-b819-43ae-8c3e-c1b217944eb0",
+      "word": "argument",
+      "phonetic": "/aʁɡymɑ̃/",
+      "translation": "argument",
+      "definition": "Un ensemble de raisons présentées pour étayer une conclusion.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "philosophy",
+      "article": "le",
+      "contextSentences": [
+        {
+          "fr": "L'argument ontologique en faveur de l'existence de Dieu a été proposé par Anselme de Canterbury au XIe siècle."
+        }
+      ],
+      "example_fr": "Cette expérience montre comment un argument fonctionne.",
+      "example_en": "Tento experiment ukazuje, ako funguje argument.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "c1e83b36-f4f9-4108-aea2-a24a3345e561",
+      "word": "croyance",
+      "phonetic": "/kʁwajɑ̃s/",
+      "translation": "belief",
+      "definition": "Un sentiment fort que quelque chose est vrai.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "philosophy",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La croyance vraie justifiée était longtemps considérée comme la définition standard de la connaissance, jusqu'à ce que Gettier la remette en cause."
+        }
+      ],
+      "example_fr": "Sa croyance en la chance influence toutes ses décisions.",
+      "example_en": "Učiteľ vysvetlil pojem presvedčenie.",
+      "source": "Philosophy - Basics"
+    },
+    {
+      "id": "e66e26e6-ccf3-4fe2-b0f6-d53a58751e87",
+      "word": "sens",
+      "phonetic": "/sɑ̃s/",
+      "translation": "meaning",
+      "definition": "L'idée ou le but qu'exprime quelque chose.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "philosophy",
+      "article": "le",
+      "contextSentences": [
+        {
+          "fr": "Selon Viktor Frankl, la recherche du sens est la force motrice la plus profonde de la vie humaine."
+        }
+      ],
+      "example_fr": "Cette phrase a un double sens selon le contexte.",
+      "example_en": "Tento experiment ukazuje, ako funguje zmysel.",
+      "source": "Philosophy - Basics"
+    }
+  ]
+}

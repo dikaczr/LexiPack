@@ -419,6 +419,7 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
     definition:  t("cols.definition"),
     type:        t("cols.type"),
     level:       t("cols.level"),
+    contextSentences: t("cols.context"),
     topic:       t("cols.topic"),
     _bm_flag:    t("cols._bm_flag"),
     _checkbox:   t("cols._checkbox"),
@@ -472,6 +473,11 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     {
       field: exNativeField,
       label: `Example ${(packMetadata.nativeLang || "sk").toUpperCase()}`,
+    },
+
+    {
+      field: "contextSentences",
+      label: "Context",
     },
 
     {
@@ -724,23 +730,30 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
           continue;
         }
 
-        if (updatedRows[rowIndex][field]) {
+        const existing = updatedRows[rowIndex][field];
+        const hasValue = field === "contextSentences"
+          ? Array.isArray(existing) && existing.length > 0
+          : !!existing;
+        if (hasValue) {
           setGenerationProgress({ current: i + 1, total: selectedRows.length });
           continue;
         }
 
         const value = await generateColumn(updatedRows[rowIndex], field, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName);
+        const newValue = field === "contextSentences"
+          ? [{ [packMetadata.targetLang || "en"]: value }]
+          : value;
 
         const snapKey = `${updatedRows[rowIndex].id}__${field}`;
         aiSnapshotRef.current[snapKey] = {
           action: "AI_FILL_COLUMN",
           packFile: activePack?.fileName ?? null,
-          fields: { [field]: value },
+          fields: { [field]: newValue },
         };
 
         updatedRows[rowIndex] = {
           ...updatedRows[rowIndex],
-          [field]: value,
+          [field]: newValue,
         };
         setRows([...updatedRows]);
 
@@ -1066,9 +1079,12 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     try {
       setIsGenerating(true);
 
-      const aiData = await generateTranslation(row, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category);
+      const { contextSentence, ...aiData } = await generateTranslation(row, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category);
+      if (contextSentence) {
+        aiData.contextSentences = [{ [packMetadata.targetLang || "en"]: contextSentence }];
+      }
 
-      const SNAPSHOT_FIELDS = ["phonetic","translation","definition","type","level",exTargetField,exNativeField,"topic"];
+      const SNAPSHOT_FIELDS = ["phonetic","translation","definition","type","level",exTargetField,exNativeField,"topic","contextSentences"];
       aiSnapshotRef.current[row.id] = {
         action: "AI_GENERATE",
         packFile: activePack?.fileName ?? null,
@@ -1375,11 +1391,14 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
           continue;
         }
 
-        const aiData = await generateTranslation(selectedRow, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category);
+        const { contextSentence, ...aiData } = await generateTranslation(selectedRow, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category);
+        if (contextSentence) {
+          aiData.contextSentences = [{ [packMetadata.targetLang || "en"]: contextSentence }];
+        }
         const rowIndex = updatedRows.findIndex((r) => r.id === selectedRow.id);
 
         if (rowIndex !== -1) {
-          const SNAPSHOT_FIELDS = ["phonetic","translation","definition","type","level",exTargetField,exNativeField,"topic"];
+          const SNAPSHOT_FIELDS = ["phonetic","translation","definition","type","level",exTargetField,exNativeField,"topic","contextSentences"];
           aiSnapshotRef.current[selectedRow.id] = {
             action: "AI_GENERATE",
             packFile: activePack?.fileName ?? null,
@@ -2892,13 +2911,13 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         <aside className={`preview-panel${showPreview ? "" : " preview-panel--collapsed"}`}>
           {!showPreview ? (
             <button className="preview-panel-reopen" onClick={() => setShowPreview(true)} title={t("review.previewPanel")}>
-              <span>{"◀"}</span>
+              <span>{"❮"}</span>
               <span className="preview-panel-reopen-label">{t("review.previewPanel")}</span>
             </button>
           ) : (<>
           <div className="panel-title">
             {t("review.previewPanel")}
-            <button className="preview-panel-close" onClick={() => setShowPreview(false)} title="Zavrieť náhľad">❯</button>
+            <button className="preview-panel-close" onClick={() => setShowPreview(false)} title="Zavrieť náhľad">{"❯"}</button>
           </div>
 
           <PackPreview

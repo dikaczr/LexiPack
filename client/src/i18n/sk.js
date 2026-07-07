@@ -92,6 +92,7 @@ const sk = {
     exampleEn:  "Príklad EN",
     exampleSk:  "Príklad SK",
     exampleLang: (lang) => `Príklad ${lang.toUpperCase()}`,
+    context:    "Kontext",
     topic:      "Téma",
     _bm_flag:   "Záložka",
     _checkbox:  "Výber",

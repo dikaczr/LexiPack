@@ -1,0 +1,90 @@
+{
+  "packId": "priemyseln-automatiz-cia",
+  "name": "Priemyselná automatizácia",
+  "description": "Process of operating machines and other industrial equipment",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "C2",
+  "category": "priemysel",
+  "icon": "📘",
+  "author": "Techdoc, 2026",
+  "version": "1.0",
+  "tags": [
+    "automatizácia",
+    "hydraulika",
+    "mechatronika",
+    "pneumatické systémy",
+    "skrutkovania",
+    "filtračná technika"
+  ],
+  "color": "",
+  "encoding": "utf-8",
+  "production": 1380,
+  "words": [
+    {
+      "id": "a22fae92-251c-454a-b9f0-c097917d375f",
+      "word": "hydraulic circuit",
+      "phonetic": "/haɪˈdrɔːlɪk ˈsɜːrkɪt/",
+      "translation": "hydraulický obvod",
+      "definition": "A system of connected components that uses pressurized fluid to transmit power and control movement.",
+      "type": "noun",
+      "level": "C1",
+      "example_en": "The hydraulic circuit controls the movement of the machine's lifting arm.",
+      "example_sk": "Hydraulický obvod riadi pohyb zdvíhacieho ramena stroja.",
+      "topic": "engineering",
+      "source": "Priemyselná automatizácia"
+    },
+    {
+      "id": "bcc35857-ab7e-4b33-9dfa-3804b0192374",
+      "word": "flow",
+      "phonetic": "/fləʊ/",
+      "translation": "prietok",
+      "definition": "The movement of a liquid, gas, or electricity in a steady and continuous way.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "The engineer measured the water flow in the pipe.",
+      "example_sk": "Inžinier zmeral prietok vody v potrubí.",
+      "topic": "engineering",
+      "source": "Priemyselná automatizácia"
+    },
+    {
+      "id": "10bd6167-6438-4cb2-b1dc-103f5420a8d7",
+      "word": "hydromotor",
+      "phonetic": "/ˌhaɪdrəˈməʊtə(r)/",
+      "translation": "hydromotor",
+      "definition": "A motor powered by pressurized liquid, usually in a hydraulic system, that converts hydraulic energy into mechanical motion.",
+      "type": "noun",
+      "level": "C2",
+      "example_en": "The excavator uses a hydromotor to drive the rotating mechanism.",
+      "example_sk": "Bager používa hydromotor na pohon otáčacieho mechanizmu.",
+      "topic": "engineering",
+      "source": "Priemyselná automatizácia"
+    },
+    {
+      "id": "256b6360-4815-4682-b732-7f112c5a7b4d",
+      "word": "saddle valve",
+      "phonetic": "/ˈsæd.əl vælv/",
+      "translation": "sedlový ventil",
+      "definition": "A valve designed with a seat that controls the flow of liquid or gas by opening or closing against it.",
+      "type": "noun",
+      "level": "C1",
+      "example_en": "The technician replaced the saddle valve to stop the leak.",
+      "example_sk": "Technik vymenil sedlový ventil, aby zastavil únik.",
+      "topic": "engineering",
+      "source": "Priemyselná automatizácia"
+    },
+    {
+      "id": "029e4681-81d6-4a0c-9c86-25289b097e1c",
+      "word": "hydraulic fluid",
+      "phonetic": "/haɪˈdrɔːlɪk ˈflʊɪd/",
+      "translation": "hydraulická kvapalina",
+      "definition": "A liquid used in hydraulic systems to transmit power and enable movement or pressure.",
+      "type": "noun",
+      "level": "C1",
+      "example_en": "The mechanic checked the hydraulic fluid before repairing the brake system.",
+      "example_sk": "Mechanik skontroloval hydraulickú kvapalinu pred opravou brzdového systému.",
+      "topic": "engineering",
+      "source": "Priemyselná automatizácia"
+    }
+  ]
+}

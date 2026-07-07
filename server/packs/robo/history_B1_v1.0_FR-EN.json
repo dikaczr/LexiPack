@@ -1,0 +1,307 @@
+{
+  "packId": "history",
+  "name": "History",
+  "description": "Basic thematic package",
+  "targetLang": "fr",
+  "nativeLang": "en",
+  "level": "B1",
+  "category": "history",
+  "icon": "data:image/png;base64,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",
+  "author": "Techdoc, 2026",
+  "version": "1.0",
+  "tags": [
+    "history"
+  ],
+  "color": "#007A3D",
+  "encoding": "utf-8",
+  "production": 330,
+  "words": [
+    {
+      "id": "11cbb8ec-7d83-46b2-adaf-f307b31b33bc",
+      "word": "empire",
+      "phonetic": "/ɑ̃.piʁ/",
+      "translation": "empire",
+      "definition": "Ensemble de territoires et de peuples soumis à l'autorité d'un même souverain ou d'un même État, souvent étendu par la conquête.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "history",
+      "article": "l'",
+      "contextSentences": [
+        {
+          "fr": "L'Empire byzantin a survécu à la chute de l'Empire romain d'Occident de près d'un millénaire."
+        }
+      ],
+      "example_fr": "Au XIXe siècle, l'empire s'est agrandi rapidement, mais les révoltes locales ont fini par fragiliser son autorité.",
+      "example_en": "In the 19th century, the empire expanded rapidly, but local uprisings eventually weakened its authority.",
+      "source": "History"
+    },
+    {
+      "id": "2b391c17-dd6a-4db4-8bf2-e3dcc2afa3a9",
+      "word": "dynastie",
+      "phonetic": "/di.nas.ti/",
+      "translation": "dynasty",
+      "definition": "Suite de souverains appartenant à la même famille et se succédant au pouvoir pendant plusieurs générations.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "history",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La dynastie Ming a gouverné la Chine de 1368 à 1644 et est connue pour l'achèvement de la Grande Muraille."
+        }
+      ],
+      "example_fr": "Après la chute de la dynastie, les chroniqueurs ont décrit comment le royaume s'était fragmenté en plusieurs principautés rivales.",
+      "example_en": "After the fall of the dynasty, chroniclers described how the kingdom had fragmented into several rival principalities.",
+      "source": "History"
+    },
+    {
+      "id": "ab3f7664-2f5d-4f23-b322-b15c71d22bc5",
+      "word": "révolution",
+      "phonetic": "/ʁevɔlysjɔ̃/",
+      "translation": "revolution",
+      "definition": "Changement brusque et profond dans l'organisation politique, sociale ou économique d'un pays, souvent accompagné de conflits.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "history",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La Révolution américaine de 1776 a conduit à l'indépendance du régime colonial britannique."
+        }
+      ],
+      "example_fr": "La révolution de 1789 a bouleversé la société française et mis fin à de nombreux privilèges de l'Ancien Régime.",
+      "example_en": "The revolution of 1789 upended French society and brought an end to many privileges of the Ancien Régime.",
+      "source": "History"
+    },
+    {
+      "id": "6489e487-57cc-4937-a9cf-eebb3d5163ca",
+      "word": "civilisation",
+      "phonetic": "/si.vi.li.za.sjɔ̃/",
+      "translation": "civilization",
+      "definition": "Ensemble des caractéristiques culturelles, sociales, politiques et techniques qui définissent une société humaine à une époque donnée.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "history",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La civilisation mésopotamienne entre l'Euphrate et le Tigre est considérée comme le berceau de l'écriture."
+        }
+      ],
+      "example_fr": "Les archéologues ont montré que cette civilisation maîtrisait déjà l’écriture et le commerce bien avant l’arrivée des conquérants.",
+      "example_en": "Archaeologists showed that this civilization had already mastered writing and trade long before the conquerors arrived.",
+      "source": "History"
+    },
+    {
+      "id": "3f8a843c-493d-4d42-9a6d-3095cfece0ba",
+      "word": "monarque",
+      "phonetic": "/mɔ.naʁk/",
+      "translation": "monarch",
+      "definition": "Souverain qui exerce le pouvoir dans une monarchie, comme un roi, une reine ou un empereur.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "history",
+      "article": "le",
+      "contextSentences": [
+        {
+          "fr": "La reine Victoria fut le monarque régnant le plus longtemps au XIXe siècle."
+        }
+      ],
+      "example_fr": "Après la révolution, le monarque fut contraint d’abdiquer, mettant fin à plusieurs siècles de dynastie.",
+      "example_en": "After the revolution, the monarch was forced to abdicate, bringing several centuries of dynasty to an end.",
+      "source": "History"
+    },
+    {
+      "id": "7797c999-0e91-4b9f-b434-c99f3703a420",
+      "word": "traité",
+      "phonetic": "/tʁɛ.te/",
+      "translation": "treaty",
+      "definition": "Accord officiel conclu entre des États ou des autorités, souvent pour régler un conflit, fixer des alliances ou établir des règles communes.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "history",
+      "article": "le",
+      "contextSentences": [
+        {
+          "fr": "La Paix de Westphalie en 1648 mit fin à la Guerre de Trente Ans par un traité global."
+        }
+      ],
+      "example_fr": "Après des mois de négociations, les deux royaumes ont signé un traité qui a mis fin à la guerre frontalière.",
+      "example_en": "After months of negotiations, the two kingdoms signed a treaty that ended the border war.",
+      "source": "History"
+    },
+    {
+      "id": "1761b058-afc8-4962-8f4b-249bb04397ef",
+      "word": "bataille",
+      "phonetic": "/bataj/",
+      "translation": "battle",
+      "definition": "Combat important entre des armées ou des groupes armés, souvent dans le cadre d’une guerre ou d’un conflit historique.",
+      "type": "noun",
+      "level": "A2",
+      "topic": "history",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La bataille de Stalingrad est largement considérée comme le tournant de la Seconde Guerre mondiale."
+        }
+      ],
+      "example_fr": "La bataille de Verdun a profondément marqué l’histoire de la Première Guerre mondiale en France.",
+      "example_en": "The Battle of Verdun profoundly marked the history of the First World War in France.",
+      "source": "History"
+    },
+    {
+      "id": "d4d33f19-1b1b-401a-924d-d084320f27a5",
+      "word": "colonie",
+      "phonetic": "/kɔ.lɔ.ni/",
+      "translation": "colony",
+      "definition": "Territoire occupé, administré et exploité par un État étranger, souvent dans un contexte de domination politique, économique et culturelle.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "history",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La plupart des pays africains ont accédé à l'indépendance de leurs colonisateurs au cours des années 1950 et 1960."
+        }
+      ],
+      "example_fr": "Au XIXe siècle, cette île est devenue une colonie stratégique, ce qui a profondément transformé son administration et sa population.",
+      "example_en": "In the 19th century, this island became a strategic colony, which profoundly transformed its administration and population.",
+      "source": "History"
+    },
+    {
+      "id": "ccc463c3-51f1-4498-9bbf-51f14e54b223",
+      "word": "archéologie",
+      "phonetic": "/aʁ.ke.ɔ.lɔ.ʒi/",
+      "translation": "archaeology",
+      "definition": "Science qui étudie les sociétés anciennes à partir de leurs vestiges matériels, comme les objets, les monuments et les traces d’habitat.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "history",
+      "article": "l'",
+      "contextSentences": [
+        {
+          "fr": "Les fouilles à Pompéi ont offert à l'archéologie un tableau détaillé de la vie quotidienne romaine."
+        }
+      ],
+      "example_fr": "Grâce aux progrès de l’archéologie, les historiens ont pu mieux comprendre la vie quotidienne dans les cités gallo-romaines.",
+      "example_en": "Thanks to advances in archaeology, historians have been able to better understand daily life in Gallo-Roman cities.",
+      "source": "History"
+    },
+    {
+      "id": "98c049ed-0775-4e95-8360-fbd6eacc548f",
+      "word": "artefact",
+      "phonetic": "/aʁ.te.fakt/",
+      "translation": "artifact",
+      "definition": "Objet fabriqué ou modifié par l’être humain, souvent conservé ou étudié pour son intérêt historique ou archéologique.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "history",
+      "article": "l'",
+      "contextSentences": [
+        {
+          "fr": "Le buste de Néfertiti est l'un des artefacts de l'Égypte ancienne les plus célèbres, conservé à Berlin."
+        }
+      ],
+      "example_fr": "Lors des fouilles du site gallo-romain, les archéologues ont mis au jour un artefact qui éclaire les échanges commerciaux de l’époque.",
+      "example_en": "During the excavation of the Gallo-Roman site, archaeologists unearthed an artifact that sheds light on the trade exchanges of the time.",
+      "source": "History"
+    },
+    {
+      "id": "2864d1bd-13e5-413e-8e62-590dc8c2cd9f",
+      "word": "chronologie",
+      "phonetic": "/kʁɔnɔlɔʒi/",
+      "translation": "chronology",
+      "definition": "Science ou organisation qui consiste à situer et à ordonner les événements dans le temps selon leur date.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "history",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La datation au carbone 14 permet aux scientifiques d'établir une chronologie précise pour les vestiges préhistoriques organiques."
+        }
+      ],
+      "example_fr": "Pour comprendre les causes de la Révolution française, l'historien a d'abord reconstitué la chronologie des événements qui ont précédé 1789.",
+      "example_en": "To understand the causes of the French Revolution, the historian first reconstructed the chronology of the events that preceded 1789.",
+      "source": "History"
+    },
+    {
+      "id": "f9e1cec0-ba4b-451c-8284-efcb18181035",
+      "word": "patrimoine",
+      "phonetic": "/pat.ʁi.mwan/",
+      "translation": "heritage",
+      "definition": "Ensemble des biens, des traditions, des monuments et des éléments culturels hérités du passé et transmis aux générations futures.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "history",
+      "article": "le",
+      "contextSentences": [
+        {
+          "fr": "Le patrimoine antique de la Grèce perdure aujourd'hui dans les sciences, la philosophie et les idéaux démocratiques."
+        }
+      ],
+      "example_fr": "Après la guerre, la ville a consacré d'importants efforts à restaurer son patrimoine historique endommagé par les bombardements.",
+      "example_en": "After the war, the city devoted major efforts to restoring its historical heritage damaged by the bombings.",
+      "source": "History"
+    },
+    {
+      "id": "c35eaf97-e807-4ae9-b2c4-dd795473258d",
+      "word": "médiéval",
+      "phonetic": "/medjeval/",
+      "translation": "medieval",
+      "definition": "Qui appartient au Moyen Âge ou qui s’y rapporte.",
+      "type": "adjective",
+      "level": "B1",
+      "topic": "history",
+      "article": "",
+      "contextSentences": [
+        {
+          "fr": "Le système féodal médiéval régissait la propriété foncière et les obligations entre seigneurs et vassaux."
+        }
+      ],
+      "example_fr": "Dans cette chronique, l’auteur décrit la vie médiévale des marchands qui traversaient les villes fortifiées.",
+      "example_en": "In this chronicle, the author describes the medieval life of merchants who traveled through fortified towns.",
+      "source": "History"
+    },
+    {
+      "id": "861ea1cb-cac2-49b2-a1ec-79e26e5eb132",
+      "word": "ancien",
+      "phonetic": "/ɑ̃.sjɛ̃/",
+      "translation": "ancient; former",
+      "definition": "Qui appartient à une époque passée, souvent lointaine, ou qui n'est plus actuel.",
+      "type": "adjective",
+      "level": "A2",
+      "topic": "history",
+      "article": "",
+      "contextSentences": [
+        {
+          "fr": "Les anciennes cités-États comme Athènes et Sparte ont façonné les idées politiques de la civilisation occidentale."
+        }
+      ],
+      "example_fr": "Les archéologues ont découvert un ancien manuscrit qui éclaire les origines du royaume médiéval.",
+      "example_en": "Archaeologists discovered an ancient manuscript that sheds light on the origins of the medieval kingdom.",
+      "source": "History"
+    },
+    {
+      "id": "19cb41a9-3ed6-49e7-aec0-4b1dc2ebd4c2",
+      "word": "migration",
+      "phonetic": "/mi.ɡʁa.sjɔ̃/",
+      "translation": "migration",
+      "definition": "Déplacement de populations d’une région à une autre, souvent sur une longue durée, pour des raisons économiques, politiques, sociales ou liées à des conflits.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "history",
+      "article": "la",
+      "contextSentences": [
+        {
+          "fr": "La migration des campagnes vers les villes a façonné l'histoire européenne au XIXe siècle."
+        }
+      ],
+      "example_fr": "Les archives montrent que la migration des populations rurales vers les villes a profondément transformé la société au cours de la révolution industrielle.",
+      "example_en": "Archives show that the migration of rural populations to cities profoundly transformed society during the Industrial Revolution.",
+      "source": "History"
+    }
+  ],
+  "reviewSentBy": "robo",
+  "reviewSentAt": "2026-07-04T23:01:09.563Z"
+}

@@ -233,7 +233,7 @@ function CategorySelect({ value, onChange, apiBase, token }) {
   );
 }
 
-const LANG_FLAG_MAP = { en: "gb" };
+const LANG_FLAG_MAP = { en: "gb", cs: "cz", uk: "ua" };
 
 function langFlag(code) {
   const cc = (LANG_FLAG_MAP[code?.toLowerCase()] || code || "xx").toLowerCase();

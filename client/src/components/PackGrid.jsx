@@ -372,6 +372,27 @@ function PackGrid({
         cellEditor: FloatingTextareaEditor,
       },
       {
+        headerName: t("cols.context"),
+        field: "contextSentences",
+        editable: !isReadOnly,
+        minWidth: r(240),
+        cellEditor: FloatingTextareaEditor,
+        cellStyle: { textAlign: "left" },
+        valueGetter: (params) => {
+          const arr = params.data?.contextSentences;
+          if (!Array.isArray(arr)) return "";
+          return arr.map((cs) => cs?.[targetLang] ?? "").filter(Boolean).join("\n");
+        },
+        valueSetter: (params) => {
+          const lines = String(params.newValue ?? "")
+            .split("\n")
+            .map((s) => s.trim())
+            .filter(Boolean);
+          params.data.contextSentences = lines.map((line) => ({ [targetLang]: line }));
+          return true;
+        },
+      },
+      {
         headerName: t("cols.topic"),
         field: "topic",
         editable: !isReadOnly,

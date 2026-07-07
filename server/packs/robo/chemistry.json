@@ -1,0 +1,493 @@
+{
+  "packId": "b348837e-ae57-4d44-a97a-d56dc3a265fc",
+  "name": "Chémia - základné chemické pojmy",
+  "description": "Výrazy používané v chémii a v chemickom laboratóriu",
+  "targetLang": "en",
+  "nativeLang": "sk",
+  "level": "B2",
+  "category": "chemistry",
+  "icon": "data:image/png;base64,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",
+  "author": "Techdoc",
+  "version": "1.0",
+  "tags": [
+    "chemistry",
+    "elements",
+    "periodic table",
+    "inorganic chemistry"
+  ],
+  "color": "#006E70",
+  "encoding": "utf-8",
+  "production": 6870,
+  "words": [
+    {
+      "word": "atom",
+      "phonetic": "/ˈæt.əm/",
+      "translation": "atóm",
+      "definition": "The smallest unit of a chemical element.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "The Bohr model of the atom depicts electrons orbiting the nucleus on fixed energy levels."
+        },
+        {
+          "en": "Atoms of the same element with different numbers of neutrons are called isotopes."
+        }
+      ],
+      "example_en": "An atom is the smallest unit of an element that retains its chemical properties.",
+      "example_sk": "Atóm je najmenšia jednotka prvku, ktorá si zachováva svoje chemické vlastnosti.",
+      "id": "c9e6daf8-76e3-46b3-9f78-6b929dfc6cd7",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "molecule",
+      "phonetic": "/ˈmɒl.ɪ.kjuːl/",
+      "translation": "molekula",
+      "definition": "A group of atoms bonded together.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "The water molecule is polar, which gives it unusual properties such as high surface tension."
+        },
+        {
+          "en": "Proteins are complex molecules made up of hundreds or thousands of amino acids."
+        }
+      ],
+      "example_en": "A water molecule consists of two hydrogen atoms and one oxygen atom.",
+      "example_sk": "Molekula vody sa skladá z dvoch atómov vodíka a jedného atómu kyslíka.",
+      "id": "e5a35086-d135-4a3e-96ed-31a68d2156a5",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "element",
+      "phonetic": "/ˈel.ɪ.mənt/",
+      "translation": "prvok",
+      "definition": "A substance made of only one type of atom.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "There are currently 118 known chemical elements, of which 94 occur naturally on Earth."
+        },
+        {
+          "en": "Gold is a chemical element valued for its stability and rarity."
+        }
+      ],
+      "example_en": "Gold is an element because it contains only one type of atom.",
+      "example_sk": "Zlato je prvok, pretože obsahuje iba jeden druh atómu.",
+      "id": "73c8d99e-ab3b-44fb-a286-4ee242fe68e0",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "compound",
+      "phonetic": "/ˈkɒm.paʊnd/",
+      "translation": "zlúčenina",
+      "definition": "A substance formed from two or more chemical elements.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "Sodium chloride, or table salt, is an ionic compound made of sodium and chloride ions."
+        },
+        {
+          "en": "Organic compounds always contain carbon atoms and are the basis of all living matter."
+        }
+      ],
+      "example_en": "Water is a compound made of hydrogen and oxygen.",
+      "example_sk": "Voda je zlúčenina vodíka a kyslíka.",
+      "id": "e0021060-4247-4020-897c-245cdbf98979",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "reaction",
+      "phonetic": "/riˈæk.ʃən/",
+      "translation": "reakcia",
+      "definition": "A process in which substances change into new substances.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "Exothermic reactions release energy as heat, while endothermic reactions absorb it."
+        },
+        {
+          "en": "The oxidation reaction of iron with oxygen results in rust."
+        }
+      ],
+      "example_en": "The vinegar and baking soda reaction produced bubbles of carbon dioxide.",
+      "example_sk": "Reakcia octu a jedlej sódy spôsobila vznik bublín oxidu uhličitého.",
+      "id": "08e6c089-d384-415c-b8b0-0af0a42c20d4",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "acid",
+      "phonetic": "/ˈæs.ɪd/",
+      "translation": "kyselina",
+      "definition": "A substance with a low pH that can react with bases.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "Citric acid occurs naturally in citrus fruits and gives them their sharp taste."
+        },
+        {
+          "en": "Sulfuric acid is one of the most widely produced chemicals in the world and is used in many industries."
+        }
+      ],
+      "example_en": "Lemon juice is an acid that tastes sour and turns blue litmus red.",
+      "example_sk": "Citrónová šťava je kyselina, ktorá má kyslastú chuť a zafarbí červený lakmus na modro.",
+      "id": "62dff6b1-6f49-4bb7-9e78-8fe121f3ae45",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "base",
+      "phonetic": "/beɪs/",
+      "translation": "zásada, báza",
+      "definition": "A substance that can neutralise an acid.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "Ammonia is a weak base used in cleaning products and fertiliser production."
+        },
+        {
+          "en": "When an acid and a base react, they neutralise each other and form salt and water."
+        }
+      ],
+      "example_en": "Soap is a base, so it can feel slippery on your skin.",
+      "example_sk": "Mydlo je zásadité, preto sa na pokožke môže zdať klzké.",
+      "id": "fff0a9c5-eb6f-473e-ad24-87e34f308288",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "solution",
+      "phonetic": "/səˈluː.ʃən/",
+      "translation": "roztok",
+      "definition": "A liquid mixture in which one substance is dissolved in another.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "In a saturated solution, no additional substance can be dissolved at that temperature."
+        },
+        {
+          "en": "Physiological saline solution is used in medicine as an intravenous infusion."
+        }
+      ],
+      "example_en": "The salt dissolved in water to form a clear solution.",
+      "example_sk": "Soľ sa rozpustila vo vode a vytvorila číry roztok.",
+      "id": "26fa3267-8198-4368-b931-0f6325fe9f1f",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "solvent",
+      "phonetic": "/ˈsɒl.vənt/",
+      "translation": "rozpúšťadlo",
+      "definition": "A substance, usually a liquid, that dissolves another substance.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "Organic solvents such as ethanol are widely used in the pharmaceutical and cosmetics industries."
+        },
+        {
+          "en": "Choosing the right solvent is critical to the success of a chemical reaction."
+        }
+      ],
+      "example_en": "Water is the solvent in a cup of saltwater.",
+      "example_sk": "Voda je rozpúšťadlom v pohári so slanou vodou.",
+      "id": "3d2cee05-6e17-4f95-a221-596304fd6b68",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "catalyst",
+      "phonetic": "/ˈkæt.əl.ɪst/",
+      "translation": "katalyzátor",
+      "definition": "A substance that speeds up a chemical reaction without being used up.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "Enzymes are biological catalysts that enable thousands of reactions in the human body."
+        },
+        {
+          "en": "A catalyst lowers the activation energy of a reaction without being consumed itself."
+        }
+      ],
+      "example_en": "The enzyme acts as a catalyst, speeding up the reaction without being used up.",
+      "example_sk": "Enzým pôsobí ako katalyzátor, ktorý urýchľuje reakciu, pričom sa sám nespotrebuje.",
+      "id": "4aa783d7-7152-4a49-9b74-9ade7aacf5f4",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "evaporation",
+      "phonetic": "/ɪˌvæp.əˈreɪ.ʃən/",
+      "translation": "odparovanie",
+      "definition": "The process by which a liquid changes into gas.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "The evaporation of alcohol on the skin produces a cooling sensation by drawing away heat."
+        },
+        {
+          "en": "Seawater desalination uses evaporation to obtain fresh drinking water from saltwater."
+        }
+      ],
+      "example_en": "Evaporation happens when liquid water changes into vapor on a hot day.",
+      "example_sk": "K odparovaniu dochádza, keď sa v horúci deň tekutá voda mení na paru.",
+      "id": "20c69692-6aaf-4e9d-bb49-4ada56ee9389",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "crystal",
+      "phonetic": "/ˈkrɪs.təl/",
+      "translation": "kryštál",
+      "definition": "A solid substance with a regular geometric structure.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "Diamond is a special crystal form of carbon and the hardest natural mineral known."
+        },
+        {
+          "en": "Quartz crystals vibrate at a precise frequency when an electric current is applied, making them ideal for clocks."
+        }
+      ],
+      "example_en": "Snowflakes form when ice crystals grow in cold clouds.",
+      "example_sk": "Snehové vločky vznikajú, keď v chladných oblakoch rastú ľadové kryštály.",
+      "id": "29d6f9d0-ec38-43e0-bb7c-01af506863c7",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "laboratory",
+      "phonetic": "/ləˈbɒr.ə.tər.i/",
+      "translation": "laboratórium",
+      "definition": "A room equipped for scientific experiments and testing.",
+      "type": "noun",
+      "level": "B1",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "In a chemistry laboratory, wearing safety goggles, a lab coat, and gloves is mandatory."
+        },
+        {
+          "en": "The first modern chemistry laboratories were established at European universities in the 19th century."
+        }
+      ],
+      "example_en": "The students wore goggles while working in the chemistry laboratory.",
+      "example_sk": "Študenti mali pri práci v chemickom laboratóriu nasadené ochranné okuliare.",
+      "id": "aa4076ee-7841-4b93-9f27-409b64609dd5",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "toxic",
+      "phonetic": "/ˈtɒk.sɪk/",
+      "translation": "toxický",
+      "definition": "Poisonous or harmful to living things.",
+      "type": "adj",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "Tetrodotoxin, the poison of the puffer fish, is one of the most toxic natural substances known."
+        },
+        {
+          "en": "Even water can be toxic to the human body if consumed in extremely large quantities."
+        }
+      ],
+      "example_en": "The gas is toxic, so workers must wear protective masks.",
+      "example_sk": "Plyn je jedovatý, preto musia pracovníci nosiť ochranné masky.",
+      "id": "e2d1ea4e-4f3b-4a69-887c-fb986b23d7a9",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "word": "periodic table",
+      "phonetic": "/ˌpɪə.riˈɒd.ɪk ˌteɪ.bəl/",
+      "translation": "periodická tabuľka",
+      "definition": "A chart that arranges chemical elements by their properties.",
+      "type": "noun",
+      "level": "B2",
+      "topic": "chemistry",
+      "article": "",
+      "contextSentences": [
+        {
+          "en": "Mendeleev left gaps in the periodic table for undiscovered elements and predicted their properties."
+        },
+        {
+          "en": "The periodic table shows that the properties of elements repeat in a periodic pattern."
+        }
+      ],
+      "example_en": "The periodic table organizes elements by their atomic number and properties.",
+      "example_sk": "Periodická tabuľka zaraďuje prvky podľa ich atómového čísla a vlastností.",
+      "id": "8eaf2424-a8ea-4d1d-8291-6f4d0e032293",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "id": "1e82554b-910a-4b7f-9b4e-1a32fef36bdf",
+      "word": "mixture",
+      "article": "",
+      "phonetic": "/ˈmɪkstʃər/",
+      "translation": "zmes",
+      "definition": "A combination of different substances, elements, or things.",
+      "type": "noun",
+      "level": "B1",
+      "example_en": "The recipe requires a mixture of flour, sugar, and eggs.",
+      "example_sk": "Recept vyžaduje zmes múky, cukru a vajec.",
+      "topic": "chemistry",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "id": "97e14219-9ad7-433a-9138-2765e964911d",
+      "word": "formula",
+      "article": "",
+      "phonetic": "/ˈfɔːrmjələ/",
+      "translation": "vzorec",
+      "definition": "A set of mathematical symbols or words used to express a rule, fact, or relationship.",
+      "type": "noun",
+      "level": "B1",
+      "example_en": "The teacher wrote the quadratic formula on the board to solve the equation.",
+      "example_sk": "Učiteľ napísal na tabuľu vzorec na riešenie kvadratickej rovnice.",
+      "topic": "chemistry",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "id": "1ede149b-6021-4bd1-84d2-ae2dcd3058b1",
+      "word": "isotope",
+      "article": "",
+      "phonetic": "/ˈaɪsəˌtoʊp/",
+      "translation": "izotop",
+      "definition": "One of two or more forms of the same chemical element that have the same number of protons but different numbers of neutrons.",
+      "type": "noun",
+      "level": "C1",
+      "example_en": "Carbon-14 is a radioactive isotope used for dating ancient objects.",
+      "example_sk": "Uhlík-14 je rádioaktívny izotop používaný na datovanie starovekých predmetov.",
+      "topic": "chemistry",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "id": "a5ded22d-1ed0-4f1f-8808-66dc9f37b26a",
+      "word": "ion",
+      "article": "",
+      "phonetic": "/ˈaɪən/",
+      "translation": "ión",
+      "definition": "An atom or molecule that has an electric charge because it has lost or gained one or more electrons.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "A sodium ion has a positive charge.",
+      "example_sk": "Sodíkový ión má kladný náboj.",
+      "topic": "chemistry",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "id": "b928e279-5721-4a2b-9fa9-6ac91bd95aac",
+      "word": "oxidation",
+      "article": "",
+      "phonetic": "/ˌɒk.sɪˈdeɪ.ʃən/",
+      "translation": "oxidácia",
+      "definition": "A chemical reaction in which a substance loses electrons or combines with oxygen.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "Oxidation causes iron to form rust.",
+      "example_sk": "Oxidácia spôsobuje, že sa na železe tvorí hrdza.",
+      "topic": "chemistry",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "id": "12842cc1-4c23-4cc9-a1c4-912898e881bb",
+      "word": "density",
+      "article": "",
+      "phonetic": "/ˈdensəti/",
+      "translation": "hustota",
+      "definition": "The amount of mass in a given volume of a substance or object.",
+      "type": "noun",
+      "level": "B2",
+      "example_en": "Gold has a higher density than water.",
+      "example_sk": "Zlato má vyššiu hustotu ako voda.",
+      "topic": "chemistry",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "id": "462fc7e8-e743-429f-aa8e-d124f0b128e5",
+      "word": "alkaline",
+      "article": "",
+      "phonetic": "/ˈæl.kə.laɪn/",
+      "translation": "alkalický",
+      "definition": "Having the properties of an alkali; having a pH greater than 7.",
+      "type": "adjective",
+      "level": "C1",
+      "example_en": "The soil in this area is slightly alkaline.",
+      "example_sk": "Pôda v tejto oblasti je mierne alkalická.",
+      "topic": "chemistry",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "id": "d4c92c76-519f-46f2-9fc8-c75de2407bd3",
+      "word": "neutralization",
+      "article": "",
+      "phonetic": "/ˌnjuːtrəlaɪˈzeɪʃən/",
+      "translation": "neutralizácia",
+      "definition": "The process of making something neutral, harmless, or ineffective.",
+      "type": "noun",
+      "level": "C1",
+      "example_en": "The neutralization of the acid required a strong base.",
+      "example_sk": "Neutralizácia kyseliny si vyžadovala silnú zásadu.",
+      "topic": "chemistry",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "id": "0469e9a7-52b8-4691-9ca4-12293d563af8",
+      "word": "precipitate",
+      "article": "",
+      "phonetic": "/prɪˈsɪpɪteɪt/",
+      "translation": "vyvolať, urýchliť, zraziť sa, zrazenina",
+      "definition": "To cause something to happen suddenly or earlier than expected; in chemistry, to separate from a solution as a solid. As a noun, it means the solid that forms in a liquid during a chemical reaction.",
+      "type": "verb / noun / adjective",
+      "level": "C1",
+      "example_en": "The announcement could precipitate a major change in policy.",
+      "example_sk": "Oznámenie by mohlo vyvolať veľkú zmenu v politike.",
+      "topic": "chemistry",
+      "source": "Chémia - základné chemické pojmy"
+    },
+    {
+      "id": "ea65a1ed-b019-4f4c-8025-2b0861491871",
+      "word": "flammable",
+      "article": "",
+      "phonetic": "/ˈflæməbl/",
+      "translation": "horľavý",
+      "definition": "Able to catch fire easily and burn quickly.",
+      "type": "adjective",
+      "level": "B2",
+      "example_en": "Keep flammable materials away from open flames.",
+      "example_sk": "Držte horľavé materiály ďalej od otvoreného ohňa.",
+      "topic": "chemistry",
+      "source": "Chémia - základné chemické pojmy"
+    }
+  ]
+}

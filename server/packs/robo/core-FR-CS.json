@@ -1,0 +1,17 @@
+{
+  "packId": "core-pack-fr-cs",
+  "name": "Core Pack FR-CS",
+  "description": "",
+  "targetLang": "fr",
+  "nativeLang": "cs",
+  "level": "B1",
+  "category": "",
+  "icon": "📘",
+  "author": "Techdoc",
+  "version": "1.0",
+  "tags": [],
+  "color": "",
+  "encoding": "utf-8",
+  "production": 150,
+  "words": []
+}
