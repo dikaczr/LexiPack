@@ -74,6 +74,8 @@ function getContent(tl, nl) { return {
         <li>Zadajte názov balíka a potvrďte.</li>
         <li>Balík sa vytvorí a otvorí v editore.</li>
       </ol>
+      <h3>Nový balík podľa existujúceho (Based on)</h3>
+      <p>V dialógu <strong>Nový balík</strong> je pod názvom riadok <strong>Based on</strong>. Tlačidlo <strong>Vybrať balík…</strong> otvorí zoznam súborov s vyhľadávaním. Po výbere sa do formulára prevezmú všetky nastavenia vybraného balíka vrátane názvu, ikony, farby, tagov, jazykov, úrovne a verzie — okrem slov. Upravte názov (napr. Unit 2) a balík vytvorte. Hodí sa pri viacdielnych kurzoch (Unit 1, 2, 3…).</p>
       <h3>Metadáta balíka</h3>
       <p>V hornej časti editora sa nachádza panel s metadátami. Tieto údaje popisujú pre systém obsah balíka. Vyplňte nasledujúce údaje:</p>
       <Table rows={[

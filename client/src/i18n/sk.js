@@ -535,6 +535,15 @@ const sk = {
     tagsPlaceholder: "science, academic",
     submit:       "Vytvoriť balík",
     submitting:   "Vytváram...",
+    basedOn:         "Based on",
+    basedOnChoose:   "Vybrať balík…",
+    basedOnNone:     "— žiadny —",
+    basedOnHint:     "Prevezme všetky nastavenia balíka okrem slov. Potom upravte názov.",
+    basedOnTitle:    "Vyberte východiskový balík",
+    basedOnSearch:   "Hľadať podľa súboru alebo názvu…",
+    basedOnEmpty:    "Nenašli sa žiadne balíky",
+    basedOnLoading:  "Načítavam…",
+    fileExists:      (fileName) => `Balík so súborom „${fileName}“ už existuje. Zmeňte názov, inak sa balík nevytvorí (existujúci balík sa nikdy neprepíše).`,
   },
 
   // ── Save As (modál) ───────────────────────────────

@@ -122,8 +122,53 @@ function useDraggable() {
   return { offset, onHeaderMouseDown };
 }
 
+// ── Výber východiskového balíka pre "Based on" ────────
+function BasedOnPicker({ packs, onSelect, onClose }) {
+  const t = useT();
+  const [query, setQuery] = useState("");
+
+  const items = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return [...packs]
+      .sort((a, b) => a.fileName.localeCompare(b.fileName, undefined, { sensitivity: "base" }))
+      .filter((p) => !q || p.fileName.toLowerCase().includes(q) || (p.name || "").toLowerCase().includes(q));
+  }, [packs, query]);
+
+  return (
+    <div className="np-backdrop np-picker-backdrop" onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div className="np-modal np-picker">
+        <div className="np-header">
+          <h3>{t("newPack.basedOnTitle")}</h3>
+          <button type="button" className="np-close" onClick={onClose}>✕</button>
+        </div>
+        <div className="np-body">
+          <input
+            className="np-picker-search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => e.key === "Escape" && onClose()}
+            placeholder={t("newPack.basedOnSearch")}
+            autoFocus
+          />
+          <div className="np-picker-list">
+            {items.length === 0 && <div className="np-picker-empty">{t("newPack.basedOnEmpty")}</div>}
+            {items.map((p) => (
+              <button type="button" key={p.fileName} className="np-picker-item" onClick={() => onSelect(p)}>
+                <span className="np-picker-file">{p.fileName}</span>
+                <span className="np-picker-meta">
+                  {[p.name, `${(p.targetLang || "").toUpperCase()} → ${(p.nativeLang || "").toUpperCase()}`, p.level].filter((x) => x && x !== "-").join(" · ")}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Modál nového balíka ───────────────────────────────
-function NewPackModal({ onClose, onCreated }) {
+function NewPackModal({ packs = [], onClose, onCreated }) {
   const t = useT();
   const { token } = useAuth();
   const [form, setForm] = useState({
@@ -136,6 +181,12 @@ function NewPackModal({ onClose, onCreated }) {
   const [fileNameEdited,   setFileNameEdited]   = useState(false);
   const [error, setError]   = useState(null);
   const [saving, setSaving] = useState(false);
+  const [color, setColor]         = useState("");
+  const [iconImage, setIconImage] = useState("");
+  const [baseFile, setBaseFile]   = useState("");
+  const [pickerOpen, setPickerOpen]   = useState(false);
+  const [loadingBase, setLoadingBase] = useState(false);
+  const nameRef = useRef(null);
   const { offset, onHeaderMouseDown } = useDraggable();
 
   const autoFileName = buildFileName(form);
@@ -155,8 +206,50 @@ function NewPackModal({ onClose, onCreated }) {
 
   const effectiveFileName = fileNameEdited ? fileNameOverride : buildFileName(form);
 
+  // Same rule as the server: ".json" is appended when missing. Windows file names are case-insensitive.
+  const finalFileName = (effectiveFileName.endsWith(".json") ? effectiveFileName : `${effectiveFileName}.json`).toLowerCase();
+  const fileExists = packs.some((p) => p.fileName.toLowerCase() === finalFileName);
+
+  // Copies every pack setting except the words (used to create Unit 1, 2, 3… of one course).
+  async function applyBase(pack) {
+    setPickerOpen(false);
+    setError(null);
+    setLoadingBase(true);
+    try {
+      const url = pack.packDbId ? `${API}/by-id/${pack.packDbId}` : `${API}/${encodeURIComponent(pack.fileName)}`;
+      const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      const iconIsImage = typeof data.icon === "string" && data.icon.startsWith("data:");
+      setForm((f) => ({
+        ...f,
+        name:        data.name ?? "",
+        description: data.description ?? "",
+        category:    data.category ?? "",
+        author:      data.author ?? "",
+        version:     data.version != null ? String(data.version) : f.version,
+        level:       LEVELS.includes(data.level) ? data.level : f.level,
+        targetLang:  LANGUAGES.some((l) => l.code === data.targetLang) ? data.targetLang : f.targetLang,
+        nativeLang:  LANGUAGES.some((l) => l.code === data.nativeLang) ? data.nativeLang : f.nativeLang,
+        tags:        Array.isArray(data.tags) ? data.tags.join(", ") : (data.tags ?? ""),
+        icon:        iconIsImage ? "" : (data.icon ?? ""),
+      }));
+      setIconImage(iconIsImage ? data.icon : "");
+      setColor(data.color ?? "");
+      setBaseFile(pack.fileName);
+      setFileNameEdited(false);
+      setTimeout(() => { nameRef.current?.focus(); nameRef.current?.select(); }, 0);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoadingBase(false);
+    }
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
+    if (fileExists) return;
     setError(null);
     setSaving(true);
     try {
@@ -164,7 +257,7 @@ function NewPackModal({ onClose, onCreated }) {
       const res = await fetch(API, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
-        body: JSON.stringify({ ...form, packId, fileName: effectiveFileName }),
+        body: JSON.stringify({ ...form, icon: form.icon || iconImage, color, packId, fileName: effectiveFileName }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
@@ -178,7 +271,12 @@ function NewPackModal({ onClose, onCreated }) {
     }
   }
 
+  const iconPreviewStyle = iconImage && !form.icon
+    ? { backgroundImage: `url(${iconImage})`, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }
+    : undefined;
+
   return (
+    <>
     <div className="np-backdrop" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <form className="np-modal" onSubmit={handleSubmit} style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}>
         <div className="np-header" onMouseDown={onHeaderMouseDown} style={{ cursor: "move" }}>
@@ -191,12 +289,30 @@ function NewPackModal({ onClose, onCreated }) {
           <div className="np-row">
             <div className="np-field np-grow">
               <label>{t("newPack.name")}</label>
-              <input value={form.name} onChange={(e) => set("name", e.target.value)} required autoFocus />
+              <input ref={nameRef} value={form.name} onChange={(e) => set("name", e.target.value)} required autoFocus />
             </div>
             <div className="np-field" style={{ width: 64 }}>
               <label>{t("newPack.icon")}</label>
-              <input value={form.icon} onChange={(e) => set("icon", e.target.value)} placeholder="🎓" />
+              <input
+                value={form.icon}
+                onChange={(e) => set("icon", e.target.value)}
+                placeholder={iconImage ? "" : "🎓"}
+                style={iconPreviewStyle}
+              />
             </div>
+          </div>
+
+          {/* Založiť na existujúcom balíku */}
+          <div className="np-field">
+            <label>{t("newPack.basedOn")}</label>
+            <div className="np-basedon">
+              <button type="button" className="projects-btn" onClick={() => setPickerOpen(true)} disabled={loadingBase}>
+                {loadingBase ? t("newPack.basedOnLoading") : t("newPack.basedOnChoose")}
+              </button>
+              <span className="np-basedon-file" title={baseFile}>{baseFile || t("newPack.basedOnNone")}</span>
+              {color && <span className="np-basedon-swatch" style={{ background: color }} title={color} />}
+            </div>
+            <div className="np-hint">{t("newPack.basedOnHint")}</div>
           </div>
 
           {/* Názov súboru */}
@@ -205,8 +321,9 @@ function NewPackModal({ onClose, onCreated }) {
             <input
               value={effectiveFileName}
               onChange={(e) => handleFileNameChange(e.target.value)}
-              className="np-filename"
+              className={`np-filename${fileExists ? " np-input-warn" : ""}`}
             />
+            {fileExists && <div className="np-warning">{t("newPack.fileExists")(effectiveFileName)}</div>}
           </div>
 
           {/* Popis */}
@@ -265,12 +382,14 @@ function NewPackModal({ onClose, onCreated }) {
 
         <div className="np-footer">
           <button type="button" className="projects-btn" onClick={onClose}>{t("common.cancel")}</button>
-          <button type="submit" className="projects-btn primary" disabled={saving}>
+          <button type="submit" className="projects-btn primary" disabled={saving || loadingBase || fileExists}>
             {saving ? t("newPack.submitting") : t("newPack.submit")}
           </button>
         </div>
       </form>
     </div>
+    {pickerOpen && <BasedOnPicker packs={packs} onSelect={applyBase} onClose={() => setPickerOpen(false)} />}
+    </>
   );
 }
 
@@ -983,6 +1102,7 @@ export default function ProjectsScreen({ setActiveScreen, setActivePack, filter 
 
       {showNewPack && (
         <NewPackModal
+          packs={rowData}
           onClose={() => setShowNewPack(false)}
           onCreated={handleCreated}
         />

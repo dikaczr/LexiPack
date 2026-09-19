@@ -446,6 +446,111 @@
   letter-spacing: 0.2px;
 }
 
+/* "Based on" — výber východiskového balíka */
+.np-basedon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.np-basedon-file {
+  flex: 1;
+  min-width: 0;
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: var(--app-accent);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.np-basedon-swatch {
+  flex-shrink: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--app-border-sub);
+}
+
+.np-hint {
+  font-size: 1.1rem;
+  color: var(--app-muted);
+  text-align: left;
+}
+
+.np-warning {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: var(--app-warning);
+  text-align: left;
+}
+
+.np-field input.np-input-warn { border-color: var(--app-warning); }
+
+.np-picker-backdrop { z-index: 1100; }
+
+.np-picker { width: 56rem; max-height: 80vh; }
+
+.np-picker-search {
+  background: var(--app-input);
+  border: 1px solid var(--app-border-sub);
+  border-radius: 0.6rem;
+  color: var(--app-text2);
+  font-size: 1.2rem;
+  padding: 0.7rem 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.np-picker-search:focus { border-color: var(--app-accent); }
+
+.np-picker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-height: 46vh;
+  overflow-y: auto;
+}
+
+.np-picker-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  text-align: left;
+}
+.np-picker-item:hover,
+.np-picker-item:focus-visible {
+  background: var(--app-nav-hov);
+  border-color: var(--app-border-sub);
+  outline: none;
+}
+
+.np-picker-file {
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: var(--app-accent);
+}
+
+.np-picker-meta {
+  font-size: 1.1rem;
+  color: var(--app-muted);
+}
+
+.np-picker-empty {
+  padding: 1.6rem;
+  font-size: 1.2rem;
+  color: var(--app-muted);
+  text-align: center;
+}
+
 .np-error {
   margin: 0 2.4rem;
   background: var(--app-danger);

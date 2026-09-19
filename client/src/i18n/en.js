@@ -535,6 +535,15 @@ const en = {
     tagsPlaceholder: "science, academic",
     submit:          "Create pack",
     submitting:      "Creating...",
+    basedOn:         "Based on",
+    basedOnChoose:   "Choose pack…",
+    basedOnNone:     "— none —",
+    basedOnHint:     "Copies all pack settings except the words. Change the name afterwards.",
+    basedOnTitle:    "Choose a base pack",
+    basedOnSearch:   "Search by file or pack name…",
+    basedOnEmpty:    "No packs found",
+    basedOnLoading:  "Loading…",
+    fileExists:      (fileName) => `A pack with the file name “${fileName}” already exists. Change the name, otherwise the pack cannot be created (the existing pack is never overwritten).`,
   },
 
   // ── Save As (modal) ───────────────────────────────

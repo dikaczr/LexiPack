@@ -323,7 +323,7 @@ router.post("/", requireAuth, async (req, res) => {
   try {
     const { username, id: userId } = req.user;
     const { name, description, packId, targetLang, nativeLang, level,
-            category, icon, author, version, tags } = req.body;
+            category, icon, author, version, tags, color } = req.body;
 
     if (!name) return res.status(400).json({ error: "name is required" });
 
@@ -356,6 +356,7 @@ router.post("/", requireAuth, async (req, res) => {
       createdAt:        new Date().toISOString().slice(0, 10),
       version:          version     || "1.0",
       tags:             Array.isArray(tags) ? tags : (tags || "").split(",").map(t => t.trim()).filter(Boolean),
+      ...(color ? { color } : {}),
       comments:         "",
       reviewerComments: "",
       words:            [],
