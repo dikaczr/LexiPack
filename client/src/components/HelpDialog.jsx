@@ -209,7 +209,7 @@ function getContent(tl, nl) { return {
       <Table rows={[
         ["Generate AI",     "Vygeneruje všetky polia pre riadok, na ktorom je kurzor (Ctrl+Enter)"],
         ["Gen. Selected",   "Vygeneruje všetky polia pre všetky označené riadky (Ctrl+Shift+G)"],
-        ["Fill Column",     "Doplní jeden konkrétny stĺpec pre všetky označené riadky. Ak už niektoré riadky majú v stĺpci hodnotu, aplikácia sa opýta, či ich prepísať, alebo doplniť len prázdne (prepísanie sa dá vrátiť cez Ctrl+Z). Pri poliach Example sa zároveň doplní aj príklad v druhom jazyku. Pri Phonetic sa už vyplnené hodnoty bez lomítok automaticky obalia do / / (bez AI volania). Riadky sa generujú súbežne; chyba pri jednom riadku nepreruší ostatné a po dokončení sa zobrazí súhrn (vyplnené / preskočené / zlyhalo)"],
+        ["Fill Column",     "Doplní jeden konkrétny stĺpec pre všetky označené riadky. Ak už niektoré riadky majú v stĺpci hodnotu, aplikácia sa opýta, či ich prepísať, alebo doplniť len prázdne (prepísanie sa dá vrátiť cez Ctrl+Z). Pri poliach Example sa zároveň doplní aj príklad v druhom jazyku. Pri Phonetic sa už vyplnené hodnoty bez lomítok automaticky obalia do / / (bez AI volania). Riadky sa generujú súbežne; chyba pri jednom riadku nepreruší ostatné a po dokončení sa zobrazí súhrn (vyplnené / preskočené / zlyhalo) aj s dôvodmi zlyhania. Pri Topic sa otvorí dialóg: môžete napísať vlastnú tému alebo vybrať z bežných tém (v jazyku balíka) a zapíše sa do všetkých označených riadkov; alebo nechať AI určiť tému zvlášť pre každé slovo"],
         ["Gen. Topic",      "Automaticky určí tematickú kategóriu (Topic) pre označené slová"],
         ["Suggest Words",   "Navrhne 10 súvisiacich slov na základe obsahu balíka"],
       ]} />

@@ -3,6 +3,7 @@ import OpenAI, { toFile } from "openai";
 import { requireAuth } from "../middleware/auth.js";
 import { auditLog } from "../middleware/audit.js";
 import { trackAI } from "../middleware/telemetry.js";
+import { serverLog } from "../utils/serverLogger.js";
 import { promises as fs } from "fs";
 import path from "path";
 import os from "os";
@@ -39,6 +40,33 @@ function formatPhonetic(value) {
   if (/^\/[^/]+\//.test(text)) return text;
   const inner = text.replace(/^[/[]+|[/\]]+$/g, "").trim();
   return inner ? `/${inner}/` : "";
+}
+
+// Extracts the JSON object from a model reply, tolerating code fences and surrounding prose.
+function parseModelJson(text) {
+  const clean = String(text ?? "").replace(/```json|```/g, "").trim();
+  try {
+    return JSON.parse(clean);
+  } catch {
+    const match = clean.match(/\{[\s\S]*\}/);
+    if (match) return JSON.parse(match[0]);
+    throw new Error("Model returned invalid JSON");
+  }
+}
+
+// Reads the single generated value, whatever key the model used for it.
+function pickFieldValue(aiData, field) {
+  if (aiData == null) return "";
+  if (typeof aiData !== "object") return aiData;
+  const direct = aiData.value ?? aiData[field];
+  if (direct != null) return direct;
+  return Object.values(aiData).find((v) => typeof v === "string" || typeof v === "number") ?? "";
+}
+
+// Short, non-sensitive failure reason that is safe to show to the user.
+function errorDetail(err) {
+  if (err?.status) return `OpenAI ${err.status}${err.code ? ` ${err.code}` : ""}`;
+  return String(err?.message ?? "unknown error").slice(0, 120);
 }
 
 // Complexity limit for generated sentences, based on the pack's CEFR level.
@@ -188,10 +216,14 @@ router.post("/suggest-words", requireAuth, async (req, res) => {
 // ── AI Fill column (requireAuth) ──────────────────────
 router.post("/generate-column", requireAuth, async (req, res) => {
   try {
-    const { row, field, targetLang, nativeLang, packFile, packCategory, packLevel } = req.body;
+    const { row, field, targetLang, nativeLang, packFile, packCategory, packLevel, topics } = req.body;
     const tName = LANG_NAMES[targetLang] || targetLang || "English";
     const nName = LANG_NAMES[nativeLang] || nativeLang || "Slovak";
     const levelHint = sentenceLevelHint(packLevel);
+    const topicList = (Array.isArray(topics) ? topics : [])
+      .filter((topic) => typeof topic === "string" && topic.trim())
+      .map((topic) => topic.trim().slice(0, 60))
+      .slice(0, 40);
 
     const exTargetField = `example_${targetLang}`;
     const exNativeField = `example_${nativeLang}`;
@@ -242,8 +274,8 @@ router.post("/generate-column", requireAuth, async (req, res) => {
         example: "B1",
       },
       topic: {
-        instruction: "one lowercase English word naming the topic (e.g. astronomy, finance)",
-        example: "astronomy",
+        instruction: `the topic of the word, written in ${tName} in lowercase: a short noun phrase (one to three words).${topicList.length ? ` Strongly prefer one of these common topics, copied exactly: ${topicList.join(", ")}. Only if none of them fits, use a similarly short, general ${tName} topic` : ""}`,
+        example: `<topic in ${tName}>`,
       },
       contextSentences: {
         instruction: `one additional natural example sentence in ${tName} using the word in a realistic context, distinct from the existing example sentence`,
@@ -269,28 +301,53 @@ router.post("/generate-column", requireAuth, async (req, res) => {
       ? `\nThe vocabulary pack is about: "${packCategory.trim()}". If the word has several meanings, use the one that fits this domain.`
       : "";
 
-    const completion = await getOpenAI().chat.completions.create({
-      model: process.env.OPENAI_MODEL,
-      messages: [
-        {
-          role: "system",
-          content: `You are a professional dictionary assistant.\nThe vocabulary pack language is ${tName} (translations in ${nName}).${domainHint}${field === "contextSentences" && levelHint ? `\n${levelHint}` : ""}\nGenerate ONLY ONE field: ${spec.instruction}.\nReturn ONLY valid JSON in exactly this shape:\n${JSON.stringify({ value: spec.example })}`,
-        },
-        { role: "user", content: `Field to generate: ${field}\n\n${knownValues}` },
-      ],
-    });
-
-    const aiData = JSON.parse(completion.choices[0].message.content.replace(/```json|```/g, "").trim());
     // Keep Type/Level values compatible with the grid dropdowns even if the model drifts.
-    if (field === "phonetic") aiData.value = formatPhonetic(aiData.value);
-    if (field === "type") aiData.value = String(aiData.value ?? "").trim().toLowerCase();
-    if (field === "level") aiData.value = String(aiData.value ?? "").toUpperCase().match(/\b[ABC][12]\b/)?.[0] ?? "";
+    const normalizeValue = (raw) => {
+      if (field === "phonetic") return formatPhonetic(raw);
+      if (field === "type" || field === "topic") return String(raw ?? "").trim().toLowerCase();
+      if (field === "level") return String(raw ?? "").toUpperCase().match(/\b[ABC][12]\b/)?.[0] ?? "";
+      return typeof raw === "string" ? raw.trim() : raw;
+    };
+
+    const askModel = async () => {
+      const completion = await getOpenAI().chat.completions.create({
+        model: process.env.OPENAI_MODEL,
+        messages: [
+          {
+            role: "system",
+            content: `You are a professional dictionary assistant.\nThe vocabulary pack language is ${tName} (translations in ${nName}).${domainHint}${field === "contextSentences" && levelHint ? `\n${levelHint}` : ""}\nGenerate ONLY ONE field: ${spec.instruction}.\nReturn ONLY valid JSON in exactly this shape:\n${JSON.stringify({ value: spec.example })}`,
+          },
+          { role: "user", content: `Field to generate: ${field}\n\n${knownValues}` },
+        ],
+      });
+      const raw = completion.choices[0].message.content;
+      let value = "";
+      try {
+        value = normalizeValue(pickFieldValue(parseModelJson(raw), field));
+      } catch (parseErr) {
+        // Simple one-token fields: the model may have answered with plain text instead of JSON.
+        if (field === "level" || field === "type") value = normalizeValue(raw);
+        else throw parseErr;
+      }
+      return { value, raw, tokens: completion.usage?.total_tokens ?? null };
+    };
+
+    // The model occasionally returns nothing usable; one more attempt is cheap.
+    let result = await askModel();
+    if (!String(result.value ?? "").trim()) result = await askModel();
+    if (!String(result.value ?? "").trim()) {
+      const failure = { word: row.word, field, model: process.env.OPENAI_MODEL, reply: String(result.raw ?? "").slice(0, 200) };
+      serverLog("WARN", `generate-column: no valid "${field}" returned`, { ...failure, user: req.user?.username });
+      await auditLog(req.user, "AI_FILL_COLUMN_FAILED", failure, req.ip);
+      return res.status(502).json({ error: "Column generation failed", detail: `No valid ${field} returned by the model` });
+    }
+
     await auditLog(req.user, "AI_FILL_COLUMN", { word: row.word, field }, req.ip);
-    await trackAI(req.user, "AI_FILL_COLUMN", packFile ?? null, requestAt, completion.usage?.total_tokens ?? null);
-    res.json(aiData);
+    await trackAI(req.user, "AI_FILL_COLUMN", packFile ?? null, requestAt, result.tokens);
+    res.json({ value: result.value });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Column generation failed" });
+    res.status(500).json({ error: "Column generation failed", detail: errorDetail(err) });
   }
 });
 

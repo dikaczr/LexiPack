@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { API_BASE } from "../config";
+import { getCommonTopics } from "../utils/commonTopics";
 const API_URL = `${API_BASE}/api`;
 
 function authHeaders(token) {
@@ -51,8 +52,10 @@ export async function suggestWords(payload, token, packFile) {
 
 // Vracia plný objekt { value, paired? } — pre example polia kde server vracia aj paired preklad
 export async function generateColumnFull(row, field, targetLang, nativeLang, token, packFile, packCategory, packLevel) {
+  // Topics are written in the pack language; the common list steers the AI towards consistent values.
+  const topics = field === "topic" ? getCommonTopics(targetLang) : undefined;
   const response = await requestWithRetry(() =>
-    axios.post(`${API_URL}/generate-column`, { row, field, targetLang, nativeLang, packFile, packCategory, packLevel }, { headers: authHeaders(token) }),
+    axios.post(`${API_URL}/generate-column`, { row, field, targetLang, nativeLang, packFile, packCategory, packLevel, topics }, { headers: authHeaders(token) }),
   );
   return response.data;
 }

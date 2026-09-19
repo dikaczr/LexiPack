@@ -11,6 +11,7 @@ import { importJsonFile } from "../utils/jsonImport";
 import ImportDialog from "../components/ImportDialog";
 import ExportDialog from "../components/ExportDialog";
 import FillColumnConfirmDialog from "../components/FillColumnConfirmDialog";
+import TopicFillDialog from "../components/TopicFillDialog";
 import { exportToXlsx, exportToTxt, exportToPdf, exportToCsv, exportToTbx } from "../utils/exportUtils";
 import { logAudit } from "../api/auditApi";
 import { useHeartbeat } from "../hooks/useHeartbeat";
@@ -420,7 +421,8 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   };
   const [suggestedWords, setSuggestedWords] = useState([]);
   const [showFillMenu, setShowFillMenu] = useState(false);
-  const [fillConfirm, setFillConfirm] = useState(null); // { field, label, filled, total }
+  const [fillConfirm, setFillConfirm] = useState(null); // { field, label, filled, total, fixedValue }
+  const [showTopicPicker, setShowTopicPicker] = useState(false);
   const [showQualityMenu, setShowQualityMenu] = useState(false);
   const [spellCheckResults, setSpellCheckResults] = useState(null);
   const [isSpellChecking, setIsSpellChecking] = useState(false);
@@ -456,6 +458,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     "phonetic",
     "type",
     "level",
+    "topic",
   ].map((field) => ({ field, label: columnLabels[field] }));
 
   const selectedIds = new Set(selectedRows.map((r) => r.id));
@@ -671,18 +674,19 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     return updatedRows;
   }
 
-  function requestFillColumn(field) {
+  // fixedValue: a topic chosen by the user, written to every target row instead of asking the AI.
+  function requestFillColumn(field, fixedValue) {
     const targets = rows.filter((r) => selectedIds.has(r.id));
     // A phonetic without slashes still gets fixed (wrapped) without asking, so it does not count as filled.
     const filled = targets.filter((r) => hasFieldValue(r, field) && !(field === "phonetic" && needsPhoneticSlashes(r.phonetic))).length;
     if (filled === 0) {
-      handleGenerateColumn(field);
+      handleGenerateColumn(field, { fixedValue });
       return;
     }
-    setFillConfirm({ field, label: columnLabels[field], filled, total: targets.length });
+    setFillConfirm({ field, label: columnLabels[field], filled, total: targets.length, fixedValue });
   }
 
-  async function handleGenerateColumn(field, { overwrite = false } = {}) {
+  async function handleGenerateColumn(field, { overwrite = false, fixedValue } = {}) {
     if (selectedRows.length === 0) {
       return;
     }
@@ -700,10 +704,14 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
       : [];
     const skipped = targetIndexes.length - fillIndexes.length - wrapIndexes.length;
 
+    const failureReasons = new Map();
+
     const showSummary = (filled, failed) => {
       const summary = t("editor.fillColumn.summary")(filled, skipped, failed, wrapIndexes.length);
       if (failed > 0) {
-        alert(overwrite ? summary : `${summary}\n${t("editor.fillColumn.retryHint")}`);
+        const reasons = [...failureReasons].map(([reason, count]) => `• ${reason} ×${count}`).join("\n");
+        const details = reasons ? `${summary}\n${t("editor.fillColumn.failureReasons")}\n${reasons}` : summary;
+        alert(overwrite ? details : `${details}\n${t("editor.fillColumn.retryHint")}`);
       } else {
         setSaveStatus(summary);
         setTimeout(() => setSaveStatus(""), 7000);
@@ -737,7 +745,9 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
       while (next < fillIndexes.length) {
         const rowIndex = fillIndexes[next++];
         try {
-          const { value: rawValue, paired } = await generateColumnFull(updatedRows[rowIndex], field, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category, packMetadata.level);
+          const { value: rawValue, paired } = fixedValue !== undefined
+            ? { value: fixedValue }
+            : await generateColumnFull(updatedRows[rowIndex], field, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category, packMetadata.level);
           const value = field === "phonetic" ? formatPhonetic(rawValue) : rawValue;
           // An empty result counts as a failure, so it never blanks out an existing value.
           if (!String(value ?? "").trim()) throw new Error(`Empty ${field} returned`);
@@ -768,6 +778,10 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         } catch (err) {
           console.error(err);
           failed += 1;
+          const status = err.response?.status;
+          const reason = err.response?.data?.detail || err.response?.data?.error || err.message || "unknown error";
+          const label = status && !String(reason).includes(String(status)) ? `${reason} (HTTP ${status})` : reason;
+          failureReasons.set(label, (failureReasons.get(label) ?? 0) + 1);
         }
         setGenerationProgress({ current: filled + failed, total: fillIndexes.length });
       }
@@ -1944,6 +1958,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
 
         setShowFillMenu(false);
         setFillConfirm(null);
+        setShowTopicPicker(false);
         setShowQualityMenu(false);
         setShowSuggestionsDialog(false);
         setShowSuggestConfirm(false);
@@ -2058,6 +2073,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
       if (e.key === "Escape") {
         setShowFillMenu(false);
         setFillConfirm(null);
+        setShowTopicPicker(false);
         setShowQualityMenu(false);
         setShowSuggestionsDialog(false);
         setShowImportDialog(false);
@@ -2499,17 +2515,27 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         confirm={fillConfirm}
         showPairNote={fillConfirm?.field === exTargetField || fillConfirm?.field === exNativeField}
         onFillEmpty={() => {
-          const { field } = fillConfirm;
+          const { field, fixedValue } = fillConfirm;
           setFillConfirm(null);
-          handleGenerateColumn(field);
+          handleGenerateColumn(field, { fixedValue });
         }}
         onOverwrite={() => {
-          const { field } = fillConfirm;
+          const { field, fixedValue } = fillConfirm;
           setFillConfirm(null);
-          handleGenerateColumn(field, { overwrite: true });
+          handleGenerateColumn(field, { overwrite: true, fixedValue });
         }}
         onCancel={() => setFillConfirm(null)}
       />
+
+      {showTopicPicker && (
+        <TopicFillDialog
+          targetLang={packMetadata.targetLang}
+          rowCount={selectedRows.length}
+          onApply={(topic) => { setShowTopicPicker(false); requestFillColumn("topic", topic); }}
+          onDetect={() => { setShowTopicPicker(false); requestFillColumn("topic"); }}
+          onCancel={() => setShowTopicPicker(false)}
+        />
+      )}
 
       <ExportDialog
         open={showExportDialog}
@@ -2895,7 +2921,11 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
                         <button
                           key={column.field}
                           type="button"
-                          onClick={() => { requestFillColumn(column.field); setShowFillMenu(false); }}
+                          onClick={() => {
+                            setShowFillMenu(false);
+                            if (column.field === "topic") setShowTopicPicker(true);
+                            else requestFillColumn(column.field);
+                          }}
                         >
                           {column.label}
                         </button>

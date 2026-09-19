@@ -372,6 +372,7 @@ const en = {
     fillColumn: {
       summary: (filled, skipped, failed, wrapped = 0) =>
         `Filled ${filled}` + (wrapped > 0 ? `, wrapped in slashes ${wrapped}` : "") + (skipped > 0 ? `, skipped ${skipped} (already filled)` : "") + (failed > 0 ? `, failed ${failed}` : ""),
+      failureReasons: "Failure reasons:",
       retryHint: "Run the action again — rows that are already filled are skipped, so only the failed ones are retried.",
     },
     errors: {
@@ -843,6 +844,19 @@ const en = {
     fillEmpty: "Fill empty only",
     overwrite: "Overwrite all",
     cancel:    "Cancel",
+  },
+
+  // ── Fill Column: topic picker ─────────────────────
+  topicFill: {
+    title:       "Fill Topic column",
+    description: (count) => `The topic is written into ${count} selected rows, in the pack language.`,
+    inputLabel:  "Custom topic",
+    placeholder: "Type a topic or pick a common one…",
+    commonLabel: "Common topics (double-click = use right away)",
+    detect:      "AI detects per word",
+    detectHint:  "AI picks a topic for each word separately, preferring the common topics",
+    apply:       "Use topic",
+    cancel:      "Cancel",
   },
 
   // ── Help dialog: Import/Export section (XLSX mapping) ─

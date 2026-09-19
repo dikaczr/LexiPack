@@ -372,6 +372,7 @@ const sk = {
     fillColumn: {
       summary: (filled, skipped, failed, wrapped = 0) =>
         `Vyplnených: ${filled}` + (wrapped > 0 ? `, obalených do lomítok: ${wrapped}` : "") + (skipped > 0 ? `, preskočených (už vyplnené): ${skipped}` : "") + (failed > 0 ? `, zlyhalo: ${failed}` : ""),
+      failureReasons: "Dôvody zlyhania:",
       retryHint: "Spustite akciu znova — už vyplnené riadky sa preskočia, takže sa zopakujú len tie, ktoré zlyhali.",
     },
     errors: {
@@ -843,6 +844,19 @@ const sk = {
     fillEmpty: "Doplniť len prázdne",
     overwrite: "Prepísať všetko",
     cancel:    "Zrušiť",
+  },
+
+  // ── Fill Column: výber témy ───────────────────────
+  topicFill: {
+    title:       "Vyplniť stĺpec Téma",
+    description: (count) => `Téma sa zapíše do ${count} označených riadkov v jazyku balíka.`,
+    inputLabel:  "Vlastná téma",
+    placeholder: "Napíšte tému alebo vyberte z bežných tém…",
+    commonLabel: "Bežné témy (dvojklik = použiť hneď)",
+    detect:      "AI určí pre každé slovo",
+    detectHint:  "AI vyberie tému zvlášť pre každé slovo, prednostne z bežných tém",
+    apply:       "Použiť tému",
+    cancel:      "Zrušiť",
   },
 
   // ── Help dialóg: sekcia Import/Export (XLSX mapovanie) ─
