@@ -281,11 +281,11 @@ VITE_API_BASE=https://lexico.techdoc.sk
 
 ## Deployment
 
-Production runs on Windows Server, files at `C:\APPS\Lexipack\server\`. PM2 manages the process as `lexipack-api` on port 3002 (proxied). **Lexico app runs on port 3001 — unrelated, do not touch.**
+Production runs on Windows Server. The contents of the repo's `server/` folder live directly in `C:\APPS\Lexipack\` (there is no `server` subfolder there; PM2 runs `C:\APPS\Lexipack\server.js`). PM2 manages the process as `lexipack` (verify with `pm2 list` / `pm2 describe lexipack`) on port 3002 (proxied). **Lexico app runs on port 3001 — unrelated, do not touch.**
 
 **Deploy steps:**
 1. Client: `npm run build` → copy `dist/` to server
-2. Server files: copy changed files to `C:\APPS\Lexipack\server\` → `pm2 restart lexipack-api`
+2. Server files: copy changed files from `server/` to the same relative path under `C:\APPS\Lexipack\` (e.g. `server/routes/aiRoutes.js` → `C:\APPS\Lexipack\routes\aiRoutes.js`) → `pm2 restart lexipack`
 3. If `package.json` changed: run `npm install` before restart
 
 **IMPORTANT — shared database:** Local dev and production use the SAME SQL Server instance (`DB_SERVER=87.197.134.16`). `UserSettings` (including `publishPath`, `archivePath`) are shared. Do not change publish/archive paths locally.

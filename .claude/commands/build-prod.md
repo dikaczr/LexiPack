@@ -14,7 +14,7 @@ Steps to perform in order:
    - Remind the user of the deployment steps from CLAUDE.md:
      ```
      1. Copy dist/ to the production server
-     2. If server files changed: copy to C:\APPS\Lexipack\server\ → pm2 restart lexipack-api
+     2. If server files changed: copy server/<path> to C:\APPS\Lexipack\<path> (e.g. server/routes/aiRoutes.js → C:\APPS\Lexipack\routes\aiRoutes.js; there is no \server\ subfolder) → pm2 restart lexipack
      3. If package.json changed: run npm install before restart
      ```
    - Ask the user if they also changed any server-side files (server/ directory) that need to be deployed
