@@ -1,13 +1,16 @@
 import "./EditorScreen.css";
 import pureIcon from "../assets/purepng.png";
 import PackGrid from "../components/PackGrid";
-import { importXlsxFile } from "../utils/xlsxImport";
+import { readXlsxWorkbook, parseXlsxSheet, guessMapping, buildImportedRows, validateImportRows } from "../utils/xlsxImport";
+import { splitArticle, LANGS_WITH_ARTICLES } from "../utils/splitArticle";
+import { formatPhonetic, needsPhoneticSlashes } from "../utils/formatPhonetic";
 import { exportToJson } from "../utils/jsonExport";
 import PackPreview from "../components/PackPreview";
 import LoadingOverlay from "../components/LoadingOverlay";
 import { importJsonFile } from "../utils/jsonImport";
 import ImportDialog from "../components/ImportDialog";
 import ExportDialog from "../components/ExportDialog";
+import FillColumnConfirmDialog from "../components/FillColumnConfirmDialog";
 import { exportToXlsx, exportToTxt, exportToPdf, exportToCsv, exportToTbx } from "../utils/exportUtils";
 import { logAudit } from "../api/auditApi";
 import { useHeartbeat } from "../hooks/useHeartbeat";
@@ -17,7 +20,6 @@ import {
   generateTranslation,
   generateTopic,
   suggestWords,
-  generateColumn,
   generateColumnFull,
 } from "../api/aiApi";
 import ImageGenDialog from "../components/ImageGenDialog";
@@ -92,29 +94,11 @@ function ContextMenuItem({ label, icon, shortcut, onClick, disabled }) {
   );
 }
 
-const LANG_ARTICLES = {
-  de: ["der", "die", "das", "ein", "eine"],
-  fr: ["les", "le", "la", "l'", "des", "un", "une"],
-  es: ["los", "las", "el", "la", "unos", "unas", "un", "una"],
-  it: ["gli", "il", "lo", "le", "la", "i", "uno", "un", "una"],
-};
+const FILL_CONCURRENCY = 4;
 
-function splitArticle(rawWord, targetLang) {
-  const normalized = rawWord.replace(/[‘’‚‛]/g, "'");
-  const articles = LANG_ARTICLES[targetLang] || [];
-  for (const art of articles) {
-    if (art.endsWith("'")) {
-      if (normalized.toLowerCase().startsWith(art.toLowerCase())) {
-        return { article: normalized.slice(0, art.length), word: normalized.slice(art.length) };
-      }
-    } else {
-      const prefix = art + " ";
-      if (normalized.toLowerCase().startsWith(prefix.toLowerCase())) {
-        return { article: normalized.slice(0, art.length), word: normalized.slice(prefix.length) };
-      }
-    }
-  }
-  return { article: "", word: rawWord };
+function hasFieldValue(row, field) {
+  const value = row[field];
+  return field === "contextSentences" ? Array.isArray(value) && value.length > 0 : !!value;
 }
 
 export default function EditorScreen({ activePack, quickFilter = "", setQuickFilter, quickFilterRef, committedFilter = "", setCommittedFilter, autoCorrectLookup, autoCorrectNativeLookup, onTargetLangDetected, onNativeLangDetected }) {
@@ -336,6 +320,14 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   const [importFormat, setImportFormat] = useState("xlsx");
   const [importStrategy, setImportStrategy] = useState("replace");
   const [pendingImportFile, setPendingImportFile] = useState(null);
+  const [importSessionId, setImportSessionId] = useState(0);
+  const [sheetNames, setSheetNames] = useState([]);
+  const [selectedSheet, setSelectedSheet] = useState("");
+  const [importHeaders, setImportHeaders] = useState([]);
+  const [importMapping, setImportMapping] = useState({});
+  const [autoSplitArticle, setAutoSplitArticle] = useState(false);
+  const [rawImportRows, setRawImportRows] = useState([]);
+  const workbookRef = useRef(null);
   const xlsxInputRef = useRef(null);
 
   const [packMetadata, setPackMetadata] = useState({
@@ -428,6 +420,7 @@ export default function EditorScreen({ activePack, quickFilter = "", setQuickFil
   };
   const [suggestedWords, setSuggestedWords] = useState([]);
   const [showFillMenu, setShowFillMenu] = useState(false);
+  const [fillConfirm, setFillConfirm] = useState(null); // { field, label, filled, total }
   const [showQualityMenu, setShowQualityMenu] = useState(false);
   const [spellCheckResults, setSpellCheckResults] = useState(null);
   const [isSpellChecking, setIsSpellChecking] = useState(false);
@@ -455,46 +448,15 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
   const { bookmarks, orderedIds, toggle, setNote, remove, isBookmarked } =
     useBookmarks(activePack?.fileName);
   const fillableColumns = [
-    {
-      field: "translation",
-      label: "Translation",
-    },
-
-    {
-      field: "definition",
-      label: "Definition",
-    },
-
-    {
-      field: exTargetField,
-      label: `Example ${(packMetadata.targetLang || "en").toUpperCase()}`,
-    },
-
-    {
-      field: exNativeField,
-      label: `Example ${(packMetadata.nativeLang || "sk").toUpperCase()}`,
-    },
-
-    {
-      field: "contextSentences",
-      label: "Context",
-    },
-
-    {
-      field: "phonetic",
-      label: "Phonetic",
-    },
-
-    {
-      field: "type",
-      label: "Type",
-    },
-
-    {
-      field: "level",
-      label: "Level",
-    },
-  ];
+    "translation",
+    "definition",
+    exTargetField,
+    exNativeField,
+    "contextSentences",
+    "phonetic",
+    "type",
+    "level",
+  ].map((field) => ({ field, label: columnLabels[field] }));
 
   const selectedIds = new Set(selectedRows.map((r) => r.id));
 
@@ -709,64 +671,116 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     return updatedRows;
   }
 
-  async function handleGenerateColumn(field) {
+  function requestFillColumn(field) {
+    const targets = rows.filter((r) => selectedIds.has(r.id));
+    // A phonetic without slashes still gets fixed (wrapped) without asking, so it does not count as filled.
+    const filled = targets.filter((r) => hasFieldValue(r, field) && !(field === "phonetic" && needsPhoneticSlashes(r.phonetic))).length;
+    if (filled === 0) {
+      handleGenerateColumn(field);
+      return;
+    }
+    setFillConfirm({ field, label: columnLabels[field], filled, total: targets.length });
+  }
+
+  async function handleGenerateColumn(field, { overwrite = false } = {}) {
     if (selectedRows.length === 0) {
       return;
     }
 
-    try {
-      saveHistory();
-      setIsGenerating(true);
-      setGenerationProgress({ current: 0, total: selectedRows.length });
+    const updatedRows = [...rows];
+    const targetIndexes = selectedRows
+      .map((sel) => updatedRows.findIndex((r) => r.id === sel.id))
+      .filter((idx) => idx !== -1);
+    const fillIndexes = overwrite
+      ? targetIndexes
+      : targetIndexes.filter((idx) => !hasFieldValue(updatedRows[idx], field));
+    // Existing phonetics without slashes are wrapped locally instead of being skipped or regenerated.
+    const wrapIndexes = field === "phonetic" && !overwrite
+      ? targetIndexes.filter((idx) => needsPhoneticSlashes(updatedRows[idx].phonetic))
+      : [];
+    const skipped = targetIndexes.length - fillIndexes.length - wrapIndexes.length;
 
-      const updatedRows = [...rows];
-
-      for (let i = 0; i < selectedRows.length; i++) {
-        const selectedRow = selectedRows[i];
-        const rowIndex = updatedRows.findIndex((r) => r.id === selectedRow.id);
-
-        if (rowIndex === -1) {
-          setGenerationProgress({ current: i + 1, total: selectedRows.length });
-          continue;
-        }
-
-        const existing = updatedRows[rowIndex][field];
-        const hasValue = field === "contextSentences"
-          ? Array.isArray(existing) && existing.length > 0
-          : !!existing;
-        if (hasValue) {
-          setGenerationProgress({ current: i + 1, total: selectedRows.length });
-          continue;
-        }
-
-        const value = await generateColumn(updatedRows[rowIndex], field, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName);
-        const newValue = field === "contextSentences"
-          ? [{ [packMetadata.targetLang || "en"]: value }]
-          : value;
-
-        const snapKey = `${updatedRows[rowIndex].id}__${field}`;
-        aiSnapshotRef.current[snapKey] = {
-          action: "AI_FILL_COLUMN",
-          packFile: activePack?.fileName ?? null,
-          fields: { [field]: newValue },
-        };
-
-        updatedRows[rowIndex] = {
-          ...updatedRows[rowIndex],
-          [field]: newValue,
-        };
-        setRows([...updatedRows]);
-
-        setGenerationProgress({ current: i + 1, total: selectedRows.length });
+    const showSummary = (filled, failed) => {
+      const summary = t("editor.fillColumn.summary")(filled, skipped, failed, wrapIndexes.length);
+      if (failed > 0) {
+        alert(overwrite ? summary : `${summary}\n${t("editor.fillColumn.retryHint")}`);
+      } else {
+        setSaveStatus(summary);
+        setTimeout(() => setSaveStatus(""), 7000);
       }
-    } catch (err) {
-      console.error(err);
+    };
 
-      alert(t("editor.errors.columnGen"));
+    if (fillIndexes.length === 0 && wrapIndexes.length === 0) {
+      showSummary(0, 0);
+      return;
+    }
+
+    saveHistory();
+    for (const idx of wrapIndexes) {
+      updatedRows[idx] = { ...updatedRows[idx], phonetic: formatPhonetic(updatedRows[idx].phonetic) };
+    }
+    if (wrapIndexes.length > 0) setRows([...updatedRows]);
+
+    if (fillIndexes.length === 0) {
+      showSummary(0, 0);
+      return;
+    }
+
+    setIsGenerating(true);
+    setGenerationProgress({ current: 0, total: fillIndexes.length });
+
+    let filled = 0;
+    let failed = 0;
+    let next = 0;
+
+    async function worker() {
+      while (next < fillIndexes.length) {
+        const rowIndex = fillIndexes[next++];
+        try {
+          const { value: rawValue, paired } = await generateColumnFull(updatedRows[rowIndex], field, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category, packMetadata.level);
+          const value = field === "phonetic" ? formatPhonetic(rawValue) : rawValue;
+          // An empty result counts as a failure, so it never blanks out an existing value.
+          if (!String(value ?? "").trim()) throw new Error(`Empty ${field} returned`);
+          const newValue = field === "contextSentences"
+            ? [{ [packMetadata.targetLang || "en"]: value }]
+            : value;
+
+          // Example fields come back as a translation pair. Fill the other language
+          // too, but keep an existing sentence there unless the user chose to overwrite.
+          const pairedUpdate = paired && (overwrite || !updatedRows[rowIndex][paired.field])
+            ? { [paired.field]: paired.value }
+            : {};
+
+          const snapKey = `${updatedRows[rowIndex].id}__${field}`;
+          aiSnapshotRef.current[snapKey] = {
+            action: "AI_FILL_COLUMN",
+            packFile: activePack?.fileName ?? null,
+            fields: { [field]: newValue, ...pairedUpdate },
+          };
+
+          updatedRows[rowIndex] = {
+            ...updatedRows[rowIndex],
+            [field]: newValue,
+            ...pairedUpdate,
+          };
+          setRows([...updatedRows]);
+          filled += 1;
+        } catch (err) {
+          console.error(err);
+          failed += 1;
+        }
+        setGenerationProgress({ current: filled + failed, total: fillIndexes.length });
+      }
+    }
+
+    try {
+      await Promise.all(Array.from({ length: Math.min(FILL_CONCURRENCY, fillIndexes.length) }, worker));
     } finally {
       setIsGenerating(false);
       setGenerationProgress({ current: 0, total: 0 });
     }
+
+    showSummary(filled, failed);
   }
 
   function handleCellContextMenu({ x, y, field, rowData }) {
@@ -908,8 +922,9 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
 
     try {
       setIsGenerating(true);
-      const result = await generateColumnFull(rowData, field, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category);
-      const { value, paired } = result;
+      const result = await generateColumnFull(rowData, field, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category, packMetadata.level);
+      const { paired } = result;
+      const value = field === "phonetic" ? formatPhonetic(result.value) : result.value;
       const snapFields = { [field]: value };
       if (paired) snapFields[paired.field] = paired.value;
       const snapKey = `${rowData.id}__${field}`;
@@ -935,6 +950,45 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     }
   }
 
+  function loadXlsxSheet(sheetName) {
+    const { headers, rows: sheetRows } = parseXlsxSheet(workbookRef.current, sheetName);
+    const mapping = guessMapping(headers, packMetadata.targetLang || "en", packMetadata.nativeLang || "sk");
+    setRawImportRows(sheetRows);
+    setImportHeaders(headers);
+    setImportMapping(mapping);
+    const hasArticleColumn = Object.values(mapping).includes("article");
+    setAutoSplitArticle(LANGS_WITH_ARTICLES.has(packMetadata.targetLang) && !hasArticleColumn);
+  }
+
+  function handleSheetChange(sheetName) {
+    setSelectedSheet(sheetName);
+    loadXlsxSheet(sheetName);
+  }
+
+  function resetImportState() {
+    workbookRef.current = null;
+    setRawImportRows([]);
+    setSheetNames([]);
+    setSelectedSheet("");
+    setImportHeaders([]);
+    setImportMapping({});
+    setAutoSplitArticle(false);
+  }
+
+  const importPreview = useMemo(() => {
+    if (importFormat !== "xlsx" || importHeaders.length === 0) {
+      return { previewRows: [], validation: { totalCount: 0, missingWordCount: 0 } };
+    }
+    const built = buildImportedRows({
+      rawRows: rawImportRows,
+      mapping: importMapping,
+      targetLang: packMetadata.targetLang || "en",
+      nativeLang: packMetadata.nativeLang || "sk",
+      autoSplitArticle,
+    });
+    return { previewRows: built.slice(0, 5), validation: validateImportRows(built) };
+  }, [importFormat, importHeaders, rawImportRows, importMapping, autoSplitArticle, packMetadata.targetLang, packMetadata.nativeLang]);
+
   async function handleImport(event) {
     const file = event.target.files[0];
     if (!file) {
@@ -948,8 +1002,15 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         setImportFormat("json");
       } else {
         setImportFormat("xlsx");
+        const workbook = await readXlsxWorkbook(file);
+        workbookRef.current = workbook;
+        setSheetNames(workbook.SheetNames);
+        const firstSheet = workbook.SheetNames[0];
+        setSelectedSheet(firstSheet);
+        loadXlsxSheet(firstSheet);
       }
       setPendingImportFile(file);
+      setImportSessionId((id) => id + 1);
       setShowImportDialog(true);
       event.target.value = "";
     } catch (err) {
@@ -1079,7 +1140,8 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
     try {
       setIsGenerating(true);
 
-      const { contextSentence, ...aiData } = await generateTranslation(row, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category);
+      const { contextSentence, ...aiData } = await generateTranslation(row, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category, packMetadata.level);
+      if (aiData.phonetic) aiData.phonetic = formatPhonetic(aiData.phonetic);
       if (contextSentence) {
         aiData.contextSentences = [{ [packMetadata.targetLang || "en"]: contextSentence }];
       }
@@ -1391,7 +1453,8 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
           continue;
         }
 
-        const { contextSentence, ...aiData } = await generateTranslation(selectedRow, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category);
+        const { contextSentence, ...aiData } = await generateTranslation(selectedRow, packMetadata.targetLang, packMetadata.nativeLang, token, activePack?.fileName, packMetadata.category, packMetadata.level);
+        if (aiData.phonetic) aiData.phonetic = formatPhonetic(aiData.phonetic);
         if (contextSentence) {
           aiData.contextSentences = [{ [packMetadata.targetLang || "en"]: contextSentence }];
         }
@@ -1429,7 +1492,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         total: 0,
       });
     }
-  }, [selectedRows, rows, saveHistory]);
+  }, [selectedRows, rows, saveHistory, packMetadata]);
 
   async function executeImport() {
     if (!pendingImportFile) {
@@ -1440,7 +1503,13 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
       let importedRows = [];
 
       if (importFormat === "xlsx") {
-        importedRows = await importXlsxFile(pendingImportFile, packMetadata.targetLang || "en", packMetadata.nativeLang || "sk");
+        importedRows = buildImportedRows({
+          rawRows: rawImportRows,
+          mapping: importMapping,
+          targetLang: packMetadata.targetLang || "en",
+          nativeLang: packMetadata.nativeLang || "sk",
+          autoSplitArticle,
+        });
       }
 
       let importedMetadata = null;
@@ -1476,6 +1545,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
       setSelectedRowIndex(null);
       setShowImportDialog(false);
       setPendingImportFile(null);
+      resetImportState();
       await logAudit(token, "IMPORT", {
         pack: packMetadata.name,
         format: importFormat,
@@ -1873,6 +1943,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
         }
 
         setShowFillMenu(false);
+        setFillConfirm(null);
         setShowQualityMenu(false);
         setShowSuggestionsDialog(false);
         setShowSuggestConfirm(false);
@@ -1986,6 +2057,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
       }
       if (e.key === "Escape") {
         setShowFillMenu(false);
+        setFillConfirm(null);
         setShowQualityMenu(false);
         setShowSuggestionsDialog(false);
         setShowImportDialog(false);
@@ -2397,15 +2469,46 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
       )}
 
       <ImportDialog
+        key={importSessionId}
         open={showImportDialog}
         importFormat={importFormat}
         setImportFormat={setImportFormat}
         importStrategy={importStrategy}
         setImportStrategy={setImportStrategy}
+        sheetNames={sheetNames}
+        selectedSheet={selectedSheet}
+        onSheetChange={handleSheetChange}
+        headers={importHeaders}
+        mapping={importMapping}
+        setMapping={setImportMapping}
+        previewRows={importPreview.previewRows}
+        validation={importPreview.validation}
+        autoSplitArticle={autoSplitArticle}
+        setAutoSplitArticle={setAutoSplitArticle}
+        showAutoSplitArticle={LANGS_WITH_ARTICLES.has(packMetadata.targetLang)}
+        targetLang={packMetadata.targetLang || "en"}
+        nativeLang={packMetadata.nativeLang || "sk"}
         onCancel={() => {
           setShowImportDialog(false);
+          resetImportState();
         }}
         onImport={executeImport}
+      />
+
+      <FillColumnConfirmDialog
+        confirm={fillConfirm}
+        showPairNote={fillConfirm?.field === exTargetField || fillConfirm?.field === exNativeField}
+        onFillEmpty={() => {
+          const { field } = fillConfirm;
+          setFillConfirm(null);
+          handleGenerateColumn(field);
+        }}
+        onOverwrite={() => {
+          const { field } = fillConfirm;
+          setFillConfirm(null);
+          handleGenerateColumn(field, { overwrite: true });
+        }}
+        onCancel={() => setFillConfirm(null)}
       />
 
       <ExportDialog
@@ -2792,7 +2895,7 @@ const [bookmarkPopover, setBookmarkPopover] = useState(null); // { rowId }
                         <button
                           key={column.field}
                           type="button"
-                          onClick={() => { handleGenerateColumn(column.field); setShowFillMenu(false); }}
+                          onClick={() => { requestFillColumn(column.field); setShowFillMenu(false); }}
                         >
                           {column.label}
                         </button>

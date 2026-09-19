@@ -369,6 +369,11 @@ const sk = {
       invalid:    "Neúplné",
       duplicates: "Duplicity",
     },
+    fillColumn: {
+      summary: (filled, skipped, failed, wrapped = 0) =>
+        `Vyplnených: ${filled}` + (wrapped > 0 ? `, obalených do lomítok: ${wrapped}` : "") + (skipped > 0 ? `, preskočených (už vyplnené): ${skipped}` : "") + (failed > 0 ? `, zlyhalo: ${failed}` : ""),
+      retryHint: "Spustite akciu znova — už vyplnené riadky sa preskočia, takže sa zopakujú len tie, ktoré zlyhali.",
+    },
     errors: {
       columnGen:   "Generovanie stĺpca zlyhalo.",
       translation: "Preklad zlyhal.",
@@ -792,6 +797,57 @@ const sk = {
     fmt_tbx:      "TermBase eXchange (ISO 30042)",
     fmt_txt:      "Čitateľný textový súbor",
     fmt_pdf:      "Formátovaný dokument",
+  },
+
+  // ── Import dialog ─────────────────────────────────
+  importDialog: {
+    title:                "Import dát",
+    formatLabel:          "Formát",
+    strategyLabel:        "Stratégia",
+    cancel:               "Zrušiť",
+    back:                 "Späť",
+    next:                 "Ďalej",
+    ok:                   "Importovať",
+    fmt_xlsx:             "XLSX",
+    fmt_json:             "JSON",
+    strategy_replace:     "Nahradiť všetko",
+    strategy_append:      "Pridať na koniec",
+    strategy_skip:        "Preskočiť duplicity",
+    strategy_merge:       "Zlúčiť duplicity",
+    sheetLabel:           "Hárok",
+    mappingTitle:         "Mapovanie stĺpcov",
+    mappingSourceHeader:  "Zdrojový stĺpec",
+    mappingTargetHeader:  "Importovať ako",
+    mappingIgnore:        "— ignorovať —",
+    previewTitle:         "Náhľad",
+    autoSplitArticleLabel: "Automaticky oddeliť člen od slova",
+    validationSummary: (total, missingWord) =>
+      `Nájdených riadkov: ${total}` + (missingWord > 0 ? `, bez slova: ${missingWord}` : ""),
+  },
+
+  // ── Fill Column: potvrdenie prepísania ────────────
+  fillConfirm: {
+    title:     "Prepísať existujúce hodnoty?",
+    message:   (filled, total, label) => `${filled} z ${total} označených riadkov už má v stĺpci „${label}“ hodnotu.`,
+    pairNote:  "Pri stĺpcoch s príkladmi sa prepíše aj párový príklad v druhom jazyku.",
+    undoHint:  "Zmenu môžete vrátiť cez Ctrl+Z.",
+    fillEmpty: "Doplniť len prázdne",
+    overwrite: "Prepísať všetko",
+    cancel:    "Zrušiť",
+  },
+
+  // ── Help dialóg: sekcia Import/Export (XLSX mapovanie) ─
+  helpImportExport: {
+    mappingTitle:  "Mapovanie stĺpcov",
+    mappingText:   "Pri importe XLSX súboru LexiPack automaticky rozpozná hlavičky stĺpcov (v slovenčine aj angličtine) a ponúkne mapovanie na polia balíka. Toto mapovanie si môžete pred importom ručne upraviť, alebo stĺpec označiť ako „— ignorovať —“.",
+    contextTitle:  "Import kontextových viet",
+    contextText:   "Stĺpec namapovaný na pole Context sa importuje ako kontextové vety. Ak chcete importovať viac ako jednu vetu na slovo, napíšte každú vetu na samostatný riadok v rámci bunky (Alt+Enter v Exceli) — každý riadok bunky sa uloží ako samostatná kontextová veta.",
+    articleTitle:  "Automatické delenie člena",
+    articleText:   "Pri jazykoch, ktoré používajú člen (DE, FR, ES, IT), vie LexiPack automaticky oddeliť člen od slova, ak ich zdrojový súbor obsahuje spojené v jednom stĺpci (napr. „der Hund“) bez samostatného stĺpca Article. Voľba „Automaticky oddeliť člen od slova“ sa ponúkne len vtedy, keď nie je namapovaný samostatný stĺpec pre člen, a pred importom sa dá zapnúť alebo vypnúť.",
+    sheetTitle:    "Výber hárku",
+    sheetText:     "Ak XLSX súbor obsahuje viac hárkov, LexiPack pred mapovaním stĺpcov najprv ponúkne výber hárku, ktorý sa má importovať.",
+    previewTitle:  "Náhľad a validácia",
+    previewText:   "Pred potvrdením importu sa zobrazí náhľad prvých riadkov s aktuálnym mapovaním a počet nájdených riadkov aj riadkov bez vyplneného poľa Word. Ak žiadny riadok nemá hodnotu Word, tlačidlo Import je znemožnené.",
   },
 };
 

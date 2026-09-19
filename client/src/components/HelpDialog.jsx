@@ -51,7 +51,7 @@ function getContent(tl, nl) { return {
       <Table rows={[
         ["Word",        "Slovo v cieľovom jazyku"],
         ["Article",     "Člen (napr. the, a, der, die, das)"],
-        ["Phonetic",    "Fonetický prepis (IPA)"],
+        ["Phonetic",    "Fonetický prepis (IPA) v lomítkach, napr. /ˈplænɪt/ (AI ho takto dopĺňa automaticky)"],
         ["Translation", "Preklad do rodného jazyka"],
         ["Definition",  "Definícia slova v cieľovom jazyku"],
         ["Type",        "Slovný druh (noun, verb, adjective…)"],
@@ -170,6 +170,21 @@ function getContent(tl, nl) { return {
         ["Merge",    "Doplní prázdne polia existujúcich slov, duplicity preskočí"],
         ["Skip",     "Pridá len slová, ktoré ešte v balíku nie sú"],
       ]} />
+      <h3>Mapovanie stĺpcov</h3>
+      <p>Pri importe XLSX súboru LexiPack automaticky rozpozná hlavičky stĺpcov (v slovenčine aj angličtine) a ponúkne mapovanie na polia balíka. Toto mapovanie si môžete pred importom ručne upraviť, alebo stĺpec označiť ako „— ignorovať —“.</p>
+
+      <h3>Import kontextových viet</h3>
+      <p>Stĺpec namapovaný na pole Context sa importuje ako kontextové vety. Ak chcete importovať viac ako jednu vetu na slovo, napíšte každú vetu na samostatný riadok v rámci bunky (Alt+Enter v Exceli) — každý riadok bunky sa uloží ako samostatná kontextová veta.</p>
+
+      <h3>Automatické delenie člena</h3>
+      <p>Pri jazykoch, ktoré používajú člen (DE, FR, ES, IT), vie LexiPack automaticky oddeliť člen od slova, ak ich zdrojový súbor obsahuje spojené v jednom stĺpci (napr. „der Hund“) bez samostatného stĺpca Article. Voľba „Automaticky oddeliť člen od slova“ sa ponúkne len vtedy, keď nie je namapovaný samostatný stĺpec pre člen, a pred importom sa dá zapnúť alebo vypnúť.</p>
+
+      <h3>Výber hárku</h3>
+      <p>Ak XLSX súbor obsahuje viac hárkov, LexiPack pred mapovaním stĺpcov najprv ponúkne výber hárku, ktorý sa má importovať.</p>
+
+      <h3>Náhľad a validácia</h3>
+      <p>Pred potvrdením importu sa zobrazí náhľad prvých riadkov s aktuálnym mapovaním a počet nájdených riadkov aj riadkov bez vyplneného poľa Word. Ak žiadny riadok nemá hodnotu Word, tlačidlo Import je znemožnené.</p>
+
       <h3>Export</h3>
       <p>Tlačidlo <strong>Export</strong> exportuje slová do zvoleného formátu. Ak sú niektoré riadky označené (checkboxom), exportujú sa <em>iba tie</em>. Inak sa exportujú všetky.</p>
       <Table rows={[
@@ -187,11 +202,12 @@ function getContent(tl, nl) { return {
   ai: (
     <Section title="AI funkcie">
       <p>LexiPack využíva OpenAI API na automatické vypĺňanie polí. Pre AI funkcie je potrebné internetové pripojenie a platný API kľúč nakonfigurovaný na serveri.</p>
+      <p>Príkladové a kontextové vety sa generujú podľa <strong>úrovne balíka</strong> (pole Level v metadátach): pri A1 sú vety krátke a jednoduché, s vyššou úrovňou sa zložitosť zvyšuje. Vygenerované vety zohľadňujú aj kategóriu balíka.</p>
       <h3>Dostupné akcie</h3>
       <Table rows={[
         ["Generate AI",     "Vygeneruje všetky polia pre riadok, na ktorom je kurzor (Ctrl+Enter)"],
         ["Gen. Selected",   "Vygeneruje všetky polia pre všetky označené riadky (Ctrl+Shift+G)"],
-        ["Fill Column",     "Doplní jeden konkrétny stĺpec pre všetky označené riadky"],
+        ["Fill Column",     "Doplní jeden konkrétny stĺpec pre všetky označené riadky. Ak už niektoré riadky majú v stĺpci hodnotu, aplikácia sa opýta, či ich prepísať, alebo doplniť len prázdne (prepísanie sa dá vrátiť cez Ctrl+Z). Pri poliach Example sa zároveň doplní aj príklad v druhom jazyku. Pri Phonetic sa už vyplnené hodnoty bez lomítok automaticky obalia do / / (bez AI volania). Riadky sa generujú súbežne; chyba pri jednom riadku nepreruší ostatné a po dokončení sa zobrazí súhrn (vyplnené / preskočené / zlyhalo)"],
         ["Gen. Topic",      "Automaticky určí tematickú kategóriu (Topic) pre označené slová"],
         ["Suggest Words",   "Navrhne 10 súvisiacich slov na základe obsahu balíka"],
       ]} />

@@ -14,8 +14,15 @@ function getColumns(metadata) {
     { key: "level",             label: "Level" },
     { key: `example_${tl}`,    label: `Example ${tl.toUpperCase()}` },
     { key: `example_${nl}`,    label: `Example ${nl.toUpperCase()}` },
+    { key: "contextSentences", label: "Context",
+      format: (v) => Array.isArray(v) ? v.map((cs) => cs?.[tl] ?? "").filter(Boolean).join("\n") : "" },
     { key: "topic",             label: "Topic" },
   ];
+}
+
+function cellValue(row, column) {
+  const raw = row[column.key];
+  return (column.format ? column.format(raw) : raw) ?? "";
 }
 
 function buildSuggestedName(metadata, ext) {
@@ -58,7 +65,7 @@ async function saveBlob(blob, suggestedName, mimeType, extensions) {
 export async function exportToXlsx(rows, metadata) {
   const COLUMNS = getColumns(metadata);
   const header = COLUMNS.map((c) => c.label);
-  const data = rows.map((row) => COLUMNS.map((c) => row[c.key] ?? ""));
+  const data = rows.map((row) => COLUMNS.map((c) => cellValue(row, c)));
   const ws = XLSX.utils.aoa_to_sheet([header, ...data]);
   ws["!cols"] = COLUMNS.map((c) => ({ wch: Math.max(c.label.length, 18) }));
   const wb = XLSX.utils.book_new();
@@ -161,7 +168,7 @@ export async function exportToCsv(rows, metadata, delimiter = ",") {
       : s;
   };
   const header = COLUMNS.map((c) => escape(c.label)).join(delimiter);
-  const body = rows.map((row) => COLUMNS.map((c) => escape(row[c.key])).join(delimiter));
+  const body = rows.map((row) => COLUMNS.map((c) => escape(cellValue(row, c))).join(delimiter));
   const content = [header, ...body].join("\n");
   const blob = new Blob(["﻿" + content], { type: "text/csv;charset=utf-8" });
   await saveBlob(blob, buildSuggestedName(metadata, "csv"), "text/csv", [".csv"]);

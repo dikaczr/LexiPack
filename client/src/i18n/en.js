@@ -369,6 +369,11 @@ const en = {
       invalid:    "Invalid",
       duplicates: "Duplicates",
     },
+    fillColumn: {
+      summary: (filled, skipped, failed, wrapped = 0) =>
+        `Filled ${filled}` + (wrapped > 0 ? `, wrapped in slashes ${wrapped}` : "") + (skipped > 0 ? `, skipped ${skipped} (already filled)` : "") + (failed > 0 ? `, failed ${failed}` : ""),
+      retryHint: "Run the action again — rows that are already filled are skipped, so only the failed ones are retried.",
+    },
     errors: {
       columnGen:   "Column generation failed.",
       translation: "Translation failed.",
@@ -792,6 +797,57 @@ const en = {
     fmt_tbx:      "TermBase eXchange (ISO 30042)",
     fmt_txt:      "Readable text file",
     fmt_pdf:      "Formatted document",
+  },
+
+  // ── Import dialog ─────────────────────────────────
+  importDialog: {
+    title:                "Import Data",
+    formatLabel:          "Format",
+    strategyLabel:        "Strategy",
+    cancel:               "Cancel",
+    back:                 "Back",
+    next:                 "Next",
+    ok:                   "Import",
+    fmt_xlsx:             "XLSX",
+    fmt_json:             "JSON",
+    strategy_replace:     "Replace all",
+    strategy_append:      "Append all",
+    strategy_skip:        "Skip duplicates",
+    strategy_merge:       "Merge duplicates",
+    sheetLabel:           "Sheet",
+    mappingTitle:         "Map columns",
+    mappingSourceHeader:  "Source column",
+    mappingTargetHeader:  "Import as",
+    mappingIgnore:        "— ignore —",
+    previewTitle:         "Preview",
+    autoSplitArticleLabel: "Split article from word automatically",
+    validationSummary: (total, missingWord) =>
+      `${total} row${total === 1 ? "" : "s"} detected` + (missingWord > 0 ? `, ${missingWord} missing a word` : ""),
+  },
+
+  // ── Fill Column: overwrite confirmation ───────────
+  fillConfirm: {
+    title:     "Overwrite existing values?",
+    message:   (filled, total, label) => `${filled} of ${total} selected rows already have a value in “${label}”.`,
+    pairNote:  "For example columns, the paired example in the other language is replaced too.",
+    undoHint:  "You can undo this with Ctrl+Z.",
+    fillEmpty: "Fill empty only",
+    overwrite: "Overwrite all",
+    cancel:    "Cancel",
+  },
+
+  // ── Help dialog: Import/Export section (XLSX mapping) ─
+  helpImportExport: {
+    mappingTitle:  "Column mapping",
+    mappingText:   "When importing an XLSX file, LexiPack automatically recognizes column headers (in both Slovak and English) and suggests a mapping to the pack's fields. You can adjust this mapping before importing, or mark a column as “— ignore —”.",
+    contextTitle:  "Importing context sentences",
+    contextText:   "A column mapped to the Context field is imported as context sentences. To import more than one sentence per word, put each sentence on its own line within the cell (Alt+Enter in Excel) — each line becomes a separate context sentence.",
+    articleTitle:  "Automatic article splitting",
+    articleText:   "For languages that use an article (DE, FR, ES, IT), LexiPack can automatically split the article from the word when the source file has them combined in one column (e.g. “der Hund”) with no separate Article column. The “Split article from word automatically” checkbox is offered only when no column is already mapped to Article, and can be turned on or off before importing.",
+    sheetTitle:    "Sheet selection",
+    sheetText:     "If the XLSX file has more than one sheet, LexiPack asks which sheet to import before showing the column mapping.",
+    previewTitle:  "Preview and validation",
+    previewText:   "Before confirming the import, a preview of the first rows is shown using the current mapping, along with a count of detected rows and rows missing a Word value. If no row has a Word value, the Import button is disabled.",
   },
 };
 

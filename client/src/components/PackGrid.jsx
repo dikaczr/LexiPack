@@ -7,13 +7,13 @@ import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import "./PackGrid.css";
+import { LANGS_WITH_ARTICLES } from "../utils/splitArticle";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 
 const CEFR_LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
-const LANGS_WITH_ARTICLES = new Set(["de", "fr", "es", "it"]);
-const LANGS_REQUIRE_ARTICLE = new Set(["de", "fr", "es", "it"]);
+const LANGS_REQUIRE_ARTICLE = LANGS_WITH_ARTICLES;
 
 const WORD_TYPES = ["", "noun", "verb", "adjective", "adverb", "phrase", "idiom", "pronoun", "preposition", "conjunction", "interjection", "numeral"];
 
